@@ -58,7 +58,7 @@
 #define MPU6050_GYRO_YOUT_H  0x45
 #define MPU6050_GYRO_ZOUT_H  0x47
 
-#define EEPROM1_ADDRESS 0x50//50
+#define EEPROM1_ADDRESS 0x50
 #define EEPROM2_ADDRESS 0x54
 #define MAX_BUFFER_SIZE 32
 
@@ -125,40 +125,99 @@ uint8_t EEPROM_ReadByte(uint8_t deviceAddress, uint16_t memoryAddress) {
 }
 
 
-
 //main de solo eeprom
 void main(void) {
     SYSTEM_Initialize();
 
     while(1) {
         
-        //for(int i = 0; i < 600; i++);
         // Escribir un byte en la EEPROM
         EEPROM_WriteByte(EEPROM1_ADDRESS, TEST_MEMORY_ADDRESS, 0xA5);
-        UART_SendString("Data written to EEPROM.\n");
+        UART_SendString("Dato Escrito en la EEPROM 1\n");
         
         // Leer inmediatamente después de escribir
-        uint8_t checkData = EEPROM_ReadByte(EEPROM1_ADDRESS, TEST_MEMORY_ADDRESS);
-        if(checkData == 0xA5) {
-            UART_SendString("Write operation successful.\n");
+        uint8_t readData = EEPROM_ReadByte(EEPROM1_ADDRESS, TEST_MEMORY_ADDRESS);
+        
+        if(readData == 0xA5) {
+            UART_SendString("Escritura 1 exitosa.\n");
         } else {
-            UART_SendString("Write operation failed.\n");
+            UART_SendString("Escritura 1 fallida.\n");
         }
         
-        // Leer el byte de la EEPROM para mostrarlo
-        uint8_t readData = EEPROM_ReadByte(EEPROM1_ADDRESS, TEST_MEMORY_ADDRESS);
         
         // Enviar el dato leído a través de UART
         char buffer[50];
-        sprintf(buffer, "Read Data: %X\n", readData);
+        sprintf(buffer, "Dato 1 leido: %X\n", readData);
         UART_SendString(buffer);
+        __delay_ms(50);
+        ////////////////////////////////////////////////////
         
-        UART_SendString("Program is running...\n");
+        EEPROM_WriteByte(EEPROM2_ADDRESS, TEST_MEMORY_ADDRESS, 0xB6);
+        UART_SendString("Dato Escrito en la EEPROM 2\n");
+        
+        // Leer inmediatamente después de escribir
+        uint8_t readData2 = EEPROM_ReadByte(EEPROM2_ADDRESS, TEST_MEMORY_ADDRESS);
+        
+        if(readData2 == 0xB6) {
+            UART_SendString("Escritura 2 exitosa.\n");
+        } else {
+            UART_SendString("Escritura 2 fallida.\n");
+        }
+        char buffer2[50];
+        sprintf(buffer2, "Dato 2 leido: %X\n", readData2);
+        UART_SendString(buffer2);
+        
+        
+        UART_SendString("Programa sigue corriendo...\n\n\n");
         __delay_ms(1000); // Esperar 1 segundo
     }
 }
 
+/*void main(void) {
+    SYSTEM_Initialize();
 
+    while(1) {
+        
+        // Escribir un byte en la EEPROM1
+        EEPROM_WriteByte(EEPROM1_ADDRESS, TEST_MEMORY_ADDRESS, 0xA5);
+        UART_SendString("Data written to EEPROM1.\n");
+        
+        // Leer inmediatamente después de escribir de la EEPROM1
+        uint8_t checkData1 = EEPROM_ReadByte(EEPROM1_ADDRESS, TEST_MEMORY_ADDRESS);
+        if(checkData1 == 0xA5) {
+            UART_SendString("EEPROM1 Write operation successful.\n");
+        } else {
+            UART_SendString("EEPROM1 Write operation failed.\n");
+        }
+        
+        // Escribir un byte en la EEPROM2
+        EEPROM_WriteByte(EEPROM2_ADDRESS, TEST_MEMORY_ADDRESS, 0xB6);
+        UART_SendString("Data written to EEPROM2.\n");
+        
+        // Leer inmediatamente después de escribir de la EEPROM2
+        uint8_t checkData2 = EEPROM_ReadByte(EEPROM2_ADDRESS, TEST_MEMORY_ADDRESS);
+        if(checkData2 == 0xB6) {
+            UART_SendString("EEPROM2 Write operation successful.\n");
+        } else {
+            UART_SendString("EEPROM2 Write operation failed.\n");
+        }
+        
+        // Leer el byte de la EEPROM1 para mostrarlo
+        uint8_t readData1 = EEPROM_ReadByte(EEPROM1_ADDRESS, TEST_MEMORY_ADDRESS);
+        char buffer1[50];
+        sprintf(buffer1, "EEPROM1 Read Data: %X\n", readData1);
+        UART_SendString(buffer1);
+        
+        // Leer el byte de la EEPROM2 para mostrarlo
+        uint8_t readData2 = EEPROM_ReadByte(EEPROM2_ADDRESS, TEST_MEMORY_ADDRESS);
+        char buffer2[50];
+        sprintf(buffer2, "EEPROM2 Read Data: %X\n", readData2);
+        UART_SendString(buffer2);
+        
+        UART_SendString("Program is running...\n");
+        __delay_ms(1000); // Esperar 1 segundo
+    }
+}/*
 
 //supuesto main completo
 /*void main(void) {
