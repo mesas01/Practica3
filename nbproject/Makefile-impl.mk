@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Practica3Intento2.X
+PROJECTNAME=Practica3.X
 
 # Active Configuration
 DEFAULTCONF=default

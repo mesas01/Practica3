@@ -1,30 +1,23 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"56 C:\Users\mesas\MPLABXProjects\Practica3Intento2.X\mcc_generated_files\examples\i2c1_master_example.h
-[; ;C:\Users\mesas\MPLABXProjects\Practica3Intento2.X\mcc_generated_files\examples\i2c1_master_example.h: 56: void I2C1_Write1ByteRegister(i2c1_address_t address, uint8_t reg, uint8_t data);
+"376 ./mcc_generated_files/uart1.h
+[; ;./mcc_generated_files/uart1.h: 376: void UART1_Write(uint8_t txData);
+[v _UART1_Write `(v ~T0 @X0 0 ef1`uc ]
+"56 ./mcc_generated_files/examples/i2c1_master_example.h
+[; ;./mcc_generated_files/examples/i2c1_master_example.h: 56: void I2C1_Write1ByteRegister(i2c1_address_t address, uint8_t reg, uint8_t data);
 [v _I2C1_Write1ByteRegister `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"152 C:\Users\mesas\MPLABXProjects\Practica3Intento2.X\mcc_generated_files\examples/../i2c1_master.h
-[v _I2C1_SetBuffer `(v ~T0 @X0 0 ef2`*v`ui ]
-"74 main.c
-[; ;main.c: 74:     I2C1_MasterWrite();
-[c E16560 0 1 2 .. ]
-[n E16560 . I2C1_NOERR I2C1_BUSY I2C1_FAIL  ]
-"128 C:\Users\mesas\MPLABXProjects\Practica3Intento2.X\mcc_generated_files\examples/../i2c1_master.h
-[v _I2C1_MasterWrite `(E16560 ~T0 @X0 0 ef ]
-"133
-[v _I2C1_MasterRead `(E16560 ~T0 @X0 0 ef ]
-"27 C:\Program Files\Microchip\xc8\v2.45\pic\include\c99\string.h
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\c99\string.h: 27: void *memcpy (void *restrict, const void *restrict, size_t);
-[v _memcpy `(*v ~T0 @X0 0 ef3`*v`*Cv`ui ]
+"60
+[; ;./mcc_generated_files/examples/i2c1_master_example.h: 60: void I2C1_ReadDataBlock(i2c1_address_t address, uint8_t reg, uint8_t *data, size_t len);
+[v _I2C1_ReadDataBlock `(v ~T0 @X0 0 ef4`uc`uc`*uc`ui ]
+"58
+[; ;./mcc_generated_files/examples/i2c1_master_example.h: 58: void I2C1_WriteNBytes(i2c1_address_t address, uint8_t *data, size_t len);
+[v _I2C1_WriteNBytes `(v ~T0 @X0 0 ef3`uc`*uc`ui ]
 [v F205 `(v ~T0 @X0 1 tf1`ul ]
 "20 C:\Program Files\Microchip\xc8\v2.45\pic\include\builtins.h
 [v __delay `JF205 ~T0 @X0 0 e ]
 [p i __delay ]
-"60 C:\Users\mesas\MPLABXProjects\Practica3Intento2.X\mcc_generated_files\examples\i2c1_master_example.h
-[; ;C:\Users\mesas\MPLABXProjects\Practica3Intento2.X\mcc_generated_files\examples\i2c1_master_example.h: 60: void I2C1_ReadDataBlock(i2c1_address_t address, uint8_t reg, uint8_t *data, size_t len);
-[v _I2C1_ReadDataBlock `(v ~T0 @X0 0 ef4`uc`uc`*uc`ui ]
-"376 ./mcc_generated_files/uart1.h
-[; ;./mcc_generated_files/uart1.h: 376: void UART1_Write(uint8_t txData);
-[v _UART1_Write `(v ~T0 @X0 0 ef1`uc ]
+"59 ./mcc_generated_files/examples/i2c1_master_example.h
+[; ;./mcc_generated_files/examples/i2c1_master_example.h: 59: void I2C1_ReadNBytes(i2c1_address_t address, uint8_t *data, size_t len);
+[v _I2C1_ReadNBytes `(v ~T0 @X0 0 ef3`uc`*uc`ui ]
 [p mainexit ]
 "71 ./mcc_generated_files/mcc.h
 [; ;./mcc_generated_files/mcc.h: 71: void SYSTEM_Initialize(void);
@@ -2291,299 +2284,259 @@ Version 4.0 HI-TECH Software Intermediate Code
 "49098
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 49098: __asm("TOSU equ 03FFFh");
 [; <" TOSU equ 03FFFh ;# ">
-"65 main.c
-[; ;main.c: 65: void MPU6050_Init() {
-[v _MPU6050_Init `(v ~T0 @X0 1 ef ]
-{
-[e :U _MPU6050_Init ]
-[f ]
-"66
-[; ;main.c: 66:     uint8_t data = 0x00;
-[v _data `uc ~T0 @X0 1 a ]
-[e = _data -> -> 0 `i `uc ]
-"67
-[; ;main.c: 67:     I2C1_Write1ByteRegister(0x68, 0x6B, data);
-[e ( _I2C1_Write1ByteRegister (3 , , -> -> 104 `i `uc -> -> 107 `i `uc _data ]
-"68
-[; ;main.c: 68: }
-[e :UE 2273 ]
-}
-"70
-[; ;main.c: 70: void MPU6050_ReadBytes(uint8_t registerAddress, uint8_t* buffer, size_t length) {
-[v _MPU6050_ReadBytes `(v ~T0 @X0 1 ef3`uc`*uc`ui ]
-{
-[e :U _MPU6050_ReadBytes ]
-[v _registerAddress `uc ~T0 @X0 1 r1 ]
-[v _buffer `*uc ~T0 @X0 1 r2 ]
-[v _length `ui ~T0 @X0 1 r3 ]
-[f ]
-[v F16864 `uc ~T0 @X0 -> 2 `i s ]
-[i F16864
-:U ..
-"71
-[; ;main.c: 71:     uint8_t startBuffer[2] = { 0x68 << 1, registerAddress };
--> -> 0 `i `uc
--> -> 0 `i `uc
-..
-]
-[v _startBuffer `uc ~T0 @X0 -> 2 `i a ]
-[e = _startBuffer F16864 ]
-[e ; = *U + &U _startBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _startBuffer `ui `ux -> << -> 104 `i -> 1 `i `uc = *U + &U _startBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _startBuffer `ui `ux _registerAddress ]
-"73
-[; ;main.c: 73:     I2C1_SetBuffer(startBuffer, 2);
-[e ( _I2C1_SetBuffer (2 , -> &U _startBuffer `*v -> -> 2 `i `ui ]
-"74
-[; ;main.c: 74:     I2C1_MasterWrite();
-[e ( _I2C1_MasterWrite ..  ]
-"76
-[; ;main.c: 76:     I2C1_SetBuffer(buffer, length);
-[e ( _I2C1_SetBuffer (2 , -> _buffer `*v _length ]
-"77
-[; ;main.c: 77:     I2C1_MasterRead();
-[e ( _I2C1_MasterRead ..  ]
-"78
-[; ;main.c: 78: }
-[e :UE 2274 ]
-}
-"80
-[; ;main.c: 80: void EEPROM_Write(uint8_t deviceAddress, uint16_t memoryAddress, uint8_t* data, size_t length) {
-[v _EEPROM_Write `(v ~T0 @X0 1 ef4`uc`us`*uc`ui ]
-{
-[e :U _EEPROM_Write ]
-[v _deviceAddress `uc ~T0 @X0 1 r1 ]
-[v _memoryAddress `us ~T0 @X0 1 r2 ]
-[v _data `*uc ~T0 @X0 1 r3 ]
-[v _length `ui ~T0 @X0 1 r4 ]
-[f ]
-"81
-[; ;main.c: 81:     uint8_t buffer[32 + 3];
-[v _buffer `uc ~T0 @X0 -> 35 `i a ]
-"82
-[; ;main.c: 82:     buffer[0] = (uint8_t)(deviceAddress << 1);
-[e = *U + &U _buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _buffer `ui `ux -> << -> _deviceAddress `i -> 1 `i `uc ]
-"83
-[; ;main.c: 83:     buffer[1] = (memoryAddress >> 8) & 0xFF;
-[e = *U + &U _buffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _buffer `ui `ux -> & >> -> _memoryAddress `ui -> 8 `i -> -> 255 `i `ui `uc ]
-"84
-[; ;main.c: 84:     buffer[2] = memoryAddress & 0xFF;
-[e = *U + &U _buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _buffer `ui `ux -> & -> _memoryAddress `ui -> -> 255 `i `ui `uc ]
-"85
-[; ;main.c: 85:     memcpy(&buffer[3], data, length);
-[e ( _memcpy (3 , , -> &U *U + &U _buffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _buffer `ui `ux `*v -> _data `*Cv _length ]
-"87
-[; ;main.c: 87:     I2C1_SetBuffer(buffer, length + 3);
-[e ( _I2C1_SetBuffer (2 , -> &U _buffer `*v + _length -> -> 3 `i `ui ]
-"88
-[; ;main.c: 88:     I2C1_MasterWrite();
-[e ( _I2C1_MasterWrite ..  ]
-"90
-[; ;main.c: 90:     _delay((unsigned long)((5)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"91
-[; ;main.c: 91: }
-[e :UE 2275 ]
-}
-"93
-[; ;main.c: 93: void EEPROM_Read(uint8_t deviceAddress, uint16_t memoryAddress, uint8_t* data, size_t length) {
-[v _EEPROM_Read `(v ~T0 @X0 1 ef4`uc`us`*uc`ui ]
-{
-[e :U _EEPROM_Read ]
-[v _deviceAddress `uc ~T0 @X0 1 r1 ]
-[v _memoryAddress `us ~T0 @X0 1 r2 ]
-[v _data `*uc ~T0 @X0 1 r3 ]
-[v _length `ui ~T0 @X0 1 r4 ]
-[f ]
-[v F16877 `uc ~T0 @X0 -> 3 `i s ]
-[i F16877
-:U ..
-"94
-[; ;main.c: 94:     uint8_t startBuffer[3] = { (uint8_t)(deviceAddress << 1), (memoryAddress >> 8) & 0xFF, memoryAddress & 0xFF };
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
-..
-]
-[v _startBuffer `uc ~T0 @X0 -> 3 `i a ]
-[e = _startBuffer F16877 ]
-[e ; = *U + &U _startBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _startBuffer `ui `ux -> << -> _deviceAddress `i -> 1 `i `uc ; = *U + &U _startBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _startBuffer `ui `ux -> & >> -> _memoryAddress `ui -> 8 `i -> -> 255 `i `ui `uc = *U + &U _startBuffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _startBuffer `ui `ux -> & -> _memoryAddress `ui -> -> 255 `i `ui `uc ]
-"96
-[; ;main.c: 96:     I2C1_SetBuffer(startBuffer, 3);
-[e ( _I2C1_SetBuffer (2 , -> &U _startBuffer `*v -> -> 3 `i `ui ]
-"97
-[; ;main.c: 97:     I2C1_MasterWrite();
-[e ( _I2C1_MasterWrite ..  ]
-"99
-[; ;main.c: 99:     I2C1_SetBuffer(data, length);
-[e ( _I2C1_SetBuffer (2 , -> _data `*v _length ]
-"100
-[; ;main.c: 100:     I2C1_MasterRead();
-[e ( _I2C1_MasterRead ..  ]
-"101
-[; ;main.c: 101: }
-[e :UE 2276 ]
-}
-"103
-[; ;main.c: 103: void MPU6050_ReadAccelerometer(float* ax, float* ay, float* az) {
-[v _MPU6050_ReadAccelerometer `(v ~T0 @X0 1 ef3`*f`*f`*f ]
-{
-[e :U _MPU6050_ReadAccelerometer ]
-[v _ax `*f ~T0 @X0 1 r1 ]
-[v _ay `*f ~T0 @X0 1 r2 ]
-[v _az `*f ~T0 @X0 1 r3 ]
-[f ]
-"104
-[; ;main.c: 104:     uint8_t buffer[6];
-[v _buffer `uc ~T0 @X0 -> 6 `i a ]
-"105
-[; ;main.c: 105:     I2C1_ReadDataBlock(0x68, 0x3B, buffer, 6);
-[e ( _I2C1_ReadDataBlock (4 , , , -> -> 104 `i `uc -> -> 59 `i `uc &U _buffer -> -> 6 `i `ui ]
-"107
-[; ;main.c: 107:     int16_t ax_raw = (buffer[0] << 8) | buffer[1];
-[v _ax_raw `s ~T0 @X0 1 a ]
-[e = _ax_raw -> | << -> *U + &U _buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i -> 8 `i -> *U + &U _buffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i `s ]
-"108
-[; ;main.c: 108:     int16_t ay_raw = (buffer[2] << 8) | buffer[3];
-[v _ay_raw `s ~T0 @X0 1 a ]
-[e = _ay_raw -> | << -> *U + &U _buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i -> 8 `i -> *U + &U _buffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i `s ]
-"109
-[; ;main.c: 109:     int16_t az_raw = (buffer[4] << 8) | buffer[5];
-[v _az_raw `s ~T0 @X0 1 a ]
-[e = _az_raw -> | << -> *U + &U _buffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i -> 8 `i -> *U + &U _buffer * -> -> -> 5 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i `s ]
-"111
-[; ;main.c: 111:     *ax = ax_raw / 16384.0f;
-[e = *U _ax / -> -> _ax_raw `i `f -> .16384.0 `f ]
-"112
-[; ;main.c: 112:     *ay = ay_raw / 16384.0f;
-[e = *U _ay / -> -> _ay_raw `i `f -> .16384.0 `f ]
-"113
-[; ;main.c: 113:     *az = az_raw / 16384.0f;
-[e = *U _az / -> -> _az_raw `i `f -> .16384.0 `f ]
-"114
-[; ;main.c: 114: }
-[e :UE 2277 ]
-}
-"116
-[; ;main.c: 116: void MPU6050_ReadGyroscope(float* gx, float* gy, float* gz) {
-[v _MPU6050_ReadGyroscope `(v ~T0 @X0 1 ef3`*f`*f`*f ]
-{
-[e :U _MPU6050_ReadGyroscope ]
-[v _gx `*f ~T0 @X0 1 r1 ]
-[v _gy `*f ~T0 @X0 1 r2 ]
-[v _gz `*f ~T0 @X0 1 r3 ]
-[f ]
-"117
-[; ;main.c: 117:     uint8_t buffer[6];
-[v _buffer `uc ~T0 @X0 -> 6 `i a ]
-"118
-[; ;main.c: 118:     I2C1_ReadDataBlock(0x68, 0x43, buffer, 6);
-[e ( _I2C1_ReadDataBlock (4 , , , -> -> 104 `i `uc -> -> 67 `i `uc &U _buffer -> -> 6 `i `ui ]
-"120
-[; ;main.c: 120:     int16_t gx_raw = (buffer[0] << 8) | buffer[1];
-[v _gx_raw `s ~T0 @X0 1 a ]
-[e = _gx_raw -> | << -> *U + &U _buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i -> 8 `i -> *U + &U _buffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i `s ]
-"121
-[; ;main.c: 121:     int16_t gy_raw = (buffer[2] << 8) | buffer[3];
-[v _gy_raw `s ~T0 @X0 1 a ]
-[e = _gy_raw -> | << -> *U + &U _buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i -> 8 `i -> *U + &U _buffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i `s ]
-"122
-[; ;main.c: 122:     int16_t gz_raw = (buffer[4] << 8) | buffer[5];
-[v _gz_raw `s ~T0 @X0 1 a ]
-[e = _gz_raw -> | << -> *U + &U _buffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i -> 8 `i -> *U + &U _buffer * -> -> -> 5 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i `s ]
-"124
-[; ;main.c: 124:     *gx = gx_raw / 131.0f;
-[e = *U _gx / -> -> _gx_raw `i `f -> .131.0 `f ]
-"125
-[; ;main.c: 125:     *gy = gy_raw / 131.0f;
-[e = *U _gy / -> -> _gy_raw `i `f -> .131.0 `f ]
-"126
-[; ;main.c: 126:     *gz = gz_raw / 131.0f;
-[e = *U _gz / -> -> _gz_raw `i `f -> .131.0 `f ]
-"127
-[; ;main.c: 127: }
-[e :UE 2278 ]
-}
-"129
-[; ;main.c: 129: void UART_SendString(const char* str) {
+"68 main.c
+[; ;main.c: 68: void UART_SendString(const char* str) {
 [v _UART_SendString `(v ~T0 @X0 1 ef1`*Cuc ]
 {
 [e :U _UART_SendString ]
 [v _str `*Cuc ~T0 @X0 1 r1 ]
 [f ]
-"130
-[; ;main.c: 130:     while (*str) {
-[e $U 2280  ]
-[e :U 2281 ]
+"69
+[; ;main.c: 69:     while (*str) {
+[e $U 2274  ]
+[e :U 2275 ]
 {
-"131
-[; ;main.c: 131:         UART1_Write(*str);
+"70
+[; ;main.c: 70:         UART1_Write(*str);
 [e ( _UART1_Write (1 -> *U _str `uc ]
-"132
-[; ;main.c: 132:         str++;
+"71
+[; ;main.c: 71:         str++;
 [e ++ _str * -> -> 1 `i `x -> -> # *U _str `i `x ]
-"133
-[; ;main.c: 133:     }
+"72
+[; ;main.c: 72:     }
 }
-[e :U 2280 ]
-"130
-[; ;main.c: 130:     while (*str) {
-[e $ != -> *U _str `i -> 0 `i 2281  ]
-[e :U 2282 ]
-"134
-[; ;main.c: 134: }
+[e :U 2274 ]
+"69
+[; ;main.c: 69:     while (*str) {
+[e $ != -> *U _str `i -> 0 `i 2275  ]
+[e :U 2276 ]
+"73
+[; ;main.c: 73: }
+[e :UE 2273 ]
+}
+"76
+[; ;main.c: 76: void MPU6050_Init() {
+[v _MPU6050_Init `(v ~T0 @X0 1 ef ]
+{
+[e :U _MPU6050_Init ]
+[f ]
+"77
+[; ;main.c: 77:     uint8_t data = 0x00;
+[v _data `uc ~T0 @X0 1 a ]
+[e = _data -> -> 0 `i `uc ]
+"78
+[; ;main.c: 78:     I2C1_Write1ByteRegister(0x68, 0x6B, data);
+[e ( _I2C1_Write1ByteRegister (3 , , -> -> 104 `i `uc -> -> 107 `i `uc _data ]
+"79
+[; ;main.c: 79: }
+[e :UE 2277 ]
+}
+"82
+[; ;main.c: 82: void MPU6050_ReadSensorData(float* ax, float* ay, float* az, float* gx, float* gy, float* gz) {
+[v _MPU6050_ReadSensorData `(v ~T0 @X0 1 ef6`*f`*f`*f`*f`*f`*f ]
+{
+[e :U _MPU6050_ReadSensorData ]
+[v _ax `*f ~T0 @X0 1 r1 ]
+[v _ay `*f ~T0 @X0 1 r2 ]
+[v _az `*f ~T0 @X0 1 r3 ]
+[v _gx `*f ~T0 @X0 1 r4 ]
+[v _gy `*f ~T0 @X0 1 r5 ]
+[v _gz `*f ~T0 @X0 1 r6 ]
+[f ]
+"83
+[; ;main.c: 83:     uint8_t buffer[12];
+[v _buffer `uc ~T0 @X0 -> 12 `i a ]
+"84
+[; ;main.c: 84:     I2C1_ReadDataBlock(0x68, 0x3B, buffer, 12);
+[e ( _I2C1_ReadDataBlock (4 , , , -> -> 104 `i `uc -> -> 59 `i `uc &U _buffer -> -> 12 `i `ui ]
+"86
+[; ;main.c: 86:     int16_t ax_raw = (buffer[0] << 8) | buffer[1];
+[v _ax_raw `s ~T0 @X0 1 a ]
+[e = _ax_raw -> | << -> *U + &U _buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i -> 8 `i -> *U + &U _buffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i `s ]
+"87
+[; ;main.c: 87:     int16_t ay_raw = (buffer[2] << 8) | buffer[3];
+[v _ay_raw `s ~T0 @X0 1 a ]
+[e = _ay_raw -> | << -> *U + &U _buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i -> 8 `i -> *U + &U _buffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i `s ]
+"88
+[; ;main.c: 88:     int16_t az_raw = (buffer[4] << 8) | buffer[5];
+[v _az_raw `s ~T0 @X0 1 a ]
+[e = _az_raw -> | << -> *U + &U _buffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i -> 8 `i -> *U + &U _buffer * -> -> -> 5 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i `s ]
+"89
+[; ;main.c: 89:     int16_t gx_raw = (buffer[6] << 8) | buffer[7];
+[v _gx_raw `s ~T0 @X0 1 a ]
+[e = _gx_raw -> | << -> *U + &U _buffer * -> -> -> 6 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i -> 8 `i -> *U + &U _buffer * -> -> -> 7 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i `s ]
+"90
+[; ;main.c: 90:     int16_t gy_raw = (buffer[8] << 8) | buffer[9];
+[v _gy_raw `s ~T0 @X0 1 a ]
+[e = _gy_raw -> | << -> *U + &U _buffer * -> -> -> 8 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i -> 8 `i -> *U + &U _buffer * -> -> -> 9 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i `s ]
+"91
+[; ;main.c: 91:     int16_t gz_raw = (buffer[10] << 8) | buffer[11];
+[v _gz_raw `s ~T0 @X0 1 a ]
+[e = _gz_raw -> | << -> *U + &U _buffer * -> -> -> 10 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i -> 8 `i -> *U + &U _buffer * -> -> -> 11 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i `s ]
+"93
+[; ;main.c: 93:     *ax = ax_raw / 16384.0f;
+[e = *U _ax / -> -> _ax_raw `i `f -> .16384.0 `f ]
+"94
+[; ;main.c: 94:     *ay = ay_raw / 16384.0f;
+[e = *U _ay / -> -> _ay_raw `i `f -> .16384.0 `f ]
+"95
+[; ;main.c: 95:     *az = az_raw / 16384.0f;
+[e = *U _az / -> -> _az_raw `i `f -> .16384.0 `f ]
+"96
+[; ;main.c: 96:     *gx = gx_raw / 131.0f;
+[e = *U _gx / -> -> _gx_raw `i `f -> .131.0 `f ]
+"97
+[; ;main.c: 97:     *gy = gy_raw / 131.0f;
+[e = *U _gy / -> -> _gy_raw `i `f -> .131.0 `f ]
+"98
+[; ;main.c: 98:     *gz = gz_raw / 131.0f;
+[e = *U _gz / -> -> _gz_raw `i `f -> .131.0 `f ]
+"99
+[; ;main.c: 99: }
+[e :UE 2278 ]
+}
+"102
+[; ;main.c: 102: void EEPROM_WriteByte(uint8_t deviceAddress, uint16_t memoryAddress, uint8_t data) {
+[v _EEPROM_WriteByte `(v ~T0 @X0 1 ef3`uc`us`uc ]
+{
+[e :U _EEPROM_WriteByte ]
+[v _deviceAddress `uc ~T0 @X0 1 r1 ]
+[v _memoryAddress `us ~T0 @X0 1 r2 ]
+[v _data `uc ~T0 @X0 1 r3 ]
+[f ]
+"103
+[; ;main.c: 103:     uint8_t buffer[3];
+[v _buffer `uc ~T0 @X0 -> 3 `i a ]
+"104
+[; ;main.c: 104:     buffer[0] = (memoryAddress >> 8) & 0xFF;
+[e = *U + &U _buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _buffer `ui `ux -> & >> -> _memoryAddress `ui -> 8 `i -> -> 255 `i `ui `uc ]
+"105
+[; ;main.c: 105:     buffer[1] = memoryAddress & 0xFF;
+[e = *U + &U _buffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _buffer `ui `ux -> & -> _memoryAddress `ui -> -> 255 `i `ui `uc ]
+"106
+[; ;main.c: 106:     buffer[2] = data;
+[e = *U + &U _buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _buffer `ui `ux _data ]
+"108
+[; ;main.c: 108:     I2C1_WriteNBytes(deviceAddress, buffer, 3);
+[e ( _I2C1_WriteNBytes (3 , , _deviceAddress &U _buffer -> -> 3 `i `ui ]
+"110
+[; ;main.c: 110:     _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"111
+[; ;main.c: 111: }
 [e :UE 2279 ]
 }
+"114
+[; ;main.c: 114: uint8_t EEPROM_ReadByte(uint8_t deviceAddress, uint16_t memoryAddress) {
+[v _EEPROM_ReadByte `(uc ~T0 @X0 1 ef2`uc`us ]
+{
+[e :U _EEPROM_ReadByte ]
+[v _deviceAddress `uc ~T0 @X0 1 r1 ]
+[v _memoryAddress `us ~T0 @X0 1 r2 ]
+[f ]
+"115
+[; ;main.c: 115:     uint8_t addressBuffer[2];
+[v _addressBuffer `uc ~T0 @X0 -> 2 `i a ]
+"116
+[; ;main.c: 116:     addressBuffer[0] = (memoryAddress >> 8) & 0xFF;
+[e = *U + &U _addressBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _addressBuffer `ui `ux -> & >> -> _memoryAddress `ui -> 8 `i -> -> 255 `i `ui `uc ]
+"117
+[; ;main.c: 117:     addressBuffer[1] = memoryAddress & 0xFF;
+[e = *U + &U _addressBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _addressBuffer `ui `ux -> & -> _memoryAddress `ui -> -> 255 `i `ui `uc ]
+"119
+[; ;main.c: 119:     I2C1_WriteNBytes(deviceAddress, addressBuffer, 2);
+[e ( _I2C1_WriteNBytes (3 , , _deviceAddress &U _addressBuffer -> -> 2 `i `ui ]
+"121
+[; ;main.c: 121:     uint8_t data = 0;
+[v _data `uc ~T0 @X0 1 a ]
+[e = _data -> -> 0 `i `uc ]
+"122
+[; ;main.c: 122:     I2C1_ReadNBytes(deviceAddress, &data, 1);
+[e ( _I2C1_ReadNBytes (3 , , _deviceAddress &U _data -> -> 1 `i `ui ]
+"124
+[; ;main.c: 124:     return data;
+[e ) _data ]
+[e $UE 2280  ]
+"125
+[; ;main.c: 125: }
+[e :UE 2280 ]
+}
 [v $root$_main `(v ~T0 @X0 0 e ]
-"136
-[; ;main.c: 136: void main(void) {
+"130
+[; ;main.c: 130: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"137
-[; ;main.c: 137:     SYSTEM_Initialize();
+"131
+[; ;main.c: 131:     SYSTEM_Initialize();
 [e ( _SYSTEM_Initialize ..  ]
+"133
+[; ;main.c: 133:     while(1) {
+[e :U 2283 ]
+{
+"137
+[; ;main.c: 137:         EEPROM_WriteByte(0x50, 0x0010, 0xA5);
+[e ( _EEPROM_WriteByte (3 , , -> -> 80 `i `uc -> -> 16 `i `us -> -> 165 `i `uc ]
 "138
-[; ;main.c: 138:     MPU6050_Init();
-[e ( _MPU6050_Init ..  ]
-"140
-[; ;main.c: 140:     char buffer[200];
-[v _buffer `uc ~T0 @X0 -> 200 `i a ]
+[; ;main.c: 138:         UART_SendString("Data written to EEPROM.\n");
+[e ( _UART_SendString (1 :s 1C ]
 "141
-[; ;main.c: 141:     float ax, ay, az, gx, gy, gz;
-[v _ax `f ~T0 @X0 1 a ]
-[v _ay `f ~T0 @X0 1 a ]
-[v _az `f ~T0 @X0 1 a ]
-[v _gx `f ~T0 @X0 1 a ]
-[v _gy `f ~T0 @X0 1 a ]
-[v _gz `f ~T0 @X0 1 a ]
+[; ;main.c: 141:         uint8_t checkData = EEPROM_ReadByte(0x50, 0x0010);
+[v _checkData `uc ~T0 @X0 1 a ]
+[e = _checkData ( _EEPROM_ReadByte (2 , -> -> 80 `i `uc -> -> 16 `i `us ]
+"142
+[; ;main.c: 142:         if(checkData == 0xA5) {
+[e $ ! == -> _checkData `i -> 165 `i 2285  ]
+{
 "143
-[; ;main.c: 143:     while(1) {
+[; ;main.c: 143:             UART_SendString("Write operation successful.\n");
+[e ( _UART_SendString (1 :s 2C ]
+"144
+[; ;main.c: 144:         } else {
+}
+[e $U 2286  ]
 [e :U 2285 ]
 {
-"144
-[; ;main.c: 144:         MPU6050_ReadAccelerometer(&ax, &ay, &az);
-[e ( _MPU6050_ReadAccelerometer (3 , , &U _ax &U _ay &U _az ]
 "145
-[; ;main.c: 145:         MPU6050_ReadGyroscope(&gx, &gy, &gz);
-[e ( _MPU6050_ReadGyroscope (3 , , &U _gx &U _gy &U _gz ]
-"147
-[; ;main.c: 147:         sprintf(buffer, "AX: %.2f, AY: %.2f, AZ: %.2f, GX: %.2f, GY: %.2f, GZ: %.2f\n", ax, ay, az, gx, gy, gz);
-[e ( _sprintf (1 , , , , , , (. , &U _buffer :s 1C -> _ax `d -> _ay `d -> _az `d -> _gx `d -> _gy `d -> _gz `d ]
-"148
-[; ;main.c: 148:         UART_SendString(buffer);
-[e ( _UART_SendString (1 -> &U _buffer `*Cuc ]
-"150
-[; ;main.c: 150:         _delay((unsigned long)((1000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"151
-[; ;main.c: 151:     }
+[; ;main.c: 145:             UART_SendString("Write operation failed.\n");
+[e ( _UART_SendString (1 :s 3C ]
+"146
+[; ;main.c: 146:         }
 }
-[e :U 2284 ]
-[e $U 2285  ]
 [e :U 2286 ]
+"149
+[; ;main.c: 149:         uint8_t readData = EEPROM_ReadByte(0x50, 0x0010);
+[v _readData `uc ~T0 @X0 1 a ]
+[e = _readData ( _EEPROM_ReadByte (2 , -> -> 80 `i `uc -> -> 16 `i `us ]
 "152
-[; ;main.c: 152: }
-[e :UE 2283 ]
+[; ;main.c: 152:         char buffer[50];
+[v _buffer `uc ~T0 @X0 -> 50 `i a ]
+"153
+[; ;main.c: 153:         sprintf(buffer, "Read Data: %X\n", readData);
+[e ( _sprintf (1 , (. , &U _buffer :s 4C -> _readData `i ]
+"154
+[; ;main.c: 154:         UART_SendString(buffer);
+[e ( _UART_SendString (1 -> &U _buffer `*Cuc ]
+"156
+[; ;main.c: 156:         UART_SendString("Program is running...\n");
+[e ( _UART_SendString (1 :s 5C ]
+"157
+[; ;main.c: 157:         _delay((unsigned long)((1000)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"158
+[; ;main.c: 158:     }
 }
-[p f _sprintf 8462336 ]
-[a 1C 65 88 58 32 37 46 50 102 44 32 65 89 58 32 37 46 50 102 44 32 65 90 58 32 37 46 50 102 44 32 71 88 58 32 37 46 50 102 44 32 71 89 58 32 37 46 50 102 44 32 71 90 58 32 37 46 50 102 10 0 ]
+[e :U 2282 ]
+[e $U 2283  ]
+[e :U 2284 ]
+"159
+[; ;main.c: 159: }
+[e :UE 2281 ]
+}
+[p f _sprintf 10485760 ]
+[a 4C 82 101 97 100 32 68 97 116 97 58 32 37 88 10 0 ]
+[a 2C 87 114 105 116 101 32 111 112 101 114 97 116 105 111 110 32 115 117 99 99 101 115 115 102 117 108 46 10 0 ]
+[a 3C 87 114 105 116 101 32 111 112 101 114 97 116 105 111 110 32 102 97 105 108 101 100 46 10 0 ]
+[a 1C 68 97 116 97 32 119 114 105 116 116 101 110 32 116 111 32 69 69 80 82 79 77 46 10 0 ]
+[a 5C 80 114 111 103 114 97 109 32 105 115 32 114 117 110 110 105 110 103 46 46 46 10 0 ]

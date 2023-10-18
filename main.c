@@ -42,12 +42,13 @@
 */
 
 #include "mcc_generated_files/mcc.h"
-#include "C:\Users\mesas\MPLABXProjects\Practica3Intento2.X\mcc_generated_files\examples\i2c1_master_example.h"
+#include "mcc_generated_files/examples/i2c1_master_example.h"
+#include "mcc_generated_files/i2c1_master.h"
 #include "stdio.h"
 #include "string.h"
 
 #define MPU6050_ADDRESS 0x68 // Dado que AD0 está conectado a GND
-#define MPU6050_PWR_MGMT_1   0x6B
+#define MPU6050_PWR_MGMT_1 0x6B
 
 #define MPU6050_ACCEL_XOUT_H 0x3B
 #define MPU6050_ACCEL_YOUT_H 0x3D
@@ -57,74 +58,12 @@
 #define MPU6050_GYRO_YOUT_H  0x45
 #define MPU6050_GYRO_ZOUT_H  0x47
 
-#define EEPROM1_ADDRESS 0x50
+#define EEPROM1_ADDRESS 0x50//50
 #define EEPROM2_ADDRESS 0x54
 #define MAX_BUFFER_SIZE 32
 
+#define TEST_MEMORY_ADDRESS 0x0010 // Dirección de memoria arbitraria para la prueba
 
-void MPU6050_Init() {
-    uint8_t data = 0x00; // Configuración para despertar el MPU6050
-    I2C1_Write1ByteRegister(MPU6050_ADDRESS, MPU6050_PWR_MGMT_1, data);
-}
-
-void MPU6050_ReadBytes(uint8_t registerAddress, uint8_t* buffer, size_t length) {
-    uint8_t startBuffer[2] = { MPU6050_ADDRESS << 1, registerAddress };
-
-    I2C1_SetBuffer(startBuffer, 2);
-    I2C1_MasterWrite();
-
-    I2C1_SetBuffer(buffer, length);
-    I2C1_MasterRead();
-}
-
-void EEPROM_Write(uint8_t deviceAddress, uint16_t memoryAddress, uint8_t* data, size_t length) {
-    uint8_t buffer[MAX_BUFFER_SIZE + 3];
-    buffer[0] = (uint8_t)(deviceAddress << 1);
-    buffer[1] = (memoryAddress >> 8) & 0xFF;
-    buffer[2] = memoryAddress & 0xFF;
-    memcpy(&buffer[3], data, length);
-
-    I2C1_SetBuffer(buffer, length + 3);
-    I2C1_MasterWrite();
-
-    __delay_ms(5); // Espera para que la EEPROM complete la escritura
-}
-
-void EEPROM_Read(uint8_t deviceAddress, uint16_t memoryAddress, uint8_t* data, size_t length) {
-    uint8_t startBuffer[3] = { (uint8_t)(deviceAddress << 1), (memoryAddress >> 8) & 0xFF, memoryAddress & 0xFF };
-
-    I2C1_SetBuffer(startBuffer, 3);
-    I2C1_MasterWrite();
-
-    I2C1_SetBuffer(data, length);
-    I2C1_MasterRead();
-}
-
-void MPU6050_ReadAccelerometer(float* ax, float* ay, float* az) {
-    uint8_t buffer[6];
-    I2C1_ReadDataBlock(MPU6050_ADDRESS, MPU6050_ACCEL_XOUT_H, buffer, 6);
-    
-    int16_t ax_raw = (buffer[0] << 8) | buffer[1];
-    int16_t ay_raw = (buffer[2] << 8) | buffer[3];
-    int16_t az_raw = (buffer[4] << 8) | buffer[5];
-
-    *ax = ax_raw / 16384.0f;
-    *ay = ay_raw / 16384.0f;
-    *az = az_raw / 16384.0f;
-}
-
-void MPU6050_ReadGyroscope(float* gx, float* gy, float* gz) {
-    uint8_t buffer[6];
-    I2C1_ReadDataBlock(MPU6050_ADDRESS, MPU6050_GYRO_XOUT_H, buffer, 6);
-    
-    int16_t gx_raw = (buffer[0] << 8) | buffer[1];
-    int16_t gy_raw = (buffer[2] << 8) | buffer[3];
-    int16_t gz_raw = (buffer[4] << 8) | buffer[5];
-
-    *gx = gx_raw / 131.0f;
-    *gy = gy_raw / 131.0f;
-    *gz = gz_raw / 131.0f;
-}
 
 void UART_SendString(const char* str) {
     while (*str) {
@@ -133,51 +72,112 @@ void UART_SendString(const char* str) {
     }
 }
 
+
+void MPU6050_Init() {
+    uint8_t data = 0x00; // Configuración para despertar el MPU6050
+    I2C1_Write1ByteRegister(MPU6050_ADDRESS, MPU6050_PWR_MGMT_1, data);
+}
+
+
+void MPU6050_ReadSensorData(float* ax, float* ay, float* az, float* gx, float* gy, float* gz) {
+    uint8_t buffer[12];
+    I2C1_ReadDataBlock(MPU6050_ADDRESS, MPU6050_ACCEL_XOUT_H, buffer, 12);
+    
+    int16_t ax_raw = (buffer[0] << 8) | buffer[1];
+    int16_t ay_raw = (buffer[2] << 8) | buffer[3];
+    int16_t az_raw = (buffer[4] << 8) | buffer[5];
+    int16_t gx_raw = (buffer[6] << 8) | buffer[7];
+    int16_t gy_raw = (buffer[8] << 8) | buffer[9];
+    int16_t gz_raw = (buffer[10] << 8) | buffer[11];
+
+    *ax = ax_raw / 16384.0f;
+    *ay = ay_raw / 16384.0f;
+    *az = az_raw / 16384.0f;
+    *gx = gx_raw / 131.0f;
+    *gy = gy_raw / 131.0f;
+    *gz = gz_raw / 131.0f;
+}
+
+
+void EEPROM_WriteByte(uint8_t deviceAddress, uint16_t memoryAddress, uint8_t data) {
+    uint8_t buffer[3];
+    buffer[0] = (memoryAddress >> 8) & 0xFF;  // Address High Byte
+    buffer[1] = memoryAddress & 0xFF;         // Address Low Byte
+    buffer[2] = data;                         // Data
+    
+    I2C1_WriteNBytes(deviceAddress, buffer, 3);
+    
+    __delay_ms(5);  // Espera para que la EEPROM complete la escritura
+}
+
+
+uint8_t EEPROM_ReadByte(uint8_t deviceAddress, uint16_t memoryAddress) {
+    uint8_t addressBuffer[2];
+    addressBuffer[0] = (memoryAddress >> 8) & 0xFF;  // Address High Byte
+    addressBuffer[1] = memoryAddress & 0xFF;         // Address Low Byte
+
+    I2C1_WriteNBytes(deviceAddress, addressBuffer, 2); // Send address to EEPROM
+
+    uint8_t data = 0;
+    I2C1_ReadNBytes(deviceAddress, &data, 1);  // Read one byte
+
+    return data;
+}
+
+
+
+//main de solo eeprom
 void main(void) {
     SYSTEM_Initialize();
-    MPU6050_Init();
-
-    char buffer[200];
-    float ax, ay, az, gx, gy, gz;
 
     while(1) {
-        MPU6050_ReadAccelerometer(&ax, &ay, &az);
-        MPU6050_ReadGyroscope(&gx, &gy, &gz);
-
-        sprintf(buffer, "AX: %.2f, AY: %.2f, AZ: %.2f, GX: %.2f, GY: %.2f, GZ: %.2f\n", ax, ay, az, gx, gy, gz);
+        
+        //for(int i = 0; i < 600; i++);
+        // Escribir un byte en la EEPROM
+        EEPROM_WriteByte(EEPROM1_ADDRESS, TEST_MEMORY_ADDRESS, 0xA5);
+        UART_SendString("Data written to EEPROM.\n");
+        
+        // Leer inmediatamente después de escribir
+        uint8_t checkData = EEPROM_ReadByte(EEPROM1_ADDRESS, TEST_MEMORY_ADDRESS);
+        if(checkData == 0xA5) {
+            UART_SendString("Write operation successful.\n");
+        } else {
+            UART_SendString("Write operation failed.\n");
+        }
+        
+        // Leer el byte de la EEPROM para mostrarlo
+        uint8_t readData = EEPROM_ReadByte(EEPROM1_ADDRESS, TEST_MEMORY_ADDRESS);
+        
+        // Enviar el dato leído a través de UART
+        char buffer[50];
+        sprintf(buffer, "Read Data: %X\n", readData);
         UART_SendString(buffer);
-
-        __delay_ms(1000);
+        
+        UART_SendString("Program is running...\n");
+        __delay_ms(1000); // Esperar 1 segundo
     }
 }
 
 
 
-
-/*void main(void){
-    // Initialize the device
+//supuesto main completo
+/*void main(void) {
     SYSTEM_Initialize();
     MPU6050_Init();
 
-    // Buffer para almacenar los datos formateados como string
     char buffer[200];
-
-    // Variables para almacenar los datos del MPU6050
+    uint8_t eepromBuffer[24];
     float ax, ay, az, gx, gy, gz;
 
-    // Buffer para almacenar los datos antes de escribir en la EEPROM
-    uint8_t eepromBuffer[24];
+    while(1) {
+        // Read data from MPU6050
+        MPU6050_ReadSensorData(&ax, &ay, &az, &gx, &gy, &gz);
 
-    while(1){
-        
-        LED_1_Toggle();
-        // Lee datos del acelerómetro
-        MPU6050_ReadAccelerometer(&ax, &ay, &az);
+        // Format the data as a string
+        sprintf(buffer, "BEFORE EEPROM - AX: %.2f, AY: %.2f, AZ: %.2f, GX: %.2f, GY: %.2f, GZ: %.2f\n", ax, ay, az, gx, gy, gz);
+        UART_SendString(buffer);
 
-        // Lee datos del giroscopio
-        MPU6050_ReadGyroscope(&gx, &gy, &gz);
-
-        // Almacena los datos en el eepromBuffer
+        // Store the data in the eepromBuffer
         memcpy(&eepromBuffer[0], &ax, sizeof(float));
         memcpy(&eepromBuffer[4], &ay, sizeof(float));
         memcpy(&eepromBuffer[8], &az, sizeof(float));
@@ -185,19 +185,17 @@ void main(void) {
         memcpy(&eepromBuffer[16], &gy, sizeof(float));
         memcpy(&eepromBuffer[20], &gz, sizeof(float));
 
-        // Escribe los datos del acelerómetro en la EEPROM1
+        // Write accelerometer data to EEPROM1
         EEPROM_Write(EEPROM1_ADDRESS, 0x0000, eepromBuffer, 12);
-
-        // Escribe los datos del giroscopio en la EEPROM2
+        // Write gyroscope data to EEPROM2
         EEPROM_Write(EEPROM2_ADDRESS, 0x0000, &eepromBuffer[12], 12);
 
-        // Lee los datos del acelerómetro de la EEPROM1
+        // Read accelerometer data from EEPROM1
         EEPROM_Read(EEPROM1_ADDRESS, 0x0000, eepromBuffer, 12);
-
-        // Lee los datos del giroscopio de la EEPROM2
+        // Read gyroscope data from EEPROM2
         EEPROM_Read(EEPROM2_ADDRESS, 0x0000, &eepromBuffer[12], 12);
 
-        // Extrae los valores desde el eepromBuffer
+        // Extract the values from the eepromBuffer
         memcpy(&ax, &eepromBuffer[0], sizeof(float));
         memcpy(&ay, &eepromBuffer[4], sizeof(float));
         memcpy(&az, &eepromBuffer[8], sizeof(float));
@@ -205,16 +203,36 @@ void main(void) {
         memcpy(&gy, &eepromBuffer[16], sizeof(float));
         memcpy(&gz, &eepromBuffer[20], sizeof(float));
 
-        // Formatea los datos como string
-        sprintf(buffer, "AX: %.2f, AY: %.2f, AZ: %.2f, GX: %.2f, GY: %.2f, GZ: %.2f\n", ax, ay, az, gx, gy, gz);
-
-        // Envía los datos a través de UART
+        // Format the data as a string
+        sprintf(buffer, "AFTER EEPROM - AX: %.2f, AY: %.2f, AZ: %.2f, GX: %.2f, GY: %.2f, GZ: %.2f\n", ax, ay, az, gx, gy, gz);
         UART_SendString(buffer);
 
-        // Espera antes de la próxima lectura (puedes ajustar este valor según tus necesidades)
-        //__delay_ms(1000);
+        __delay_ms(1000);
     }
 }*/
+
+
+
+
+
+//main que solo recibe del sensor
+/*void main(void) {
+    SYSTEM_Initialize();
+    MPU6050_Init();
+
+    char buffer[200];
+    float ax, ay, az, gx, gy, gz;
+
+    while(1) {
+        MPU6050_ReadSensorData(&ax, &ay, &az, &gx, &gy, &gz);
+
+        sprintf(buffer, "AX: %.2f, AY: %.2f, AZ: %.2f, GX: %.2f, GY: %.2f, GZ: %.2f\n", ax, ay, az, gx, gy, gz);
+        UART_SendString(buffer);
+
+        __delay_ms(1000);
+    }
+}*/
+
 /**
  End of File
 */
