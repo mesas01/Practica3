@@ -47,22 +47,25 @@
 #include "stdio.h"
 #include "string.h"
 
-#define MPU6050_ADDRESS 0x68 // Dado que AD0 está conectado a GND
+
+#define MPU6050_ADDRESS 0x68
 #define MPU6050_PWR_MGMT_1 0x6B
 
 #define MPU6050_ACCEL_XOUT_H 0x3B
-#define MPU6050_ACCEL_YOUT_H 0x3D
-#define MPU6050_ACCEL_ZOUT_H 0x3F
-
-#define MPU6050_GYRO_XOUT_H  0x43
-#define MPU6050_GYRO_YOUT_H  0x45
-#define MPU6050_GYRO_ZOUT_H  0x47
 
 #define EEPROM1_ADDRESS 0x50
-#define EEPROM2_ADDRESS 0x54
-#define MAX_BUFFER_SIZE 32
+#define EEPROM2_ADDRESS 0x51
+#define TEST_MEMORY_ADDRESS 0x0010 // Dirección de memoria arbitraria para probar
 
-#define TEST_MEMORY_ADDRESS 0x0010 // Dirección de memoria arbitraria para la prueba
+#define BLOCK_SIZE 24
+#define EEPROM_SIZE 32768
+#define TOTAL_BLOCKS (EEPROM_SIZE / BLOCK_SIZE)
+
+
+// Variables globales para rastrear bloques actuales
+uint16_t currentBlockEEPROM1 = 0x0000;
+uint16_t currentBlockEEPROM2 = 0x0000;
+
 
 
 void UART_SendString(const char* str) {
@@ -125,118 +128,53 @@ uint8_t EEPROM_ReadByte(uint8_t deviceAddress, uint16_t memoryAddress) {
 }
 
 
-//main de solo eeprom
-void main(void) {
-    SYSTEM_Initialize();
-
-    while(1) {
-        
-        // Escribir un byte en la EEPROM
-        EEPROM_WriteByte(EEPROM1_ADDRESS, TEST_MEMORY_ADDRESS, 0xA5);
-        UART_SendString("Dato Escrito en la EEPROM 1\n");
-        
-        // Leer inmediatamente después de escribir
-        uint8_t readData = EEPROM_ReadByte(EEPROM1_ADDRESS, TEST_MEMORY_ADDRESS);
-        
-        if(readData == 0xA5) {
-            UART_SendString("Escritura 1 exitosa.\n");
-        } else {
-            UART_SendString("Escritura 1 fallida.\n");
-        }
-        
-        
-        // Enviar el dato leído a través de UART
-        char buffer[50];
-        sprintf(buffer, "Dato 1 leido: %X\n", readData);
-        UART_SendString(buffer);
-        __delay_ms(50);
-        ////////////////////////////////////////////////////
-        
-        EEPROM_WriteByte(EEPROM2_ADDRESS, TEST_MEMORY_ADDRESS, 0xB6);
-        UART_SendString("Dato Escrito en la EEPROM 2\n");
-        
-        // Leer inmediatamente después de escribir
-        uint8_t readData2 = EEPROM_ReadByte(EEPROM2_ADDRESS, TEST_MEMORY_ADDRESS);
-        
-        if(readData2 == 0xB6) {
-            UART_SendString("Escritura 2 exitosa.\n");
-        } else {
-            UART_SendString("Escritura 2 fallida.\n");
-        }
-        char buffer2[50];
-        sprintf(buffer2, "Dato 2 leido: %X\n", readData2);
-        UART_SendString(buffer2);
-        
-        
-        UART_SendString("Programa sigue corriendo...\n\n\n");
-        __delay_ms(1000); // Esperar 1 segundo
+// Función para escribir un bloque en la EEPROM
+void EEPROM_WriteBlock(uint8_t deviceAddress, uint16_t memoryAddress, uint8_t* data, uint8_t size) {
+    for (uint8_t i = 0; i < size; i++) {
+        EEPROM_WriteByte(deviceAddress, memoryAddress + i, data[i]);
     }
 }
 
-/*void main(void) {
-    SYSTEM_Initialize();
 
-    while(1) {
-        
-        // Escribir un byte en la EEPROM1
-        EEPROM_WriteByte(EEPROM1_ADDRESS, TEST_MEMORY_ADDRESS, 0xA5);
-        UART_SendString("Data written to EEPROM1.\n");
-        
-        // Leer inmediatamente después de escribir de la EEPROM1
-        uint8_t checkData1 = EEPROM_ReadByte(EEPROM1_ADDRESS, TEST_MEMORY_ADDRESS);
-        if(checkData1 == 0xA5) {
-            UART_SendString("EEPROM1 Write operation successful.\n");
-        } else {
-            UART_SendString("EEPROM1 Write operation failed.\n");
-        }
-        
-        // Escribir un byte en la EEPROM2
-        EEPROM_WriteByte(EEPROM2_ADDRESS, TEST_MEMORY_ADDRESS, 0xB6);
-        UART_SendString("Data written to EEPROM2.\n");
-        
-        // Leer inmediatamente después de escribir de la EEPROM2
-        uint8_t checkData2 = EEPROM_ReadByte(EEPROM2_ADDRESS, TEST_MEMORY_ADDRESS);
-        if(checkData2 == 0xB6) {
-            UART_SendString("EEPROM2 Write operation successful.\n");
-        } else {
-            UART_SendString("EEPROM2 Write operation failed.\n");
-        }
-        
-        // Leer el byte de la EEPROM1 para mostrarlo
-        uint8_t readData1 = EEPROM_ReadByte(EEPROM1_ADDRESS, TEST_MEMORY_ADDRESS);
-        char buffer1[50];
-        sprintf(buffer1, "EEPROM1 Read Data: %X\n", readData1);
-        UART_SendString(buffer1);
-        
-        // Leer el byte de la EEPROM2 para mostrarlo
-        uint8_t readData2 = EEPROM_ReadByte(EEPROM2_ADDRESS, TEST_MEMORY_ADDRESS);
-        char buffer2[50];
-        sprintf(buffer2, "EEPROM2 Read Data: %X\n", readData2);
-        UART_SendString(buffer2);
-        
-        UART_SendString("Program is running...\n");
-        __delay_ms(1000); // Esperar 1 segundo
+void EEPROM_ReadBlock(uint8_t deviceAddress, uint16_t memoryAddress, uint8_t* data, uint8_t size) {
+    for (uint8_t i = 0; i < size; i++) {
+        data[i] = EEPROM_ReadByte(deviceAddress, memoryAddress + i);
     }
-}/*
+}
 
-//supuesto main completo
-/*void main(void) {
+
+void I2C_Scanner(void) {
+    UART_SendString("Scanning I2C bus...\n");
+    for(uint8_t address = 0; address < 128; address++) {
+        // Intenta escribir en la dirección
+        EEPROM_WriteByte(address, TEST_MEMORY_ADDRESS, 0xA5);
+        __delay_ms(10);
+        
+        // Intenta leer de la dirección
+        uint8_t data = EEPROM_ReadByte(address, TEST_MEMORY_ADDRESS);
+        if(data == 0xA5) {
+            char buffer[50];
+            sprintf(buffer, "I2C device found at address: 0x%X\n", address);
+            UART_SendString(buffer);
+        }
+    }
+    UART_SendString("Scan complete.\n");
+}
+
+
+void main(void) {
     SYSTEM_Initialize();
     MPU6050_Init();
 
     char buffer[200];
-    uint8_t eepromBuffer[24];
     float ax, ay, az, gx, gy, gz;
+    float ax_read, ay_read, az_read, gx_read, gy_read, gz_read;  // Variables para almacenar datos leídos de la EEPROM
+    uint8_t eepromBuffer[BLOCK_SIZE];  // Buffer temporal para almacenar los datos antes de escribir en la EEPROM
 
     while(1) {
-        // Read data from MPU6050
         MPU6050_ReadSensorData(&ax, &ay, &az, &gx, &gy, &gz);
 
-        // Format the data as a string
-        sprintf(buffer, "BEFORE EEPROM - AX: %.2f, AY: %.2f, AZ: %.2f, GX: %.2f, GY: %.2f, GZ: %.2f\n", ax, ay, az, gx, gy, gz);
-        UART_SendString(buffer);
-
-        // Store the data in the eepromBuffer
+        // Convertir los datos float a bytes y almacenarlos en eepromBuffer
         memcpy(&eepromBuffer[0], &ax, sizeof(float));
         memcpy(&eepromBuffer[4], &ay, sizeof(float));
         memcpy(&eepromBuffer[8], &az, sizeof(float));
@@ -244,51 +182,48 @@ void main(void) {
         memcpy(&eepromBuffer[16], &gy, sizeof(float));
         memcpy(&eepromBuffer[20], &gz, sizeof(float));
 
-        // Write accelerometer data to EEPROM1
-        EEPROM_Write(EEPROM1_ADDRESS, 0x0000, eepromBuffer, 12);
-        // Write gyroscope data to EEPROM2
-        EEPROM_Write(EEPROM2_ADDRESS, 0x0000, &eepromBuffer[12], 12);
+        // Escribir los datos del acelerómetro (ax, ay, az) en la EEPROM1
+        EEPROM_WriteBlock(EEPROM1_ADDRESS, currentBlockEEPROM1, eepromBuffer, 12);
 
-        // Read accelerometer data from EEPROM1
-        EEPROM_Read(EEPROM1_ADDRESS, 0x0000, eepromBuffer, 12);
-        // Read gyroscope data from EEPROM2
-        EEPROM_Read(EEPROM2_ADDRESS, 0x0000, &eepromBuffer[12], 12);
+        // Leer y convertir los datos del acelerómetro de la EEPROM1
+        EEPROM_ReadBlock(EEPROM1_ADDRESS, currentBlockEEPROM1, eepromBuffer, 12);
+        memcpy(&ax_read, &eepromBuffer[0], sizeof(float));
+        memcpy(&ay_read, &eepromBuffer[4], sizeof(float));
+        memcpy(&az_read, &eepromBuffer[8], sizeof(float));
 
-        // Extract the values from the eepromBuffer
-        memcpy(&ax, &eepromBuffer[0], sizeof(float));
-        memcpy(&ay, &eepromBuffer[4], sizeof(float));
-        memcpy(&az, &eepromBuffer[8], sizeof(float));
-        memcpy(&gx, &eepromBuffer[12], sizeof(float));
-        memcpy(&gy, &eepromBuffer[16], sizeof(float));
-        memcpy(&gz, &eepromBuffer[20], sizeof(float));
+        // Escribir los datos del giroscopio (gx, gy, gz) en la EEPROM2
+        EEPROM_WriteBlock(EEPROM2_ADDRESS, currentBlockEEPROM2, &eepromBuffer[12], 12);
 
-        // Format the data as a string
-        sprintf(buffer, "AFTER EEPROM - AX: %.2f, AY: %.2f, AZ: %.2f, GX: %.2f, GY: %.2f, GZ: %.2f\n", ax, ay, az, gx, gy, gz);
+        // Leer y convertir los datos del giroscopio de la EEPROM2
+        EEPROM_ReadBlock(EEPROM2_ADDRESS, currentBlockEEPROM2, &eepromBuffer[12], 12);
+        memcpy(&gx_read, &eepromBuffer[12], sizeof(float));
+        memcpy(&gy_read, &eepromBuffer[16], sizeof(float));
+        memcpy(&gz_read, &eepromBuffer[20], sizeof(float));
+
+        // Incrementar los índices de los bloques y verificar si se ha alcanzado el final de la EEPROM
+        currentBlockEEPROM1 = (currentBlockEEPROM1 + 1) % TOTAL_BLOCKS;
+        currentBlockEEPROM2 = (currentBlockEEPROM2 + 1) % TOTAL_BLOCKS;
+
+        // Mostrar los datos originales leídos en UART
+        sprintf(buffer, "Original - AX: %.2f, AY: %.2f, AZ: %.2f, GX: %.2f, GY: %.2f, GZ: %.2f\n", ax, ay, az, gx, gy, gz);
+        UART_SendString(buffer);
+
+        // Mostrar los datos leídos de la EEPROM en UART
+        sprintf(buffer, "____Read - AX: %.2f, AY: %.2f, AZ: %.2f, GX: %.2f, GY: %.2f, GZ: %.2f\n", ax_read, ay_read, az_read, gx_read, gy_read, gz_read);
         UART_SendString(buffer);
 
         __delay_ms(1000);
     }
-}*/
+}
 
-
-
-
-
-//main que solo recibe del sensor
+//timestamp
+//main que puede detectar la direccion de las memorias
 /*void main(void) {
     SYSTEM_Initialize();
-    MPU6050_Init();
-
-    char buffer[200];
-    float ax, ay, az, gx, gy, gz;
 
     while(1) {
-        MPU6050_ReadSensorData(&ax, &ay, &az, &gx, &gy, &gz);
-
-        sprintf(buffer, "AX: %.2f, AY: %.2f, AZ: %.2f, GX: %.2f, GY: %.2f, GZ: %.2f\n", ax, ay, az, gx, gy, gz);
-        UART_SendString(buffer);
-
-        __delay_ms(1000);
+        I2C_Scanner();
+        __delay_ms(5000); // Espera 5 segundos antes de escanear nuevamente
     }
 }*/
 

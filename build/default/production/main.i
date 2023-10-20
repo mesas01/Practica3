@@ -27633,7 +27633,12 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
 # 48 "main.c" 2
-# 68 "main.c"
+# 89 "main.c"
+uint16_t currentBlockEEPROM1 = 0x0000;
+uint16_t currentBlockEEPROM2 = 0x0000;
+
+
+
 void UART_SendString(const char* str) {
     while (*str) {
         UART1_Write(*str);
@@ -27695,49 +27700,88 @@ uint8_t EEPROM_ReadByte(uint8_t deviceAddress, uint16_t memoryAddress) {
 
 
 
+void EEPROM_WriteBlock(uint8_t deviceAddress, uint16_t memoryAddress, uint8_t* data, uint8_t size) {
+    for (uint8_t i = 0; i < size; i++) {
+        EEPROM_WriteByte(deviceAddress, memoryAddress + i, data[i]);
+    }
+}
+
+
+void EEPROM_ReadBlock(uint8_t deviceAddress, uint16_t memoryAddress, uint8_t* data, uint8_t size) {
+    for (uint8_t i = 0; i < size; i++) {
+        data[i] = EEPROM_ReadByte(deviceAddress, memoryAddress + i);
+    }
+}
+
+
+void I2C_Scanner(void) {
+    UART_SendString("Scanning I2C bus...\n");
+    for(uint8_t address = 0; address < 128; address++) {
+
+        EEPROM_WriteByte(address, 0x0010, 0xA5);
+        _delay((unsigned long)((10)*(8000000/4000.0)));
+
+
+        uint8_t data = EEPROM_ReadByte(address, 0x0010);
+        if(data == 0xA5) {
+            char buffer[50];
+            sprintf(buffer, "I2C device found at address: 0x%X\n", address);
+            UART_SendString(buffer);
+        }
+    }
+    UART_SendString("Scan complete.\n");
+}
+# 200 "main.c"
 void main(void) {
     SYSTEM_Initialize();
+    MPU6050_Init();
+
+    char buffer[200];
+    float ax, ay, az, gx, gy, gz;
+    float ax_read, ay_read, az_read, gx_read, gy_read, gz_read;
+    uint8_t eepromBuffer[24];
 
     while(1) {
+        MPU6050_ReadSensorData(&ax, &ay, &az, &gx, &gy, &gz);
 
 
-        EEPROM_WriteByte(0x50, 0x0010, 0xA5);
-        UART_SendString("Dato Escrito en la EEPROM 1\n");
+        memcpy(&eepromBuffer[0], &ax, sizeof(float));
+        memcpy(&eepromBuffer[4], &ay, sizeof(float));
+        memcpy(&eepromBuffer[8], &az, sizeof(float));
+        memcpy(&eepromBuffer[12], &gx, sizeof(float));
+        memcpy(&eepromBuffer[16], &gy, sizeof(float));
+        memcpy(&eepromBuffer[20], &gz, sizeof(float));
 
 
-        uint8_t readData = EEPROM_ReadByte(0x50, 0x0010);
-
-        if(readData == 0xA5) {
-            UART_SendString("Escritura 1 exitosa.\n");
-        } else {
-            UART_SendString("Escritura 1 fallida.\n");
-        }
+        EEPROM_WriteBlock(0x50, currentBlockEEPROM1, eepromBuffer, 12);
 
 
+        EEPROM_ReadBlock(0x50, currentBlockEEPROM1, eepromBuffer, 12);
+        memcpy(&ax_read, &eepromBuffer[0], sizeof(float));
+        memcpy(&ay_read, &eepromBuffer[4], sizeof(float));
+        memcpy(&az_read, &eepromBuffer[8], sizeof(float));
 
-        char buffer[50];
-        sprintf(buffer, "Dato 1 leido: %X\n", readData);
+
+        EEPROM_WriteBlock(0x51, currentBlockEEPROM2, &eepromBuffer[12], 12);
+
+
+        EEPROM_ReadBlock(0x51, currentBlockEEPROM2, &eepromBuffer[12], 12);
+        memcpy(&gx_read, &eepromBuffer[12], sizeof(float));
+        memcpy(&gy_read, &eepromBuffer[16], sizeof(float));
+        memcpy(&gz_read, &eepromBuffer[20], sizeof(float));
+
+
+        currentBlockEEPROM1 = (currentBlockEEPROM1 + 1) % (32768 / 24);
+        currentBlockEEPROM2 = (currentBlockEEPROM2 + 1) % (32768 / 24);
+
+
+        sprintf(buffer, "Original - AX: %.2f, AY: %.2f, AZ: %.2f, GX: %.2f, GY: %.2f, GZ: %.2f\n", ax, ay, az, gx, gy, gz);
         UART_SendString(buffer);
-        _delay((unsigned long)((50)*(8000000/4000.0)));
 
 
-        EEPROM_WriteByte(0x54, 0x0010, 0xB6);
-        UART_SendString("Dato Escrito en la EEPROM 2\n");
+        sprintf(buffer, "____Read - AX: %.2f, AY: %.2f, AZ: %.2f, GX: %.2f, GY: %.2f, GZ: %.2f\n", ax_read, ay_read, az_read, gx_read, gy_read, gz_read);
+        UART_SendString(buffer);
 
-
-        uint8_t readData2 = EEPROM_ReadByte(0x54, 0x0010);
-
-        if(readData2 == 0xB6) {
-            UART_SendString("Escritura 2 exitosa.\n");
-        } else {
-            UART_SendString("Escritura 2 fallida.\n");
-        }
-        char buffer2[50];
-        sprintf(buffer2, "Dato 2 leido: %X\n", readData2);
-        UART_SendString(buffer2);
-
-
-        UART_SendString("Programa sigue corriendo...\n\n\n");
         _delay((unsigned long)((1000)*(8000000/4000.0)));
     }
 }
