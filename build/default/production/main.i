@@ -27633,27 +27633,27 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
 # 48 "main.c" 2
-# 89 "main.c"
+# 66 "main.c"
 uint16_t currentBlockEEPROM1 = 0x0000;
 uint16_t currentBlockEEPROM2 = 0x0000;
 
 
 
-void UART_SendString(const char* str) {
-    while (*str) {
+void UART_SendString(const char* str){
+    while (*str){
         UART1_Write(*str);
         str++;
     }
 }
 
 
-void MPU6050_Init() {
+void MPU6050_Init(){
     uint8_t data = 0x00;
     I2C1_Write1ByteRegister(0x68, 0x6B, data);
 }
 
 
-void MPU6050_ReadSensorData(float* ax, float* ay, float* az, float* gx, float* gy, float* gz) {
+void MPU6050_ReadSensorData(float* ax, float* ay, float* az, float* gx, float* gy, float* gz){
     uint8_t buffer[12];
     I2C1_ReadDataBlock(0x68, 0x3B, buffer, 12);
 
@@ -27673,7 +27673,7 @@ void MPU6050_ReadSensorData(float* ax, float* ay, float* az, float* gx, float* g
 }
 
 
-void EEPROM_WriteByte(uint8_t deviceAddress, uint16_t memoryAddress, uint8_t data) {
+void EEPROM_WriteByte(uint8_t deviceAddress, uint16_t memoryAddress, uint8_t data){
     uint8_t buffer[3];
     buffer[0] = (memoryAddress >> 8) & 0xFF;
     buffer[1] = memoryAddress & 0xFF;
@@ -27685,7 +27685,7 @@ void EEPROM_WriteByte(uint8_t deviceAddress, uint16_t memoryAddress, uint8_t dat
 }
 
 
-uint8_t EEPROM_ReadByte(uint8_t deviceAddress, uint16_t memoryAddress) {
+uint8_t EEPROM_ReadByte(uint8_t deviceAddress, uint16_t memoryAddress){
     uint8_t addressBuffer[2];
     addressBuffer[0] = (memoryAddress >> 8) & 0xFF;
     addressBuffer[1] = memoryAddress & 0xFF;
@@ -27700,39 +27700,48 @@ uint8_t EEPROM_ReadByte(uint8_t deviceAddress, uint16_t memoryAddress) {
 
 
 
-void EEPROM_WriteBlock(uint8_t deviceAddress, uint16_t memoryAddress, uint8_t* data, uint8_t size) {
-    for (uint8_t i = 0; i < size; i++) {
+void EEPROM_WriteBlock(uint8_t deviceAddress, uint16_t memoryAddress, uint8_t* data, uint8_t size){
+    for (uint8_t i = 0; i < size; i++){
         EEPROM_WriteByte(deviceAddress, memoryAddress + i, data[i]);
     }
 }
 
 
-void EEPROM_ReadBlock(uint8_t deviceAddress, uint16_t memoryAddress, uint8_t* data, uint8_t size) {
+void EEPROM_ReadBlock(uint8_t deviceAddress, uint16_t memoryAddress, uint8_t* data, uint8_t size){
     for (uint8_t i = 0; i < size; i++) {
         data[i] = EEPROM_ReadByte(deviceAddress, memoryAddress + i);
     }
 }
 
 
-void I2C_Scanner(void) {
-    UART_SendString("Scanning I2C bus...\n");
-    for(uint8_t address = 0; address < 128; address++) {
+char UART_ReceiveString(char* receivedString, uint8_t maxLength){
+    char data;
+    uint8_t index = 0;
 
-        EEPROM_WriteByte(address, 0x0010, 0xA5);
-        _delay((unsigned long)((10)*(8000000/4000.0)));
+    while (index < maxLength - 1){
+        data = UART1_Read();
 
-
-        uint8_t data = EEPROM_ReadByte(address, 0x0010);
-        if(data == 0xA5) {
-            char buffer[50];
-            sprintf(buffer, "I2C device found at address: 0x%X\n", address);
-            UART_SendString(buffer);
+        if (data == '\r') {
+            break;
+        } else {
+            receivedString[index] = data;
+            index++;
         }
     }
-    UART_SendString("Scan complete.\n");
+
+    receivedString[index] = '\0';
+    return index;
 }
-# 200 "main.c"
-void main(void) {
+
+
+void custom_delay_ms(uint32_t milliseconds) {
+    while(milliseconds--) {
+        _delay((unsigned long)((1)*(8000000/4000.0)));
+    }
+}
+
+
+void main(void){
     SYSTEM_Initialize();
     MPU6050_Init();
 
@@ -27741,7 +27750,22 @@ void main(void) {
     float ax_read, ay_read, az_read, gx_read, gy_read, gz_read;
     uint8_t eepromBuffer[24];
 
-    while(1) {
+    char userInput[10];
+    uint32_t samplingRate;
+    uint32_t delayTime;
+
+    UART_SendString("Ingrese la frecuencia de muestreo (max 400kHz = 400000): ");
+    UART_ReceiveString(userInput, sizeof(userInput));
+    samplingRate = (uint32_t)atoi(userInput);
+
+    if (samplingRate > 400000){
+        UART_SendString("Frecuencia ingresada es muy alta. Se establecera en 400kHz.\n");
+        samplingRate = 400000;
+    }
+    delayTime = 1000 / samplingRate;
+
+
+    while(1){
         MPU6050_ReadSensorData(&ax, &ay, &az, &gx, &gy, &gz);
 
 
@@ -27782,6 +27806,6 @@ void main(void) {
         sprintf(buffer, "____Read - AX: %.2f, AY: %.2f, AZ: %.2f, GX: %.2f, GY: %.2f, GZ: %.2f\n", ax_read, ay_read, az_read, gx_read, gy_read, gz_read);
         UART_SendString(buffer);
 
-        _delay((unsigned long)((1000)*(8000000/4000.0)));
+         custom_delay_ms(delayTime);
     }
 }
