@@ -61,14 +61,18 @@ I2C1_DATA_NACK 3
 I2C1_TIMEOUT 4
 I2C1_NULL 5
 ]
+"15 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\__strtoxll.c
+[e E246 . `uc
+SIGNED 1
+SKIP 2
+CONV_DONE 4
+]
 "4 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\__fpclassifyf.c
 [v ___fpclassifyf __fpclassifyf `(i  1 e 2 0 ]
 "7 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\__lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
-"7 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\almod.c
-[v ___almod __almod `(l  1 e 4 0 ]
-"5 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\atoi.c
-[v _atoi atoi `(i  1 e 2 0 ]
+"7 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\__strtoxll.c
+[v ___strtoxll __strtoxll `(uo  1 e 8 0 ]
 "193 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
 [v _pad pad `(v  1 s 1 pad ]
 "587
@@ -79,6 +83,14 @@ I2C1_NULL 5
 [v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
 "1817
 [v _vfprintf vfprintf `(i  1 e 2 0 ]
+"74 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doscan.c
+[v _skipws skipws `(v  1 s 1 skipws ]
+"482
+[v _atou atou `(i  1 s 2 atou ]
+"672
+[v _vfsfcnvrt vfsfcnvrt `(i  1 s 2 vfsfcnvrt ]
+"1502
+[v _vfscanf vfscanf `(i  1 e 2 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\flge.c
@@ -99,16 +111,26 @@ I2C1_NULL 5
 [v ___ftmul __ftmul `(f  1 e 4 0 ]
 "19 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\ftsub.c
 [v ___ftsub __ftsub `(f  1 e 4 0 ]
+"7 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\getch.c
+[v _getch getch `(i  1 e 2 0 ]
 "1 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\labs.c
 [v _labs labs `(l  1 e 4 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\memcpy.c
 [v _memcpy memcpy `(*.39v  1 e 2 0 ]
+"3 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\memset.c
+[v _memset memset `(*.39v  1 e 2 0 ]
 "8 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 "8 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_fputs.c
 [v _fputs fputs `(i  1 e 2 0 ]
+"11 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_getc.c
+[v _fgetc fgetc `(i  1 e 2 0 ]
+"33
+[v _ungetc ungetc `(i  1 e 2 0 ]
 "9 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
+"9 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sscanf.c
+[v _sscanf sscanf `(i  1 e 2 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "245
@@ -119,6 +141,8 @@ I2C1_NULL 5
 [v ___flmul __flmul `(d  1 e 4 0 ]
 "3 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\strcpy.c
 [v _strcpy strcpy `(*.39uc  1 e 2 0 ]
+"3 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\strncmp.c
+[v _strncmp strncmp `(i  1 e 2 0 ]
 "15 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
 "15 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul32.c
@@ -127,25 +151,31 @@ I2C1_NULL 5
 [v ___omul __omul `(uo  1 e 8 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
-"71 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+"77 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 [v _UART_SendString UART_SendString `(v  1 e 1 0 ]
-"79
-[v _MPU6050_Init MPU6050_Init `(v  1 e 1 0 ]
 "85
+[v _MPU6050_Init MPU6050_Init `(v  1 e 1 0 ]
+"91
 [v _MPU6050_ReadSensorData MPU6050_ReadSensorData `(v  1 e 1 0 ]
-"105
+"111
 [v _EEPROM_WriteByte EEPROM_WriteByte `(v  1 e 1 0 ]
-"117
+"123
 [v _EEPROM_ReadByte EEPROM_ReadByte `(uc  1 e 1 0 ]
-"132
+"138
 [v _EEPROM_WriteBlock EEPROM_WriteBlock `(v  1 e 1 0 ]
-"139
+"145
 [v _EEPROM_ReadBlock EEPROM_ReadBlock `(v  1 e 1 0 ]
-"146
+"152
 [v _UART_ReceiveString UART_ReceiveString `(uc  1 e 1 0 ]
-"166
+"177
 [v _custom_delay_ms custom_delay_ms `(v  1 e 1 0 ]
-"173
+"184
+[v _ReadAndSendEEPROMData ReadAndSendEEPROMData `(v  1 e 1 0 ]
+"216
+[v _StartLogging StartLogging `(v  1 e 1 0 ]
+"259
+[v _ParseUserInput ParseUserInput `(a  1 e 1 0 ]
+"278
 [v _main main `(v  1 e 1 0 ]
 "91 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/examples/i2c1_master_example.c
 [v _I2C1_Write1ByteRegister I2C1_Write1ByteRegister `(v  1 e 1 0 ]
@@ -689,10 +719,40 @@ I2C1_NULL 5
 [v _flags flags `uc  1 s 1 flags ]
 "185
 [v _dbuf dbuf `[80]uc  1 s 80 dbuf ]
+"54 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doscan.c
+[v _asup asup `a  1 s 1 asup ]
+"55
+[v _width@doscan$F2195 width `i  1 s 2 width ]
+"58
+[v _ncnv ncnv `i  1 s 2 ncnv ]
+[v _nmatch nmatch `i  1 s 2 nmatch ]
+"71
+[v _dbuf@doscan$F2198 dbuf `[32]uc  1 s 32 dbuf ]
+"3 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\errno.c
+[v _errno errno `i  1 e 2 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_getc.c
+[v ___ungetbuf __ungetbuf `[3]uc  1 e 3 0 ]
+"9
+[v ___ungetcnt __ungetcnt `uc  1 e 1 0 ]
 "66 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 [v _currentBlockEEPROM1 currentBlockEEPROM1 `us  1 e 2 0 ]
 "67
 [v _currentBlockEEPROM2 currentBlockEEPROM2 `us  1 e 2 0 ]
+"69
+[v _Ndat Ndat `ul  1 e 4 0 ]
+"70
+[v _Tm Tm `ul  1 e 4 0 ]
+"71
+[v _logging logging `a  1 e 1 0 ]
+"73
+[v _ax ax `f  1 e 4 0 ]
+[v _ay ay `f  1 e 4 0 ]
+[v _az az `f  1 e 4 0 ]
+[v _gx gx `f  1 e 4 0 ]
+[v _gy gy `f  1 e 4 0 ]
+[v _gz gz `f  1 e 4 0 ]
+"74
+[v _eepromBuffer eepromBuffer `[24]uc  1 e 24 0 ]
 "159 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/i2c1_master.c
 [v _i2c1_fsmStateTable i2c1_fsmStateTable `C[19]*.37(E16630  1 e 38 0 ]
 [s S499 . 36 `[6]*.37(E363 1 callbackTable 12 0 `[6]*.39v 1 callbackPayload 12 12 `us 1 time_out 2 24 `us 1 time_out_value 2 26 `uc 1 address 1 28 `*.39uc 1 data_ptr 2 29 `ui 1 data_length 2 31 `E16630 1 state 1 33 `E358 1 error 1 34 `uc 1 addressNackCheck 1 35 :2:0 
@@ -716,42 +776,114 @@ I2C1_NULL 5
 [v _UART1_OverrunErrorHandler UART1_OverrunErrorHandler `*.37(v  1 e 2 0 ]
 "60
 [v _UART1_ErrorHandler UART1_ErrorHandler `*.37(v  1 e 2 0 ]
-"173 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+"278 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
+"285
+[v main@userInput userInput `[20]uc  1 a 20 0 ]
+"314
+} 0
+"3 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\memset.c
+[v _memset memset `(*.39v  1 e 2 0 ]
+{
+"5
+[v memset@p p `*.39uc  1 a 2 6 ]
+"3
+[v memset@dest dest `*.39v  1 p 2 0 ]
+[v memset@c c `i  1 p 2 2 ]
+[v memset@n n `ui  1 p 2 4 ]
+"10
+} 0
+"152 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+[v _UART_ReceiveString UART_ReceiveString `(uc  1 e 1 0 ]
+{
+"154
+[v UART_ReceiveString@index index `uc  1 a 1 9 ]
+"153
+[v UART_ReceiveString@data data `uc  1 a 1 8 ]
+"152
+[v UART_ReceiveString@receivedString receivedString `*.39uc  1 p 2 0 ]
+[v UART_ReceiveString@maxLength maxLength `uc  1 p 1 2 ]
+"174
+} 0
+"145 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/uart1.c
+[v _UART1_Read UART1_Read `(uc  1 e 1 0 ]
+{
+"168
+} 0
+"195
+[v _UART1_DefaultOverrunErrorHandler UART1_DefaultOverrunErrorHandler `(v  1 e 1 0 ]
+{
+} 0
+"193
+[v _UART1_DefaultFramingErrorHandler UART1_DefaultFramingErrorHandler `(v  1 e 1 0 ]
+{
+} 0
+"197
+[v _UART1_DefaultErrorHandler UART1_DefaultErrorHandler `(v  1 e 1 0 ]
+{
+"198
+} 0
+"216 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+[v _StartLogging StartLogging `(v  1 e 1 0 ]
+{
+"248
+[v StartLogging@startReadAddressEEPROM2 startReadAddressEEPROM2 `ul  1 a 4 93 ]
+"247
+[v StartLogging@startReadAddressEEPROM1 startReadAddressEEPROM1 `ul  1 a 4 89 ]
+"217
+[v StartLogging@loggedDataCount loggedDataCount `ul  1 a 4 105 ]
+"256
+} 0
 "177
-[v main@buffer buffer `[200]uc  1 a 200 0 ]
-"180
-[v main@eepromBuffer eepromBuffer `[24]uc  1 a 24 91 ]
-"182
-[v main@userInput userInput `[10]uc  1 a 10 81 ]
-"178
-[v main@gz gz `f  1 a 4 0 ]
-[v main@gy gy `f  1 a 4 208 ]
-[v main@gx gx `f  1 a 4 204 ]
-[v main@az az `f  1 a 4 200 ]
-[v main@ay ay `f  1 a 4 151 ]
-[v main@ax ax `f  1 a 4 147 ]
-"183
-[v main@samplingRate samplingRate `ul  1 a 4 143 ]
-"179
-[v main@gz_read gz_read `f  1 a 4 139 ]
-[v main@gy_read gy_read `f  1 a 4 135 ]
-[v main@gx_read gx_read `f  1 a 4 131 ]
-[v main@az_read az_read `f  1 a 4 127 ]
-[v main@ay_read ay_read `f  1 a 4 123 ]
-[v main@ax_read ax_read `f  1 a 4 119 ]
+[v _custom_delay_ms custom_delay_ms `(v  1 e 1 0 ]
+{
+[v custom_delay_ms@milliseconds milliseconds `ul  1 p 4 0 ]
+"181
+} 0
+"15 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+{
+"17
+[v ___lmul@product product `ul  1 a 4 8 ]
+"15
+[v ___lmul@multiplier multiplier `ul  1 p 4 0 ]
+[v ___lmul@multiplicand multiplicand `ul  1 p 4 4 ]
+"129
+} 0
+"184 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+[v _ReadAndSendEEPROMData ReadAndSendEEPROMData `(v  1 e 1 0 ]
+{
+"192
+[v ReadAndSendEEPROMData@i i `ul  1 a 4 224 ]
+"190
+[v ReadAndSendEEPROMData@buffer buffer `[200]uc  1 a 200 0 ]
+"188
+[v ReadAndSendEEPROMData@eepromReadBuffer eepromReadBuffer `[24]uc  1 a 24 200 ]
+"189
+[v ReadAndSendEEPROMData@gz_read gz_read `f  1 a 4 248 ]
+[v ReadAndSendEEPROMData@gy_read gy_read `f  1 a 4 244 ]
+[v ReadAndSendEEPROMData@gx_read gx_read `f  1 a 4 240 ]
+[v ReadAndSendEEPROMData@az_read az_read `f  1 a 4 236 ]
+[v ReadAndSendEEPROMData@ay_read ay_read `f  1 a 4 232 ]
+[v ReadAndSendEEPROMData@ax_read ax_read `f  1 a 4 228 ]
+"187
+[v ReadAndSendEEPROMData@readBlockEEPROM2 readBlockEEPROM2 `us  1 a 2 254 ]
+"186
+[v ReadAndSendEEPROMData@readBlockEEPROM1 readBlockEEPROM1 `us  1 a 2 252 ]
 "184
-[v main@delayTime delayTime `ul  1 a 4 115 ]
-"240
+[v ReadAndSendEEPROMData@Ndat Ndat `ul  1 p 4 79 ]
+[v ReadAndSendEEPROMData@startAddressEEPROM1 startAddressEEPROM1 `us  1 p 2 83 ]
+[v ReadAndSendEEPROMData@startAddressEEPROM2 startAddressEEPROM2 `us  1 p 2 85 ]
+"213
 } 0
 "9 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
-[u S1874 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[u S1919 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
 "13
-[s S1877 _IO_FILE 12 `S1874 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
-[v sprintf@f f `S1877  1 a 12 79 ]
+[s S1922 _IO_FILE 12 `S1919 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
+[v sprintf@f f `S1922  1 a 12 79 ]
 "12
 [v sprintf@ap ap `[1]*.30v  1 a 1 78 ]
 "9
@@ -764,9 +896,9 @@ I2C1_NULL 5
 {
 "1820
 [v vfprintf@cfmt cfmt `*.32uc  1 a 2 76 ]
-[s S1909 _IO_FILE 0 ]
+[s S1954 _IO_FILE 0 ]
 "1817
-[v vfprintf@fp fp `*.30S1909  1 p 1 47 ]
+[v vfprintf@fp fp `*.30S1954  1 p 1 47 ]
 [v vfprintf@fmt fmt `*.32Cuc  1 p 2 48 ]
 [v vfprintf@ap ap `*.30*.30v  1 p 1 50 ]
 "1840
@@ -774,15 +906,15 @@ I2C1_NULL 5
 "1177
 [v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
 {
-[u S1953 . 4 `d 1 f 4 0 ]
+[u S1998 . 4 `d 1 f 4 0 ]
 "1188
-[v vfpfcnvrt@convarg convarg `S1953  1 a 4 69 ]
+[v vfpfcnvrt@convarg convarg `S1998  1 a 4 69 ]
 "1179
 [v vfpfcnvrt@cp cp `*.32uc  1 a 2 74 ]
 [v vfpfcnvrt@c c `uc  1 a 1 73 ]
-[s S1909 _IO_FILE 0 ]
+[s S1954 _IO_FILE 0 ]
 "1177
-[v vfpfcnvrt@fp fp `*.30S1909  1 p 1 44 ]
+[v vfpfcnvrt@fp fp `*.30S1954  1 p 1 44 ]
 [v vfpfcnvrt@fmt fmt `*.30*.32uc  1 p 1 45 ]
 [v vfpfcnvrt@ap ap `*.30*.30v  1 p 1 46 ]
 "1814
@@ -799,18 +931,28 @@ I2C1_NULL 5
 [v read_prec_or_width@ap ap `*.30[1]*.30v  1 p 1 7 ]
 "1171
 } 0
-"587
+"15 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 4 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+"53
+} 0
+"587 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
 [v _efgtoa efgtoa `(v  1 s 1 efgtoa ]
 {
-[u S1922 flui 4 `d 1 f 4 0 `l 1 u 4 0 ]
+[u S1967 flui 4 `d 1 f 4 0 `l 1 u 4 0 ]
 "592
-[v efgtoa@u u `S1922  1 a 4 40 ]
-[v efgtoa@g g `S1922  1 a 4 34 ]
+[v efgtoa@u u `S1967  1 a 4 40 ]
+[v efgtoa@g g `S1967  1 a 4 34 ]
 "591
 [v efgtoa@l l `d  1 a 4 29 ]
 [v efgtoa@h h `d  1 a 4 25 ]
 "592
-[v efgtoa@ou ou `S1922  1 a 4 19 ]
+[v efgtoa@ou ou `S1967  1 a 4 19 ]
 "590
 [v efgtoa@n n `i  1 a 2 38 ]
 [v efgtoa@i i `i  1 a 2 23 ]
@@ -826,9 +968,9 @@ I2C1_NULL 5
 [v efgtoa@nmode nmode `uc  1 a 1 10 ]
 [v efgtoa@mode mode `uc  1 a 1 9 ]
 [v efgtoa@pp pp `uc  1 a 1 8 ]
-[s S1909 _IO_FILE 0 ]
+[s S1954 _IO_FILE 0 ]
 "587
-[v efgtoa@fp fp `*.30S1909  1 p 1 59 ]
+[v efgtoa@fp fp `*.30S1954  1 p 1 59 ]
 [v efgtoa@f f `d  1 p 4 60 ]
 [v efgtoa@c c `uc  1 p 1 64 ]
 "868
@@ -848,9 +990,9 @@ I2C1_NULL 5
 {
 "195
 [v pad@i i `i  1 a 2 22 ]
-[s S1909 _IO_FILE 0 ]
+[s S1954 _IO_FILE 0 ]
 "193
-[v pad@fp fp `*.30S1909  1 p 1 16 ]
+[v pad@fp fp `*.30S1954  1 p 1 16 ]
 [v pad@buf buf `*.39uc  1 p 2 17 ]
 [v pad@p p `i  1 p 2 19 ]
 "226
@@ -864,18 +1006,18 @@ I2C1_NULL 5
 [v fputs@c c `uc  1 a 1 13 ]
 "8
 [v fputs@s s `*.39Cuc  1 p 2 10 ]
-[u S1874 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S1877 _IO_FILE 12 `S1874 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
-[v fputs@fp fp `*.30S1877  1 p 1 12 ]
+[u S1919 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S1922 _IO_FILE 12 `S1919 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
+[v fputs@fp fp `*.30S1922  1 p 1 12 ]
 "19
 } 0
 "8 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 2 ]
-[u S1874 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S1877 _IO_FILE 12 `S1874 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
-[v fputc@fp fp `*.30S1877  1 p 1 4 ]
+[u S1919 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S1922 _IO_FILE 12 `S1919 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
+[v fputc@fp fp `*.30S1922  1 p 1 4 ]
 "24
 } 0
 "184 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/uart1.c
@@ -911,9 +1053,9 @@ I2C1_NULL 5
 "3 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\floorf.c
 [v _floorf floorf `(f  1 e 4 0 ]
 {
-[u S2025 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
+[u S2070 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
 "5
-[v floorf@u u `S2025  1 a 4 55 ]
+[v floorf@u u `S2070  1 a 4 55 ]
 "7
 [v floorf@m m `ul  1 a 4 49 ]
 "6
@@ -921,21 +1063,21 @@ I2C1_NULL 5
 "3
 [v floorf@x x `f  1 p 4 39 ]
 "4
-[v floorf@F521 F521 `S2025  1 s 4 F521 ]
+[v floorf@F521 F521 `S2070  1 s 4 F521 ]
 "27
 } 0
 "4 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\__fpclassifyf.c
 [v ___fpclassifyf __fpclassifyf `(i  1 e 2 0 ]
 {
-[u S2025 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
+[u S2070 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
 "6
-[v ___fpclassifyf@u u `S2025  1 a 4 10 ]
+[v ___fpclassifyf@u u `S2070  1 a 4 10 ]
 "7
 [v ___fpclassifyf@e e `i  1 a 2 8 ]
 "4
 [v ___fpclassifyf@x x `f  1 p 4 0 ]
 "5
-[v ___fpclassifyf@F465 F465 `S2025  1 s 4 F465 ]
+[v ___fpclassifyf@F465 F465 `S2070  1 s 4 F465 ]
 "11
 } 0
 "43 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\fltol.c
@@ -980,17 +1122,17 @@ I2C1_NULL 5
 "8 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S1728 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S1772 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S1733 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
-[u S1736 . 4 `l 1 i 4 0 `d 1 f 4 0 `S1728 1 fAsBytes 4 0 `S1733 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S1736  1 a 4 19 ]
+[s S1777 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
+[u S1780 . 4 `l 1 i 4 0 `d 1 f 4 0 `S1772 1 fAsBytes 4 0 `S1777 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S1780  1 a 4 19 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 14 ]
-[s S1804 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S1848 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S1807 . 2 `s 1 i 2 0 `us 1 n 2 0 `S1804 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S1807  1 a 2 23 ]
+[u S1851 . 2 `s 1 i 2 0 `us 1 n 2 0 `S1848 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S1851  1 a 2 23 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 18 ]
 "11
@@ -1016,173 +1158,75 @@ I2C1_NULL 5
 [v ___fleq@ff2 ff2 `d  1 p 4 4 ]
 "12
 } 0
-"166 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-[v _custom_delay_ms custom_delay_ms `(v  1 e 1 0 ]
+"145 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+[v _EEPROM_ReadBlock EEPROM_ReadBlock `(v  1 e 1 0 ]
 {
-[v custom_delay_ms@milliseconds milliseconds `ul  1 p 4 0 ]
-"170
-} 0
-"5 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\atoi.c
-[v _atoi atoi `(i  1 e 2 0 ]
-{
-"7
-[v atoi@n n `i  1 a 2 11 ]
-"8
-[v atoi@neg neg `a  1 a 1 10 ]
-"5
-[v atoi@s s `*.30Cuc  1 p 1 6 ]
-"24
-} 0
-"15 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul16.c
-[v ___wmul __wmul `(ui  1 e 2 0 ]
-{
-"17
-[v ___wmul@product product `ui  1 a 2 4 ]
-"15
-[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
-[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
-"53
-} 0
-"7 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\__lldiv.c
-[v ___lldiv __lldiv `(ul  1 e 4 0 ]
-{
-"10
-[v ___lldiv@quotient quotient `ul  1 a 4 8 ]
-"11
-[v ___lldiv@counter counter `uc  1 a 1 12 ]
-"7
-[v ___lldiv@dividend dividend `ul  1 p 4 0 ]
-[v ___lldiv@divisor divisor `ul  1 p 4 4 ]
-"30
-} 0
-"7 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\almod.c
-[v ___almod __almod `(l  1 e 4 0 ]
-{
-"10
-[v ___almod@sign sign `uc  1 a 1 9 ]
-[v ___almod@counter counter `uc  1 a 1 8 ]
-"7
-[v ___almod@dividend dividend `l  1 p 4 0 ]
-[v ___almod@divisor divisor `l  1 p 4 4 ]
-"34
-} 0
-"71 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-[v _UART_SendString UART_SendString `(v  1 e 1 0 ]
-{
-[v UART_SendString@str str `*.34Cuc  1 p 2 1 ]
-"76
-} 0
-"170 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/uart1.c
-[v _UART1_Write UART1_Write `(v  1 e 1 0 ]
-{
-[v UART1_Write@txData txData `uc  1 a 1 wreg ]
-[v UART1_Write@txData txData `uc  1 a 1 wreg ]
-[v UART1_Write@txData txData `uc  1 a 1 0 ]
-"177
-} 0
-"146 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-[v _UART_ReceiveString UART_ReceiveString `(uc  1 e 1 0 ]
-{
-"148
-[v UART_ReceiveString@index index `uc  1 a 1 8 ]
-"147
-[v UART_ReceiveString@data data `uc  1 a 1 7 ]
+[v EEPROM_ReadBlock@deviceAddress deviceAddress `uc  1 a 1 wreg ]
 "146
-[v UART_ReceiveString@receivedString receivedString `*.30uc  1 p 1 0 ]
-[v UART_ReceiveString@maxLength maxLength `uc  1 p 1 1 ]
-"163
+[v EEPROM_ReadBlock@i i `uc  1 a 1 39 ]
+"145
+[v EEPROM_ReadBlock@deviceAddress deviceAddress `uc  1 a 1 wreg ]
+[v EEPROM_ReadBlock@memoryAddress memoryAddress `us  1 p 2 32 ]
+[v EEPROM_ReadBlock@data data `*.39uc  1 p 2 34 ]
+[v EEPROM_ReadBlock@size size `uc  1 p 1 36 ]
+[v EEPROM_ReadBlock@deviceAddress deviceAddress `uc  1 a 1 38 ]
+"149
 } 0
-"145 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/uart1.c
-[v _UART1_Read UART1_Read `(uc  1 e 1 0 ]
+"123
+[v _EEPROM_ReadByte EEPROM_ReadByte `(uc  1 e 1 0 ]
 {
-"168
-} 0
-"195
-[v _UART1_DefaultOverrunErrorHandler UART1_DefaultOverrunErrorHandler `(v  1 e 1 0 ]
-{
-} 0
-"193
-[v _UART1_DefaultFramingErrorHandler UART1_DefaultFramingErrorHandler `(v  1 e 1 0 ]
-{
-} 0
-"197
-[v _UART1_DefaultErrorHandler UART1_DefaultErrorHandler `(v  1 e 1 0 ]
-{
-"198
-} 0
-"50 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/mcc.c
-[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
-{
-"57
-} 0
-"66 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/uart1.c
-[v _UART1_Initialize UART1_Initialize `(v  1 e 1 0 ]
-{
+[v EEPROM_ReadByte@deviceAddress deviceAddress `uc  1 a 1 wreg ]
 "124
+[v EEPROM_ReadByte@addressBuffer addressBuffer `[2]uc  1 a 2 28 ]
+"130
+[v EEPROM_ReadByte@data data `uc  1 a 1 31 ]
+"123
+[v EEPROM_ReadByte@deviceAddress deviceAddress `uc  1 a 1 wreg ]
+[v EEPROM_ReadByte@memoryAddress memoryAddress `us  1 p 2 26 ]
+"125
+[v EEPROM_ReadByte@deviceAddress deviceAddress `uc  1 a 1 30 ]
+"134
 } 0
-"204
-[v _UART1_SetOverrunErrorHandler UART1_SetOverrunErrorHandler `(v  1 e 1 0 ]
+"120 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/examples/i2c1_master_example.c
+[v _I2C1_ReadNBytes I2C1_ReadNBytes `(v  1 e 1 0 ]
 {
-[v UART1_SetOverrunErrorHandler@interruptHandler interruptHandler `*.37(v  1 p 2 0 ]
-"206
+[v I2C1_ReadNBytes@address address `uc  1 a 1 wreg ]
+[v I2C1_ReadNBytes@address address `uc  1 a 1 wreg ]
+[v I2C1_ReadNBytes@data data `*.30uc  1 p 1 22 ]
+[v I2C1_ReadNBytes@len len `ui  1 p 2 23 ]
+[v I2C1_ReadNBytes@address address `uc  1 a 1 25 ]
+"126
 } 0
-"200
-[v _UART1_SetFramingErrorHandler UART1_SetFramingErrorHandler `(v  1 e 1 0 ]
+"276 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/i2c1_master.c
+[v _I2C1_MasterRead I2C1_MasterRead `(E358  1 e 1 0 ]
 {
-[v UART1_SetFramingErrorHandler@interruptHandler interruptHandler `*.37(v  1 p 2 0 ]
-"202
+"279
 } 0
-"208
-[v _UART1_SetErrorHandler UART1_SetErrorHandler `(v  1 e 1 0 ]
-{
-[v UART1_SetErrorHandler@interruptHandler interruptHandler `*.37(v  1 p 2 0 ]
-"210
-} 0
-"73 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/mcc.c
-[v _PMD_Initialize PMD_Initialize `(v  1 e 1 0 ]
-{
-"91
-} 0
-"55 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/pin_manager.c
-[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
-{
-"143
-} 0
-"59 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/mcc.c
-[v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
-{
-"71
-} 0
-"183 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/i2c1_master.c
-[v _I2C1_Initialize I2C1_Initialize `(v  1 e 1 0 ]
-{
-"202
-} 0
-"85 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+"91 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 [v _MPU6050_ReadSensorData MPU6050_ReadSensorData `(v  1 e 1 0 ]
 {
-"86
-[v MPU6050_ReadSensorData@buffer buffer `[12]uc  1 a 12 51 ]
-"94
-[v MPU6050_ReadSensorData@gz_raw gz_raw `s  1 a 2 73 ]
-"93
-[v MPU6050_ReadSensorData@gy_raw gy_raw `s  1 a 2 71 ]
 "92
-[v MPU6050_ReadSensorData@gx_raw gx_raw `s  1 a 2 69 ]
+[v MPU6050_ReadSensorData@buffer buffer `[12]uc  1 a 12 50 ]
+"100
+[v MPU6050_ReadSensorData@gz_raw gz_raw `s  1 a 2 72 ]
+"99
+[v MPU6050_ReadSensorData@gy_raw gy_raw `s  1 a 2 70 ]
+"98
+[v MPU6050_ReadSensorData@gx_raw gx_raw `s  1 a 2 68 ]
+"97
+[v MPU6050_ReadSensorData@az_raw az_raw `s  1 a 2 66 ]
+"96
+[v MPU6050_ReadSensorData@ay_raw ay_raw `s  1 a 2 64 ]
+"95
+[v MPU6050_ReadSensorData@ax_raw ax_raw `s  1 a 2 62 ]
 "91
-[v MPU6050_ReadSensorData@az_raw az_raw `s  1 a 2 67 ]
-"90
-[v MPU6050_ReadSensorData@ay_raw ay_raw `s  1 a 2 65 ]
-"89
-[v MPU6050_ReadSensorData@ax_raw ax_raw `s  1 a 2 63 ]
-"85
 [v MPU6050_ReadSensorData@ax ax `*.30f  1 p 1 39 ]
 [v MPU6050_ReadSensorData@ay ay `*.30f  1 p 1 40 ]
-[v MPU6050_ReadSensorData@az az `*.39f  1 p 2 41 ]
-[v MPU6050_ReadSensorData@gx gx `*.39f  1 p 2 43 ]
-[v MPU6050_ReadSensorData@gy gy `*.39f  1 p 2 45 ]
-[v MPU6050_ReadSensorData@gz gz `*.39f  1 p 2 47 ]
-"102
+[v MPU6050_ReadSensorData@az az `*.30f  1 p 1 41 ]
+[v MPU6050_ReadSensorData@gx gx `*.39f  1 p 2 42 ]
+[v MPU6050_ReadSensorData@gy gy `*.39f  1 p 2 44 ]
+[v MPU6050_ReadSensorData@gz gz `*.39f  1 p 2 46 ]
+"108
 } 0
 "10 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
@@ -1235,77 +1279,33 @@ I2C1_NULL 5
 [v I2C1_ReadDataBlock@address address `uc  1 a 1 26 ]
 "140
 } 0
-"79 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-[v _MPU6050_Init MPU6050_Init `(v  1 e 1 0 ]
-{
-"82
-} 0
-"91 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/examples/i2c1_master_example.c
-[v _I2C1_Write1ByteRegister I2C1_Write1ByteRegister `(v  1 e 1 0 ]
-{
-[v I2C1_Write1ByteRegister@address address `uc  1 a 1 wreg ]
-[v I2C1_Write1ByteRegister@address address `uc  1 a 1 wreg ]
-[v I2C1_Write1ByteRegister@reg reg `uc  1 p 1 22 ]
-[v I2C1_Write1ByteRegister@data data `uc  1 p 1 23 ]
-[v I2C1_Write1ByteRegister@address address `uc  1 a 1 24 ]
-"99
-} 0
-"132 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+"138 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 [v _EEPROM_WriteBlock EEPROM_WriteBlock `(v  1 e 1 0 ]
 {
 [v EEPROM_WriteBlock@deviceAddress deviceAddress `uc  1 a 1 wreg ]
-"133
-[v EEPROM_WriteBlock@i i `uc  1 a 1 39 ]
-"132
+"139
+[v EEPROM_WriteBlock@i i `uc  1 a 1 40 ]
+"138
 [v EEPROM_WriteBlock@deviceAddress deviceAddress `uc  1 a 1 wreg ]
 [v EEPROM_WriteBlock@memoryAddress memoryAddress `us  1 p 2 34 ]
-[v EEPROM_WriteBlock@data data `*.30uc  1 p 1 36 ]
-[v EEPROM_WriteBlock@size size `uc  1 p 1 37 ]
-[v EEPROM_WriteBlock@deviceAddress deviceAddress `uc  1 a 1 38 ]
-"136
+[v EEPROM_WriteBlock@data data `*.39uc  1 p 2 36 ]
+[v EEPROM_WriteBlock@size size `uc  1 p 1 38 ]
+[v EEPROM_WriteBlock@deviceAddress deviceAddress `uc  1 a 1 39 ]
+"142
 } 0
-"105
+"111
 [v _EEPROM_WriteByte EEPROM_WriteByte `(v  1 e 1 0 ]
 {
 [v EEPROM_WriteByte@deviceAddress deviceAddress `uc  1 a 1 wreg ]
-"106
+"112
 [v EEPROM_WriteByte@buffer buffer `[3]uc  1 a 3 31 ]
-"105
+"111
 [v EEPROM_WriteByte@deviceAddress deviceAddress `uc  1 a 1 wreg ]
 [v EEPROM_WriteByte@memoryAddress memoryAddress `us  1 p 2 26 ]
 [v EEPROM_WriteByte@data data `uc  1 p 1 28 ]
-"107
+"113
 [v EEPROM_WriteByte@deviceAddress deviceAddress `uc  1 a 1 30 ]
-"114
-} 0
-"139
-[v _EEPROM_ReadBlock EEPROM_ReadBlock `(v  1 e 1 0 ]
-{
-[v EEPROM_ReadBlock@deviceAddress deviceAddress `uc  1 a 1 wreg ]
-"140
-[v EEPROM_ReadBlock@i i `uc  1 a 1 38 ]
-"139
-[v EEPROM_ReadBlock@deviceAddress deviceAddress `uc  1 a 1 wreg ]
-[v EEPROM_ReadBlock@memoryAddress memoryAddress `us  1 p 2 32 ]
-[v EEPROM_ReadBlock@data data `*.30uc  1 p 1 34 ]
-[v EEPROM_ReadBlock@size size `uc  1 p 1 35 ]
-[v EEPROM_ReadBlock@deviceAddress deviceAddress `uc  1 a 1 37 ]
-"143
-} 0
-"117
-[v _EEPROM_ReadByte EEPROM_ReadByte `(uc  1 e 1 0 ]
-{
-[v EEPROM_ReadByte@deviceAddress deviceAddress `uc  1 a 1 wreg ]
-"118
-[v EEPROM_ReadByte@addressBuffer addressBuffer `[2]uc  1 a 2 28 ]
-"124
-[v EEPROM_ReadByte@data data `uc  1 a 1 31 ]
-"117
-[v EEPROM_ReadByte@deviceAddress deviceAddress `uc  1 a 1 wreg ]
-[v EEPROM_ReadByte@memoryAddress memoryAddress `us  1 p 2 26 ]
-"119
-[v EEPROM_ReadByte@deviceAddress deviceAddress `uc  1 a 1 30 ]
-"128
+"120
 } 0
 "111 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/examples/i2c1_master_example.c
 [v _I2C1_WriteNBytes I2C1_WriteNBytes `(v  1 e 1 0 ]
@@ -1317,6 +1317,242 @@ I2C1_NULL 5
 [v I2C1_WriteNBytes@address address `uc  1 a 1 25 ]
 "118
 } 0
+"50 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/mcc.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
+{
+"57
+} 0
+"66 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/uart1.c
+[v _UART1_Initialize UART1_Initialize `(v  1 e 1 0 ]
+{
+"124
+} 0
+"204
+[v _UART1_SetOverrunErrorHandler UART1_SetOverrunErrorHandler `(v  1 e 1 0 ]
+{
+[v UART1_SetOverrunErrorHandler@interruptHandler interruptHandler `*.37(v  1 p 2 0 ]
+"206
+} 0
+"200
+[v _UART1_SetFramingErrorHandler UART1_SetFramingErrorHandler `(v  1 e 1 0 ]
+{
+[v UART1_SetFramingErrorHandler@interruptHandler interruptHandler `*.37(v  1 p 2 0 ]
+"202
+} 0
+"208
+[v _UART1_SetErrorHandler UART1_SetErrorHandler `(v  1 e 1 0 ]
+{
+[v UART1_SetErrorHandler@interruptHandler interruptHandler `*.37(v  1 p 2 0 ]
+"210
+} 0
+"73 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/mcc.c
+[v _PMD_Initialize PMD_Initialize `(v  1 e 1 0 ]
+{
+"91
+} 0
+"55 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/pin_manager.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
+{
+"143
+} 0
+"59 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/mcc.c
+[v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
+{
+"71
+} 0
+"183 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/i2c1_master.c
+[v _I2C1_Initialize I2C1_Initialize `(v  1 e 1 0 ]
+{
+"202
+} 0
+"259 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+[v _ParseUserInput ParseUserInput `(a  1 e 1 0 ]
+{
+"260
+[v ParseUserInput@frequencyHz frequencyHz `ul  1 a 4 51 ]
+"259
+[v ParseUserInput@input input `*.39Cuc  1 p 2 46 ]
+[v ParseUserInput@Tm Tm `*.39ul  1 p 2 48 ]
+[v ParseUserInput@Ndat Ndat `*.30ul  1 p 1 50 ]
+"275
+} 0
+"9 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sscanf.c
+[v _sscanf sscanf `(i  1 e 2 0 ]
+{
+[u S1919 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+"12
+[s S1922 _IO_FILE 12 `S1919 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
+[v sscanf@f f `S1922  1 a 12 34 ]
+"11
+[v sscanf@ret ret `i  1 a 2 31 ]
+"14
+[v sscanf@ap ap `[1]*.30v  1 a 1 33 ]
+"9
+[v sscanf@s s `*.39Cuc  1 p 2 25 ]
+[v sscanf@fmt fmt `*.32Cuc  1 p 2 27 ]
+"22
+} 0
+"1502 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doscan.c
+[v _vfscanf vfscanf `(i  1 e 2 0 ]
+{
+"1504
+[v vfscanf@cfmt cfmt `*.32uc  1 a 2 23 ]
+"1505
+[v vfscanf@n n `i  1 a 2 21 ]
+[v vfscanf@saved_errno saved_errno `i  1 a 2 19 ]
+[s S2165 _IO_FILE 0 ]
+"1502
+[v vfscanf@fp fp `*.30S2165  1 p 1 15 ]
+[v vfscanf@fmt fmt `*.32Cuc  1 p 2 16 ]
+[v vfscanf@ap ap `*.30*.30v  1 p 1 18 ]
+"1524
+} 0
+"672
+[v _vfsfcnvrt vfsfcnvrt `(i  1 s 2 vfsfcnvrt ]
+{
+"677
+[v vfsfcnvrt@llu llu `uo  1 a 8 3 ]
+"675
+[v vfsfcnvrt@c c `i  1 a 2 13 ]
+[v vfsfcnvrt@i i `i  1 a 2 11 ]
+"679
+[v vfsfcnvrt@vp vp `*.30v  1 a 1 2 ]
+[s S2165 _IO_FILE 0 ]
+"672
+[v vfsfcnvrt@fp fp `*.30S2165  1 p 1 90 ]
+[v vfsfcnvrt@fmt fmt `*.30*.32uc  1 p 1 91 ]
+[v vfsfcnvrt@ap ap `*.30*.30v  1 p 1 92 ]
+"1500
+} 0
+"3 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\strncmp.c
+[v _strncmp strncmp `(i  1 e 2 0 ]
+{
+[v strncmp@l l `*.32Cuc  1 p 2 0 ]
+[v strncmp@r r `*.32Cuc  1 p 2 2 ]
+[v strncmp@n n `ui  1 p 2 4 ]
+"8
+} 0
+"482 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doscan.c
+[v _atou atou `(i  1 s 2 atou ]
+{
+"485
+[v atou@c c `i  1 a 2 88 ]
+[v atou@i i `i  1 a 2 86 ]
+[v atou@w w `i  1 a 2 84 ]
+"484
+[v atou@ep ep `*.39uc  1 a 2 82 ]
+[s S2165 _IO_FILE 0 ]
+"482
+[v atou@fp fp `*.30S2165  1 p 1 72 ]
+[v atou@pll pll `*.30uo  1 p 1 73 ]
+"524
+} 0
+"74
+[v _skipws skipws `(v  1 s 1 skipws ]
+{
+"76
+[v skipws@c c `i  1 a 2 13 ]
+[s S2165 _IO_FILE 0 ]
+"74
+[v skipws@fp fp `*.30S2165  1 p 1 11 ]
+"84
+} 0
+"33 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_getc.c
+[v _ungetc ungetc `(i  1 e 2 0 ]
+{
+[v ungetc@c c `i  1 p 2 0 ]
+[u S1919 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S1922 _IO_FILE 12 `S1919 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
+[v ungetc@fp fp `*.30S1922  1 p 1 2 ]
+"53
+} 0
+"11
+[v _fgetc fgetc `(i  1 e 2 0 ]
+{
+"13
+[v fgetc@c c `i  1 a 2 9 ]
+[u S1919 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+"11
+[s S1922 _IO_FILE 12 `S1919 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
+[v fgetc@fp fp `*.30S1922  1 p 1 2 ]
+"31
+} 0
+"7 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\getch.c
+[v _getch getch `(i  1 e 2 0 ]
+{
+"10
+} 0
+"7 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\__strtoxll.c
+[v ___strtoxll __strtoxll `(uo  1 e 8 0 ]
+{
+"9
+[v ___strtoxll@a a `uo  1 a 8 61 ]
+[v ___strtoxll@limit limit `uo  1 a 8 52 ]
+[v ___strtoxll@prev_a prev_a `uo  1 a 8 40 ]
+"16
+[v ___strtoxll@cp cp `*.39Cuc  1 a 2 69 ]
+"10
+[v ___strtoxll@c c `uc  1 a 1 71 ]
+"15
+[v ___strtoxll@flags flags `E246  1 a 1 60 ]
+"7
+[v ___strtoxll@s s `*.39Cuc  1 p 2 24 ]
+[v ___strtoxll@endptr endptr `*.30*.39uc  1 p 1 26 ]
+[v ___strtoxll@base base `i  1 p 2 27 ]
+[v ___strtoxll@is_signed is_signed `uc  1 p 1 29 ]
+"100
+} 0
+"91 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+{
+"93
+[v ___omul@product product `uo  1 a 8 16 ]
+"91
+[v ___omul@multiplier multiplier `uo  1 p 8 0 ]
+[v ___omul@multiplicand multiplicand `uo  1 p 8 8 ]
+"354
+} 0
+"7 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\__lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+{
+"10
+[v ___lldiv@quotient quotient `ul  1 a 4 8 ]
+"11
+[v ___lldiv@counter counter `uc  1 a 1 12 ]
+"7
+[v ___lldiv@dividend dividend `ul  1 p 4 0 ]
+[v ___lldiv@divisor divisor `ul  1 p 4 4 ]
+"30
+} 0
+"77 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+[v _UART_SendString UART_SendString `(v  1 e 1 0 ]
+{
+[v UART_SendString@str str `*.34Cuc  1 p 2 1 ]
+"82
+} 0
+"170 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/uart1.c
+[v _UART1_Write UART1_Write `(v  1 e 1 0 ]
+{
+[v UART1_Write@txData txData `uc  1 a 1 wreg ]
+[v UART1_Write@txData txData `uc  1 a 1 wreg ]
+[v UART1_Write@txData txData `uc  1 a 1 0 ]
+"177
+} 0
+"85 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+[v _MPU6050_Init MPU6050_Init `(v  1 e 1 0 ]
+{
+"88
+} 0
+"91 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/examples/i2c1_master_example.c
+[v _I2C1_Write1ByteRegister I2C1_Write1ByteRegister `(v  1 e 1 0 ]
+{
+[v I2C1_Write1ByteRegister@address address `uc  1 a 1 wreg ]
+[v I2C1_Write1ByteRegister@address address `uc  1 a 1 wreg ]
+[v I2C1_Write1ByteRegister@reg reg `uc  1 p 1 22 ]
+[v I2C1_Write1ByteRegister@data data `uc  1 p 1 23 ]
+[v I2C1_Write1ByteRegister@address address `uc  1 a 1 24 ]
+"99
+} 0
 "313 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/i2c1_master.c
 [v _I2C1_SetAddressNackCallback I2C1_SetAddressNackCallback `(v  1 e 1 0 ]
 {
@@ -1324,22 +1560,7 @@ I2C1_NULL 5
 [v I2C1_SetAddressNackCallback@ptr ptr `*.39v  1 p 2 7 ]
 "316
 } 0
-"281
-[v _I2C1_MasterWrite I2C1_MasterWrite `(E358  1 e 1 0 ]
-{
-"284
-} 0
-"120 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/examples/i2c1_master_example.c
-[v _I2C1_ReadNBytes I2C1_ReadNBytes `(v  1 e 1 0 ]
-{
-[v I2C1_ReadNBytes@address address `uc  1 a 1 wreg ]
-[v I2C1_ReadNBytes@address address `uc  1 a 1 wreg ]
-[v I2C1_ReadNBytes@data data `*.30uc  1 p 1 22 ]
-[v I2C1_ReadNBytes@len len `ui  1 p 2 23 ]
-[v I2C1_ReadNBytes@address address `uc  1 a 1 25 ]
-"126
-} 0
-"204 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/i2c1_master.c
+"204
 [v _I2C1_Open I2C1_Open `(E358  1 e 1 0 ]
 {
 [v I2C1_Open@address address `uc  1 a 1 wreg ]
@@ -1356,10 +1577,10 @@ I2C1_NULL 5
 {
 "653
 } 0
-"276
-[v _I2C1_MasterRead I2C1_MasterRead `(E358  1 e 1 0 ]
+"281
+[v _I2C1_MasterWrite I2C1_MasterWrite `(E358  1 e 1 0 ]
 {
-"279
+"284
 } 0
 "252
 [v _I2C1_MasterOperation I2C1_MasterOperation `(E358  1 e 1 0 ]

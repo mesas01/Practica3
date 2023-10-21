@@ -66,6 +66,12 @@
 uint16_t currentBlockEEPROM1 = 0x0000;
 uint16_t currentBlockEEPROM2 = 0x0000;
 
+uint32_t Ndat = 0;  // Número de datos a almacenar
+uint32_t Tm = 0;    // Tiempo de muestreo en milisegundos
+bool logging = false;  // Flag para indicar si se está registrando
+
+float ax, ay, az, gx, gy, gz;
+uint8_t eepromBuffer[BLOCK_SIZE];  // Buffer temporal para almacenar los datos antes de escribir en la EEPROM
 
 
 void UART_SendString(const char* str){
@@ -150,6 +156,11 @@ char UART_ReceiveString(char* receivedString, uint8_t maxLength){
     while (index < maxLength - 1){
         data = UART1_Read();   // Lee un byte del UART
         
+        // Ignora caracteres de retorno de carro y salto de línea al principio
+        if (index == 0 && (data == '\r' || data == '\n')) {
+            continue;
+        }
+        
         if (data == '\r') {   // Verifica si es un retorno de carro
             break;
         } else {
@@ -170,7 +181,138 @@ void custom_delay_ms(uint32_t milliseconds) {
 }
 
 
+void ReadAndSendEEPROMData(uint32_t Ndat, uint16_t startAddressEEPROM1, uint16_t startAddressEEPROM2) {
+
+    uint16_t readBlockEEPROM1 = startAddressEEPROM1;
+    uint16_t readBlockEEPROM2 = startAddressEEPROM2;
+    uint8_t eepromReadBuffer[BLOCK_SIZE];
+    float ax_read, ay_read, az_read, gx_read, gy_read, gz_read;  // Variables para almacenar datos leídos de la EEPROM
+    char buffer[200];
+
+    for (uint32_t i = 0; i < Ndat; i++) {
+        // Leer y convertir los datos del acelerómetro de la EEPROM1
+        EEPROM_ReadBlock(EEPROM1_ADDRESS, readBlockEEPROM1, eepromReadBuffer, 12);
+        memcpy(&ax_read, &eepromReadBuffer[0], sizeof(float));
+        memcpy(&ay_read, &eepromReadBuffer[4], sizeof(float));
+        memcpy(&az_read, &eepromReadBuffer[8], sizeof(float));
+
+        // Leer y convertir los datos del giroscopio de la EEPROM2
+        EEPROM_ReadBlock(EEPROM2_ADDRESS, readBlockEEPROM2, &eepromReadBuffer[12], 12);
+        memcpy(&gx_read, &eepromReadBuffer[12], sizeof(float));
+        memcpy(&gy_read, &eepromReadBuffer[16], sizeof(float));
+        memcpy(&gz_read, &eepromReadBuffer[20], sizeof(float));
+
+        // Mostrar los datos leídos de la EEPROM en UART
+        sprintf(buffer, "EEPROM - AX: %.2f, AY: %.2f, AZ: %.2f, GX: %.2f, GY: %.2f, GZ: %.2f\n", ax_read, ay_read, az_read, gx_read, gy_read, gz_read);
+        UART_SendString(buffer);
+
+        // Incrementa los índices de los bloques para la siguiente iteración
+        readBlockEEPROM1 = (readBlockEEPROM1 + 12) % EEPROM_SIZE;
+        readBlockEEPROM2 = (readBlockEEPROM2 + 12) % EEPROM_SIZE;
+    }
+}
+
+
+void StartLogging() {
+    uint32_t loggedDataCount = 0;
+    while (loggedDataCount < Ndat) {
+        // Realiza una lectura del MPU6050
+        MPU6050_ReadSensorData(&ax, &ay, &az, &gx, &gy, &gz);
+
+        // Convertir los datos float a bytes y almacenarlos en eepromBuffer
+        memcpy(&eepromBuffer[0], &ax, sizeof(float));
+        memcpy(&eepromBuffer[4], &ay, sizeof(float));
+        memcpy(&eepromBuffer[8], &az, sizeof(float));
+        memcpy(&eepromBuffer[12], &gx, sizeof(float));
+        memcpy(&eepromBuffer[16], &gy, sizeof(float));
+        memcpy(&eepromBuffer[20], &gz, sizeof(float));
+
+        // Escribir los datos del acelerómetro (ax, ay, az) en la EEPROM1
+        EEPROM_WriteBlock(EEPROM1_ADDRESS, currentBlockEEPROM1, eepromBuffer, 12);
+        
+        // Escribir los datos del giroscopio (gx, gy, gz) en la EEPROM2
+        EEPROM_WriteBlock(EEPROM2_ADDRESS, currentBlockEEPROM2, &eepromBuffer[12], 12);
+
+        // Incrementar los índices de los bloques y verificar si se ha alcanzado el final de la EEPROM
+        currentBlockEEPROM1 = (currentBlockEEPROM1 + 12) % EEPROM_SIZE;
+        currentBlockEEPROM2 = (currentBlockEEPROM2 + 12) % EEPROM_SIZE;
+
+        loggedDataCount++;
+        custom_delay_ms(Tm);
+    }
+
+    if (loggedDataCount == Ndat) {
+    UART_SendString("°°°°°°°°°°°°LOG_OK°°°°°°°°°°°°\n");
+    
+    unsigned long startReadAddressEEPROM1 = (currentBlockEEPROM1 == 0 ? EEPROM_SIZE : currentBlockEEPROM1) - (Ndat * 12);
+    unsigned long startReadAddressEEPROM2 = (currentBlockEEPROM2 == 0 ? EEPROM_SIZE : currentBlockEEPROM2) - (Ndat * 12);
+
+    ReadAndSendEEPROMData(Ndat, (uint16_t)startReadAddressEEPROM1, (uint16_t)startReadAddressEEPROM2);  // Leer y enviar datos de las EEPROMs
+    
+    } else {
+        UART_SendString("LOG_ERR\n");
+    }
+    logging = false;  // Reset the logging flag
+}
+
+
+bool ParseUserInput(const char* input, uint32_t* Tm, uint32_t* Ndat) {
+    uint32_t frequencyHz; // Frecuencia en Hz
+    // Intentamos analizar la entrada en el formato deseado
+    if (sscanf(input, "LOG(%lu,%lu)\r\n", &frequencyHz, Ndat) == 2 || sscanf(input, "LOG(%lu,%lu)\n", &frequencyHz, Ndat) == 2) {
+        
+        // Verifica si la frecuencia supera los 400,000 Hz
+        if (frequencyHz > 400000) {
+            frequencyHz = 400000;
+            UART_SendString("Frecuencia excedida. Ajustada a 400kHz.\n");
+        }
+
+        *Tm = 1000 / frequencyHz; // Calcula Tm en milisegundos a partir de la frecuencia
+
+        return true;
+    }
+    return false;
+}
+
+
 void main(void){
+    SYSTEM_Initialize();
+    MPU6050_Init();
+    
+    char buffer[200];
+    float ax_read, ay_read, az_read, gx_read, gy_read, gz_read;  // Variables para almacenar datos leídos de la EEPROM
+    
+    char userInput[20];  // Buffer para almacenar la entrada del usuario
+
+    // Bucle principal
+    while(1){
+        // Esperamos la entrada del usuario para el comando LOG
+        UART_SendString("Ingrese la frecuencia (max 400000) y muestras (ejemplo: LOG(400000,100)): ");
+        // Limpiar el buffer userInput antes de recibir una nueva entrada
+        memset(userInput, 0, sizeof(userInput));
+        
+        UART_ReceiveString(userInput, sizeof(userInput));
+        
+        // Impresión de depuración para mostrar lo que se recibe en userInput
+        UART_SendString("Recibido: ");
+        UART_SendString(userInput);
+        UART_SendString("\n");
+
+        if (ParseUserInput(userInput, &Tm, &Ndat)) {
+            // Si se analizó correctamente, inicia el registro
+            StartLogging();
+        } else {
+            // En caso contrario, envía un mensaje de error
+            UART_SendString("Entrada no valida. Intente de nuevo.\n");
+        }
+
+        // Si no se está registrando, simplemente leemos el MPU y mostramos los datos
+        if (!logging) {
+            MPU6050_ReadSensorData(&ax, &ay, &az, &gx, &gy, &gz);
+        }
+    }
+}
+/*void main(void){
     SYSTEM_Initialize();
     MPU6050_Init();
     
@@ -237,7 +379,7 @@ void main(void){
 
          custom_delay_ms(delayTime);
     }
-}
+}*/
 
 
 /*void I2C_Scanner(void) {

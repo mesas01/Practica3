@@ -27637,6 +27637,12 @@ void *memccpy (void *restrict, const void *restrict, int, size_t);
 uint16_t currentBlockEEPROM1 = 0x0000;
 uint16_t currentBlockEEPROM2 = 0x0000;
 
+uint32_t Ndat = 0;
+uint32_t Tm = 0;
+_Bool logging = 0;
+
+float ax, ay, az, gx, gy, gz;
+uint8_t eepromBuffer[24];
 
 
 void UART_SendString(const char* str){
@@ -27741,31 +27747,42 @@ void custom_delay_ms(uint32_t milliseconds) {
 }
 
 
-void main(void){
-    SYSTEM_Initialize();
-    MPU6050_Init();
+void ReadAndSendEEPROMData(uint32_t Ndat, uint16_t startAddressEEPROM1, uint16_t startAddressEEPROM2) {
 
-    char buffer[200];
-    float ax, ay, az, gx, gy, gz;
+    uint16_t readBlockEEPROM1 = startAddressEEPROM1;
+    uint16_t readBlockEEPROM2 = startAddressEEPROM2;
+    uint8_t eepromReadBuffer[24];
     float ax_read, ay_read, az_read, gx_read, gy_read, gz_read;
-    uint8_t eepromBuffer[24];
+    char buffer[200];
 
-    char userInput[10];
-    uint32_t samplingRate;
-    uint32_t delayTime;
+    for (uint32_t i = 0; i < Ndat; i++) {
 
-    UART_SendString("Ingrese la frecuencia de muestreo (max 400kHz = 400000): ");
-    UART_ReceiveString(userInput, sizeof(userInput));
-    samplingRate = (uint32_t)atoi(userInput);
+        EEPROM_ReadBlock(0x50, readBlockEEPROM1, eepromReadBuffer, 12);
+        memcpy(&ax_read, &eepromReadBuffer[0], sizeof(float));
+        memcpy(&ay_read, &eepromReadBuffer[4], sizeof(float));
+        memcpy(&az_read, &eepromReadBuffer[8], sizeof(float));
 
-    if (samplingRate > 400000){
-        UART_SendString("Frecuencia ingresada es muy alta. Se establecera en 400kHz.\n");
-        samplingRate = 400000;
+
+        EEPROM_ReadBlock(0x51, readBlockEEPROM2, &eepromReadBuffer[12], 12);
+        memcpy(&gx_read, &eepromReadBuffer[12], sizeof(float));
+        memcpy(&gy_read, &eepromReadBuffer[16], sizeof(float));
+        memcpy(&gz_read, &eepromReadBuffer[20], sizeof(float));
+
+
+        sprintf(buffer, "EEPROM - AX: %.2f, AY: %.2f, AZ: %.2f, GX: %.2f, GY: %.2f, GZ: %.2f\n", ax_read, ay_read, az_read, gx_read, gy_read, gz_read);
+        UART_SendString(buffer);
+
+
+        readBlockEEPROM1 = (readBlockEEPROM1 + 12) % 32768;
+        readBlockEEPROM2 = (readBlockEEPROM2 + 12) % 32768;
     }
-    delayTime = 1000 / samplingRate;
+}
 
 
-    while(1){
+void StartLogging() {
+    uint32_t loggedDataCount = 0;
+    while (loggedDataCount < Ndat) {
+
         MPU6050_ReadSensorData(&ax, &ay, &az, &gx, &gy, &gz);
 
 
@@ -27780,32 +27797,80 @@ void main(void){
         EEPROM_WriteBlock(0x50, currentBlockEEPROM1, eepromBuffer, 12);
 
 
-        EEPROM_ReadBlock(0x50, currentBlockEEPROM1, eepromBuffer, 12);
-        memcpy(&ax_read, &eepromBuffer[0], sizeof(float));
-        memcpy(&ay_read, &eepromBuffer[4], sizeof(float));
-        memcpy(&az_read, &eepromBuffer[8], sizeof(float));
-
-
         EEPROM_WriteBlock(0x51, currentBlockEEPROM2, &eepromBuffer[12], 12);
 
 
-        EEPROM_ReadBlock(0x51, currentBlockEEPROM2, &eepromBuffer[12], 12);
-        memcpy(&gx_read, &eepromBuffer[12], sizeof(float));
-        memcpy(&gy_read, &eepromBuffer[16], sizeof(float));
-        memcpy(&gz_read, &eepromBuffer[20], sizeof(float));
+        currentBlockEEPROM1 = (currentBlockEEPROM1 + 12) % 32768;
+        currentBlockEEPROM2 = (currentBlockEEPROM2 + 12) % 32768;
+
+        loggedDataCount++;
+        custom_delay_ms(Tm);
+    }
+
+    if (loggedDataCount == Ndat) {
+    UART_SendString("LOG_OK\n");
+
+    unsigned long startReadAddressEEPROM1 = (currentBlockEEPROM1 == 0 ? 32768 : currentBlockEEPROM1) - (Ndat * 12);
+    unsigned long startReadAddressEEPROM2 = (currentBlockEEPROM2 == 0 ? 32768 : currentBlockEEPROM2) - (Ndat * 12);
+
+    ReadAndSendEEPROMData(Ndat, (uint16_t)startReadAddressEEPROM1, (uint16_t)startReadAddressEEPROM2);
+
+    } else {
+        UART_SendString("LOG_ERR\n");
+    }
+    logging = 0;
+}
 
 
-        currentBlockEEPROM1 = (currentBlockEEPROM1 + 1) % (32768 / 24);
-        currentBlockEEPROM2 = (currentBlockEEPROM2 + 1) % (32768 / 24);
+_Bool ParseUserInput(const char* input, uint32_t* Tm, uint32_t* Ndat) {
+
+    if (sscanf(input, "LOG(%lu,%lu)\n", Tm, Ndat) == 2) {
+
+        float frequencyHz = 1000.0f / (*Tm);
 
 
-        sprintf(buffer, "Original - AX: %.2f, AY: %.2f, AZ: %.2f, GX: %.2f, GY: %.2f, GZ: %.2f\n", ax, ay, az, gx, gy, gz);
-        UART_SendString(buffer);
+        if (frequencyHz > 400000.0) {
+            *Tm = 2;
+            UART_SendString("Frecuencia excedida. Ajustada a 400kHz.\n");
+        }
+        return 1;
+    }
+    return 0;
+}
 
 
-        sprintf(buffer, "____Read - AX: %.2f, AY: %.2f, AZ: %.2f, GX: %.2f, GY: %.2f, GZ: %.2f\n", ax_read, ay_read, az_read, gx_read, gy_read, gz_read);
-        UART_SendString(buffer);
 
-         custom_delay_ms(delayTime);
+void main(void){
+    SYSTEM_Initialize();
+    MPU6050_Init();
+
+    char buffer[200];
+
+    float ax_read, ay_read, az_read, gx_read, gy_read, gz_read;
+
+
+    char userInput[20];
+
+
+    while(1){
+
+        UART_SendString("Ingrese el comando freq (max 400000), muestras (ejemplo: LOG(50,100)): ");
+        UART_ReceiveString(userInput, sizeof(userInput));
+
+        if (ParseUserInput(userInput, &Tm, &Ndat)) {
+
+            StartLogging();
+        } else {
+
+            UART_SendString("Entrada no valida. Intente de nuevo.\n");
+        }
+
+
+        if (!logging) {
+            MPU6050_ReadSensorData(&ax, &ay, &az, &gx, &gy, &gz);
+
+
+
+        }
     }
 }
