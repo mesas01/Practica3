@@ -151,31 +151,31 @@ CONV_DONE 4
 [v ___omul __omul `(uo  1 e 8 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
-"77 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+"78 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 [v _UART_SendString UART_SendString `(v  1 e 1 0 ]
-"85
+"86
 [v _MPU6050_Init MPU6050_Init `(v  1 e 1 0 ]
-"91
+"92
 [v _MPU6050_ReadSensorData MPU6050_ReadSensorData `(v  1 e 1 0 ]
-"111
+"112
 [v _EEPROM_WriteByte EEPROM_WriteByte `(v  1 e 1 0 ]
-"123
+"124
 [v _EEPROM_ReadByte EEPROM_ReadByte `(uc  1 e 1 0 ]
-"138
+"139
 [v _EEPROM_WriteBlock EEPROM_WriteBlock `(v  1 e 1 0 ]
-"145
+"146
 [v _EEPROM_ReadBlock EEPROM_ReadBlock `(v  1 e 1 0 ]
-"152
+"153
 [v _UART_ReceiveString UART_ReceiveString `(uc  1 e 1 0 ]
-"177
+"178
 [v _custom_delay_ms custom_delay_ms `(v  1 e 1 0 ]
-"184
+"185
 [v _ReadAndSendEEPROMData ReadAndSendEEPROMData `(v  1 e 1 0 ]
-"216
+"217
 [v _StartLogging StartLogging `(v  1 e 1 0 ]
-"259
+"260
 [v _ParseUserInput ParseUserInput `(a  1 e 1 0 ]
-"278
+"279
 [v _main main `(v  1 e 1 0 ]
 "91 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/examples/i2c1_master_example.c
 [v _I2C1_Write1ByteRegister I2C1_Write1ByteRegister `(v  1 e 1 0 ]
@@ -734,24 +734,24 @@ CONV_DONE 4
 [v ___ungetbuf __ungetbuf `[3]uc  1 e 3 0 ]
 "9
 [v ___ungetcnt __ungetcnt `uc  1 e 1 0 ]
-"66 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+"67 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 [v _currentBlockEEPROM1 currentBlockEEPROM1 `us  1 e 2 0 ]
-"67
+"68
 [v _currentBlockEEPROM2 currentBlockEEPROM2 `us  1 e 2 0 ]
-"69
-[v _Ndat Ndat `ul  1 e 4 0 ]
 "70
-[v _Tm Tm `ul  1 e 4 0 ]
+[v _Ndat Ndat `ul  1 e 4 0 ]
 "71
+[v _Tm Tm `ul  1 e 4 0 ]
+"72
 [v _logging logging `a  1 e 1 0 ]
-"73
+"74
 [v _ax ax `f  1 e 4 0 ]
 [v _ay ay `f  1 e 4 0 ]
 [v _az az `f  1 e 4 0 ]
 [v _gx gx `f  1 e 4 0 ]
 [v _gy gy `f  1 e 4 0 ]
 [v _gz gz `f  1 e 4 0 ]
-"74
+"75
 [v _eepromBuffer eepromBuffer `[24]uc  1 e 24 0 ]
 "159 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/i2c1_master.c
 [v _i2c1_fsmStateTable i2c1_fsmStateTable `C[19]*.37(E16630  1 e 38 0 ]
@@ -776,12 +776,12 @@ CONV_DONE 4
 [v _UART1_OverrunErrorHandler UART1_OverrunErrorHandler `*.37(v  1 e 2 0 ]
 "60
 [v _UART1_ErrorHandler UART1_ErrorHandler `*.37(v  1 e 2 0 ]
-"278 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+"279 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"285
+"286
 [v main@userInput userInput `[20]uc  1 a 20 0 ]
-"314
+"315
 } 0
 "3 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\memset.c
 [v _memset memset `(*.39v  1 e 2 0 ]
@@ -794,17 +794,17 @@ CONV_DONE 4
 [v memset@n n `ui  1 p 2 4 ]
 "10
 } 0
-"152 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+"153 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 [v _UART_ReceiveString UART_ReceiveString `(uc  1 e 1 0 ]
 {
-"154
+"155
 [v UART_ReceiveString@index index `uc  1 a 1 9 ]
-"153
+"154
 [v UART_ReceiveString@data data `uc  1 a 1 8 ]
-"152
+"153
 [v UART_ReceiveString@receivedString receivedString `*.39uc  1 p 2 0 ]
 [v UART_ReceiveString@maxLength maxLength `uc  1 p 1 2 ]
-"174
+"175
 } 0
 "145 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/uart1.c
 [v _UART1_Read UART1_Read `(uc  1 e 1 0 ]
@@ -824,22 +824,22 @@ CONV_DONE 4
 {
 "198
 } 0
-"216 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+"217 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 [v _StartLogging StartLogging `(v  1 e 1 0 ]
 {
-"248
+"249
 [v StartLogging@startReadAddressEEPROM2 startReadAddressEEPROM2 `ul  1 a 4 93 ]
-"247
+"248
 [v StartLogging@startReadAddressEEPROM1 startReadAddressEEPROM1 `ul  1 a 4 89 ]
-"217
+"218
 [v StartLogging@loggedDataCount loggedDataCount `ul  1 a 4 105 ]
-"256
+"257
 } 0
-"177
+"178
 [v _custom_delay_ms custom_delay_ms `(v  1 e 1 0 ]
 {
 [v custom_delay_ms@milliseconds milliseconds `ul  1 p 4 0 ]
-"181
+"182
 } 0
 "15 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
@@ -851,31 +851,31 @@ CONV_DONE 4
 [v ___lmul@multiplicand multiplicand `ul  1 p 4 4 ]
 "129
 } 0
-"184 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+"185 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 [v _ReadAndSendEEPROMData ReadAndSendEEPROMData `(v  1 e 1 0 ]
 {
-"192
+"193
 [v ReadAndSendEEPROMData@i i `ul  1 a 4 224 ]
-"190
+"191
 [v ReadAndSendEEPROMData@buffer buffer `[200]uc  1 a 200 0 ]
-"188
-[v ReadAndSendEEPROMData@eepromReadBuffer eepromReadBuffer `[24]uc  1 a 24 200 ]
 "189
+[v ReadAndSendEEPROMData@eepromReadBuffer eepromReadBuffer `[24]uc  1 a 24 200 ]
+"190
 [v ReadAndSendEEPROMData@gz_read gz_read `f  1 a 4 248 ]
 [v ReadAndSendEEPROMData@gy_read gy_read `f  1 a 4 244 ]
 [v ReadAndSendEEPROMData@gx_read gx_read `f  1 a 4 240 ]
 [v ReadAndSendEEPROMData@az_read az_read `f  1 a 4 236 ]
 [v ReadAndSendEEPROMData@ay_read ay_read `f  1 a 4 232 ]
 [v ReadAndSendEEPROMData@ax_read ax_read `f  1 a 4 228 ]
-"187
+"188
 [v ReadAndSendEEPROMData@readBlockEEPROM2 readBlockEEPROM2 `us  1 a 2 254 ]
-"186
+"187
 [v ReadAndSendEEPROMData@readBlockEEPROM1 readBlockEEPROM1 `us  1 a 2 252 ]
-"184
+"185
 [v ReadAndSendEEPROMData@Ndat Ndat `ul  1 p 4 79 ]
 [v ReadAndSendEEPROMData@startAddressEEPROM1 startAddressEEPROM1 `us  1 p 2 83 ]
 [v ReadAndSendEEPROMData@startAddressEEPROM2 startAddressEEPROM2 `us  1 p 2 85 ]
-"213
+"214
 } 0
 "9 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
@@ -1158,34 +1158,34 @@ CONV_DONE 4
 [v ___fleq@ff2 ff2 `d  1 p 4 4 ]
 "12
 } 0
-"145 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+"146 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 [v _EEPROM_ReadBlock EEPROM_ReadBlock `(v  1 e 1 0 ]
 {
 [v EEPROM_ReadBlock@deviceAddress deviceAddress `uc  1 a 1 wreg ]
-"146
+"147
 [v EEPROM_ReadBlock@i i `uc  1 a 1 39 ]
-"145
+"146
 [v EEPROM_ReadBlock@deviceAddress deviceAddress `uc  1 a 1 wreg ]
 [v EEPROM_ReadBlock@memoryAddress memoryAddress `us  1 p 2 32 ]
 [v EEPROM_ReadBlock@data data `*.39uc  1 p 2 34 ]
 [v EEPROM_ReadBlock@size size `uc  1 p 1 36 ]
 [v EEPROM_ReadBlock@deviceAddress deviceAddress `uc  1 a 1 38 ]
-"149
+"150
 } 0
-"123
+"124
 [v _EEPROM_ReadByte EEPROM_ReadByte `(uc  1 e 1 0 ]
 {
 [v EEPROM_ReadByte@deviceAddress deviceAddress `uc  1 a 1 wreg ]
-"124
+"125
 [v EEPROM_ReadByte@addressBuffer addressBuffer `[2]uc  1 a 2 28 ]
-"130
+"131
 [v EEPROM_ReadByte@data data `uc  1 a 1 31 ]
-"123
+"124
 [v EEPROM_ReadByte@deviceAddress deviceAddress `uc  1 a 1 wreg ]
 [v EEPROM_ReadByte@memoryAddress memoryAddress `us  1 p 2 26 ]
-"125
+"126
 [v EEPROM_ReadByte@deviceAddress deviceAddress `uc  1 a 1 30 ]
-"134
+"135
 } 0
 "120 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/examples/i2c1_master_example.c
 [v _I2C1_ReadNBytes I2C1_ReadNBytes `(v  1 e 1 0 ]
@@ -1202,31 +1202,31 @@ CONV_DONE 4
 {
 "279
 } 0
-"91 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+"92 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 [v _MPU6050_ReadSensorData MPU6050_ReadSensorData `(v  1 e 1 0 ]
 {
-"92
+"93
 [v MPU6050_ReadSensorData@buffer buffer `[12]uc  1 a 12 50 ]
-"100
+"101
 [v MPU6050_ReadSensorData@gz_raw gz_raw `s  1 a 2 72 ]
-"99
+"100
 [v MPU6050_ReadSensorData@gy_raw gy_raw `s  1 a 2 70 ]
-"98
+"99
 [v MPU6050_ReadSensorData@gx_raw gx_raw `s  1 a 2 68 ]
-"97
+"98
 [v MPU6050_ReadSensorData@az_raw az_raw `s  1 a 2 66 ]
-"96
+"97
 [v MPU6050_ReadSensorData@ay_raw ay_raw `s  1 a 2 64 ]
-"95
+"96
 [v MPU6050_ReadSensorData@ax_raw ax_raw `s  1 a 2 62 ]
-"91
+"92
 [v MPU6050_ReadSensorData@ax ax `*.30f  1 p 1 39 ]
 [v MPU6050_ReadSensorData@ay ay `*.30f  1 p 1 40 ]
 [v MPU6050_ReadSensorData@az az `*.30f  1 p 1 41 ]
 [v MPU6050_ReadSensorData@gx gx `*.39f  1 p 2 42 ]
 [v MPU6050_ReadSensorData@gy gy `*.39f  1 p 2 44 ]
 [v MPU6050_ReadSensorData@gz gz `*.39f  1 p 2 46 ]
-"108
+"109
 } 0
 "10 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
@@ -1279,33 +1279,33 @@ CONV_DONE 4
 [v I2C1_ReadDataBlock@address address `uc  1 a 1 26 ]
 "140
 } 0
-"138 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+"139 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 [v _EEPROM_WriteBlock EEPROM_WriteBlock `(v  1 e 1 0 ]
 {
 [v EEPROM_WriteBlock@deviceAddress deviceAddress `uc  1 a 1 wreg ]
-"139
+"140
 [v EEPROM_WriteBlock@i i `uc  1 a 1 40 ]
-"138
+"139
 [v EEPROM_WriteBlock@deviceAddress deviceAddress `uc  1 a 1 wreg ]
 [v EEPROM_WriteBlock@memoryAddress memoryAddress `us  1 p 2 34 ]
 [v EEPROM_WriteBlock@data data `*.39uc  1 p 2 36 ]
 [v EEPROM_WriteBlock@size size `uc  1 p 1 38 ]
 [v EEPROM_WriteBlock@deviceAddress deviceAddress `uc  1 a 1 39 ]
-"142
+"143
 } 0
-"111
+"112
 [v _EEPROM_WriteByte EEPROM_WriteByte `(v  1 e 1 0 ]
 {
 [v EEPROM_WriteByte@deviceAddress deviceAddress `uc  1 a 1 wreg ]
-"112
+"113
 [v EEPROM_WriteByte@buffer buffer `[3]uc  1 a 3 31 ]
-"111
+"112
 [v EEPROM_WriteByte@deviceAddress deviceAddress `uc  1 a 1 wreg ]
 [v EEPROM_WriteByte@memoryAddress memoryAddress `us  1 p 2 26 ]
 [v EEPROM_WriteByte@data data `uc  1 p 1 28 ]
-"113
+"114
 [v EEPROM_WriteByte@deviceAddress deviceAddress `uc  1 a 1 30 ]
-"120
+"121
 } 0
 "111 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/examples/i2c1_master_example.c
 [v _I2C1_WriteNBytes I2C1_WriteNBytes `(v  1 e 1 0 ]
@@ -1365,16 +1365,16 @@ CONV_DONE 4
 {
 "202
 } 0
-"259 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+"260 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 [v _ParseUserInput ParseUserInput `(a  1 e 1 0 ]
 {
-"260
+"261
 [v ParseUserInput@frequencyHz frequencyHz `ul  1 a 4 51 ]
-"259
+"260
 [v ParseUserInput@input input `*.39Cuc  1 p 2 46 ]
 [v ParseUserInput@Tm Tm `*.39ul  1 p 2 48 ]
 [v ParseUserInput@Ndat Ndat `*.30ul  1 p 1 50 ]
-"275
+"276
 } 0
 "9 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sscanf.c
 [v _sscanf sscanf `(i  1 e 2 0 ]
@@ -1524,11 +1524,11 @@ CONV_DONE 4
 [v ___lldiv@divisor divisor `ul  1 p 4 4 ]
 "30
 } 0
-"77 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+"78 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 [v _UART_SendString UART_SendString `(v  1 e 1 0 ]
 {
 [v UART_SendString@str str `*.34Cuc  1 p 2 1 ]
-"82
+"83
 } 0
 "170 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/uart1.c
 [v _UART1_Write UART1_Write `(v  1 e 1 0 ]
@@ -1538,10 +1538,10 @@ CONV_DONE 4
 [v UART1_Write@txData txData `uc  1 a 1 0 ]
 "177
 } 0
-"85 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+"86 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 [v _MPU6050_Init MPU6050_Init `(v  1 e 1 0 ]
 {
-"88
+"89
 } 0
 "91 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/examples/i2c1_master_example.c
 [v _I2C1_Write1ByteRegister I2C1_Write1ByteRegister `(v  1 e 1 0 ]

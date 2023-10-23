@@ -7,7 +7,7 @@
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-# 44 "main.c"
+# 45 "main.c"
 # 1 "./mcc_generated_files/mcc.h" 1
 # 49 "./mcc_generated_files/mcc.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 1 3
@@ -27560,7 +27560,7 @@ void SYSTEM_Initialize(void);
 void OSCILLATOR_Initialize(void);
 # 97 "./mcc_generated_files/mcc.h"
 void PMD_Initialize(void);
-# 44 "main.c" 2
+# 45 "main.c" 2
 
 # 1 "./mcc_generated_files/examples/i2c1_master_example.h" 1
 # 54 "./mcc_generated_files/examples/i2c1_master_example.h"
@@ -27571,7 +27571,7 @@ void I2C1_Write2ByteRegister(i2c1_address_t address, uint8_t reg, uint16_t data)
 void I2C1_WriteNBytes(i2c1_address_t address, uint8_t *data, size_t len);
 void I2C1_ReadNBytes(i2c1_address_t address, uint8_t *data, size_t len);
 void I2C1_ReadDataBlock(i2c1_address_t address, uint8_t reg, uint8_t *data, size_t len);
-# 45 "main.c" 2
+# 46 "main.c" 2
 
 
 
@@ -27632,8 +27632,8 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 48 "main.c" 2
-# 66 "main.c"
+# 49 "main.c" 2
+# 67 "main.c"
 uint16_t currentBlockEEPROM1 = 0x0000;
 uint16_t currentBlockEEPROM2 = 0x0000;
 
@@ -27727,6 +27727,11 @@ char UART_ReceiveString(char* receivedString, uint8_t maxLength){
     while (index < maxLength - 1){
         data = UART1_Read();
 
+
+        if (index == 0 && (data == '\r' || data == '\n')) {
+            continue;
+        }
+
         if (data == '\r') {
             break;
         } else {
@@ -27808,7 +27813,7 @@ void StartLogging() {
     }
 
     if (loggedDataCount == Ndat) {
-    UART_SendString("LOG_OK\n");
+    UART_SendString("같같같같같같LOG_OK같같같같같같\n");
 
     unsigned long startReadAddressEEPROM1 = (currentBlockEEPROM1 == 0 ? 32768 : currentBlockEEPROM1) - (Ndat * 12);
     unsigned long startReadAddressEEPROM2 = (currentBlockEEPROM2 == 0 ? 32768 : currentBlockEEPROM2) - (Ndat * 12);
@@ -27823,21 +27828,22 @@ void StartLogging() {
 
 
 _Bool ParseUserInput(const char* input, uint32_t* Tm, uint32_t* Ndat) {
+    uint32_t frequencyHz;
 
-    if (sscanf(input, "LOG(%lu,%lu)\n", Tm, Ndat) == 2) {
-
-        float frequencyHz = 1000.0f / (*Tm);
+    if (sscanf(input, "LOG(%lu,%lu)\r\n", &frequencyHz, Ndat) == 2 || sscanf(input, "LOG(%lu,%lu)\n", &frequencyHz, Ndat) == 2) {
 
 
-        if (frequencyHz > 400000.0) {
-            *Tm = 2;
+        if (frequencyHz > 400000) {
+            frequencyHz = 400000;
             UART_SendString("Frecuencia excedida. Ajustada a 400kHz.\n");
         }
+
+        *Tm = 1000 / frequencyHz;
+
         return 1;
     }
     return 0;
 }
-
 
 
 void main(void){
@@ -27845,17 +27851,23 @@ void main(void){
     MPU6050_Init();
 
     char buffer[200];
-
     float ax_read, ay_read, az_read, gx_read, gy_read, gz_read;
-
 
     char userInput[20];
 
 
     while(1){
 
-        UART_SendString("Ingrese el comando freq (max 400000), muestras (ejemplo: LOG(50,100)): ");
+        UART_SendString("Ingrese la frecuencia (max 400000) y muestras (ejemplo: LOG(400000,100)): ");
+
+        memset(userInput, 0, sizeof(userInput));
+
         UART_ReceiveString(userInput, sizeof(userInput));
+
+
+        UART_SendString("Recibido: ");
+        UART_SendString(userInput);
+        UART_SendString("\n");
 
         if (ParseUserInput(userInput, &Tm, &Ndat)) {
 
@@ -27868,9 +27880,6 @@ void main(void){
 
         if (!logging) {
             MPU6050_ReadSensorData(&ax, &ay, &az, &gx, &gy, &gz);
-
-
-
         }
     }
 }

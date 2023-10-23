@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.45 build 20230818022343 
-                                                                                               Sat Oct 21 15:43:25 2023
+                                                                                               Mon Oct 23 16:27:11 2023
 
 Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1 
      1                           	processor	18F46K42
@@ -1879,7 +1879,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1865 ;;
   1866 ;; *************** function _main *****************
   1867 ;; Defined at:
-  1868 ;;		line 278 in file "main.c"
+  1868 ;;		line 279 in file "main.c"
   1869 ;; Parameters:    Size  Location     Type
   1870 ;;		None
   1871 ;; Auto vars:     Size  Location     Type
@@ -1932,14 +1932,14 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1912   00C68C                     _main:
   1913                           	callstack 15
   1914   00C68C                     
-  1915                           ;main.c: 279:     SYSTEM_Initialize();
+  1915                           ;main.c: 280:     SYSTEM_Initialize();
   1916   00C68C  EC03  F058         	call	_SYSTEM_Initialize	;wreg free
   1917   00C690                     
-  1918                           ;main.c: 280:     MPU6050_Init();
+  1918                           ;main.c: 281:     MPU6050_Init();
   1919   00C690  ECAE  F057         	call	_MPU6050_Init	;wreg free
   1920   00C694                     l10236:
   1921                           
-  1922                           ;main.c: 290:         UART_SendString("Ingrese la frecuencia (max 400000) y muestras (ej
+  1922                           ;main.c: 291:         UART_SendString("Ingrese la frecuencia (max 400000) y muestras (ej
       +                          emplo: LOG(400000,100)): ");
   1923   00C694  0EBF               	movlw	low STR_7
   1924   00C696  6E02               	movwf	UART_SendString@str^0,c
@@ -1947,7 +1947,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1926   00C69A  6E03               	movwf	(UART_SendString@str+1)^0,c
   1927   00C69C  ECC3  F05D         	call	_UART_SendString	;wreg free
   1928   00C6A0                     
-  1929                           ;main.c: 292:         memset(userInput, 0, sizeof(userInput));
+  1929                           ;main.c: 293:         memset(userInput, 0, sizeof(userInput));
   1930   00C6A0  0ECB               	movlw	low main@userInput
   1931   00C6A2  6E01               	movwf	memset@dest^0,c
   1932   00C6A4  0E02               	movlw	high main@userInput
@@ -1962,7 +1962,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1941   00C6B6  6E05               	movwf	memset@n^0,c
   1942   00C6B8  ECD3  F059         	call	_memset	;wreg free
   1943   00C6BC                     
-  1944                           ;main.c: 294:         UART_ReceiveString(userInput, sizeof(userInput));
+  1944                           ;main.c: 295:         UART_ReceiveString(userInput, sizeof(userInput));
   1945   00C6BC  0ECB               	movlw	low main@userInput
   1946   00C6BE  6E01               	movwf	UART_ReceiveString@receivedString^0,c
   1947   00C6C0  0E02               	movlw	high main@userInput
@@ -1971,28 +1971,28 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1950   00C6C6  6E03               	movwf	UART_ReceiveString@maxLength^0,c
   1951   00C6C8  ECC7  F061         	call	_UART_ReceiveString	;wreg free
   1952   00C6CC                     
-  1953                           ;main.c: 297:         UART_SendString("Recibido: ");
+  1953                           ;main.c: 298:         UART_SendString("Recibido: ");
   1954   00C6CC  0EDB               	movlw	low STR_8
   1955   00C6CE  6E02               	movwf	UART_SendString@str^0,c
   1956   00C6D0  0EFF               	movlw	high STR_8
   1957   00C6D2  6E03               	movwf	(UART_SendString@str+1)^0,c
   1958   00C6D4  ECC3  F05D         	call	_UART_SendString	;wreg free
   1959   00C6D8                     
-  1960                           ;main.c: 298:         UART_SendString(userInput);
+  1960                           ;main.c: 299:         UART_SendString(userInput);
   1961   00C6D8  0ECB               	movlw	low main@userInput
   1962   00C6DA  6E02               	movwf	UART_SendString@str^0,c
   1963   00C6DC  0E02               	movlw	high main@userInput
   1964   00C6DE  6E03               	movwf	(UART_SendString@str+1)^0,c
   1965   00C6E0  ECC3  F05D         	call	_UART_SendString	;wreg free
   1966   00C6E4                     
-  1967                           ;main.c: 299:         UART_SendString("\n");
+  1967                           ;main.c: 300:         UART_SendString("\n");
   1968   00C6E4  0EBC               	movlw	low (STR_2+30)
   1969   00C6E6  6E02               	movwf	UART_SendString@str^0,c
   1970   00C6E8  0EFF               	movlw	high (STR_2+30)
   1971   00C6EA  6E03               	movwf	(UART_SendString@str+1)^0,c
   1972   00C6EC  ECC3  F05D         	call	_UART_SendString	;wreg free
   1973   00C6F0                     
-  1974                           ;main.c: 301:         if (ParseUserInput(userInput, &Tm, &Ndat)) {
+  1974                           ;main.c: 302:         if (ParseUserInput(userInput, &Tm, &Ndat)) {
   1975   00C6F0  0ECB               	movlw	low main@userInput
   1976   00C6F2  0100               	movlb	0	; () banked
   1977   00C6F4  6F8E               	movwf	ParseUserInput@input& (0+255),b
@@ -2013,14 +2013,14 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   1992   00C716  EF91  F063         	goto	l10252
   1993   00C71A                     u10710:
   1994   00C71A                     
-  1995                           ;main.c: 303:             StartLogging();
+  1995                           ;main.c: 304:             StartLogging();
   1996   00C71A  ECE0  F06D         	call	_StartLogging	;wreg free
   1997                           
-  1998                           ;main.c: 304:         } else {
+  1998                           ;main.c: 305:         } else {
   1999   00C71E  EF97  F063         	goto	l10254
   2000   00C722                     l10252:
   2001                           
-  2002                           ;main.c: 306:             UART_SendString("Entrada no valida. Intente de nuevo.\n");
+  2002                           ;main.c: 307:             UART_SendString("Entrada no valida. Intente de nuevo.\n");
   2003   00C722  0E78               	movlw	low STR_10
   2004   00C724  6E02               	movwf	UART_SendString@str^0,c
   2005   00C726  0EFF               	movlw	high STR_10
@@ -2028,7 +2028,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2007   00C72A  ECC3  F05D         	call	_UART_SendString	;wreg free
   2008   00C72E                     l10254:
   2009                           
-  2010                           ;main.c: 310:         if (!logging) {
+  2010                           ;main.c: 311:         if (!logging) {
   2011   00C72E  0100               	movlb	0	; () banked
   2012   00C730  51DB               	movf	_logging& (0+255),w,b
   2013   00C732  A4D8               	btfss	status,2,c
@@ -2039,7 +2039,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2018   00C740                     u10720:
   2019   00C740                     
   2020                           ; BSR set to: 0
-  2021                           ;main.c: 311:             MPU6050_ReadSensorData(&ax, &ay, &az, &gx, &gy, &gz);
+  2021                           ;main.c: 312:             MPU6050_ReadSensorData(&ax, &ay, &az, &gx, &gy, &gz);
   2022   00C740  0EE5               	movlw	low _ax
   2023   00C742  6E28               	movwf	MPU6050_ReadSensorData@ax^0,c
   2024   00C744  0EE1               	movlw	low _ay
@@ -2135,7 +2135,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2109                           
   2110 ;; *************** function _UART_ReceiveString *****************
   2111 ;; Defined at:
-  2112 ;;		line 152 in file "main.c"
+  2112 ;;		line 153 in file "main.c"
   2113 ;; Parameters:    Size  Location     Type
   2114 ;;  receivedStri    2    0[COMRAM] PTR unsigned char 
   2115 ;;		 -> main@userInput(20), 
@@ -2177,19 +2177,19 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2146   00C38E                     _UART_ReceiveString:
   2147                           	callstack 28
   2148   00C38E                     
-  2149                           ;main.c: 153:     char data;;main.c: 154:     uint8_t index = 0;
+  2149                           ;main.c: 154:     char data;;main.c: 155:     uint8_t index = 0;
   2150   00C38E  0E00               	movlw	0
   2151   00C390  6E0A               	movwf	UART_ReceiveString@index^0,c
   2152                           
-  2153                           ;main.c: 156:     while (index < maxLength - 1){
+  2153                           ;main.c: 157:     while (index < maxLength - 1){
   2154   00C392  EFFF  F061         	goto	l10198
   2155   00C396                     l10180:
   2156                           
-  2157                           ;main.c: 157:         data = UART1_Read();
+  2157                           ;main.c: 158:         data = UART1_Read();
   2158   00C396  ECCB  F060         	call	_UART1_Read	;wreg free
   2159   00C39A  6E09               	movwf	UART_ReceiveString@data^0,c
   2160   00C39C                     
-  2161                           ;main.c: 160:         if (index == 0 && (data == '\r' || data == '\n')) {
+  2161                           ;main.c: 161:         if (index == 0 && (data == '\r' || data == '\n')) {
   2162   00C39C  500A               	movf	UART_ReceiveString@index^0,w,c
   2163   00C39E  A4D8               	btfss	status,2,c
   2164   00C3A0  EFD4  F061         	goto	u10621
@@ -2216,7 +2216,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2185   00C3D0  EFFF  F061         	goto	l10198
   2186   00C3D4                     l10188:
   2187                           
-  2188                           ;main.c: 164:         if (data == '\r') {
+  2188                           ;main.c: 165:         if (data == '\r') {
   2189   00C3D4  0E0D               	movlw	13
   2190   00C3D6  1809               	xorwf	UART_ReceiveString@data^0,w,c
   2191   00C3D8  A4D8               	btfss	status,2,c
@@ -2228,7 +2228,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2197   00C3E6  EF17  F062         	goto	l10200
   2198   00C3EA                     l10194:
   2199                           
-  2200                           ;main.c: 167:             receivedString[index] = data;
+  2200                           ;main.c: 168:             receivedString[index] = data;
   2201   00C3EA  500A               	movf	UART_ReceiveString@index^0,w,c
   2202   00C3EC  2401               	addwf	UART_ReceiveString@receivedString^0,w,c
   2203   00C3EE  6ED9               	movwf	fsr2l,c
@@ -2237,11 +2237,11 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2206   00C3F4  6EDA               	movwf	fsr2h,c
   2207   00C3F6  0060  F027  FFDF   	movff	UART_ReceiveString@data,indf2
   2208   00C3FC                     
-  2209                           ;main.c: 168:             index++;
+  2209                           ;main.c: 169:             index++;
   2210   00C3FC  2A0A               	incf	UART_ReceiveString@index^0,f,c
   2211   00C3FE                     l10198:
   2212                           
-  2213                           ;main.c: 156:     while (index < maxLength - 1){
+  2213                           ;main.c: 157:     while (index < maxLength - 1){
   2214   00C3FE  0EFF               	movlw	255
   2215   00C400  2403               	addwf	UART_ReceiveString@maxLength^0,w,c
   2216   00C402  6E04               	movwf	??_UART_ReceiveString^0,c
@@ -2267,7 +2267,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2236   00C42E                     u10660:
   2237   00C42E                     l10200:
   2238                           
-  2239                           ;main.c: 172:     receivedString[index] = '\0';
+  2239                           ;main.c: 173:     receivedString[index] = '\0';
   2240   00C42E  500A               	movf	UART_ReceiveString@index^0,w,c
   2241   00C430  2401               	addwf	UART_ReceiveString@receivedString^0,w,c
   2242   00C432  6ED9               	movwf	fsr2l,c
@@ -2576,7 +2576,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2525                           
   2526 ;; *************** function _StartLogging *****************
   2527 ;; Defined at:
-  2528 ;;		line 216 in file "main.c"
+  2528 ;;		line 217 in file "main.c"
   2529 ;; Parameters:    Size  Location     Type
   2530 ;;		None
   2531 ;; Auto vars:     Size  Location     Type
@@ -2624,7 +2624,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2567   00DBC0                     _StartLogging:
   2568                           	callstack 15
   2569   00DBC0                     
-  2570                           ;main.c: 217:     uint32_t loggedDataCount = 0;
+  2570                           ;main.c: 218:     uint32_t loggedDataCount = 0;
   2571   00DBC0  0E00               	movlw	0
   2572   00DBC2  0100               	movlb	0	; () banked
   2573   00DBC4  6FC9               	movwf	StartLogging@loggedDataCount& (0+255),b
@@ -2635,12 +2635,12 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2578   00DBCE  0E00               	movlw	0
   2579   00DBD0  6FCC               	movwf	(StartLogging@loggedDataCount+3)& (0+255),b
   2580                           
-  2581                           ;main.c: 218:     while (loggedDataCount < Ndat) {
+  2581                           ;main.c: 219:     while (loggedDataCount < Ndat) {
   2582   00DBD2  EF93  F06E         	goto	l9808
   2583   00DBD6                     l9786:
   2584                           
   2585                           ; BSR set to: 0
-  2586                           ;main.c: 220:         MPU6050_ReadSensorData(&ax, &ay, &az, &gx, &gy, &gz);
+  2586                           ;main.c: 221:         MPU6050_ReadSensorData(&ax, &ay, &az, &gx, &gy, &gz);
   2587   00DBD6  0EE5               	movlw	low _ax
   2588   00DBD8  6E28               	movwf	MPU6050_ReadSensorData@ax^0,c
   2589   00DBDA  0EE1               	movlw	low _ay
@@ -2661,7 +2661,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2604   00DBF8  6E30               	movwf	(MPU6050_ReadSensorData@gz+1)^0,c
   2605   00DBFA  EC7B  F06C         	call	_MPU6050_ReadSensorData	;wreg free
   2606   00DBFE                     
-  2607                           ;main.c: 223:         memcpy(&eepromBuffer[0], &ax, sizeof(float));
+  2607                           ;main.c: 224:         memcpy(&eepromBuffer[0], &ax, sizeof(float));
   2608   00DBFE  0EA3               	movlw	low _eepromBuffer
   2609   00DC00  6E01               	movwf	memcpy@d1^0,c
   2610   00DC02  0E02               	movlw	high _eepromBuffer
@@ -2675,7 +2675,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2618   00DC12  6E05               	movwf	memcpy@n^0,c
   2619   00DC14  ECF5  F05B         	call	_memcpy	;wreg free
   2620   00DC18                     
-  2621                           ;main.c: 224:         memcpy(&eepromBuffer[4], &ay, sizeof(float));
+  2621                           ;main.c: 225:         memcpy(&eepromBuffer[4], &ay, sizeof(float));
   2622   00DC18  0EA7               	movlw	low (_eepromBuffer+4)
   2623   00DC1A  6E01               	movwf	memcpy@d1^0,c
   2624   00DC1C  0E02               	movlw	high (_eepromBuffer+4)
@@ -2689,7 +2689,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2632   00DC2C  6E05               	movwf	memcpy@n^0,c
   2633   00DC2E  ECF5  F05B         	call	_memcpy	;wreg free
   2634   00DC32                     
-  2635                           ;main.c: 225:         memcpy(&eepromBuffer[8], &az, sizeof(float));
+  2635                           ;main.c: 226:         memcpy(&eepromBuffer[8], &az, sizeof(float));
   2636   00DC32  0EAB               	movlw	low (_eepromBuffer+8)
   2637   00DC34  6E01               	movwf	memcpy@d1^0,c
   2638   00DC36  0E02               	movlw	high (_eepromBuffer+8)
@@ -2703,7 +2703,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2646   00DC46  6E05               	movwf	memcpy@n^0,c
   2647   00DC48  ECF5  F05B         	call	_memcpy	;wreg free
   2648   00DC4C                     
-  2649                           ;main.c: 226:         memcpy(&eepromBuffer[12], &gx, sizeof(float));
+  2649                           ;main.c: 227:         memcpy(&eepromBuffer[12], &gx, sizeof(float));
   2650   00DC4C  0EAF               	movlw	low (_eepromBuffer+12)
   2651   00DC4E  6E01               	movwf	memcpy@d1^0,c
   2652   00DC50  0E02               	movlw	high (_eepromBuffer+12)
@@ -2718,7 +2718,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2661   00DC62  6E05               	movwf	memcpy@n^0,c
   2662   00DC64  ECF5  F05B         	call	_memcpy	;wreg free
   2663   00DC68                     
-  2664                           ;main.c: 227:         memcpy(&eepromBuffer[16], &gy, sizeof(float));
+  2664                           ;main.c: 228:         memcpy(&eepromBuffer[16], &gy, sizeof(float));
   2665   00DC68  0EB3               	movlw	low (_eepromBuffer+16)
   2666   00DC6A  6E01               	movwf	memcpy@d1^0,c
   2667   00DC6C  0E02               	movlw	high (_eepromBuffer+16)
@@ -2733,7 +2733,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2676   00DC7E  6E05               	movwf	memcpy@n^0,c
   2677   00DC80  ECF5  F05B         	call	_memcpy	;wreg free
   2678   00DC84                     
-  2679                           ;main.c: 228:         memcpy(&eepromBuffer[20], &gz, sizeof(float));
+  2679                           ;main.c: 229:         memcpy(&eepromBuffer[20], &gz, sizeof(float));
   2680   00DC84  0EB7               	movlw	low (_eepromBuffer+20)
   2681   00DC86  6E01               	movwf	memcpy@d1^0,c
   2682   00DC88  0E02               	movlw	high (_eepromBuffer+20)
@@ -2748,7 +2748,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2691   00DC9A  6E05               	movwf	memcpy@n^0,c
   2692   00DC9C  ECF5  F05B         	call	_memcpy	;wreg free
   2693                           
-  2694                           ;main.c: 231:         EEPROM_WriteBlock(0x50, currentBlockEEPROM1, eepromBuffer, 12);
+  2694                           ;main.c: 232:         EEPROM_WriteBlock(0x50, currentBlockEEPROM1, eepromBuffer, 12);
   2695   00DCA0  C0D7  F023         	movff	_currentBlockEEPROM1,EEPROM_WriteBlock@memoryAddress
   2696   00DCA4  C0D8  F024         	movff	_currentBlockEEPROM1+1,EEPROM_WriteBlock@memoryAddress+1
   2697   00DCA8  0EA3               	movlw	low _eepromBuffer
@@ -2760,7 +2760,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2703   00DCB4  0E50               	movlw	80
   2704   00DCB6  EC12  F05A         	call	_EEPROM_WriteBlock
   2705                           
-  2706                           ;main.c: 234:         EEPROM_WriteBlock(0x51, currentBlockEEPROM2, &eepromBuffer[12], 12
+  2706                           ;main.c: 235:         EEPROM_WriteBlock(0x51, currentBlockEEPROM2, &eepromBuffer[12], 12
       +                          );
   2707   00DCBA  C0D5  F023         	movff	_currentBlockEEPROM2,EEPROM_WriteBlock@memoryAddress
   2708   00DCBE  C0D6  F024         	movff	_currentBlockEEPROM2+1,EEPROM_WriteBlock@memoryAddress+1
@@ -2773,7 +2773,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2715   00DCCE  0E51               	movlw	81
   2716   00DCD0  EC12  F05A         	call	_EEPROM_WriteBlock
   2717   00DCD4                     
-  2718                           ;main.c: 237:         currentBlockEEPROM1 = (currentBlockEEPROM1 + 12) % 32768;
+  2718                           ;main.c: 238:         currentBlockEEPROM1 = (currentBlockEEPROM1 + 12) % 32768;
   2719   00DCD4  0E0C               	movlw	12
   2720   00DCD6  0100               	movlb	0	; () banked
   2721   00DCD8  25D7               	addwf	_currentBlockEEPROM1& (0+255),w,b
@@ -2789,7 +2789,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2731   00DCEC  6FD8               	movwf	(_currentBlockEEPROM1+1)& (0+255),b
   2732   00DCEE                     
   2733                           ; BSR set to: 0
-  2734                           ;main.c: 238:         currentBlockEEPROM2 = (currentBlockEEPROM2 + 12) % 32768;
+  2734                           ;main.c: 239:         currentBlockEEPROM2 = (currentBlockEEPROM2 + 12) % 32768;
   2735   00DCEE  0E0C               	movlw	12
   2736   00DCF0  25D5               	addwf	_currentBlockEEPROM2& (0+255),w,b
   2737   00DCF2  6FB7               	movwf	??_StartLogging& (0+255),b
@@ -2804,7 +2804,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2746   00DD04  6FD6               	movwf	(_currentBlockEEPROM2+1)& (0+255),b
   2747   00DD06                     
   2748                           ; BSR set to: 0
-  2749                           ;main.c: 240:         loggedDataCount++;
+  2749                           ;main.c: 241:         loggedDataCount++;
   2750   00DD06  0E01               	movlw	1
   2751   00DD08  27C9               	addwf	StartLogging@loggedDataCount& (0+255),f,b
   2752   00DD0A  0E00               	movlw	0
@@ -2813,7 +2813,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2755   00DD10  23CC               	addwfc	(StartLogging@loggedDataCount+3)& (0+255),f,b
   2756   00DD12                     
   2757                           ; BSR set to: 0
-  2758                           ;main.c: 241:         custom_delay_ms(Tm);
+  2758                           ;main.c: 242:         custom_delay_ms(Tm);
   2759   00DD12  C2C7  F001         	movff	_Tm,custom_delay_ms@milliseconds
   2760   00DD16  C2C8  F002         	movff	_Tm+1,custom_delay_ms@milliseconds+1
   2761   00DD1A  C2C9  F003         	movff	_Tm+2,custom_delay_ms@milliseconds+2
@@ -2821,7 +2821,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2763   00DD22  ECB6  F059         	call	_custom_delay_ms	;wreg free
   2764   00DD26                     l9808:
   2765                           
-  2766                           ;main.c: 218:     while (loggedDataCount < Ndat) {
+  2766                           ;main.c: 219:     while (loggedDataCount < Ndat) {
   2767   00DD26  0100               	movlb	0	; () banked
   2768   00DD28  51E9               	movf	_Ndat& (0+255),w,b
   2769   00DD2A  5DC9               	subwf	StartLogging@loggedDataCount& (0+255),w,b
@@ -2839,7 +2839,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2781   00DD46                     u10460:
   2782   00DD46                     
   2783                           ; BSR set to: 0
-  2784                           ;main.c: 244:     if (loggedDataCount == Ndat) {
+  2784                           ;main.c: 245:     if (loggedDataCount == Ndat) {
   2785   00DD46  51E9               	movf	_Ndat& (0+255),w,b
   2786   00DD48  19C9               	xorwf	StartLogging@loggedDataCount& (0+255),w,b
   2787   00DD4A  E10D               	bnz	u10471
@@ -2859,14 +2859,14 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2801   00DD6A                     u10470:
   2802   00DD6A                     
   2803                           ; BSR set to: 0
-  2804                           ;main.c: 245:     UART_SendString("같같같같같같LOG_OK같같같같같같\n");
+  2804                           ;main.c: 246:     UART_SendString("같같같같같같LOG_OK같같같같같같\n");
   2805   00DD6A  0E9E               	movlw	low STR_2
   2806   00DD6C  6E02               	movwf	UART_SendString@str^0,c
   2807   00DD6E  0EFF               	movlw	high STR_2
   2808   00DD70  6E03               	movwf	(UART_SendString@str+1)^0,c
   2809   00DD72  ECC3  F05D         	call	_UART_SendString	;wreg free
   2810   00DD76                     
-  2811                           ;main.c: 247:     unsigned long startReadAddressEEPROM1 = (currentBlockEEPROM1 == 0 ? 32
+  2811                           ;main.c: 248:     unsigned long startReadAddressEEPROM1 = (currentBlockEEPROM1 == 0 ? 32
       +                          768 : currentBlockEEPROM1) - (Ndat * 12);
   2812   00DD76  0100               	movlb	0	; () banked
   2813   00DD78  51D7               	movf	_currentBlockEEPROM1& (0+255),w,b
@@ -2926,7 +2926,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2867   00DDE6  6FBC               	movwf	(StartLogging@startReadAddressEEPROM1+3)& (0+255),b
   2868   00DDE8                     
   2869                           ; BSR set to: 0
-  2870                           ;main.c: 248:     unsigned long startReadAddressEEPROM2 = (currentBlockEEPROM2 == 0 ? 32
+  2870                           ;main.c: 249:     unsigned long startReadAddressEEPROM2 = (currentBlockEEPROM2 == 0 ? 32
       +                          768 : currentBlockEEPROM2) - (Ndat * 12);
   2871   00DDE8  51D5               	movf	_currentBlockEEPROM2& (0+255),w,b
   2872   00DDEA  11D6               	iorwf	(_currentBlockEEPROM2+1)& (0+255),w,b
@@ -2985,7 +2985,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2925   00DE56  6FC0               	movwf	(StartLogging@startReadAddressEEPROM2+3)& (0+255),b
   2926   00DE58                     
   2927                           ; BSR set to: 0
-  2928                           ;main.c: 250:     ReadAndSendEEPROMData(Ndat, (uint16_t)startReadAddressEEPROM1, (uint16
+  2928                           ;main.c: 251:     ReadAndSendEEPROMData(Ndat, (uint16_t)startReadAddressEEPROM1, (uint16
       +                          _t)startReadAddressEEPROM2);
   2929   00DE58  C0E9  F0AF         	movff	_Ndat,ReadAndSendEEPROMData@Ndat
   2930   00DE5C  C0EA  F0B0         	movff	_Ndat+1,ReadAndSendEEPROMData@Ndat+1
@@ -2999,12 +2999,12 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
       +                          1
   2937   00DE78  EC23  F068         	call	_ReadAndSendEEPROMData	;wreg free
   2938                           
-  2939                           ;main.c: 252:     } else {
+  2939                           ;main.c: 253:     } else {
   2940   00DE7C  EF46  F06F         	goto	l9834
   2941   00DE80                     l9832:
   2942                           
   2943                           ; BSR set to: 0
-  2944                           ;main.c: 253:         UART_SendString("LOG_ERR\n");
+  2944                           ;main.c: 254:         UART_SendString("LOG_ERR\n");
   2945   00DE80  0EE6               	movlw	low STR_3
   2946   00DE82  6E02               	movwf	UART_SendString@str^0,c
   2947   00DE84  0EFF               	movlw	high STR_3
@@ -3012,7 +3012,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2949   00DE88  ECC3  F05D         	call	_UART_SendString	;wreg free
   2950   00DE8C                     l9834:
   2951                           
-  2952                           ;main.c: 255:     logging = 0;
+  2952                           ;main.c: 256:     logging = 0;
   2953   00DE8C  0E00               	movlw	0
   2954   00DE8E  0100               	movlb	0	; () banked
   2955   00DE90  6FDB               	movwf	_logging& (0+255),b
@@ -3024,7 +3024,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2961                           
   2962 ;; *************** function _custom_delay_ms *****************
   2963 ;; Defined at:
-  2964 ;;		line 177 in file "main.c"
+  2964 ;;		line 178 in file "main.c"
   2965 ;; Parameters:    Size  Location     Type
   2966 ;;  milliseconds    4    0[COMRAM] unsigned long 
   2967 ;; Auto vars:     Size  Location     Type
@@ -3062,11 +3062,11 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   2994   00B36C                     _custom_delay_ms:
   2995                           	callstack 29
   2996   00B36C                     
-  2997                           ;main.c: 178:     while(milliseconds--) {
+  2997                           ;main.c: 179:     while(milliseconds--) {
   2998   00B36C  EFBF  F059         	goto	l9678
   2999   00B370                     l9676:
   3000                           
-  3001                           ;main.c: 179:         _delay((unsigned long)((1)*(8000000/4000.0)));
+  3001                           ;main.c: 180:         _delay((unsigned long)((1)*(8000000/4000.0)));
   3002   00B370  0E03               	movlw	3
   3003   00B372  6E05               	movwf	??_custom_delay_ms^0,c
   3004   00B374  0E98               	movlw	152
@@ -3077,7 +3077,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3009   00B37C  D7FC               	bra	u10737
   3010   00B37E                     l9678:
   3011                           
-  3012                           ;main.c: 178:     while(milliseconds--) {
+  3012                           ;main.c: 179:     while(milliseconds--) {
   3013   00B37E  0601               	decf	custom_delay_ms@milliseconds^0,f,c
   3014   00B380  0E00               	movlw	0
   3015   00B382  5A02               	subwfb	(custom_delay_ms@milliseconds+1)^0,f,c
@@ -3194,7 +3194,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3121                           
   3122 ;; *************** function _ReadAndSendEEPROMData *****************
   3123 ;; Defined at:
-  3124 ;;		line 184 in file "main.c"
+  3124 ;;		line 185 in file "main.c"
   3125 ;; Parameters:    Size  Location     Type
   3126 ;;  Ndat            4   79[BANK0 ] unsigned long 
   3127 ;;  startAddress    2   83[BANK0 ] unsigned short 
@@ -3249,18 +3249,18 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3170   00D046                     _ReadAndSendEEPROMData:
   3171                           	callstack 15
   3172   00D046                     
-  3173                           ;main.c: 186:     uint16_t readBlockEEPROM1 = startAddressEEPROM1;
+  3173                           ;main.c: 187:     uint16_t readBlockEEPROM1 = startAddressEEPROM1;
   3174   00D046  C0B3  F1FC         	movff	ReadAndSendEEPROMData@startAddressEEPROM1,ReadAndSendEEPROMData@readBlockEEPROM1
   3175   00D04A  C0B4  F1FD         	movff	ReadAndSendEEPROMData@startAddressEEPROM1+1,ReadAndSendEEPROMData@readBlockEEPROM
       +                          1+1
   3176                           
-  3177                           ;main.c: 187:     uint16_t readBlockEEPROM2 = startAddressEEPROM2;
+  3177                           ;main.c: 188:     uint16_t readBlockEEPROM2 = startAddressEEPROM2;
   3178   00D04E  C0B5  F1FE         	movff	ReadAndSendEEPROMData@startAddressEEPROM2,ReadAndSendEEPROMData@readBlockEEPROM2
   3179   00D052  C0B6  F1FF         	movff	ReadAndSendEEPROMData@startAddressEEPROM2+1,ReadAndSendEEPROMData@readBlockEEPROM
       +                          2+1
   3180   00D056                     
-  3181                           ;main.c: 188:     uint8_t eepromReadBuffer[24];;main.c: 189:     float ax_read, ay_read,
-      +                           az_read, gx_read, gy_read, gz_read;;main.c: 190:     char buffer[200];;main.c: 192:    
+  3181                           ;main.c: 189:     uint8_t eepromReadBuffer[24];;main.c: 190:     float ax_read, ay_read,
+      +                           az_read, gx_read, gy_read, gz_read;;main.c: 191:     char buffer[200];;main.c: 193:    
       +                           for (uint32_t i = 0; i < Ndat; i++) {
   3182   00D056  0E00               	movlw	0
   3183   00D058  0101               	movlb	1	; () banked
@@ -3275,7 +3275,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3192   00D06C                     l9684:
   3193                           
   3194                           ; BSR set to: 1
-  3195                           ;main.c: 194:         EEPROM_ReadBlock(0x50, readBlockEEPROM1, eepromReadBuffer, 12);
+  3195                           ;main.c: 195:         EEPROM_ReadBlock(0x50, readBlockEEPROM1, eepromReadBuffer, 12);
   3196   00D06C  C1FC  F021         	movff	ReadAndSendEEPROMData@readBlockEEPROM1,EEPROM_ReadBlock@memoryAddress
   3197   00D070  C1FD  F022         	movff	ReadAndSendEEPROMData@readBlockEEPROM1+1,EEPROM_ReadBlock@memoryAddress+1
   3198   00D074  0EC8               	movlw	low ReadAndSendEEPROMData@eepromReadBuffer
@@ -3287,7 +3287,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3204   00D080  0E50               	movlw	80
   3205   00D082  ECBB  F05A         	call	_EEPROM_ReadBlock
   3206   00D086                     
-  3207                           ;main.c: 195:         memcpy(&ax_read, &eepromReadBuffer[0], sizeof(float));
+  3207                           ;main.c: 196:         memcpy(&ax_read, &eepromReadBuffer[0], sizeof(float));
   3208   00D086  0EE4               	movlw	low ReadAndSendEEPROMData@ax_read
   3209   00D088  6E01               	movwf	memcpy@d1^0,c
   3210   00D08A  0E01               	movlw	high ReadAndSendEEPROMData@ax_read
@@ -3302,7 +3302,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3219   00D09C  6E05               	movwf	memcpy@n^0,c
   3220   00D09E  ECF5  F05B         	call	_memcpy	;wreg free
   3221   00D0A2                     
-  3222                           ;main.c: 196:         memcpy(&ay_read, &eepromReadBuffer[4], sizeof(float));
+  3222                           ;main.c: 197:         memcpy(&ay_read, &eepromReadBuffer[4], sizeof(float));
   3223   00D0A2  0EE8               	movlw	low ReadAndSendEEPROMData@ay_read
   3224   00D0A4  6E01               	movwf	memcpy@d1^0,c
   3225   00D0A6  0E01               	movlw	high ReadAndSendEEPROMData@ay_read
@@ -3317,7 +3317,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3234   00D0B8  6E05               	movwf	memcpy@n^0,c
   3235   00D0BA  ECF5  F05B         	call	_memcpy	;wreg free
   3236   00D0BE                     
-  3237                           ;main.c: 197:         memcpy(&az_read, &eepromReadBuffer[8], sizeof(float));
+  3237                           ;main.c: 198:         memcpy(&az_read, &eepromReadBuffer[8], sizeof(float));
   3238   00D0BE  0EEC               	movlw	low ReadAndSendEEPROMData@az_read
   3239   00D0C0  6E01               	movwf	memcpy@d1^0,c
   3240   00D0C2  0E01               	movlw	high ReadAndSendEEPROMData@az_read
@@ -3332,7 +3332,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3249   00D0D4  6E05               	movwf	memcpy@n^0,c
   3250   00D0D6  ECF5  F05B         	call	_memcpy	;wreg free
   3251   00D0DA                     
-  3252                           ;main.c: 200:         EEPROM_ReadBlock(0x51, readBlockEEPROM2, &eepromReadBuffer[12], 12
+  3252                           ;main.c: 201:         EEPROM_ReadBlock(0x51, readBlockEEPROM2, &eepromReadBuffer[12], 12
       +                          );
   3253   00D0DA  C1FE  F021         	movff	ReadAndSendEEPROMData@readBlockEEPROM2,EEPROM_ReadBlock@memoryAddress
   3254   00D0DE  C1FF  F022         	movff	ReadAndSendEEPROMData@readBlockEEPROM2+1,EEPROM_ReadBlock@memoryAddress+1
@@ -3345,7 +3345,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3261   00D0EE  0E51               	movlw	81
   3262   00D0F0  ECBB  F05A         	call	_EEPROM_ReadBlock
   3263                           
-  3264                           ;main.c: 201:         memcpy(&gx_read, &eepromReadBuffer[12], sizeof(float));
+  3264                           ;main.c: 202:         memcpy(&gx_read, &eepromReadBuffer[12], sizeof(float));
   3265   00D0F4  0EF0               	movlw	low ReadAndSendEEPROMData@gx_read
   3266   00D0F6  6E01               	movwf	memcpy@d1^0,c
   3267   00D0F8  0E01               	movlw	high ReadAndSendEEPROMData@gx_read
@@ -3360,7 +3360,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3276   00D10A  6E05               	movwf	memcpy@n^0,c
   3277   00D10C  ECF5  F05B         	call	_memcpy	;wreg free
   3278                           
-  3279                           ;main.c: 202:         memcpy(&gy_read, &eepromReadBuffer[16], sizeof(float));
+  3279                           ;main.c: 203:         memcpy(&gy_read, &eepromReadBuffer[16], sizeof(float));
   3280   00D110  0EF4               	movlw	low ReadAndSendEEPROMData@gy_read
   3281   00D112  6E01               	movwf	memcpy@d1^0,c
   3282   00D114  0E01               	movlw	high ReadAndSendEEPROMData@gy_read
@@ -3375,7 +3375,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3291   00D126  6E05               	movwf	memcpy@n^0,c
   3292   00D128  ECF5  F05B         	call	_memcpy	;wreg free
   3293                           
-  3294                           ;main.c: 203:         memcpy(&gz_read, &eepromReadBuffer[20], sizeof(float));
+  3294                           ;main.c: 204:         memcpy(&gz_read, &eepromReadBuffer[20], sizeof(float));
   3295   00D12C  0EF8               	movlw	low ReadAndSendEEPROMData@gz_read
   3296   00D12E  6E01               	movwf	memcpy@d1^0,c
   3297   00D130  0E01               	movlw	high ReadAndSendEEPROMData@gz_read
@@ -3390,7 +3390,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3306   00D142  6E05               	movwf	memcpy@n^0,c
   3307   00D144  ECF5  F05B         	call	_memcpy	;wreg free
   3308   00D148                     
-  3309                           ;main.c: 206:         sprintf(buffer, "EEPROM - AX: %.2f, AY: %.2f, AZ: %.2f, GX: %.2f, 
+  3309                           ;main.c: 207:         sprintf(buffer, "EEPROM - AX: %.2f, AY: %.2f, AZ: %.2f, GX: %.2f, 
       +                          GY: %.2f, GZ: %.2f\n", ax_read, ay_read, az_read, gx_read, gy_read, gz_read);
   3310   00D148  0E00               	movlw	low ReadAndSendEEPROMData@buffer
   3311   00D14A  0100               	movlb	0	; () banked
@@ -3427,14 +3427,14 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3342   00D1B6  C1FB  F0AE         	movff	ReadAndSendEEPROMData@gz_read+3,?_sprintf+27
   3343   00D1BA  EC99  F05A         	call	_sprintf	;wreg free
   3344   00D1BE                     
-  3345                           ;main.c: 207:         UART_SendString(buffer);
+  3345                           ;main.c: 208:         UART_SendString(buffer);
   3346   00D1BE  0E00               	movlw	low ReadAndSendEEPROMData@buffer
   3347   00D1C0  6E02               	movwf	UART_SendString@str^0,c
   3348   00D1C2  0E01               	movlw	high ReadAndSendEEPROMData@buffer
   3349   00D1C4  6E03               	movwf	(UART_SendString@str+1)^0,c
   3350   00D1C6  ECC3  F05D         	call	_UART_SendString	;wreg free
   3351   00D1CA                     
-  3352                           ;main.c: 210:         readBlockEEPROM1 = (readBlockEEPROM1 + 12) % 32768;
+  3352                           ;main.c: 211:         readBlockEEPROM1 = (readBlockEEPROM1 + 12) % 32768;
   3353   00D1CA  0E0C               	movlw	12
   3354   00D1CC  0101               	movlb	1	; () banked
   3355   00D1CE  25FC               	addwf	ReadAndSendEEPROMData@readBlockEEPROM1& (0+255),w,b
@@ -3450,7 +3450,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3365   00D1E2  6FFD               	movwf	(ReadAndSendEEPROMData@readBlockEEPROM1+1)& (0+255),b
   3366   00D1E4                     
   3367                           ; BSR set to: 1
-  3368                           ;main.c: 211:         readBlockEEPROM2 = (readBlockEEPROM2 + 12) % 32768;
+  3368                           ;main.c: 212:         readBlockEEPROM2 = (readBlockEEPROM2 + 12) % 32768;
   3369   00D1E4  0E0C               	movlw	12
   3370   00D1E6  25FE               	addwf	ReadAndSendEEPROMData@readBlockEEPROM2& (0+255),w,b
   3371   00D1E8  6E5C               	movwf	??_ReadAndSendEEPROMData^0,c
@@ -3465,7 +3465,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   3380   00D1FA  6FFF               	movwf	(ReadAndSendEEPROMData@readBlockEEPROM2+1)& (0+255),b
   3381   00D1FC                     
   3382                           ; BSR set to: 1
-  3383                           ;main.c: 212:     }
+  3383                           ;main.c: 213:     }
   3384   00D1FC  0E01               	movlw	1
   3385   00D1FE  27E0               	addwf	ReadAndSendEEPROMData@i& (0+255),f,b
   3386   00D200  0E00               	movlw	0
@@ -8547,7 +8547,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8217                           
   8218 ;; *************** function _EEPROM_ReadBlock *****************
   8219 ;; Defined at:
-  8220 ;;		line 145 in file "main.c"
+  8220 ;;		line 146 in file "main.c"
   8221 ;; Parameters:    Size  Location     Type
   8222 ;;  deviceAddres    1    wreg     unsigned char 
   8223 ;;  memoryAddres    2   32[COMRAM] unsigned short 
@@ -8595,13 +8595,13 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8260                           ;EEPROM_ReadBlock@deviceAddress stored from wreg
   8261   00B576  6E27               	movwf	EEPROM_ReadBlock@deviceAddress^0,c
   8262   00B578                     
-  8263                           ;main.c: 146:     for (uint8_t i = 0; i < size; i++) {
+  8263                           ;main.c: 147:     for (uint8_t i = 0; i < size; i++) {
   8264   00B578  0E00               	movlw	0
   8265   00B57A  6E28               	movwf	EEPROM_ReadBlock@i^0,c
   8266   00B57C  EFD4  F05A         	goto	l9474
   8267   00B580                     l9470:
   8268                           
-  8269                           ;main.c: 147:         data[i] = EEPROM_ReadByte(deviceAddress, memoryAddress + i);
+  8269                           ;main.c: 148:         data[i] = EEPROM_ReadByte(deviceAddress, memoryAddress + i);
   8270   00B580  5028               	movf	EEPROM_ReadBlock@i^0,w,c
   8271   00B582  2421               	addwf	EEPROM_ReadBlock@memoryAddress^0,w,c
   8272   00B584  6E1B               	movwf	EEPROM_ReadByte@memoryAddress^0,c
@@ -8619,7 +8619,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8284   00B59E  6EDA               	movwf	fsr2h,c
   8285   00B5A0  0060  F09B  FFDF   	movff	??_EEPROM_ReadBlock,indf2
   8286   00B5A6                     
-  8287                           ;main.c: 148:     }
+  8287                           ;main.c: 149:     }
   8288   00B5A6  2A28               	incf	EEPROM_ReadBlock@i^0,f,c
   8289   00B5A8                     l9474:
   8290   00B5A8  5025               	movf	EEPROM_ReadBlock@size^0,w,c
@@ -8636,7 +8636,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8301                           
   8302 ;; *************** function _EEPROM_ReadByte *****************
   8303 ;; Defined at:
-  8304 ;;		line 123 in file "main.c"
+  8304 ;;		line 124 in file "main.c"
   8305 ;; Parameters:    Size  Location     Type
   8306 ;;  deviceAddres    1    wreg     unsigned char 
   8307 ;;  memoryAddres    2   26[COMRAM] unsigned short 
@@ -8683,15 +8683,15 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8343                           ;EEPROM_ReadByte@deviceAddress stored from wreg
   8344   00B2FE  6E1F               	movwf	EEPROM_ReadByte@deviceAddress^0,c
   8345   00B300                     
-  8346                           ;main.c: 124:     uint8_t addressBuffer[2];;main.c: 125:     addressBuffer[0] = (memoryA
+  8346                           ;main.c: 125:     uint8_t addressBuffer[2];;main.c: 126:     addressBuffer[0] = (memoryA
       +                          ddress >> 8) & 0xFF;
   8347   00B300  501C               	movf	(EEPROM_ReadByte@memoryAddress+1)^0,w,c
   8348   00B302  6E1D               	movwf	EEPROM_ReadByte@addressBuffer^0,c
   8349   00B304                     
-  8350                           ;main.c: 126:     addressBuffer[1] = memoryAddress & 0xFF;
+  8350                           ;main.c: 127:     addressBuffer[1] = memoryAddress & 0xFF;
   8351   00B304  C01B  F01E         	movff	EEPROM_ReadByte@memoryAddress,EEPROM_ReadByte@addressBuffer+1
   8352   00B308                     
-  8353                           ;main.c: 128:     I2C1_WriteNBytes(deviceAddress, addressBuffer, 2);
+  8353                           ;main.c: 129:     I2C1_WriteNBytes(deviceAddress, addressBuffer, 2);
   8354   00B308  0E1D               	movlw	low EEPROM_ReadByte@addressBuffer
   8355   00B30A  6E17               	movwf	I2C1_WriteNBytes@data^0,c
   8356   00B30C  0E00               	movlw	0
@@ -8701,11 +8701,11 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8360   00B314  501F               	movf	EEPROM_ReadByte@deviceAddress^0,w,c
   8361   00B316  ECC9  F05B         	call	_I2C1_WriteNBytes
   8362   00B31A                     
-  8363                           ;main.c: 130:     uint8_t data = 0;
+  8363                           ;main.c: 131:     uint8_t data = 0;
   8364   00B31A  0E00               	movlw	0
   8365   00B31C  6E20               	movwf	EEPROM_ReadByte@data^0,c
   8366   00B31E                     
-  8367                           ;main.c: 131:     I2C1_ReadNBytes(deviceAddress, &data, 1);
+  8367                           ;main.c: 132:     I2C1_ReadNBytes(deviceAddress, &data, 1);
   8368   00B31E  0E20               	movlw	low EEPROM_ReadByte@data
   8369   00B320  6E17               	movwf	I2C1_ReadNBytes@data^0,c
   8370   00B322  0E00               	movlw	0
@@ -8715,7 +8715,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8374   00B32A  501F               	movf	EEPROM_ReadByte@deviceAddress^0,w,c
   8375   00B32C  EC55  F05A         	call	_I2C1_ReadNBytes
   8376   00B330                     
-  8377                           ;main.c: 133:     return data;
+  8377                           ;main.c: 134:     return data;
   8378   00B330  5020               	movf	EEPROM_ReadByte@data^0,w,c
   8379   00B332  0012               	return		;funcret
   8380   00B334                     __end_of_EEPROM_ReadByte:
@@ -8855,7 +8855,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8503                           
   8504 ;; *************** function _MPU6050_ReadSensorData *****************
   8505 ;; Defined at:
-  8506 ;;		line 91 in file "main.c"
+  8506 ;;		line 92 in file "main.c"
   8507 ;; Parameters:    Size  Location     Type
   8508 ;;  ax              1   39[COMRAM] PTR float 
   8509 ;;		 -> ax(4), 
@@ -8914,7 +8914,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8557   00D8F6                     _MPU6050_ReadSensorData:
   8558                           	callstack 17
   8559   00D8F6                     
-  8560                           ;main.c: 92:     uint8_t buffer[12];;main.c: 93:     I2C1_ReadDataBlock(0x68, 0x3B, buff
+  8560                           ;main.c: 93:     uint8_t buffer[12];;main.c: 94:     I2C1_ReadDataBlock(0x68, 0x3B, buff
       +                          er, 12);
   8561   00D8F6  0E3B               	movlw	59
   8562   00D8F8  6E17               	movwf	I2C1_ReadDataBlock@reg^0,c
@@ -8927,7 +8927,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8569   00D906  0E68               	movlw	104
   8570   00D908  ECFC  F05D         	call	_I2C1_ReadDataBlock
   8571   00D90C                     
-  8572                           ;main.c: 95:     int16_t ax_raw = (buffer[0] << 8) | buffer[1];
+  8572                           ;main.c: 96:     int16_t ax_raw = (buffer[0] << 8) | buffer[1];
   8573   00D90C  5034               	movf	(MPU6050_ReadSensorData@buffer+1)^0,w,c
   8574   00D90E  C033  F031         	movff	MPU6050_ReadSensorData@buffer,??_MPU6050_ReadSensorData
   8575   00D912  6A32               	clrf	(??_MPU6050_ReadSensorData+1)^0,c
@@ -8938,7 +8938,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8580   00D91E  5032               	movf	(??_MPU6050_ReadSensorData+1)^0,w,c
   8581   00D920  6E40               	movwf	(MPU6050_ReadSensorData@ax_raw+1)^0,c
   8582   00D922                     
-  8583                           ;main.c: 96:     int16_t ay_raw = (buffer[2] << 8) | buffer[3];
+  8583                           ;main.c: 97:     int16_t ay_raw = (buffer[2] << 8) | buffer[3];
   8584   00D922  5036               	movf	(MPU6050_ReadSensorData@buffer+3)^0,w,c
   8585   00D924  C035  F031         	movff	MPU6050_ReadSensorData@buffer+2,??_MPU6050_ReadSensorData
   8586   00D928  6A32               	clrf	(??_MPU6050_ReadSensorData+1)^0,c
@@ -8949,7 +8949,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8591   00D934  5032               	movf	(??_MPU6050_ReadSensorData+1)^0,w,c
   8592   00D936  6E42               	movwf	(MPU6050_ReadSensorData@ay_raw+1)^0,c
   8593   00D938                     
-  8594                           ;main.c: 97:     int16_t az_raw = (buffer[4] << 8) | buffer[5];
+  8594                           ;main.c: 98:     int16_t az_raw = (buffer[4] << 8) | buffer[5];
   8595   00D938  5038               	movf	(MPU6050_ReadSensorData@buffer+5)^0,w,c
   8596   00D93A  C037  F031         	movff	MPU6050_ReadSensorData@buffer+4,??_MPU6050_ReadSensorData
   8597   00D93E  6A32               	clrf	(??_MPU6050_ReadSensorData+1)^0,c
@@ -8960,7 +8960,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8602   00D94A  5032               	movf	(??_MPU6050_ReadSensorData+1)^0,w,c
   8603   00D94C  6E44               	movwf	(MPU6050_ReadSensorData@az_raw+1)^0,c
   8604   00D94E                     
-  8605                           ;main.c: 98:     int16_t gx_raw = (buffer[6] << 8) | buffer[7];
+  8605                           ;main.c: 99:     int16_t gx_raw = (buffer[6] << 8) | buffer[7];
   8606   00D94E  503A               	movf	(MPU6050_ReadSensorData@buffer+7)^0,w,c
   8607   00D950  C039  F031         	movff	MPU6050_ReadSensorData@buffer+6,??_MPU6050_ReadSensorData
   8608   00D954  6A32               	clrf	(??_MPU6050_ReadSensorData+1)^0,c
@@ -8971,7 +8971,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8613   00D960  5032               	movf	(??_MPU6050_ReadSensorData+1)^0,w,c
   8614   00D962  6E46               	movwf	(MPU6050_ReadSensorData@gx_raw+1)^0,c
   8615   00D964                     
-  8616                           ;main.c: 99:     int16_t gy_raw = (buffer[8] << 8) | buffer[9];
+  8616                           ;main.c: 100:     int16_t gy_raw = (buffer[8] << 8) | buffer[9];
   8617   00D964  503C               	movf	(MPU6050_ReadSensorData@buffer+9)^0,w,c
   8618   00D966  C03B  F031         	movff	MPU6050_ReadSensorData@buffer+8,??_MPU6050_ReadSensorData
   8619   00D96A  6A32               	clrf	(??_MPU6050_ReadSensorData+1)^0,c
@@ -8982,7 +8982,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8624   00D976  5032               	movf	(??_MPU6050_ReadSensorData+1)^0,w,c
   8625   00D978  6E48               	movwf	(MPU6050_ReadSensorData@gy_raw+1)^0,c
   8626   00D97A                     
-  8627                           ;main.c: 100:     int16_t gz_raw = (buffer[10] << 8) | buffer[11];
+  8627                           ;main.c: 101:     int16_t gz_raw = (buffer[10] << 8) | buffer[11];
   8628   00D97A  503E               	movf	(MPU6050_ReadSensorData@buffer+11)^0,w,c
   8629   00D97C  C03D  F031         	movff	MPU6050_ReadSensorData@buffer+10,??_MPU6050_ReadSensorData
   8630   00D980  6A32               	clrf	(??_MPU6050_ReadSensorData+1)^0,c
@@ -8993,7 +8993,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8635   00D98C  5032               	movf	(??_MPU6050_ReadSensorData+1)^0,w,c
   8636   00D98E  6E4A               	movwf	(MPU6050_ReadSensorData@gz_raw+1)^0,c
   8637   00D990                     
-  8638                           ;main.c: 102:     *ax = ax_raw / 16384.0f;
+  8638                           ;main.c: 103:     *ax = ax_raw / 16384.0f;
   8639   00D990  C03F  F001         	movff	MPU6050_ReadSensorData@ax_raw,___xxtofl@val
   8640   00D994  C040  F002         	movff	MPU6050_ReadSensorData@ax_raw+1,___xxtofl@val+1
   8641   00D998  0E00               	movlw	0
@@ -9024,7 +9024,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8666   00D9DE  0060  F047  FFDE   	movff	?___fldiv+2,postinc2
   8667   00D9E4  0060  F04B  FFDE   	movff	?___fldiv+3,postinc2
   8668   00D9EA                     
-  8669                           ;main.c: 103:     *ay = ay_raw / 16384.0f;
+  8669                           ;main.c: 104:     *ay = ay_raw / 16384.0f;
   8670   00D9EA  C041  F001         	movff	MPU6050_ReadSensorData@ay_raw,___xxtofl@val
   8671   00D9EE  C042  F002         	movff	MPU6050_ReadSensorData@ay_raw+1,___xxtofl@val+1
   8672   00D9F2  0E00               	movlw	0
@@ -9055,7 +9055,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8697   00DA38  0060  F047  FFDE   	movff	?___fldiv+2,postinc2
   8698   00DA3E  0060  F04B  FFDE   	movff	?___fldiv+3,postinc2
   8699   00DA44                     
-  8700                           ;main.c: 104:     *az = az_raw / 16384.0f;
+  8700                           ;main.c: 105:     *az = az_raw / 16384.0f;
   8701   00DA44  C043  F001         	movff	MPU6050_ReadSensorData@az_raw,___xxtofl@val
   8702   00DA48  C044  F002         	movff	MPU6050_ReadSensorData@az_raw+1,___xxtofl@val+1
   8703   00DA4C  0E00               	movlw	0
@@ -9086,7 +9086,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8728   00DA92  0060  F047  FFDE   	movff	?___fldiv+2,postinc2
   8729   00DA98  0060  F04B  FFDE   	movff	?___fldiv+3,postinc2
   8730   00DA9E                     
-  8731                           ;main.c: 105:     *gx = gx_raw / 131.0f;
+  8731                           ;main.c: 106:     *gx = gx_raw / 131.0f;
   8732   00DA9E  C045  F001         	movff	MPU6050_ReadSensorData@gx_raw,___xxtofl@val
   8733   00DAA2  C046  F002         	movff	MPU6050_ReadSensorData@gx_raw+1,___xxtofl@val+1
   8734   00DAA6  0E00               	movlw	0
@@ -9116,7 +9116,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8758   00DAF2  0060  F047  FFDE   	movff	?___fldiv+2,postinc2
   8759   00DAF8  0060  F04B  FFDE   	movff	?___fldiv+3,postinc2
   8760   00DAFE                     
-  8761                           ;main.c: 106:     *gy = gy_raw / 131.0f;
+  8761                           ;main.c: 107:     *gy = gy_raw / 131.0f;
   8762   00DAFE  C047  F001         	movff	MPU6050_ReadSensorData@gy_raw,___xxtofl@val
   8763   00DB02  C048  F002         	movff	MPU6050_ReadSensorData@gy_raw+1,___xxtofl@val+1
   8764   00DB06  0E00               	movlw	0
@@ -9146,7 +9146,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   8788   00DB52  0060  F047  FFDE   	movff	?___fldiv+2,postinc2
   8789   00DB58  0060  F04B  FFDE   	movff	?___fldiv+3,postinc2
   8790   00DB5E                     
-  8791                           ;main.c: 107:     *gz = gz_raw / 131.0f;
+  8791                           ;main.c: 108:     *gz = gz_raw / 131.0f;
   8792   00DB5E  C049  F001         	movff	MPU6050_ReadSensorData@gz_raw,___xxtofl@val
   8793   00DB62  C04A  F002         	movff	MPU6050_ReadSensorData@gz_raw+1,___xxtofl@val+1
   8794   00DB66  0E00               	movlw	0
@@ -10036,7 +10036,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   9657                           
   9658 ;; *************** function _EEPROM_WriteBlock *****************
   9659 ;; Defined at:
-  9660 ;;		line 138 in file "main.c"
+  9660 ;;		line 139 in file "main.c"
   9661 ;; Parameters:    Size  Location     Type
   9662 ;;  deviceAddres    1    wreg     unsigned char 
   9663 ;;  memoryAddres    2   34[COMRAM] unsigned short 
@@ -10084,13 +10084,13 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   9700                           ;EEPROM_WriteBlock@deviceAddress stored from wreg
   9701   00B424  6E28               	movwf	EEPROM_WriteBlock@deviceAddress^0,c
   9702   00B426                     
-  9703                           ;main.c: 139:     for (uint8_t i = 0; i < size; i++){
+  9703                           ;main.c: 140:     for (uint8_t i = 0; i < size; i++){
   9704   00B426  0E00               	movlw	0
   9705   00B428  6E29               	movwf	EEPROM_WriteBlock@i^0,c
   9706   00B42A  EF29  F05A         	goto	l9672
   9707   00B42E                     l9668:
   9708                           
-  9709                           ;main.c: 140:         EEPROM_WriteByte(deviceAddress, memoryAddress + i, data[i]);
+  9709                           ;main.c: 141:         EEPROM_WriteByte(deviceAddress, memoryAddress + i, data[i]);
   9710   00B42E  5029               	movf	EEPROM_WriteBlock@i^0,w,c
   9711   00B430  2423               	addwf	EEPROM_WriteBlock@memoryAddress^0,w,c
   9712   00B432  6E1B               	movwf	EEPROM_WriteByte@memoryAddress^0,c
@@ -10108,7 +10108,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   9724   00B44A  5028               	movf	EEPROM_WriteBlock@deviceAddress^0,w,c
   9725   00B44C  EC67  F059         	call	_EEPROM_WriteByte
   9726   00B450                     
-  9727                           ;main.c: 141:     }
+  9727                           ;main.c: 142:     }
   9728   00B450  2A29               	incf	EEPROM_WriteBlock@i^0,f,c
   9729   00B452                     l9672:
   9730   00B452  5027               	movf	EEPROM_WriteBlock@size^0,w,c
@@ -10125,7 +10125,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   9741                           
   9742 ;; *************** function _EEPROM_WriteByte *****************
   9743 ;; Defined at:
-  9744 ;;		line 111 in file "main.c"
+  9744 ;;		line 112 in file "main.c"
   9745 ;; Parameters:    Size  Location     Type
   9746 ;;  deviceAddres    1    wreg     unsigned char 
   9747 ;;  memoryAddres    2   26[COMRAM] unsigned short 
@@ -10171,18 +10171,18 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   9782                           ;EEPROM_WriteByte@deviceAddress stored from wreg
   9783   00B2CE  6E1F               	movwf	EEPROM_WriteByte@deviceAddress^0,c
   9784   00B2D0                     
-  9785                           ;main.c: 112:     uint8_t buffer[3];;main.c: 113:     buffer[0] = (memoryAddress >> 8) &
+  9785                           ;main.c: 113:     uint8_t buffer[3];;main.c: 114:     buffer[0] = (memoryAddress >> 8) &
       +                           0xFF;
   9786   00B2D0  501C               	movf	(EEPROM_WriteByte@memoryAddress+1)^0,w,c
   9787   00B2D2  6E20               	movwf	EEPROM_WriteByte@buffer^0,c
   9788   00B2D4                     
-  9789                           ;main.c: 114:     buffer[1] = memoryAddress & 0xFF;
+  9789                           ;main.c: 115:     buffer[1] = memoryAddress & 0xFF;
   9790   00B2D4  C01B  F021         	movff	EEPROM_WriteByte@memoryAddress,EEPROM_WriteByte@buffer+1
   9791   00B2D8                     
-  9792                           ;main.c: 115:     buffer[2] = data;
+  9792                           ;main.c: 116:     buffer[2] = data;
   9793   00B2D8  C01D  F022         	movff	EEPROM_WriteByte@data,EEPROM_WriteByte@buffer+2
   9794   00B2DC                     
-  9795                           ;main.c: 117:     I2C1_WriteNBytes(deviceAddress, buffer, 3);
+  9795                           ;main.c: 118:     I2C1_WriteNBytes(deviceAddress, buffer, 3);
   9796   00B2DC  0E20               	movlw	low EEPROM_WriteByte@buffer
   9797   00B2DE  6E17               	movwf	I2C1_WriteNBytes@data^0,c
   9798   00B2E0  0E00               	movlw	0
@@ -10192,7 +10192,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
   9802   00B2E8  501F               	movf	EEPROM_WriteByte@deviceAddress^0,w,c
   9803   00B2EA  ECC9  F05B         	call	_I2C1_WriteNBytes
   9804   00B2EE                     
-  9805                           ;main.c: 119:     _delay((unsigned long)((5)*(8000000/4000.0)));
+  9805                           ;main.c: 120:     _delay((unsigned long)((5)*(8000000/4000.0)));
   9806   00B2EE  0E0D               	movlw	13
   9807   00B2F0  6E1E               	movwf	??_EEPROM_WriteByte^0,c
   9808   00B2F2  0EFC               	movlw	252
@@ -11103,7 +11103,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
  10660                           
  10661 ;; *************** function _ParseUserInput *****************
  10662 ;; Defined at:
- 10663 ;;		line 259 in file "main.c"
+ 10663 ;;		line 260 in file "main.c"
  10664 ;; Parameters:    Size  Location     Type
  10665 ;;  input           2   46[BANK0 ] PTR const unsigned char 
  10666 ;;		 -> main@userInput(20), 
@@ -11149,7 +11149,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
  10701   00C770                     _ParseUserInput:
  10702                           	callstack 23
  10703   00C770                     
- 10704                           ;main.c: 260:     uint32_t frequencyHz;;main.c: 262:     if (sscanf(input, "LOG(%lu,%lu)
+ 10704                           ;main.c: 261:     uint32_t frequencyHz;;main.c: 263:     if (sscanf(input, "LOG(%lu,%lu)
       +                          \r\n", &frequencyHz, Ndat) == 2 || sscanf(input, "LOG(%lu,%lu)\n", &frequencyHz, Ndat) =
       +                          = 2) {
  10705   00C770  C08E  F079         	movff	ParseUserInput@input,sscanf@s
@@ -11198,7 +11198,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
  10748   00C7D6                     l10208:
  10749                           
  10750                           ; BSR set to: 0
- 10751                           ;main.c: 265:         if (frequencyHz > 400000) {
+ 10751                           ;main.c: 266:         if (frequencyHz > 400000) {
  10752   00C7D6  5196               	movf	(ParseUserInput@frequencyHz+3)& (0+255),w,b
  10753   00C7D8  E10D               	bnz	u10690
  10754   00C7DA  0E81               	movlw	129
@@ -11215,7 +11215,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
  10765   00C7F4                     u10690:
  10766   00C7F4                     
  10767                           ; BSR set to: 0
- 10768                           ;main.c: 266:             frequencyHz = 400000;
+ 10768                           ;main.c: 267:             frequencyHz = 400000;
  10769   00C7F4  0E80               	movlw	128
  10770   00C7F6  6F93               	movwf	ParseUserInput@frequencyHz& (0+255),b
  10771   00C7F8  0E1A               	movlw	26
@@ -11226,7 +11226,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
  10776   00C802  6F96               	movwf	(ParseUserInput@frequencyHz+3)& (0+255),b
  10777   00C804                     
  10778                           ; BSR set to: 0
- 10779                           ;main.c: 267:             UART_SendString("Frecuencia excedida. Ajustada a 400kHz.\n");
+ 10779                           ;main.c: 268:             UART_SendString("Frecuencia excedida. Ajustada a 400kHz.\n");
  10780   00C804  0E4F               	movlw	low STR_6
  10781   00C806  6E02               	movwf	UART_SendString@str^0,c
  10782   00C808  0EFF               	movlw	high STR_6
@@ -11234,7 +11234,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
  10784   00C80C  ECC3  F05D         	call	_UART_SendString	;wreg free
  10785   00C810                     l10214:
  10786                           
- 10787                           ;main.c: 270:         *Tm = 1000 / frequencyHz;
+ 10787                           ;main.c: 271:         *Tm = 1000 / frequencyHz;
  10788   00C810  0EE8               	movlw	232
  10789   00C812  6E01               	movwf	___lldiv@dividend^0,c
  10790   00C814  0E03               	movlw	3
@@ -11255,13 +11255,13 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
  10805   00C84C  0060  F00F  FFDE   	movff	?___lldiv+2,postinc2
  10806   00C852  0060  F013  FFDE   	movff	?___lldiv+3,postinc2
  10807   00C858                     
- 10808                           ;main.c: 272:         return 1;
+ 10808                           ;main.c: 273:         return 1;
  10809   00C858  0E01               	movlw	1
  10810   00C85A  EF30  F064         	goto	l915
  10811   00C85E                     l10220:
  10812                           
  10813                           ; BSR set to: 0
- 10814                           ;main.c: 274:     return 0;
+ 10814                           ;main.c: 275:     return 0;
  10815   00C85E  0E00               	movlw	0
  10816   00C860                     l915:
  10817   00C860  0012               	return		;funcret
@@ -14008,7 +14008,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
  13409                           
  13410 ;; *************** function _UART_SendString *****************
  13411 ;; Defined at:
- 13412 ;;		line 77 in file "main.c"
+ 13412 ;;		line 78 in file "main.c"
  13413 ;; Parameters:    Size  Location     Type
  13414 ;;  str             2    1[COMRAM] PTR const unsigned char 
  13415 ;;		 -> STR_10(38), STR_9(2), STR_8(11), main@userInput(20), 
@@ -14053,11 +14053,11 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
  13449   00BB86                     _UART_SendString:
  13450                           	callstack 29
  13451   00BB86                     
- 13452                           ;main.c: 78:     while (*str){
+ 13452                           ;main.c: 79:     while (*str){
  13453   00BB86  EFDE  F05D         	goto	l9456
  13454   00BB8A                     l9452:
  13455                           
- 13456                           ;main.c: 79:         UART1_Write(*str);
+ 13456                           ;main.c: 80:         UART1_Write(*str);
  13457   00BB8A  0060  F00B  FFF6   	movff	UART_SendString@str,tblptrl
  13458   00BB90  0060  F00F  FFF7   	movff	UART_SendString@str+1,tblptrh
  13459   00BB96  0E00               	movlw	low (__mediumconst shr (0+16))
@@ -14075,12 +14075,12 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
  13471   00BBB4                     u10060:
  13472   00BBB4  EC32  F058         	call	_UART1_Write
  13473   00BBB8                     
- 13474                           ;main.c: 80:         str++;
+ 13474                           ;main.c: 81:         str++;
  13475   00BBB8  4A02               	infsnz	UART_SendString@str^0,f,c
  13476   00BBBA  2A03               	incf	(UART_SendString@str+1)^0,f,c
  13477   00BBBC                     l9456:
  13478                           
- 13479                           ;main.c: 78:     while (*str){
+ 13479                           ;main.c: 79:     while (*str){
  13480   00BBBC  0060  F00B  FFF6   	movff	UART_SendString@str,tblptrl
  13481   00BBC2  0060  F00F  FFF7   	movff	UART_SendString@str+1,tblptrh
  13482   00BBC8  0E00               	movlw	low (__mediumconst shr (0+16))
@@ -14173,7 +14173,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
  13564                           
  13565 ;; *************** function _MPU6050_Init *****************
  13566 ;; Defined at:
- 13567 ;;		line 85 in file "main.c"
+ 13567 ;;		line 86 in file "main.c"
  13568 ;; Parameters:    Size  Location     Type
  13569 ;;		None
  13570 ;; Auto vars:     Size  Location     Type
@@ -14212,7 +14212,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
  13598   00AF5C                     _MPU6050_Init:
  13599                           	callstack 18
  13600   00AF5C                     
- 13601                           ;main.c: 87:     I2C1_Write1ByteRegister(0x68, 0x6B, data);
+ 13601                           ;main.c: 88:     I2C1_Write1ByteRegister(0x68, 0x6B, data);
  13602   00AF5C  0E6B               	movlw	107
  13603   00AF5E  6E17               	movwf	I2C1_Write1ByteRegister@reg^0,c
  13604   00AF60  0E00               	movlw	0
@@ -20737,7 +20737,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.45 build 20230818022343 
-Symbol Table                                                                                   Sat Oct 21 15:43:25 2023
+Symbol Table                                                                                   Mon Oct 23 16:27:11 2023
 
                                 ___fldiv@aexp 0027                                  ___fldiv@bexp 0026  
                                 ___fldiv@sign 001F                                            l51 B9D6  

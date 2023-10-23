@@ -11,6 +11,10 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
+$C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_19.o
+init CODE 0 FFFC FFFC 4 1 2
+reset_vec CODE 0 0 0 4 1 2
+config CONFIG 4 300000 300000 A 1 1
 $dist/default/production\Practica3.X.production.o
 cinit CODE 0 B0BA B0BA 20 1 2
 text0 CODE 0 C68C C68C E4 1 2
@@ -153,10 +157,6 @@ text129 CODE 0 AF08 AF08 C 1 2
 text130 CODE 0 AE92 AE92 8 1 2
 bssCOMRAM COMRAM 1 5E 5E 1 1 1
 mediumconst MEDIUMCONST 0 FE98 FE98 164 1 2
-config CONFIG 4 300000 300000 A 1 1
-$C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_19.o
-init CODE 0 FFFC FFFC 4 1 2
-reset_vec CODE 0 0 0 4 1 2
 config CONFIG 4 300000 300000 A 1 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -598,21 +598,21 @@ B9AA text69 CODE >96:C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_fil
 B9BE text69 CODE >97:C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/examples/i2c1_master_example.c
 B9C2 text69 CODE >98:C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/examples/i2c1_master_example.c
 B9D6 text69 CODE >99:C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/examples/i2c1_master_example.c
-AF5C text68 CODE >85:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 AF5C text68 CODE >86:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 AF5C text68 CODE >87:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-AF6A text68 CODE >88:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+AF5C text68 CODE >88:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+AF6A text68 CODE >89:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 B064 text67 CODE >170:C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/uart1.c
 B066 text67 CODE >172:C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/uart1.c
 B066 text67 CODE >174:C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/uart1.c
 B076 text67 CODE >176:C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/uart1.c
 B07C text67 CODE >177:C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/uart1.c
-BB86 text66 CODE >77:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 BB86 text66 CODE >78:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-BB8A text66 CODE >79:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-BBB8 text66 CODE >80:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-BBBC text66 CODE >78:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-BBF6 text66 CODE >82:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+BB86 text66 CODE >79:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+BB8A text66 CODE >80:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+BBB8 text66 CODE >81:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+BBBC text66 CODE >79:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+BBF6 text66 CODE >83:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 C0F2 text65 CODE >7:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\__lldiv.c
 C0F2 text65 CODE >13:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\__lldiv.c
 C102 text65 CODE >14:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\__lldiv.c
@@ -837,15 +837,15 @@ B47C text54 CODE >18:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common
 B484 text54 CODE >19:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sscanf.c
 B4A0 text54 CODE >21:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sscanf.c
 B4A8 text54 CODE >22:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sscanf.c
-C770 text53 CODE >259:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-C770 text53 CODE >262:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-C7D6 text53 CODE >265:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-C7F4 text53 CODE >266:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-C804 text53 CODE >267:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-C810 text53 CODE >270:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-C858 text53 CODE >272:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-C85E text53 CODE >274:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-C860 text53 CODE >275:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+C770 text53 CODE >260:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+C770 text53 CODE >263:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+C7D6 text53 CODE >266:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+C7F4 text53 CODE >267:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+C804 text53 CODE >268:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+C810 text53 CODE >271:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+C858 text53 CODE >273:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+C85E text53 CODE >275:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+C860 text53 CODE >276:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 B0DA text52 CODE >183:C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/i2c1_master.c
 B0DA text52 CODE >186:C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/i2c1_master.c
 B0E0 text52 CODE >188:C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/i2c1_master.c
@@ -966,18 +966,18 @@ B7BC text43 CODE >115:C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_fi
 B7D0 text43 CODE >116:C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/examples/i2c1_master_example.c
 B7D4 text43 CODE >117:C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/examples/i2c1_master_example.c
 B7E8 text43 CODE >118:C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/examples/i2c1_master_example.c
-B2CE text42 CODE >111:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-B2D0 text42 CODE >113:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-B2D4 text42 CODE >114:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-B2D8 text42 CODE >115:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-B2DC text42 CODE >117:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-B2EE text42 CODE >119:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-B2FC text42 CODE >120:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-B424 text41 CODE >138:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-B426 text41 CODE >139:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-B42E text41 CODE >140:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-B450 text41 CODE >141:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-B464 text41 CODE >142:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+B2CE text42 CODE >112:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+B2D0 text42 CODE >114:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+B2D4 text42 CODE >115:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+B2D8 text42 CODE >116:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+B2DC text42 CODE >118:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+B2EE text42 CODE >120:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+B2FC text42 CODE >121:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+B424 text41 CODE >139:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+B426 text41 CODE >140:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+B42E text41 CODE >141:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+B450 text41 CODE >142:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+B464 text41 CODE >143:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 BBF8 text40 CODE >128:C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/examples/i2c1_master_example.c
 BBFA text40 CODE >131:C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/examples/i2c1_master_example.c
 BBFE text40 CODE >132:C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/examples/i2c1_master_example.c
@@ -1103,21 +1103,21 @@ D014 text38 CODE >41:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common
 D032 text38 CODE >42:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\xxtofl.c
 D034 text38 CODE >43:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\xxtofl.c
 D044 text38 CODE >44:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\xxtofl.c
-D8F6 text37 CODE >91:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-D8F6 text37 CODE >93:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-D90C text37 CODE >95:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-D922 text37 CODE >96:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-D938 text37 CODE >97:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-D94E text37 CODE >98:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-D964 text37 CODE >99:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-D97A text37 CODE >100:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-D990 text37 CODE >102:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-D9EA text37 CODE >103:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-DA44 text37 CODE >104:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-DA9E text37 CODE >105:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-DAFE text37 CODE >106:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-DB5E text37 CODE >107:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-DBBE text37 CODE >108:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+D8F6 text37 CODE >92:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+D8F6 text37 CODE >94:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+D90C text37 CODE >96:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+D922 text37 CODE >97:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+D938 text37 CODE >98:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+D94E text37 CODE >99:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+D964 text37 CODE >100:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+D97A text37 CODE >101:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+D990 text37 CODE >103:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+D9EA text37 CODE >104:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+DA44 text37 CODE >105:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+DA9E text37 CODE >106:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+DAFE text37 CODE >107:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+DB5E text37 CODE >108:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+DBBE text37 CODE >109:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 AEBA text36 CODE >276:C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/i2c1_master.c
 AEBA text36 CODE >278:C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/i2c1_master.c
 AEC0 text36 CODE >279:C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/i2c1_master.c
@@ -1127,19 +1127,19 @@ B4C2 text35 CODE >123:C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_fi
 B4D4 text35 CODE >124:C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/examples/i2c1_master_example.c
 B4D8 text35 CODE >125:C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/examples/i2c1_master_example.c
 B4EC text35 CODE >126:C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/examples/i2c1_master_example.c
-B2FE text34 CODE >123:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-B300 text34 CODE >125:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-B304 text34 CODE >126:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-B308 text34 CODE >128:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-B31A text34 CODE >130:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-B31E text34 CODE >131:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-B330 text34 CODE >133:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-B332 text34 CODE >134:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-B576 text33 CODE >145:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-B578 text33 CODE >146:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-B580 text33 CODE >147:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-B5A6 text33 CODE >148:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-B5BA text33 CODE >149:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+B2FE text34 CODE >124:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+B300 text34 CODE >126:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+B304 text34 CODE >127:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+B308 text34 CODE >129:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+B31A text34 CODE >131:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+B31E text34 CODE >132:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+B330 text34 CODE >134:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+B332 text34 CODE >135:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+B576 text33 CODE >146:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+B578 text33 CODE >147:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+B580 text33 CODE >148:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+B5A6 text33 CODE >149:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+B5BA text33 CODE >150:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 C2E4 text32 CODE >4:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\fleq.c
 C2E4 text32 CODE >7:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\fleq.c
 C312 text32 CODE >8:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\fleq.c
@@ -1642,24 +1642,24 @@ B546 text11 CODE >18:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common
 B54E text11 CODE >19:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
 B564 text11 CODE >20:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
 B574 text11 CODE >23:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
-D046 text10 CODE >184:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-D046 text10 CODE >186:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-D04E text10 CODE >187:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-D056 text10 CODE >192:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-D06C text10 CODE >194:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-D086 text10 CODE >195:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-D0A2 text10 CODE >196:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-D0BE text10 CODE >197:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-D0DA text10 CODE >200:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-D0F4 text10 CODE >201:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-D110 text10 CODE >202:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-D12C text10 CODE >203:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-D148 text10 CODE >206:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-D1BE text10 CODE >207:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-D1CA text10 CODE >210:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-D1E4 text10 CODE >211:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-D1FC text10 CODE >212:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-D236 text10 CODE >213:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+D046 text10 CODE >185:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+D046 text10 CODE >187:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+D04E text10 CODE >188:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+D056 text10 CODE >193:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+D06C text10 CODE >195:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+D086 text10 CODE >196:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+D0A2 text10 CODE >197:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+D0BE text10 CODE >198:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+D0DA text10 CODE >201:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+D0F4 text10 CODE >202:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+D110 text10 CODE >203:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+D12C text10 CODE >204:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+D148 text10 CODE >207:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+D1BE text10 CODE >208:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+D1CA text10 CODE >211:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+D1E4 text10 CODE >212:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+D1FC text10 CODE >213:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+D236 text10 CODE >214:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 BAAC text9 CODE >15:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul32.c
 BAAC text9 CODE >119:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul32.c
 BABC text9 CODE >121:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul32.c
@@ -1669,37 +1669,37 @@ BAE4 text9 CODE >124:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common
 BAEE text9 CODE >125:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul32.c
 BB04 text9 CODE >128:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul32.c
 BB14 text9 CODE >129:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul32.c
-B36C text8 CODE >177:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 B36C text8 CODE >178:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-B370 text8 CODE >179:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-B37E text8 CODE >178:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-B3A4 text8 CODE >181:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-DBC0 text7 CODE >216:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+B36C text8 CODE >179:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+B370 text8 CODE >180:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+B37E text8 CODE >179:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+B3A4 text8 CODE >182:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 DBC0 text7 CODE >217:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-DBD2 text7 CODE >218:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-DBD6 text7 CODE >220:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-DBFE text7 CODE >223:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-DC18 text7 CODE >224:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-DC32 text7 CODE >225:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-DC4C text7 CODE >226:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-DC68 text7 CODE >227:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-DC84 text7 CODE >228:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-DCA0 text7 CODE >231:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-DCBA text7 CODE >234:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-DCD4 text7 CODE >237:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-DCEE text7 CODE >238:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-DD06 text7 CODE >240:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-DD12 text7 CODE >241:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-DD26 text7 CODE >218:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-DD46 text7 CODE >244:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-DD6A text7 CODE >245:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-DD76 text7 CODE >247:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-DDE8 text7 CODE >248:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-DE58 text7 CODE >250:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-DE7C text7 CODE >252:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-DE80 text7 CODE >253:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-DE8C text7 CODE >255:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-DE92 text7 CODE >256:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+DBC0 text7 CODE >218:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+DBD2 text7 CODE >219:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+DBD6 text7 CODE >221:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+DBFE text7 CODE >224:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+DC18 text7 CODE >225:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+DC32 text7 CODE >226:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+DC4C text7 CODE >227:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+DC68 text7 CODE >228:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+DC84 text7 CODE >229:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+DCA0 text7 CODE >232:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+DCBA text7 CODE >235:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+DCD4 text7 CODE >238:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+DCEE text7 CODE >239:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+DD06 text7 CODE >241:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+DD12 text7 CODE >242:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+DD26 text7 CODE >219:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+DD46 text7 CODE >245:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+DD6A text7 CODE >246:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+DD76 text7 CODE >248:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+DDE8 text7 CODE >249:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+DE58 text7 CODE >251:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+DE7C text7 CODE >253:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+DE80 text7 CODE >254:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+DE8C text7 CODE >256:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+DE92 text7 CODE >257:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 AE3A text6 CODE >197:C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/uart1.c
 AE3A text6 CODE >198:C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/uart1.c
 AE3C text5 CODE >193:C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/uart1.c
@@ -1718,57 +1718,57 @@ C208 text3 CODE >163:C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_fil
 C21A text3 CODE >164:C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/uart1.c
 C234 text3 CODE >167:C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/uart1.c
 C238 text3 CODE >168:C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/uart1.c
-C38E text2 CODE >152:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-C38E text2 CODE >154:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-C392 text2 CODE >156:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-C396 text2 CODE >157:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-C39C text2 CODE >160:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-C3D4 text2 CODE >164:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-C3EA text2 CODE >167:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-C3FC text2 CODE >168:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-C3FE text2 CODE >156:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-C42E text2 CODE >172:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-C43C text2 CODE >174:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+C38E text2 CODE >153:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+C38E text2 CODE >155:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+C392 text2 CODE >157:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+C396 text2 CODE >158:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+C39C text2 CODE >161:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+C3D4 text2 CODE >165:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+C3EA text2 CODE >168:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+C3FC text2 CODE >169:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+C3FE text2 CODE >157:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+C42E text2 CODE >173:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+C43C text2 CODE >175:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 B3A6 text1 CODE >3:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\memset.c
 B3A6 text1 CODE >5:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\memset.c
 B3AE text1 CODE >6:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\memset.c
 B3B2 text1 CODE >7:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\memset.c
 B3C8 text1 CODE >6:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\memset.c
 B3E2 text1 CODE >10:C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\memset.c
-C68C text0 CODE >278:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 C68C text0 CODE >279:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-C690 text0 CODE >280:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-C694 text0 CODE >290:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-C6A0 text0 CODE >292:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-C6BC text0 CODE >294:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-C6CC text0 CODE >297:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-C6D8 text0 CODE >298:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-C6E4 text0 CODE >299:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-C6F0 text0 CODE >301:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-C71A text0 CODE >303:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-C71E text0 CODE >304:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-C722 text0 CODE >306:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-C72E text0 CODE >310:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-C740 text0 CODE >311:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-B0BA cinit CODE >8601:C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_1.s
-B0BA cinit CODE >8603:C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_1.s
-B0BA cinit CODE >8606:C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_1.s
-B0BA cinit CODE >8693:C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_1.s
-B0BE cinit CODE >8694:C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_1.s
-B0C0 cinit CODE >8695:C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_1.s
-B0C0 cinit CODE >8696:C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_1.s
-B0C2 cinit CODE >8697:C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_1.s
-B0C4 cinit CODE >8698:C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_1.s
-B0C6 cinit CODE >8701:C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_1.s
-B0CA cinit CODE >8702:C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_1.s
-B0CC cinit CODE >8703:C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_1.s
-B0CC cinit CODE >8704:C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_1.s
-B0CE cinit CODE >8705:C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_1.s
-B0D0 cinit CODE >8706:C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_1.s
-B0D2 cinit CODE >8709:C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_1.s
-B0D4 cinit CODE >8715:C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_1.s
-B0D4 cinit CODE >8717:C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_1.s
-B0D6 cinit CODE >8718:C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_1.s
+C68C text0 CODE >280:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+C690 text0 CODE >281:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+C694 text0 CODE >291:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+C6A0 text0 CODE >293:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+C6BC text0 CODE >295:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+C6CC text0 CODE >298:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+C6D8 text0 CODE >299:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+C6E4 text0 CODE >300:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+C6F0 text0 CODE >302:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+C71A text0 CODE >304:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+C71E text0 CODE >305:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+C722 text0 CODE >307:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+C72E text0 CODE >311:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+C740 text0 CODE >312:C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+B0BA cinit CODE >8601:C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_1.s
+B0BA cinit CODE >8603:C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_1.s
+B0BA cinit CODE >8606:C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_1.s
+B0BA cinit CODE >8693:C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_1.s
+B0BE cinit CODE >8694:C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_1.s
+B0C0 cinit CODE >8695:C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_1.s
+B0C0 cinit CODE >8696:C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_1.s
+B0C2 cinit CODE >8697:C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_1.s
+B0C4 cinit CODE >8698:C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_1.s
+B0C6 cinit CODE >8701:C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_1.s
+B0CA cinit CODE >8702:C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_1.s
+B0CC cinit CODE >8703:C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_1.s
+B0CC cinit CODE >8704:C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_1.s
+B0CE cinit CODE >8705:C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_1.s
+B0D0 cinit CODE >8706:C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_1.s
+B0D2 cinit CODE >8709:C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_1.s
+B0D4 cinit CODE >8715:C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_1.s
+B0D4 cinit CODE >8717:C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_1.s
+B0D6 cinit CODE >8718:C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_1.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -1797,7 +1797,7 @@ __Hspace_4 60000A 0 ABS 0 - dist/default/production\Practica3.X.production.o
 EEPROM_ReadByte@data 20 0 COMRAM 1 cstackCOMRAM dist/default/production\Practica3.X.production.o
 __end_of_vfsfcnvrt E60C 0 CODE 0 text56 dist/default/production\Practica3.X.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\Practica3.X.production.o
-__mediumconst FE98 0 MEDIUMCONST 0 mediumconst C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_19.o
+__mediumconst FE98 0 MEDIUMCONST 0 mediumconst C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_19.o
 __end_of_UART_SendString BBF8 0 CODE 0 text66 dist/default/production\Practica3.X.production.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\Practica3.X.production.o
 __end_of_I2C1_SetBuffer B120 0 CODE 0 text119 dist/default/production\Practica3.X.production.o
@@ -1839,7 +1839,7 @@ _WPUB 3A51 0 ABS 0 - dist/default/production\Practica3.X.production.o
 _WPUC 3A61 0 ABS 0 - dist/default/production\Practica3.X.production.o
 _WPUD 3A71 0 ABS 0 - dist/default/production\Practica3.X.production.o
 _WPUE 3A81 0 ABS 0 - dist/default/production\Practica3.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_19.o
+___sp 0 0 STACK 2 stack C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_19.o
 _asup D9 0 BANK0 1 bssBANK0 dist/default/production\Practica3.X.production.o
 _atou D44A 0 CODE 0 text58 dist/default/production\Practica3.X.production.o
 _dbuf 233 0 BANK2 1 bssBANK2 dist/default/production\Practica3.X.production.o
@@ -1847,14 +1847,14 @@ _labs B73C 0 CODE 0 text23 dist/default/production\Practica3.X.production.o
 _main C68C 0 CODE 0 text0 dist/default/production\Practica3.X.production.o
 _ncnv CD 0 BANK0 1 bssBANK0 dist/default/production\Practica3.X.production.o
 _prec D3 0 BANK0 1 bssBANK0 dist/default/production\Practica3.X.production.o
-___stack_hi 0 0 STACK 2 stack C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_19.o
-___stack_lo 0 0 STACK 2 stack C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_19.o
+___stack_hi 0 0 STACK 2 stack C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_19.o
+___stack_lo 0 0 STACK 2 stack C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_19.o
 read_prec_or_width@c 9 0 COMRAM 1 cstackCOMRAM dist/default/production\Practica3.X.production.o
 read_prec_or_width@n A 0 COMRAM 1 cstackCOMRAM dist/default/production\Practica3.X.production.o
 pad@i 17 0 COMRAM 1 cstackCOMRAM dist/default/production\Practica3.X.production.o
 pad@p 14 0 COMRAM 1 cstackCOMRAM dist/default/production\Practica3.X.production.o
 _ReadAndSendEEPROMData D046 0 CODE 0 text10 dist/default/production\Practica3.X.production.o
-start FFFC 0 CODE 0 init C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_19.o
+start FFFC 0 CODE 0 init C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_19.o
 ___flmul@aexp E 0 COMRAM 1 cstackCOMRAM dist/default/production\Practica3.X.production.o
 ___flmul@bexp 13 0 COMRAM 1 cstackCOMRAM dist/default/production\Practica3.X.production.o
 ___flmul@prod 14 0 COMRAM 1 cstackCOMRAM dist/default/production\Practica3.X.production.o
@@ -1894,11 +1894,11 @@ sscanf@f 82 0 BANK0 1 cstackBANK0 dist/default/production\Practica3.X.production
 sscanf@s 79 0 BANK0 1 cstackBANK0 dist/default/production\Practica3.X.production.o
 rd1RegCompleteHandler@ptr A 0 COMRAM 1 cstackCOMRAM dist/default/production\Practica3.X.production.o
 ___strtoxll@is_signed 1E 0 COMRAM 1 cstackCOMRAM dist/default/production\Practica3.X.production.o
-__accesstop 60 0 ABS 0 - C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_19.o
-intlevel0 0 0 CODE 0 text C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_19.o
-intlevel1 0 0 CODE 0 text C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_19.o
-intlevel2 0 0 CODE 0 text C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_19.o
-intlevel3 0 0 CODE 0 text C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_19.o
+__accesstop 60 0 ABS 0 - C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_19.o
+intlevel0 0 0 CODE 0 text C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_19.o
+intlevel1 0 0 CODE 0 text C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_19.o
+intlevel2 0 0 CODE 0 text C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_19.o
+intlevel3 0 0 CODE 0 text C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_19.o
 __ptext100 AE80 0 CODE 0 text100 dist/default/production\Practica3.X.production.o
 __ptext101 AE7A 0 CODE 0 text101 dist/default/production\Practica3.X.production.o
 __ptext102 AE74 0 CODE 0 text102 dist/default/production\Practica3.X.production.o
@@ -1973,11 +1973,11 @@ I2C1_ReadNBytes@len 18 0 COMRAM 1 cstackCOMRAM dist/default/production\Practica3
 ___strtoxll@endptr 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\Practica3.X.production.o
 __end_of_I2C1_DO_RX_NACK_STOP AF3C 0 CODE 0 text83 dist/default/production\Practica3.X.production.o
 _I2C1_MasterEnableRestart AE68 0 CODE 0 text107 dist/default/production\Practica3.X.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_19.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_19.o
 _I2C1CON0 3D73 0 ABS 0 - dist/default/production\Practica3.X.production.o
 _I2C1CON1 3D74 0 ABS 0 - dist/default/production\Practica3.X.production.o
 _I2C1CON2 3D75 0 ABS 0 - dist/default/production\Practica3.X.production.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_19.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_19.o
 EEPROM_ReadByte@deviceAddress 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\Practica3.X.production.o
 __end_of_rdBlkRegCompleteHandler B64C 0 CODE 0 text112 dist/default/production\Practica3.X.production.o
 __Htext100 0 0 ABS 0 text100 dist/default/production\Practica3.X.production.o
@@ -2168,7 +2168,7 @@ _EEPROM_WriteByte B2CE 0 CODE 0 text42 dist/default/production\Practica3.X.produ
 I2C1_WriteNBytes@data 17 0 COMRAM 1 cstackCOMRAM dist/default/production\Practica3.X.production.o
 _I2C1_MasterIsNackFlagSet AF82 0 CODE 0 text122 dist/default/production\Practica3.X.production.o
 I2C1_ReadNBytes@address 1A 0 COMRAM 1 cstackCOMRAM dist/default/production\Practica3.X.production.o
-isa$xinst 0 0 ABS 0 - C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_19.o
+isa$xinst 0 0 ABS 0 - C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_19.o
 _UART_ReceiveString C38E 0 CODE 0 text2 dist/default/production\Practica3.X.production.o
 EEPROM_ReadBlock@memoryAddress 21 0 COMRAM 1 cstackCOMRAM dist/default/production\Practica3.X.production.o
 _I2C1_Status 200 0 BANK2 1 bssBANK2 dist/default/production\Practica3.X.production.o
@@ -2220,7 +2220,7 @@ __Hbank15 0 0 ABS 0 bank15 dist/default/production\Practica3.X.production.o
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\Practica3.X.production.o
 __Hbigram 0 0 ABS 0 bigram dist/default/production\Practica3.X.production.o
 __Hbigsfr 0 0 ABS 0 bigsfr dist/default/production\Practica3.X.production.o
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_19.o
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_19.o
 StartLogging@loggedDataCount C9 0 BANK0 1 cstackBANK0 dist/default/production\Practica3.X.production.o
 ___xxtofl@arg B 0 COMRAM 1 cstackCOMRAM dist/default/production\Practica3.X.production.o
 ___xxtofl@exp A 0 COMRAM 1 cstackCOMRAM dist/default/production\Practica3.X.production.o
@@ -2625,13 +2625,13 @@ _I2C1SDAPPS 3AE2 0 ABS 0 - dist/default/production\Practica3.X.production.o
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\Practica3.X.production.o
 __end_of_custom_delay_ms B3A6 0 CODE 0 text8 dist/default/production\Practica3.X.production.o
 _I2C1_MasterWrite AEB2 0 CODE 0 text73 dist/default/production\Practica3.X.production.o
-___inthi_stack_hi 0 0 STACK 2 stack C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_19.o
-___inthi_stack_lo 0 0 STACK 2 stack C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_19.o
+___inthi_stack_hi 0 0 STACK 2 stack C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_19.o
+___inthi_stack_lo 0 0 STACK 2 stack C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_19.o
 _skipws B9D8 0 CODE 0 text59 dist/default/production\Practica3.X.production.o
 _sscanf B466 0 CODE 0 text54 dist/default/production\Practica3.X.production.o
 _strcpy B4EE 0 CODE 0 text17 dist/default/production\Practica3.X.production.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\Practica3.X.production.o
-isa$std 1 0 ABS 0 - C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_19.o
+isa$std 1 0 ABS 0 - C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_19.o
 __end_of_rd1RegCompleteHandler B21A 0 CODE 0 text115 dist/default/production\Practica3.X.production.o
 ___fldiv@new_exp 20 0 COMRAM 1 cstackCOMRAM dist/default/production\Practica3.X.production.o
 _MPU6050_ReadSensorData D8F6 0 CODE 0 text37 dist/default/production\Practica3.X.production.o
@@ -2642,8 +2642,8 @@ EEPROM_ReadBlock@data 23 0 COMRAM 1 cstackCOMRAM dist/default/production\Practic
 _I2C1_MasterSendTxData AED6 0 CODE 0 text105 dist/default/production\Practica3.X.production.o
 EEPROM_ReadBlock@size 25 0 COMRAM 1 cstackCOMRAM dist/default/production\Practica3.X.production.o
 _ungetc C050 0 CODE 0 text60 dist/default/production\Practica3.X.production.o
-stackhi 0 0 ABS 0 - C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_19.o
-stacklo 0 0 ABS 0 - C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_19.o
+stackhi 0 0 ABS 0 - C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_19.o
+stacklo 0 0 ABS 0 - C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_19.o
 I2C1_Open@returnValue 2 0 COMRAM 1 cstackCOMRAM dist/default/production\Practica3.X.production.o
 UART_ReceiveString@receivedString 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Practica3.X.production.o
 __end_of_I2C1_MasterSendNack AE80 0 CODE 0 text101 dist/default/production\Practica3.X.production.o
@@ -2844,7 +2844,7 @@ __Ltext97 0 0 ABS 0 text97 dist/default/production\Practica3.X.production.o
 __Ltext98 0 0 ABS 0 text98 dist/default/production\Practica3.X.production.o
 __Ltext99 0 0 ABS 0 text99 dist/default/production\Practica3.X.production.o
 __end_of_I2C1_MasterIsNackFlagSet AF98 0 CODE 0 text122 dist/default/production\Practica3.X.production.o
-__ramtop 1000 0 RAM 0 ramtop C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_19.o
+__ramtop 1000 0 RAM 0 ramtop C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_19.o
 _sprintf B532 0 CODE 0 text11 dist/default/production\Practica3.X.production.o
 _vfprintf B64C 0 CODE 0 text12 dist/default/production\Practica3.X.production.o
 __Lpowerup 0 0 CODE 0 powerup dist/default/production\Practica3.X.production.o
@@ -2885,13 +2885,13 @@ _SLRCONC 3A63 0 ABS 0 - dist/default/production\Practica3.X.production.o
 _SLRCOND 3A73 0 ABS 0 - dist/default/production\Practica3.X.production.o
 _SLRCONE 3A83 0 ABS 0 - dist/default/production\Practica3.X.production.o
 ParseUserInput@Ndat 92 0 BANK0 1 cstackBANK0 dist/default/production\Practica3.X.production.o
-___heap_hi 0 0 ABS 0 - C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_19.o
-___heap_lo 0 0 ABS 0 - C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_19.o
+___heap_hi 0 0 ABS 0 - C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_19.o
+___heap_lo 0 0 ABS 0 - C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_19.o
 __end_of_I2C1_MasterWrite AEBA 0 CODE 0 text73 dist/default/production\Practica3.X.production.o
 ___fltol@f1 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Practica3.X.production.o
 ___param_bank 0 0 ABS 0 - dist/default/production\Practica3.X.production.o
-___intlo_stack_hi 0 0 STACK 2 stack C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_19.o
-___intlo_stack_lo 0 0 STACK 2 stack C:\Users\mesas\AppData\Local\Temp\xcAs5c8.\driver_tmp_19.o
+___intlo_stack_hi 0 0 STACK 2 stack C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_19.o
+___intlo_stack_lo 0 0 STACK 2 stack C:\Users\mesas\AppData\Local\Temp\xcAsoe8.\driver_tmp_19.o
 __end_of_I2C1_DO_SEND_ADR_READ B2A0 0 CODE 0 text94 dist/default/production\Practica3.X.production.o
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\Practica3.X.production.o
 strcpy@src 3 0 COMRAM 1 cstackCOMRAM dist/default/production\Practica3.X.production.o

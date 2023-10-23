@@ -41,13 +41,14 @@
         SOFTWARE.
     */
 
+//librerias necesarias
 #include "mcc_generated_files/mcc.h"
 #include "mcc_generated_files/examples/i2c1_master_example.h"
 #include "mcc_generated_files/i2c1_master.h"
 #include "stdio.h"
 #include "string.h"
 
-
+// Definiciones para MPU6050 y direcciones EEPROM
 #define MPU6050_ADDRESS 0x68
 #define MPU6050_PWR_MGMT_1 0x6B
 
@@ -73,7 +74,7 @@ bool logging = false;  // Flag para indicar si se está registrando
 float ax, ay, az, gx, gy, gz;
 uint8_t eepromBuffer[BLOCK_SIZE];  // Buffer temporal para almacenar los datos antes de escribir en la EEPROM
 
-
+// Función para enviar cadenas a través de UART
 void UART_SendString(const char* str){
     while (*str){
         UART1_Write(*str);
@@ -81,13 +82,13 @@ void UART_SendString(const char* str){
     }
 }
 
-
+//inicializar el mpu
 void MPU6050_Init(){
     uint8_t data = 0x00; // Configuración para despertar el MPU6050
     I2C1_Write1ByteRegister(MPU6050_ADDRESS, MPU6050_PWR_MGMT_1, data);
 }
 
-
+// Leer datos del MPU6050 y convertir a valores flotantes
 void MPU6050_ReadSensorData(float* ax, float* ay, float* az, float* gx, float* gy, float* gz){
     uint8_t buffer[12];
     I2C1_ReadDataBlock(MPU6050_ADDRESS, MPU6050_ACCEL_XOUT_H, buffer, 12);
@@ -107,7 +108,7 @@ void MPU6050_ReadSensorData(float* ax, float* ay, float* az, float* gx, float* g
     *gz = gz_raw / 131.0f;
 }
 
-
+// Escribir un byte en la EEPROM
 void EEPROM_WriteByte(uint8_t deviceAddress, uint16_t memoryAddress, uint8_t data){
     uint8_t buffer[3];
     buffer[0] = (memoryAddress >> 8) & 0xFF;  // Address High Byte
@@ -119,7 +120,7 @@ void EEPROM_WriteByte(uint8_t deviceAddress, uint16_t memoryAddress, uint8_t dat
     __delay_ms(5);  // Espera para que la EEPROM complete la escritura
 }
 
-
+// Leer un byte de la EEPROM
 uint8_t EEPROM_ReadByte(uint8_t deviceAddress, uint16_t memoryAddress){
     uint8_t addressBuffer[2];
     addressBuffer[0] = (memoryAddress >> 8) & 0xFF;  // Address High Byte
@@ -141,14 +142,14 @@ void EEPROM_WriteBlock(uint8_t deviceAddress, uint16_t memoryAddress, uint8_t* d
     }
 }
 
-
+// Leer un bloque de datos de la EEPROM
 void EEPROM_ReadBlock(uint8_t deviceAddress, uint16_t memoryAddress, uint8_t* data, uint8_t size){
     for (uint8_t i = 0; i < size; i++) {
         data[i] = EEPROM_ReadByte(deviceAddress, memoryAddress + i);
     }
 }
 
-
+// Recibir una cadena de texto a través de UA
 char UART_ReceiveString(char* receivedString, uint8_t maxLength){
     char data;
     uint8_t index = 0;
@@ -173,14 +174,14 @@ char UART_ReceiveString(char* receivedString, uint8_t maxLength){
     return index;  // Retorna la longitud de la cadena
 }
 
-
+// Función de retardo personalizada
 void custom_delay_ms(uint32_t milliseconds) {
     while(milliseconds--) {
         __delay_ms(1);
     }
 }
 
-
+// Leer datos grabados en EEPROM y enviarlos por UART
 void ReadAndSendEEPROMData(uint32_t Ndat, uint16_t startAddressEEPROM1, uint16_t startAddressEEPROM2) {
 
     uint16_t readBlockEEPROM1 = startAddressEEPROM1;
@@ -212,7 +213,7 @@ void ReadAndSendEEPROMData(uint32_t Ndat, uint16_t startAddressEEPROM1, uint16_t
     }
 }
 
-
+// Iniciar proceso de grabación de datos del sensor en EEPROM
 void StartLogging() {
     uint32_t loggedDataCount = 0;
     while (loggedDataCount < Ndat) {
@@ -255,7 +256,7 @@ void StartLogging() {
     logging = false;  // Reset the logging flag
 }
 
-
+// Analizar la entrada del usuario y configurar parámetros para el registro de datos
 bool ParseUserInput(const char* input, uint32_t* Tm, uint32_t* Ndat) {
     uint32_t frequencyHz; // Frecuencia en Hz
     // Intentamos analizar la entrada en el formato deseado
