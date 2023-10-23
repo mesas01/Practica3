@@ -27786,6 +27786,7 @@ void ReadAndSendEEPROMData(uint32_t Ndat, uint16_t startAddressEEPROM1, uint16_t
 
 void StartLogging() {
     uint32_t loggedDataCount = 0;
+    char buffer[200];
     while (loggedDataCount < Ndat) {
 
         MPU6050_ReadSensorData(&ax, &ay, &az, &gx, &gy, &gz);
@@ -27798,9 +27799,20 @@ void StartLogging() {
         memcpy(&eepromBuffer[16], &gy, sizeof(float));
         memcpy(&eepromBuffer[20], &gz, sizeof(float));
 
+        UART_SendString("Escribiendo en EEPROM1 en direccion: ");
+        sprintf(buffer, "0x%X", currentBlockEEPROM1);
+        UART_SendString(buffer);
+        UART_SendString("\n");
+
 
         EEPROM_WriteBlock(0x50, currentBlockEEPROM1, eepromBuffer, 12);
 
+
+
+        UART_SendString("Escribiendo en EEPROM2 en direccion: ");
+        sprintf(buffer, "0x%X", currentBlockEEPROM2);
+        UART_SendString(buffer);
+        UART_SendString("\n");
 
         EEPROM_WriteBlock(0x51, currentBlockEEPROM2, &eepromBuffer[12], 12);
 
@@ -27817,6 +27829,29 @@ void StartLogging() {
 
     unsigned long startReadAddressEEPROM1 = (currentBlockEEPROM1 == 0 ? 32768 : currentBlockEEPROM1) - (Ndat * 12);
     unsigned long startReadAddressEEPROM2 = (currentBlockEEPROM2 == 0 ? 32768 : currentBlockEEPROM2) - (Ndat * 12);
+
+    for (uint32_t i = 0; i < Ndat; i++) {
+
+        UART_SendString("Leyendo de EEPROM1 desde direccion: ");
+        sprintf(buffer, "0x%X", startReadAddressEEPROM1);
+        UART_SendString(buffer);
+        UART_SendString("\n");
+
+
+        startReadAddressEEPROM1 = (startReadAddressEEPROM1 + 12) % 32768;
+
+
+        UART_SendString("Leyendo de EEPROM2 desde direccion: ");
+        sprintf(buffer, "0x%X", startReadAddressEEPROM2);
+        UART_SendString(buffer);
+        UART_SendString("\n");
+
+
+        startReadAddressEEPROM2 = (startReadAddressEEPROM2 + 12) % 32768;
+    }
+
+    startReadAddressEEPROM1 = (currentBlockEEPROM1 == 0 ? 32768 : currentBlockEEPROM1) - (Ndat * 12);
+    startReadAddressEEPROM2 = (currentBlockEEPROM2 == 0 ? 32768 : currentBlockEEPROM2) - (Ndat * 12);
 
     ReadAndSendEEPROMData(Ndat, (uint16_t)startReadAddressEEPROM1, (uint16_t)startReadAddressEEPROM2);
 
