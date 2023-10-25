@@ -27786,6 +27786,7 @@ void ReadAndSendEEPROMData(uint32_t Ndat, uint16_t startAddressEEPROM1, uint16_t
 
 void StartLogging() {
     uint32_t loggedDataCount = 0;
+    char buffer[200];
     while (loggedDataCount < Ndat) {
 
         MPU6050_ReadSensorData(&ax, &ay, &az, &gx, &gy, &gz);
@@ -27799,9 +27800,13 @@ void StartLogging() {
         memcpy(&eepromBuffer[20], &gz, sizeof(float));
 
 
+
+
+
+
+
         EEPROM_WriteBlock(0x50, currentBlockEEPROM1, eepromBuffer, 12);
-
-
+# 247 "main.c"
         EEPROM_WriteBlock(0x51, currentBlockEEPROM2, &eepromBuffer[12], 12);
 
 
@@ -27817,7 +27822,7 @@ void StartLogging() {
 
     unsigned long startReadAddressEEPROM1 = (currentBlockEEPROM1 == 0 ? 32768 : currentBlockEEPROM1) - (Ndat * 12);
     unsigned long startReadAddressEEPROM2 = (currentBlockEEPROM2 == 0 ? 32768 : currentBlockEEPROM2) - (Ndat * 12);
-
+# 286 "main.c"
     ReadAndSendEEPROMData(Ndat, (uint16_t)startReadAddressEEPROM1, (uint16_t)startReadAddressEEPROM2);
 
     } else {
@@ -27828,18 +27833,8 @@ void StartLogging() {
 
 
 _Bool ParseUserInput(const char* input, uint32_t* Tm, uint32_t* Ndat) {
-    uint32_t frequencyHz;
 
-    if (sscanf(input, "LOG(%lu,%lu)\r\n", &frequencyHz, Ndat) == 2 || sscanf(input, "LOG(%lu,%lu)\n", &frequencyHz, Ndat) == 2) {
-
-
-        if (frequencyHz > 400000) {
-            frequencyHz = 400000;
-            UART_SendString("Frecuencia excedida. Ajustada a 400kHz.\n");
-        }
-
-        *Tm = 1000 / frequencyHz;
-
+    if (sscanf(input, "LOG(%lu,%lu)\r\n", Tm, Ndat) == 2 || sscanf(input, "LOG(%lu,%lu)\n", Tm, Ndat) == 2) {
         return 1;
     }
     return 0;
@@ -27858,7 +27853,7 @@ void main(void){
 
     while(1){
 
-        UART_SendString("Ingrese la frecuencia (max 400000) y muestras (ejemplo: LOG(400000,100)): ");
+        UART_SendString("Ingrese el tiempo de muestreo en ms y el numero de muestras (ejemplo: LOG(10,100)): ");
 
         memset(userInput, 0, sizeof(userInput));
 
@@ -27878,8 +27873,8 @@ void main(void){
         }
 
 
-        if (!logging) {
-            MPU6050_ReadSensorData(&ax, &ay, &az, &gx, &gy, &gz);
-        }
+
+
+
     }
 }

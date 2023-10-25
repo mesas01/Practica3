@@ -69,8 +69,6 @@ CONV_DONE 4
 ]
 "4 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\__fpclassifyf.c
 [v ___fpclassifyf __fpclassifyf `(i  1 e 2 0 ]
-"7 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\__lldiv.c
-[v ___lldiv __lldiv `(ul  1 e 4 0 ]
 "7 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\__strtoxll.c
 [v ___strtoxll __strtoxll `(uo  1 e 8 0 ]
 "193 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
@@ -173,9 +171,9 @@ CONV_DONE 4
 [v _ReadAndSendEEPROMData ReadAndSendEEPROMData `(v  1 e 1 0 ]
 "217
 [v _StartLogging StartLogging `(v  1 e 1 0 ]
-"260
+"295
 [v _ParseUserInput ParseUserInput `(a  1 e 1 0 ]
-"279
+"304
 [v _main main `(v  1 e 1 0 ]
 "91 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/examples/i2c1_master_example.c
 [v _I2C1_Write1ByteRegister I2C1_Write1ByteRegister `(v  1 e 1 0 ]
@@ -722,12 +720,12 @@ CONV_DONE 4
 "54 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doscan.c
 [v _asup asup `a  1 s 1 asup ]
 "55
-[v _width@doscan$F2195 width `i  1 s 2 width ]
+[v _width@doscan$F2194 width `i  1 s 2 width ]
 "58
 [v _ncnv ncnv `i  1 s 2 ncnv ]
 [v _nmatch nmatch `i  1 s 2 nmatch ]
 "71
-[v _dbuf@doscan$F2198 dbuf `[32]uc  1 s 32 dbuf ]
+[v _dbuf@doscan$F2197 dbuf `[32]uc  1 s 32 dbuf ]
 "3 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\errno.c
 [v _errno errno `i  1 e 2 0 ]
 "8 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_getc.c
@@ -776,12 +774,12 @@ CONV_DONE 4
 [v _UART1_OverrunErrorHandler UART1_OverrunErrorHandler `*.37(v  1 e 2 0 ]
 "60
 [v _UART1_ErrorHandler UART1_ErrorHandler `*.37(v  1 e 2 0 ]
-"279 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+"304 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"286
+"311
 [v main@userInput userInput `[20]uc  1 a 20 0 ]
-"315
+"340
 } 0
 "3 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\memset.c
 [v _memset memset `(*.39v  1 e 2 0 ]
@@ -827,13 +825,13 @@ CONV_DONE 4
 "217 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 [v _StartLogging StartLogging `(v  1 e 1 0 ]
 {
-"249
+"261
 [v StartLogging@startReadAddressEEPROM2 startReadAddressEEPROM2 `ul  1 a 4 93 ]
-"248
+"260
 [v StartLogging@startReadAddressEEPROM1 startReadAddressEEPROM1 `ul  1 a 4 89 ]
 "218
 [v StartLogging@loggedDataCount loggedDataCount `ul  1 a 4 105 ]
-"257
+"292
 } 0
 "178
 [v _custom_delay_ms custom_delay_ms `(v  1 e 1 0 ]
@@ -880,10 +878,10 @@ CONV_DONE 4
 "9 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
-[u S1919 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[u S1918 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
 "13
-[s S1922 _IO_FILE 12 `S1919 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
-[v sprintf@f f `S1922  1 a 12 79 ]
+[s S1921 _IO_FILE 12 `S1918 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
+[v sprintf@f f `S1921  1 a 12 79 ]
 "12
 [v sprintf@ap ap `[1]*.30v  1 a 1 78 ]
 "9
@@ -896,9 +894,9 @@ CONV_DONE 4
 {
 "1820
 [v vfprintf@cfmt cfmt `*.32uc  1 a 2 76 ]
-[s S1954 _IO_FILE 0 ]
+[s S1953 _IO_FILE 0 ]
 "1817
-[v vfprintf@fp fp `*.30S1954  1 p 1 47 ]
+[v vfprintf@fp fp `*.30S1953  1 p 1 47 ]
 [v vfprintf@fmt fmt `*.32Cuc  1 p 2 48 ]
 [v vfprintf@ap ap `*.30*.30v  1 p 1 50 ]
 "1840
@@ -906,15 +904,15 @@ CONV_DONE 4
 "1177
 [v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
 {
-[u S1998 . 4 `d 1 f 4 0 ]
+[u S1997 . 4 `d 1 f 4 0 ]
 "1188
-[v vfpfcnvrt@convarg convarg `S1998  1 a 4 69 ]
+[v vfpfcnvrt@convarg convarg `S1997  1 a 4 69 ]
 "1179
 [v vfpfcnvrt@cp cp `*.32uc  1 a 2 74 ]
 [v vfpfcnvrt@c c `uc  1 a 1 73 ]
-[s S1954 _IO_FILE 0 ]
+[s S1953 _IO_FILE 0 ]
 "1177
-[v vfpfcnvrt@fp fp `*.30S1954  1 p 1 44 ]
+[v vfpfcnvrt@fp fp `*.30S1953  1 p 1 44 ]
 [v vfpfcnvrt@fmt fmt `*.30*.32uc  1 p 1 45 ]
 [v vfpfcnvrt@ap ap `*.30*.30v  1 p 1 46 ]
 "1814
@@ -944,15 +942,15 @@ CONV_DONE 4
 "587 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\doprnt.c
 [v _efgtoa efgtoa `(v  1 s 1 efgtoa ]
 {
-[u S1967 flui 4 `d 1 f 4 0 `l 1 u 4 0 ]
+[u S1966 flui 4 `d 1 f 4 0 `l 1 u 4 0 ]
 "592
-[v efgtoa@u u `S1967  1 a 4 40 ]
-[v efgtoa@g g `S1967  1 a 4 34 ]
+[v efgtoa@u u `S1966  1 a 4 40 ]
+[v efgtoa@g g `S1966  1 a 4 34 ]
 "591
 [v efgtoa@l l `d  1 a 4 29 ]
 [v efgtoa@h h `d  1 a 4 25 ]
 "592
-[v efgtoa@ou ou `S1967  1 a 4 19 ]
+[v efgtoa@ou ou `S1966  1 a 4 19 ]
 "590
 [v efgtoa@n n `i  1 a 2 38 ]
 [v efgtoa@i i `i  1 a 2 23 ]
@@ -968,9 +966,9 @@ CONV_DONE 4
 [v efgtoa@nmode nmode `uc  1 a 1 10 ]
 [v efgtoa@mode mode `uc  1 a 1 9 ]
 [v efgtoa@pp pp `uc  1 a 1 8 ]
-[s S1954 _IO_FILE 0 ]
+[s S1953 _IO_FILE 0 ]
 "587
-[v efgtoa@fp fp `*.30S1954  1 p 1 59 ]
+[v efgtoa@fp fp `*.30S1953  1 p 1 59 ]
 [v efgtoa@f f `d  1 p 4 60 ]
 [v efgtoa@c c `uc  1 p 1 64 ]
 "868
@@ -990,9 +988,9 @@ CONV_DONE 4
 {
 "195
 [v pad@i i `i  1 a 2 22 ]
-[s S1954 _IO_FILE 0 ]
+[s S1953 _IO_FILE 0 ]
 "193
-[v pad@fp fp `*.30S1954  1 p 1 16 ]
+[v pad@fp fp `*.30S1953  1 p 1 16 ]
 [v pad@buf buf `*.39uc  1 p 2 17 ]
 [v pad@p p `i  1 p 2 19 ]
 "226
@@ -1006,18 +1004,18 @@ CONV_DONE 4
 [v fputs@c c `uc  1 a 1 13 ]
 "8
 [v fputs@s s `*.39Cuc  1 p 2 10 ]
-[u S1919 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S1922 _IO_FILE 12 `S1919 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
-[v fputs@fp fp `*.30S1922  1 p 1 12 ]
+[u S1918 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S1921 _IO_FILE 12 `S1918 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
+[v fputs@fp fp `*.30S1921  1 p 1 12 ]
 "19
 } 0
 "8 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 2 ]
-[u S1919 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S1922 _IO_FILE 12 `S1919 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
-[v fputc@fp fp `*.30S1922  1 p 1 4 ]
+[u S1918 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S1921 _IO_FILE 12 `S1918 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
+[v fputc@fp fp `*.30S1921  1 p 1 4 ]
 "24
 } 0
 "184 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/uart1.c
@@ -1053,9 +1051,9 @@ CONV_DONE 4
 "3 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\floorf.c
 [v _floorf floorf `(f  1 e 4 0 ]
 {
-[u S2070 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
+[u S2069 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
 "5
-[v floorf@u u `S2070  1 a 4 55 ]
+[v floorf@u u `S2069  1 a 4 55 ]
 "7
 [v floorf@m m `ul  1 a 4 49 ]
 "6
@@ -1063,21 +1061,21 @@ CONV_DONE 4
 "3
 [v floorf@x x `f  1 p 4 39 ]
 "4
-[v floorf@F521 F521 `S2070  1 s 4 F521 ]
+[v floorf@F521 F521 `S2069  1 s 4 F521 ]
 "27
 } 0
 "4 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\__fpclassifyf.c
 [v ___fpclassifyf __fpclassifyf `(i  1 e 2 0 ]
 {
-[u S2070 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
+[u S2069 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
 "6
-[v ___fpclassifyf@u u `S2070  1 a 4 10 ]
+[v ___fpclassifyf@u u `S2069  1 a 4 10 ]
 "7
 [v ___fpclassifyf@e e `i  1 a 2 8 ]
 "4
 [v ___fpclassifyf@x x `f  1 p 4 0 ]
 "5
-[v ___fpclassifyf@F465 F465 `S2070  1 s 4 F465 ]
+[v ___fpclassifyf@F465 F465 `S2069  1 s 4 F465 ]
 "11
 } 0
 "43 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\fltol.c
@@ -1122,17 +1120,17 @@ CONV_DONE 4
 "8 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S1772 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S1771 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S1777 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
-[u S1780 . 4 `l 1 i 4 0 `d 1 f 4 0 `S1772 1 fAsBytes 4 0 `S1777 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S1780  1 a 4 19 ]
+[s S1776 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
+[u S1779 . 4 `l 1 i 4 0 `d 1 f 4 0 `S1771 1 fAsBytes 4 0 `S1776 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S1779  1 a 4 19 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 14 ]
-[s S1848 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S1847 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S1851 . 2 `s 1 i 2 0 `us 1 n 2 0 `S1848 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S1851  1 a 2 23 ]
+[u S1850 . 2 `s 1 i 2 0 `us 1 n 2 0 `S1847 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S1850  1 a 2 23 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 18 ]
 "11
@@ -1157,6 +1155,20 @@ CONV_DONE 4
 [v ___fleq@ff1 ff1 `d  1 p 4 0 ]
 [v ___fleq@ff2 ff2 `d  1 p 4 4 ]
 "12
+} 0
+"78 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+[v _UART_SendString UART_SendString `(v  1 e 1 0 ]
+{
+[v UART_SendString@str str `*.34Cuc  1 p 2 1 ]
+"83
+} 0
+"170 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/uart1.c
+[v _UART1_Write UART1_Write `(v  1 e 1 0 ]
+{
+[v UART1_Write@txData txData `uc  1 a 1 wreg ]
+[v UART1_Write@txData txData `uc  1 a 1 wreg ]
+[v UART1_Write@txData txData `uc  1 a 1 0 ]
+"177
 } 0
 "146 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 [v _EEPROM_ReadBlock EEPROM_ReadBlock `(v  1 e 1 0 ]
@@ -1206,26 +1218,26 @@ CONV_DONE 4
 [v _MPU6050_ReadSensorData MPU6050_ReadSensorData `(v  1 e 1 0 ]
 {
 "93
-[v MPU6050_ReadSensorData@buffer buffer `[12]uc  1 a 12 50 ]
+[v MPU6050_ReadSensorData@buffer buffer `[12]uc  1 a 12 52 ]
 "101
-[v MPU6050_ReadSensorData@gz_raw gz_raw `s  1 a 2 72 ]
+[v MPU6050_ReadSensorData@gz_raw gz_raw `s  1 a 2 74 ]
 "100
-[v MPU6050_ReadSensorData@gy_raw gy_raw `s  1 a 2 70 ]
+[v MPU6050_ReadSensorData@gy_raw gy_raw `s  1 a 2 72 ]
 "99
-[v MPU6050_ReadSensorData@gx_raw gx_raw `s  1 a 2 68 ]
+[v MPU6050_ReadSensorData@gx_raw gx_raw `s  1 a 2 70 ]
 "98
-[v MPU6050_ReadSensorData@az_raw az_raw `s  1 a 2 66 ]
+[v MPU6050_ReadSensorData@az_raw az_raw `s  1 a 2 68 ]
 "97
-[v MPU6050_ReadSensorData@ay_raw ay_raw `s  1 a 2 64 ]
+[v MPU6050_ReadSensorData@ay_raw ay_raw `s  1 a 2 66 ]
 "96
-[v MPU6050_ReadSensorData@ax_raw ax_raw `s  1 a 2 62 ]
+[v MPU6050_ReadSensorData@ax_raw ax_raw `s  1 a 2 64 ]
 "92
 [v MPU6050_ReadSensorData@ax ax `*.30f  1 p 1 39 ]
-[v MPU6050_ReadSensorData@ay ay `*.30f  1 p 1 40 ]
-[v MPU6050_ReadSensorData@az az `*.30f  1 p 1 41 ]
-[v MPU6050_ReadSensorData@gx gx `*.39f  1 p 2 42 ]
-[v MPU6050_ReadSensorData@gy gy `*.39f  1 p 2 44 ]
-[v MPU6050_ReadSensorData@gz gz `*.39f  1 p 2 46 ]
+[v MPU6050_ReadSensorData@ay ay `*.39f  1 p 2 40 ]
+[v MPU6050_ReadSensorData@az az `*.39f  1 p 2 42 ]
+[v MPU6050_ReadSensorData@gx gx `*.39f  1 p 2 44 ]
+[v MPU6050_ReadSensorData@gy gy `*.39f  1 p 2 46 ]
+[v MPU6050_ReadSensorData@gz gz `*.39f  1 p 2 48 ]
 "109
 } 0
 "10 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\xxtofl.c
@@ -1365,24 +1377,21 @@ CONV_DONE 4
 {
 "202
 } 0
-"260 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
+"295 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 [v _ParseUserInput ParseUserInput `(a  1 e 1 0 ]
 {
-"261
-[v ParseUserInput@frequencyHz frequencyHz `ul  1 a 4 51 ]
-"260
 [v ParseUserInput@input input `*.39Cuc  1 p 2 46 ]
-[v ParseUserInput@Tm Tm `*.39ul  1 p 2 48 ]
-[v ParseUserInput@Ndat Ndat `*.30ul  1 p 1 50 ]
-"276
+[v ParseUserInput@Tm Tm `*.30ul  1 p 1 48 ]
+[v ParseUserInput@Ndat Ndat `*.30ul  1 p 1 49 ]
+"301
 } 0
 "9 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_sscanf.c
 [v _sscanf sscanf `(i  1 e 2 0 ]
 {
-[u S1919 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[u S1918 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
 "12
-[s S1922 _IO_FILE 12 `S1919 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
-[v sscanf@f f `S1922  1 a 12 34 ]
+[s S1921 _IO_FILE 12 `S1918 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
+[v sscanf@f f `S1921  1 a 12 34 ]
 "11
 [v sscanf@ret ret `i  1 a 2 31 ]
 "14
@@ -1400,9 +1409,9 @@ CONV_DONE 4
 "1505
 [v vfscanf@n n `i  1 a 2 21 ]
 [v vfscanf@saved_errno saved_errno `i  1 a 2 19 ]
-[s S2165 _IO_FILE 0 ]
+[s S2164 _IO_FILE 0 ]
 "1502
-[v vfscanf@fp fp `*.30S2165  1 p 1 15 ]
+[v vfscanf@fp fp `*.30S2164  1 p 1 15 ]
 [v vfscanf@fmt fmt `*.32Cuc  1 p 2 16 ]
 [v vfscanf@ap ap `*.30*.30v  1 p 1 18 ]
 "1524
@@ -1417,9 +1426,9 @@ CONV_DONE 4
 [v vfsfcnvrt@i i `i  1 a 2 11 ]
 "679
 [v vfsfcnvrt@vp vp `*.30v  1 a 1 2 ]
-[s S2165 _IO_FILE 0 ]
+[s S2164 _IO_FILE 0 ]
 "672
-[v vfsfcnvrt@fp fp `*.30S2165  1 p 1 90 ]
+[v vfsfcnvrt@fp fp `*.30S2164  1 p 1 90 ]
 [v vfsfcnvrt@fmt fmt `*.30*.32uc  1 p 1 91 ]
 [v vfsfcnvrt@ap ap `*.30*.30v  1 p 1 92 ]
 "1500
@@ -1441,9 +1450,9 @@ CONV_DONE 4
 [v atou@w w `i  1 a 2 84 ]
 "484
 [v atou@ep ep `*.39uc  1 a 2 82 ]
-[s S2165 _IO_FILE 0 ]
+[s S2164 _IO_FILE 0 ]
 "482
-[v atou@fp fp `*.30S2165  1 p 1 72 ]
+[v atou@fp fp `*.30S2164  1 p 1 72 ]
 [v atou@pll pll `*.30uo  1 p 1 73 ]
 "524
 } 0
@@ -1452,18 +1461,18 @@ CONV_DONE 4
 {
 "76
 [v skipws@c c `i  1 a 2 13 ]
-[s S2165 _IO_FILE 0 ]
+[s S2164 _IO_FILE 0 ]
 "74
-[v skipws@fp fp `*.30S2165  1 p 1 11 ]
+[v skipws@fp fp `*.30S2164  1 p 1 11 ]
 "84
 } 0
 "33 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\nf_getc.c
 [v _ungetc ungetc `(i  1 e 2 0 ]
 {
 [v ungetc@c c `i  1 p 2 0 ]
-[u S1919 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S1922 _IO_FILE 12 `S1919 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
-[v ungetc@fp fp `*.30S1922  1 p 1 2 ]
+[u S1918 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S1921 _IO_FILE 12 `S1918 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
+[v ungetc@fp fp `*.30S1921  1 p 1 2 ]
 "53
 } 0
 "11
@@ -1471,10 +1480,10 @@ CONV_DONE 4
 {
 "13
 [v fgetc@c c `i  1 a 2 9 ]
-[u S1919 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[u S1918 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
 "11
-[s S1922 _IO_FILE 12 `S1919 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
-[v fgetc@fp fp `*.30S1922  1 p 1 2 ]
+[s S1921 _IO_FILE 12 `S1918 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
+[v fgetc@fp fp `*.30S1921  1 p 1 2 ]
 "31
 } 0
 "7 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\getch.c
@@ -1511,32 +1520,6 @@ CONV_DONE 4
 [v ___omul@multiplier multiplier `uo  1 p 8 0 ]
 [v ___omul@multiplicand multiplicand `uo  1 p 8 8 ]
 "354
-} 0
-"7 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\__lldiv.c
-[v ___lldiv __lldiv `(ul  1 e 4 0 ]
-{
-"10
-[v ___lldiv@quotient quotient `ul  1 a 4 8 ]
-"11
-[v ___lldiv@counter counter `uc  1 a 1 12 ]
-"7
-[v ___lldiv@dividend dividend `ul  1 p 4 0 ]
-[v ___lldiv@divisor divisor `ul  1 p 4 4 ]
-"30
-} 0
-"78 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
-[v _UART_SendString UART_SendString `(v  1 e 1 0 ]
-{
-[v UART_SendString@str str `*.34Cuc  1 p 2 1 ]
-"83
-} 0
-"170 C:\Users\mesas\MPLABXProjects\Practica3.X\mcc_generated_files/uart1.c
-[v _UART1_Write UART1_Write `(v  1 e 1 0 ]
-{
-[v UART1_Write@txData txData `uc  1 a 1 wreg ]
-[v UART1_Write@txData txData `uc  1 a 1 wreg ]
-[v UART1_Write@txData txData `uc  1 a 1 0 ]
-"177
 } 0
 "86 C:\Users\mesas\MPLABXProjects\Practica3.X\main.c
 [v _MPU6050_Init MPU6050_Init `(v  1 e 1 0 ]
