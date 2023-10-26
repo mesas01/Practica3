@@ -1,45 +1,145 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"376 ./mcc_generated_files/uart1.h
-[; ;./mcc_generated_files/uart1.h: 376: void UART1_Write(uint8_t txData);
-[v _UART1_Write `(v ~T0 @X0 0 ef1`uc ]
-"56 ./mcc_generated_files/examples/i2c1_master_example.h
-[; ;./mcc_generated_files/examples/i2c1_master_example.h: 56: void I2C1_Write1ByteRegister(i2c1_address_t address, uint8_t reg, uint8_t data);
-[v _I2C1_Write1ByteRegister `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"60
-[; ;./mcc_generated_files/examples/i2c1_master_example.h: 60: void I2C1_ReadDataBlock(i2c1_address_t address, uint8_t reg, uint8_t *data, size_t len);
-[v _I2C1_ReadDataBlock `(v ~T0 @X0 0 ef4`uc`uc`*uc`ui ]
-"58
-[; ;./mcc_generated_files/examples/i2c1_master_example.h: 58: void I2C1_WriteNBytes(i2c1_address_t address, uint8_t *data, size_t len);
-[v _I2C1_WriteNBytes `(v ~T0 @X0 0 ef3`uc`*uc`ui ]
-[v F205 `(v ~T0 @X0 1 tf1`ul ]
-"20 C:\Program Files\Microchip\xc8\v2.45\pic\include\builtins.h
-[v __delay `JF205 ~T0 @X0 0 e ]
-[p i __delay ]
-"59 ./mcc_generated_files/examples/i2c1_master_example.h
-[; ;./mcc_generated_files/examples/i2c1_master_example.h: 59: void I2C1_ReadNBytes(i2c1_address_t address, uint8_t *data, size_t len);
-[v _I2C1_ReadNBytes `(v ~T0 @X0 0 ef3`uc`*uc`ui ]
-"351 ./mcc_generated_files/uart1.h
-[; ;./mcc_generated_files/uart1.h: 351: uint8_t UART1_Read(void);
-[v _UART1_Read `(uc ~T0 @X0 0 ef ]
-"121 C:\Program Files\Microchip\xc8\v2.45\pic\include\c99\stdio.h
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\c99\stdio.h: 121: int sprintf(char *restrict, const char *restrict, ...);
-[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
-"27 C:\Program Files\Microchip\xc8\v2.45\pic\include\c99\string.h
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\c99\string.h: 27: void *memcpy (void *restrict, const void *restrict, size_t);
-[v _memcpy `(*v ~T0 @X0 0 ef3`*v`*Cv`ui ]
-"138 C:\Program Files\Microchip\xc8\v2.45\pic\include\c99\stdio.h
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\c99\stdio.h: 138: int sscanf(const char *restrict, const char *restrict, ...);
-[v _sscanf `(i ~T0 @X0 0 e1v`*Cuc`*Cuc ]
-[p mainexit ]
-"71 ./mcc_generated_files/mcc.h
-[; ;./mcc_generated_files/mcc.h: 71: void SYSTEM_Initialize(void);
-[v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
-"29 C:\Program Files\Microchip\xc8\v2.45\pic\include\c99\string.h
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\c99\string.h: 29: void *memset (void *, int, size_t);
-[v _memset `(*v ~T0 @X0 0 ef3`*v`i`ui ]
-"40
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\c99\string.h: 40: int strncmp (const char *, const char *, size_t);
-[v _strncmp `(i ~T0 @X0 0 ef3`*Cuc`*Cuc`ui ]
+"47040 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 47040: extern volatile unsigned char LATE __attribute__((address(0x3FBE)));
+[v _LATE `Vuc ~T0 @X0 0 e@16318 ]
+"46928
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 46928: extern volatile unsigned char LATD __attribute__((address(0x3FBD)));
+[v _LATD `Vuc ~T0 @X0 0 e@16317 ]
+"46592
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 46592: extern volatile unsigned char LATA __attribute__((address(0x3FBA)));
+[v _LATA `Vuc ~T0 @X0 0 e@16314 ]
+"46704
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 46704: extern volatile unsigned char LATB __attribute__((address(0x3FBB)));
+[v _LATB `Vuc ~T0 @X0 0 e@16315 ]
+"46816
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 46816: extern volatile unsigned char LATC __attribute__((address(0x3FBC)));
+[v _LATC `Vuc ~T0 @X0 0 e@16316 ]
+"47340
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 47340: extern volatile unsigned char TRISE __attribute__((address(0x3FC6)));
+[v _TRISE `Vuc ~T0 @X0 0 e@16326 ]
+"47092
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 47092: extern volatile unsigned char TRISA __attribute__((address(0x3FC2)));
+[v _TRISA `Vuc ~T0 @X0 0 e@16322 ]
+"47154
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 47154: extern volatile unsigned char TRISB __attribute__((address(0x3FC3)));
+[v _TRISB `Vuc ~T0 @X0 0 e@16323 ]
+"47216
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 47216: extern volatile unsigned char TRISC __attribute__((address(0x3FC4)));
+[v _TRISC `Vuc ~T0 @X0 0 e@16324 ]
+"47278
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 47278: extern volatile unsigned char TRISD __attribute__((address(0x3FC5)));
+[v _TRISD `Vuc ~T0 @X0 0 e@16325 ]
+"10309
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 10309: extern volatile unsigned char ANSELD __attribute__((address(0x3A70)));
+[v _ANSELD `Vuc ~T0 @X0 0 e@14960 ]
+"9473
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 9473: extern volatile unsigned char ANSELC __attribute__((address(0x3A60)));
+[v _ANSELC `Vuc ~T0 @X0 0 e@14944 ]
+"8637
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 8637: extern volatile unsigned char ANSELB __attribute__((address(0x3A50)));
+[v _ANSELB `Vuc ~T0 @X0 0 e@14928 ]
+"10959
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 10959: extern volatile unsigned char ANSELE __attribute__((address(0x3A80)));
+[v _ANSELE `Vuc ~T0 @X0 0 e@14976 ]
+"8017
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 8017: extern volatile unsigned char ANSELA __attribute__((address(0x3A40)));
+[v _ANSELA `Vuc ~T0 @X0 0 e@14912 ]
+"10371
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 10371: extern volatile unsigned char WPUD __attribute__((address(0x3A71)));
+[v _WPUD `Vuc ~T0 @X0 0 e@14961 ]
+"10991
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 10991: extern volatile unsigned char WPUE __attribute__((address(0x3A81)));
+[v _WPUE `Vuc ~T0 @X0 0 e@14977 ]
+"8699
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 8699: extern volatile unsigned char WPUB __attribute__((address(0x3A51)));
+[v _WPUB `Vuc ~T0 @X0 0 e@14929 ]
+"8079
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 8079: extern volatile unsigned char WPUA __attribute__((address(0x3A41)));
+[v _WPUA `Vuc ~T0 @X0 0 e@14913 ]
+"9535
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 9535: extern volatile unsigned char WPUC __attribute__((address(0x3A61)));
+[v _WPUC `Vuc ~T0 @X0 0 e@14945 ]
+"9257
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 9257: extern volatile unsigned char RB1I2C __attribute__((address(0x3A5A)));
+[v _RB1I2C `Vuc ~T0 @X0 0 e@14938 ]
+"9365
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 9365: extern volatile unsigned char RB2I2C __attribute__((address(0x3A5B)));
+[v _RB2I2C `Vuc ~T0 @X0 0 e@14939 ]
+"10093
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 10093: extern volatile unsigned char RC3I2C __attribute__((address(0x3A6A)));
+[v _RC3I2C `Vuc ~T0 @X0 0 e@14954 ]
+"10201
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 10201: extern volatile unsigned char RC4I2C __attribute__((address(0x3A6B)));
+[v _RC4I2C `Vuc ~T0 @X0 0 e@14955 ]
+"10743
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 10743: extern volatile unsigned char RD0I2C __attribute__((address(0x3A7A)));
+[v _RD0I2C `Vuc ~T0 @X0 0 e@14970 ]
+"10851
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 10851: extern volatile unsigned char RD1I2C __attribute__((address(0x3A7B)));
+[v _RD1I2C `Vuc ~T0 @X0 0 e@14971 ]
+"11029
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 11029: extern volatile unsigned char ODCONE __attribute__((address(0x3A82)));
+[v _ODCONE `Vuc ~T0 @X0 0 e@14978 ]
+"8141
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 8141: extern volatile unsigned char ODCONA __attribute__((address(0x3A42)));
+[v _ODCONA `Vuc ~T0 @X0 0 e@14914 ]
+"8761
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 8761: extern volatile unsigned char ODCONB __attribute__((address(0x3A52)));
+[v _ODCONB `Vuc ~T0 @X0 0 e@14930 ]
+"9597
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 9597: extern volatile unsigned char ODCONC __attribute__((address(0x3A62)));
+[v _ODCONC `Vuc ~T0 @X0 0 e@14946 ]
+"10433
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 10433: extern volatile unsigned char ODCOND __attribute__((address(0x3A72)));
+[v _ODCOND `Vuc ~T0 @X0 0 e@14962 ]
+"8203
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 8203: extern volatile unsigned char SLRCONA __attribute__((address(0x3A43)));
+[v _SLRCONA `Vuc ~T0 @X0 0 e@14915 ]
+"8823
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 8823: extern volatile unsigned char SLRCONB __attribute__((address(0x3A53)));
+[v _SLRCONB `Vuc ~T0 @X0 0 e@14931 ]
+"9659
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 9659: extern volatile unsigned char SLRCONC __attribute__((address(0x3A63)));
+[v _SLRCONC `Vuc ~T0 @X0 0 e@14947 ]
+"10495
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 10495: extern volatile unsigned char SLRCOND __attribute__((address(0x3A73)));
+[v _SLRCOND `Vuc ~T0 @X0 0 e@14963 ]
+"11061
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 11061: extern volatile unsigned char SLRCONE __attribute__((address(0x3A83)));
+[v _SLRCONE `Vuc ~T0 @X0 0 e@14979 ]
+"8265
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 8265: extern volatile unsigned char INLVLA __attribute__((address(0x3A44)));
+[v _INLVLA `Vuc ~T0 @X0 0 e@14916 ]
+"8885
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 8885: extern volatile unsigned char INLVLB __attribute__((address(0x3A54)));
+[v _INLVLB `Vuc ~T0 @X0 0 e@14932 ]
+"9721
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 9721: extern volatile unsigned char INLVLC __attribute__((address(0x3A64)));
+[v _INLVLC `Vuc ~T0 @X0 0 e@14948 ]
+"10557
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 10557: extern volatile unsigned char INLVLD __attribute__((address(0x3A74)));
+[v _INLVLD `Vuc ~T0 @X0 0 e@14964 ]
+"11093
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 11093: extern volatile unsigned char INLVLE __attribute__((address(0x3A84)));
+[v _INLVLE `Vuc ~T0 @X0 0 e@14980 ]
+"12014
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 12014: extern volatile unsigned char I2C1SDAPPS __attribute__((address(0x3AE2)));
+[v _I2C1SDAPPS `Vuc ~T0 @X0 0 e@15074 ]
+"6717
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 6717: extern volatile unsigned char RB1PPS __attribute__((address(0x3A09)));
+[v _RB1PPS `Vuc ~T0 @X0 0 e@14857 ]
+"6767
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 6767: extern volatile unsigned char RB2PPS __attribute__((address(0x3A0A)));
+[v _RB2PPS `Vuc ~T0 @X0 0 e@14858 ]
+"7367
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 7367: extern volatile unsigned char RC6PPS __attribute__((address(0x3A16)));
+[v _RC6PPS `Vuc ~T0 @X0 0 e@14870 ]
+"12074
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 12074: extern volatile unsigned char U1RXPPS __attribute__((address(0x3AE5)));
+[v _U1RXPPS `Vuc ~T0 @X0 0 e@15077 ]
+"11994
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 11994: extern volatile unsigned char I2C1SCLPPS __attribute__((address(0x3AE1)));
+[v _I2C1SCLPPS `Vuc ~T0 @X0 0 e@15073 ]
 "250 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 250: __asm("STATUS_CSHAD equ 03880h");
 [; <" STATUS_CSHAD equ 03880h ;# ">
@@ -2299,936 +2399,168 @@ Version 4.0 HI-TECH Software Intermediate Code
 "49098
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f46k42.h: 49098: __asm("TOSU equ 03FFFh");
 [; <" TOSU equ 03FFFh ;# ">
-"69 main.c
-[; ;main.c: 69: uint16_t currentBlockEEPROM1 = 0x0000;
-[v _currentBlockEEPROM1 `us ~T0 @X0 1 e ]
-[i _currentBlockEEPROM1
--> -> 0 `i `us
-]
+"55 mcc_generated_files/pin_manager.c
+[; ;mcc_generated_files/pin_manager.c: 55: void PIN_MANAGER_Initialize(void)
+[v _PIN_MANAGER_Initialize `(v ~T0 @X0 1 ef ]
+"56
+[; ;mcc_generated_files/pin_manager.c: 56: {
+{
+[e :U _PIN_MANAGER_Initialize ]
+[f ]
+"60
+[; ;mcc_generated_files/pin_manager.c: 60:     LATE = 0x00;
+[e = _LATE -> -> 0 `i `uc ]
+"61
+[; ;mcc_generated_files/pin_manager.c: 61:     LATD = 0x00;
+[e = _LATD -> -> 0 `i `uc ]
+"62
+[; ;mcc_generated_files/pin_manager.c: 62:     LATA = 0x00;
+[e = _LATA -> -> 0 `i `uc ]
+"63
+[; ;mcc_generated_files/pin_manager.c: 63:     LATB = 0x00;
+[e = _LATB -> -> 0 `i `uc ]
+"64
+[; ;mcc_generated_files/pin_manager.c: 64:     LATC = 0x00;
+[e = _LATC -> -> 0 `i `uc ]
+"69
+[; ;mcc_generated_files/pin_manager.c: 69:     TRISE = 0x07;
+[e = _TRISE -> -> 7 `i `uc ]
 "70
-[; ;main.c: 70: uint16_t currentBlockEEPROM2 = 0x0000;
-[v _currentBlockEEPROM2 `us ~T0 @X0 1 e ]
-[i _currentBlockEEPROM2
--> -> 0 `i `us
-]
+[; ;mcc_generated_files/pin_manager.c: 70:     TRISA = 0xFF;
+[e = _TRISA -> -> 255 `i `uc ]
+"71
+[; ;mcc_generated_files/pin_manager.c: 71:     TRISB = 0xF9;
+[e = _TRISB -> -> 249 `i `uc ]
 "72
-[; ;main.c: 72: uint32_t Ndat = 0;
-[v _Ndat `ul ~T0 @X0 1 e ]
-[i _Ndat
--> -> -> 0 `i `l `ul
-]
+[; ;mcc_generated_files/pin_manager.c: 72:     TRISC = 0xBF;
+[e = _TRISC -> -> 191 `i `uc ]
 "73
-[; ;main.c: 73: uint32_t Tm = 0;
-[v _Tm `ul ~T0 @X0 1 e ]
-[i _Tm
--> -> -> 0 `i `l `ul
-]
-"74
-[; ;main.c: 74: _Bool logging = 0;
-[v _logging `a ~T0 @X0 1 e ]
-[i _logging
--> -> 0 `i `a
-]
-"76
-[; ;main.c: 76: float ax, ay, az, gx, gy, gz;
-[v _ax `f ~T0 @X0 1 e ]
-[v _ay `f ~T0 @X0 1 e ]
-[v _az `f ~T0 @X0 1 e ]
-[v _gx `f ~T0 @X0 1 e ]
-[v _gy `f ~T0 @X0 1 e ]
-[v _gz `f ~T0 @X0 1 e ]
-"77
-[; ;main.c: 77: uint8_t eepromBuffer[24];
-[v _eepromBuffer `uc ~T0 @X0 -> 24 `i e ]
+[; ;mcc_generated_files/pin_manager.c: 73:     TRISD = 0xFC;
+[e = _TRISD -> -> 252 `i `uc ]
+"78
+[; ;mcc_generated_files/pin_manager.c: 78:     ANSELD = 0xFF;
+[e = _ANSELD -> -> 255 `i `uc ]
+"79
+[; ;mcc_generated_files/pin_manager.c: 79:     ANSELC = 0x7F;
+[e = _ANSELC -> -> 127 `i `uc ]
 "80
-[; ;main.c: 80: void UART_SendString(const char* str){
-[v _UART_SendString `(v ~T0 @X0 1 ef1`*Cuc ]
-{
-[e :U _UART_SendString ]
-[v _str `*Cuc ~T0 @X0 1 r1 ]
-[f ]
+[; ;mcc_generated_files/pin_manager.c: 80:     ANSELB = 0xF9;
+[e = _ANSELB -> -> 249 `i `uc ]
 "81
-[; ;main.c: 81:     while (*str){
-[e $U 2274  ]
-[e :U 2275 ]
-{
+[; ;mcc_generated_files/pin_manager.c: 81:     ANSELE = 0x07;
+[e = _ANSELE -> -> 7 `i `uc ]
 "82
-[; ;main.c: 82:         UART1_Write(*str);
-[e ( _UART1_Write (1 -> *U _str `uc ]
-"83
-[; ;main.c: 83:         str++;
-[e ++ _str * -> -> 1 `i `x -> -> # *U _str `i `x ]
-"84
-[; ;main.c: 84:     }
-}
-[e :U 2274 ]
-"81
-[; ;main.c: 81:     while (*str){
-[e $ != -> *U _str `i -> 0 `i 2275  ]
-[e :U 2276 ]
-"85
-[; ;main.c: 85: }
-[e :UE 2273 ]
-}
+[; ;mcc_generated_files/pin_manager.c: 82:     ANSELA = 0xFF;
+[e = _ANSELA -> -> 255 `i `uc ]
+"87
+[; ;mcc_generated_files/pin_manager.c: 87:     WPUD = 0x00;
+[e = _WPUD -> -> 0 `i `uc ]
 "88
-[; ;main.c: 88: void MPU6050_Init(){
-[v _MPU6050_Init `(v ~T0 @X0 1 ef ]
-{
-[e :U _MPU6050_Init ]
-[f ]
+[; ;mcc_generated_files/pin_manager.c: 88:     WPUE = 0x00;
+[e = _WPUE -> -> 0 `i `uc ]
 "89
-[; ;main.c: 89:     uint8_t data = 0x00;
-[v _data `uc ~T0 @X0 1 a ]
-[e = _data -> -> 0 `i `uc ]
+[; ;mcc_generated_files/pin_manager.c: 89:     WPUB = 0x00;
+[e = _WPUB -> -> 0 `i `uc ]
 "90
-[; ;main.c: 90:     I2C1_Write1ByteRegister(0x68, 0x6B, data);
-[e ( _I2C1_Write1ByteRegister (3 , , -> -> 104 `i `uc -> -> 107 `i `uc _data ]
+[; ;mcc_generated_files/pin_manager.c: 90:     WPUA = 0x00;
+[e = _WPUA -> -> 0 `i `uc ]
 "91
-[; ;main.c: 91: }
-[e :UE 2277 ]
-}
-"94
-[; ;main.c: 94: void MPU6050_ReadSensorData(float* ax, float* ay, float* az, float* gx, float* gy, float* gz){
-[v _MPU6050_ReadSensorData `(v ~T0 @X0 1 ef6`*f`*f`*f`*f`*f`*f ]
-{
-[e :U _MPU6050_ReadSensorData ]
-[v _ax `*f ~T0 @X0 1 r1 ]
-[v _ay `*f ~T0 @X0 1 r2 ]
-[v _az `*f ~T0 @X0 1 r3 ]
-[v _gx `*f ~T0 @X0 1 r4 ]
-[v _gy `*f ~T0 @X0 1 r5 ]
-[v _gz `*f ~T0 @X0 1 r6 ]
-[f ]
-"95
-[; ;main.c: 95:     uint8_t buffer[12];
-[v _buffer `uc ~T0 @X0 -> 12 `i a ]
+[; ;mcc_generated_files/pin_manager.c: 91:     WPUC = 0x00;
+[e = _WPUC -> -> 0 `i `uc ]
 "96
-[; ;main.c: 96:     I2C1_ReadDataBlock(0x68, 0x3B, buffer, 12);
-[e ( _I2C1_ReadDataBlock (4 , , , -> -> 104 `i `uc -> -> 59 `i `uc &U _buffer -> -> 12 `i `ui ]
+[; ;mcc_generated_files/pin_manager.c: 96:     RB1I2C = 0x00;
+[e = _RB1I2C -> -> 0 `i `uc ]
+"97
+[; ;mcc_generated_files/pin_manager.c: 97:     RB2I2C = 0x00;
+[e = _RB2I2C -> -> 0 `i `uc ]
 "98
-[; ;main.c: 98:     int16_t ax_raw = (buffer[0] << 8) | buffer[1];
-[v _ax_raw `s ~T0 @X0 1 a ]
-[e = _ax_raw -> | << -> *U + &U _buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i -> 8 `i -> *U + &U _buffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i `s ]
+[; ;mcc_generated_files/pin_manager.c: 98:     RC3I2C = 0x00;
+[e = _RC3I2C -> -> 0 `i `uc ]
 "99
-[; ;main.c: 99:     int16_t ay_raw = (buffer[2] << 8) | buffer[3];
-[v _ay_raw `s ~T0 @X0 1 a ]
-[e = _ay_raw -> | << -> *U + &U _buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i -> 8 `i -> *U + &U _buffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i `s ]
+[; ;mcc_generated_files/pin_manager.c: 99:     RC4I2C = 0x00;
+[e = _RC4I2C -> -> 0 `i `uc ]
 "100
-[; ;main.c: 100:     int16_t az_raw = (buffer[4] << 8) | buffer[5];
-[v _az_raw `s ~T0 @X0 1 a ]
-[e = _az_raw -> | << -> *U + &U _buffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i -> 8 `i -> *U + &U _buffer * -> -> -> 5 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i `s ]
+[; ;mcc_generated_files/pin_manager.c: 100:     RD0I2C = 0x00;
+[e = _RD0I2C -> -> 0 `i `uc ]
 "101
-[; ;main.c: 101:     int16_t gx_raw = (buffer[6] << 8) | buffer[7];
-[v _gx_raw `s ~T0 @X0 1 a ]
-[e = _gx_raw -> | << -> *U + &U _buffer * -> -> -> 6 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i -> 8 `i -> *U + &U _buffer * -> -> -> 7 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i `s ]
-"102
-[; ;main.c: 102:     int16_t gy_raw = (buffer[8] << 8) | buffer[9];
-[v _gy_raw `s ~T0 @X0 1 a ]
-[e = _gy_raw -> | << -> *U + &U _buffer * -> -> -> 8 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i -> 8 `i -> *U + &U _buffer * -> -> -> 9 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i `s ]
-"103
-[; ;main.c: 103:     int16_t gz_raw = (buffer[10] << 8) | buffer[11];
-[v _gz_raw `s ~T0 @X0 1 a ]
-[e = _gz_raw -> | << -> *U + &U _buffer * -> -> -> 10 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i -> 8 `i -> *U + &U _buffer * -> -> -> 11 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i `s ]
-"105
-[; ;main.c: 105:     *ax = ax_raw / 16384.0f;
-[e = *U _ax / -> -> _ax_raw `i `f -> .16384.0 `f ]
+[; ;mcc_generated_files/pin_manager.c: 101:     RD1I2C = 0x00;
+[e = _RD1I2C -> -> 0 `i `uc ]
 "106
-[; ;main.c: 106:     *ay = ay_raw / 16384.0f;
-[e = *U _ay / -> -> _ay_raw `i `f -> .16384.0 `f ]
+[; ;mcc_generated_files/pin_manager.c: 106:     ODCONE = 0x00;
+[e = _ODCONE -> -> 0 `i `uc ]
 "107
-[; ;main.c: 107:     *az = az_raw / 16384.0f;
-[e = *U _az / -> -> _az_raw `i `f -> .16384.0 `f ]
+[; ;mcc_generated_files/pin_manager.c: 107:     ODCONA = 0x00;
+[e = _ODCONA -> -> 0 `i `uc ]
 "108
-[; ;main.c: 108:     *gx = gx_raw / 131.0f;
-[e = *U _gx / -> -> _gx_raw `i `f -> .131.0 `f ]
+[; ;mcc_generated_files/pin_manager.c: 108:     ODCONB = 0x26;
+[e = _ODCONB -> -> 38 `i `uc ]
 "109
-[; ;main.c: 109:     *gy = gy_raw / 131.0f;
-[e = *U _gy / -> -> _gy_raw `i `f -> .131.0 `f ]
+[; ;mcc_generated_files/pin_manager.c: 109:     ODCONC = 0x18;
+[e = _ODCONC -> -> 24 `i `uc ]
 "110
-[; ;main.c: 110:     *gz = gz_raw / 131.0f;
-[e = *U _gz / -> -> _gz_raw `i `f -> .131.0 `f ]
-"111
-[; ;main.c: 111: }
-[e :UE 2278 ]
-}
-"114
-[; ;main.c: 114: void EEPROM_WriteByte(uint8_t deviceAddress, uint16_t memoryAddress, uint8_t data){
-[v _EEPROM_WriteByte `(v ~T0 @X0 1 ef3`uc`us`uc ]
-{
-[e :U _EEPROM_WriteByte ]
-[v _deviceAddress `uc ~T0 @X0 1 r1 ]
-[v _memoryAddress `us ~T0 @X0 1 r2 ]
-[v _data `uc ~T0 @X0 1 r3 ]
-[f ]
+[; ;mcc_generated_files/pin_manager.c: 110:     ODCOND = 0x00;
+[e = _ODCOND -> -> 0 `i `uc ]
 "115
-[; ;main.c: 115:     uint8_t buffer[3];
-[v _buffer `uc ~T0 @X0 -> 3 `i a ]
+[; ;mcc_generated_files/pin_manager.c: 115:     SLRCONA = 0xFF;
+[e = _SLRCONA -> -> 255 `i `uc ]
 "116
-[; ;main.c: 116:     buffer[0] = (memoryAddress >> 8) & 0xFF;
-[e = *U + &U _buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _buffer `ui `ux -> & >> -> _memoryAddress `ui -> 8 `i -> -> 255 `i `ui `uc ]
+[; ;mcc_generated_files/pin_manager.c: 116:     SLRCONB = 0xFF;
+[e = _SLRCONB -> -> 255 `i `uc ]
 "117
-[; ;main.c: 117:     buffer[1] = memoryAddress & 0xFF;
-[e = *U + &U _buffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _buffer `ui `ux -> & -> _memoryAddress `ui -> -> 255 `i `ui `uc ]
+[; ;mcc_generated_files/pin_manager.c: 117:     SLRCONC = 0xFF;
+[e = _SLRCONC -> -> 255 `i `uc ]
 "118
-[; ;main.c: 118:     buffer[2] = data;
-[e = *U + &U _buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _buffer `ui `ux _data ]
-"120
-[; ;main.c: 120:     I2C1_WriteNBytes(deviceAddress, buffer, 3);
-[e ( _I2C1_WriteNBytes (3 , , _deviceAddress &U _buffer -> -> 3 `i `ui ]
-"122
-[; ;main.c: 122:     _delay((unsigned long)((5)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"123
-[; ;main.c: 123: }
-[e :UE 2279 ]
-}
+[; ;mcc_generated_files/pin_manager.c: 118:     SLRCOND = 0xFF;
+[e = _SLRCOND -> -> 255 `i `uc ]
+"119
+[; ;mcc_generated_files/pin_manager.c: 119:     SLRCONE = 0x07;
+[e = _SLRCONE -> -> 7 `i `uc ]
+"124
+[; ;mcc_generated_files/pin_manager.c: 124:     INLVLA = 0xFF;
+[e = _INLVLA -> -> 255 `i `uc ]
+"125
+[; ;mcc_generated_files/pin_manager.c: 125:     INLVLB = 0xFF;
+[e = _INLVLB -> -> 255 `i `uc ]
 "126
-[; ;main.c: 126: uint8_t EEPROM_ReadByte(uint8_t deviceAddress, uint16_t memoryAddress){
-[v _EEPROM_ReadByte `(uc ~T0 @X0 1 ef2`uc`us ]
-{
-[e :U _EEPROM_ReadByte ]
-[v _deviceAddress `uc ~T0 @X0 1 r1 ]
-[v _memoryAddress `us ~T0 @X0 1 r2 ]
-[f ]
+[; ;mcc_generated_files/pin_manager.c: 126:     INLVLC = 0xFF;
+[e = _INLVLC -> -> 255 `i `uc ]
 "127
-[; ;main.c: 127:     uint8_t addressBuffer[2];
-[v _addressBuffer `uc ~T0 @X0 -> 2 `i a ]
+[; ;mcc_generated_files/pin_manager.c: 127:     INLVLD = 0xFF;
+[e = _INLVLD -> -> 255 `i `uc ]
 "128
-[; ;main.c: 128:     addressBuffer[0] = (memoryAddress >> 8) & 0xFF;
-[e = *U + &U _addressBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _addressBuffer `ui `ux -> & >> -> _memoryAddress `ui -> 8 `i -> -> 255 `i `ui `uc ]
-"129
-[; ;main.c: 129:     addressBuffer[1] = memoryAddress & 0xFF;
-[e = *U + &U _addressBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _addressBuffer `ui `ux -> & -> _memoryAddress `ui -> -> 255 `i `ui `uc ]
-"131
-[; ;main.c: 131:     I2C1_WriteNBytes(deviceAddress, addressBuffer, 2);
-[e ( _I2C1_WriteNBytes (3 , , _deviceAddress &U _addressBuffer -> -> 2 `i `ui ]
-"133
-[; ;main.c: 133:     uint8_t data = 0;
-[v _data `uc ~T0 @X0 1 a ]
-[e = _data -> -> 0 `i `uc ]
-"134
-[; ;main.c: 134:     I2C1_ReadNBytes(deviceAddress, &data, 1);
-[e ( _I2C1_ReadNBytes (3 , , _deviceAddress &U _data -> -> 1 `i `ui ]
-"136
-[; ;main.c: 136:     return data;
-[e ) _data ]
-[e $UE 2280  ]
+[; ;mcc_generated_files/pin_manager.c: 128:     INLVLE = 0x0F;
+[e = _INLVLE -> -> 15 `i `uc ]
 "137
-[; ;main.c: 137: }
-[e :UE 2280 ]
-}
+[; ;mcc_generated_files/pin_manager.c: 137:     I2C1SDAPPS = 0x0A;
+[e = _I2C1SDAPPS -> -> 10 `i `uc ]
+"138
+[; ;mcc_generated_files/pin_manager.c: 138:     RB1PPS = 0x21;
+[e = _RB1PPS -> -> 33 `i `uc ]
+"139
+[; ;mcc_generated_files/pin_manager.c: 139:     RB2PPS = 0x22;
+[e = _RB2PPS -> -> 34 `i `uc ]
+"140
+[; ;mcc_generated_files/pin_manager.c: 140:     RC6PPS = 0x13;
+[e = _RC6PPS -> -> 19 `i `uc ]
 "141
-[; ;main.c: 141: void EEPROM_WriteBlock(uint8_t deviceAddress, uint16_t memoryAddress, uint8_t* data, uint8_t size){
-[v _EEPROM_WriteBlock `(v ~T0 @X0 1 ef4`uc`us`*uc`uc ]
-{
-[e :U _EEPROM_WriteBlock ]
-[v _deviceAddress `uc ~T0 @X0 1 r1 ]
-[v _memoryAddress `us ~T0 @X0 1 r2 ]
-[v _data `*uc ~T0 @X0 1 r3 ]
-[v _size `uc ~T0 @X0 1 r4 ]
-[f ]
+[; ;mcc_generated_files/pin_manager.c: 141:     U1RXPPS = 0x17;
+[e = _U1RXPPS -> -> 23 `i `uc ]
 "142
-[; ;main.c: 142:     for (uint8_t i = 0; i < size; i++){
-{
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `uc ]
-[e $U 2285  ]
-[e :U 2282 ]
-{
+[; ;mcc_generated_files/pin_manager.c: 142:     I2C1SCLPPS = 0x09;
+[e = _I2C1SCLPPS -> -> 9 `i `uc ]
 "143
-[; ;main.c: 143:         EEPROM_WriteByte(deviceAddress, memoryAddress + i, data[i]);
-[e ( _EEPROM_WriteByte (3 , , _deviceAddress -> + -> _memoryAddress `ui -> _i `ui `us *U + _data * -> _i `ux -> -> # *U _data `ui `ux ]
-"144
-[; ;main.c: 144:     }
-}
-[e ++ _i -> -> 1 `i `uc ]
-[e :U 2285 ]
-[e $ < -> _i `i -> _size `i 2282  ]
-[e :U 2283 ]
+[; ;mcc_generated_files/pin_manager.c: 143: }
+[e :UE 2268 ]
 }
 "145
-[; ;main.c: 145: }
-[e :UE 2281 ]
-}
-"148
-[; ;main.c: 148: void EEPROM_ReadBlock(uint8_t deviceAddress, uint16_t memoryAddress, uint8_t* data, uint8_t size){
-[v _EEPROM_ReadBlock `(v ~T0 @X0 1 ef4`uc`us`*uc`uc ]
+[; ;mcc_generated_files/pin_manager.c: 145: void PIN_MANAGER_IOC(void)
+[v _PIN_MANAGER_IOC `(v ~T0 @X0 1 ef ]
+"146
+[; ;mcc_generated_files/pin_manager.c: 146: {
 {
-[e :U _EEPROM_ReadBlock ]
-[v _deviceAddress `uc ~T0 @X0 1 r1 ]
-[v _memoryAddress `us ~T0 @X0 1 r2 ]
-[v _data `*uc ~T0 @X0 1 r3 ]
-[v _size `uc ~T0 @X0 1 r4 ]
+[e :U _PIN_MANAGER_IOC ]
 [f ]
-"149
-[; ;main.c: 149:     for (uint8_t i = 0; i < size; i++) {
-{
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `uc ]
-[e $U 2290  ]
-[e :U 2287 ]
-{
-"150
-[; ;main.c: 150:         data[i] = EEPROM_ReadByte(deviceAddress, memoryAddress + i);
-[e = *U + _data * -> _i `ux -> -> # *U _data `ui `ux ( _EEPROM_ReadByte (2 , _deviceAddress -> + -> _memoryAddress `ui -> _i `ui `us ]
-"151
-[; ;main.c: 151:     }
+"147
+[; ;mcc_generated_files/pin_manager.c: 147: }
+[e :UE 2269 ]
 }
-[e ++ _i -> -> 1 `i `uc ]
-[e :U 2290 ]
-[e $ < -> _i `i -> _size `i 2287  ]
-[e :U 2288 ]
-}
-"152
-[; ;main.c: 152: }
-[e :UE 2286 ]
-}
-"155
-[; ;main.c: 155: char UART_ReceiveString(char* receivedString, uint8_t maxLength){
-[v _UART_ReceiveString `(uc ~T0 @X0 1 ef2`*uc`uc ]
-{
-[e :U _UART_ReceiveString ]
-[v _receivedString `*uc ~T0 @X0 1 r1 ]
-[v _maxLength `uc ~T0 @X0 1 r2 ]
-[f ]
-"156
-[; ;main.c: 156:     char data;
-[v _data `uc ~T0 @X0 1 a ]
-"157
-[; ;main.c: 157:     uint8_t index = 0;
-[v _index `uc ~T0 @X0 1 a ]
-[e = _index -> -> 0 `i `uc ]
-"159
-[; ;main.c: 159:     while (index < maxLength - 1){
-[e $U 2292  ]
-[e :U 2293 ]
-{
-"160
-[; ;main.c: 160:         data = UART1_Read();
-[e = _data -> ( _UART1_Read ..  `uc ]
-"163
-[; ;main.c: 163:         if (index == 0 && (data == '\r' || data == '\n')) {
-[e $ ! && == -> _index `i -> 0 `i || == -> _data `ui -> 13 `ui == -> _data `ui -> 10 `ui 2295  ]
-{
-"164
-[; ;main.c: 164:             continue;
-[e $U 2292  ]
-"165
-[; ;main.c: 165:         }
-}
-[e :U 2295 ]
-"167
-[; ;main.c: 167:         if (data == '\r') {
-[e $ ! == -> _data `ui -> 13 `ui 2296  ]
-{
-"168
-[; ;main.c: 168:             break;
-[e $U 2294  ]
-"169
-[; ;main.c: 169:         } else {
-}
-[e $U 2297  ]
-[e :U 2296 ]
-{
-"170
-[; ;main.c: 170:             receivedString[index] = data;
-[e = *U + _receivedString * -> _index `ux -> -> # *U _receivedString `ui `ux _data ]
-"171
-[; ;main.c: 171:             index++;
-[e ++ _index -> -> 1 `i `uc ]
-"172
-[; ;main.c: 172:         }
-}
-[e :U 2297 ]
-"173
-[; ;main.c: 173:     }
-}
-[e :U 2292 ]
-"159
-[; ;main.c: 159:     while (index < maxLength - 1){
-[e $ < -> _index `i - -> _maxLength `i -> 1 `i 2293  ]
-[e :U 2294 ]
-"175
-[; ;main.c: 175:     receivedString[index] = '\0';
-[e = *U + _receivedString * -> _index `ux -> -> # *U _receivedString `ui `ux -> -> 0 `ui `uc ]
-"176
-[; ;main.c: 176:     return index;
-[e ) -> _index `uc ]
-[e $UE 2291  ]
-"177
-[; ;main.c: 177: }
-[e :UE 2291 ]
-}
-"181
-[; ;main.c: 181: void Handle_LOG_STAT() {
-[v _Handle_LOG_STAT `(v ~T0 @X0 1 ef ]
-{
-[e :U _Handle_LOG_STAT ]
-[f ]
-"182
-[; ;main.c: 182:     char buffer[200];
-[v _buffer `uc ~T0 @X0 -> 200 `i a ]
-"183
-[; ;main.c: 183:     sprintf(buffer, "Datos almacenados: %lu, Tasa de muestreo: %lu ms\n", Ndat, Tm);
-[e ( _sprintf (1 , , (. , &U _buffer :s 1C _Ndat _Tm ]
-"184
-[; ;main.c: 184:     UART_SendString(buffer);
-[e ( _UART_SendString (1 -> &U _buffer `*Cuc ]
-"185
-[; ;main.c: 185: }
-[e :UE 2298 ]
-}
-"189
-[; ;main.c: 189: void ReadAndSendEEPROMDataCSV(uint32_t Ndat, uint16_t startAddressEEPROM1, uint16_t startAddressEEPROM2) {
-[v _ReadAndSendEEPROMDataCSV `(v ~T0 @X0 1 ef3`ul`us`us ]
-{
-[e :U _ReadAndSendEEPROMDataCSV ]
-[v _Ndat `ul ~T0 @X0 1 r1 ]
-[v _startAddressEEPROM1 `us ~T0 @X0 1 r2 ]
-[v _startAddressEEPROM2 `us ~T0 @X0 1 r3 ]
-[f ]
-"190
-[; ;main.c: 190:     uint16_t readBlockEEPROM1 = startAddressEEPROM1;
-[v _readBlockEEPROM1 `us ~T0 @X0 1 a ]
-[e = _readBlockEEPROM1 _startAddressEEPROM1 ]
-"191
-[; ;main.c: 191:     uint16_t readBlockEEPROM2 = startAddressEEPROM2;
-[v _readBlockEEPROM2 `us ~T0 @X0 1 a ]
-[e = _readBlockEEPROM2 _startAddressEEPROM2 ]
-"192
-[; ;main.c: 192:     uint8_t eepromReadBuffer[24];
-[v _eepromReadBuffer `uc ~T0 @X0 -> 24 `i a ]
-"193
-[; ;main.c: 193:     float ax_read, ay_read, az_read, gx_read, gy_read, gz_read;
-[v _ax_read `f ~T0 @X0 1 a ]
-[v _ay_read `f ~T0 @X0 1 a ]
-[v _az_read `f ~T0 @X0 1 a ]
-[v _gx_read `f ~T0 @X0 1 a ]
-[v _gy_read `f ~T0 @X0 1 a ]
-[v _gz_read `f ~T0 @X0 1 a ]
-"194
-[; ;main.c: 194:     char buffer[200];
-[v _buffer `uc ~T0 @X0 -> 200 `i a ]
-"197
-[; ;main.c: 197:     UART_SendString("AX,AY,AZ,GX,GY,GZ\n");
-[e ( _UART_SendString (1 :s 2C ]
-"199
-[; ;main.c: 199:     for (uint32_t i = 0; i < Ndat; i++) {
-{
-[v _i `ul ~T0 @X0 1 a ]
-[e = _i -> -> -> 0 `i `l `ul ]
-[e $U 2303  ]
-[e :U 2300 ]
-{
-"201
-[; ;main.c: 201:         EEPROM_ReadBlock(0x50, readBlockEEPROM1, eepromReadBuffer, 12);
-[e ( _EEPROM_ReadBlock (4 , , , -> -> 80 `i `uc _readBlockEEPROM1 &U _eepromReadBuffer -> -> 12 `i `uc ]
-"202
-[; ;main.c: 202:         memcpy(&ax_read, &eepromReadBuffer[0], sizeof(float));
-[e ( _memcpy (3 , , -> &U _ax_read `*v -> &U *U + &U _eepromReadBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _eepromReadBuffer `ui `ux `*Cv -> # `f `ui ]
-"203
-[; ;main.c: 203:         memcpy(&ay_read, &eepromReadBuffer[4], sizeof(float));
-[e ( _memcpy (3 , , -> &U _ay_read `*v -> &U *U + &U _eepromReadBuffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _eepromReadBuffer `ui `ux `*Cv -> # `f `ui ]
-"204
-[; ;main.c: 204:         memcpy(&az_read, &eepromReadBuffer[8], sizeof(float));
-[e ( _memcpy (3 , , -> &U _az_read `*v -> &U *U + &U _eepromReadBuffer * -> -> -> 8 `i `ui `ux -> -> # *U &U _eepromReadBuffer `ui `ux `*Cv -> # `f `ui ]
-"207
-[; ;main.c: 207:         EEPROM_ReadBlock(0x51, readBlockEEPROM2, &eepromReadBuffer[12], 12);
-[e ( _EEPROM_ReadBlock (4 , , , -> -> 81 `i `uc _readBlockEEPROM2 &U *U + &U _eepromReadBuffer * -> -> -> 12 `i `ui `ux -> -> # *U &U _eepromReadBuffer `ui `ux -> -> 12 `i `uc ]
-"208
-[; ;main.c: 208:         memcpy(&gx_read, &eepromReadBuffer[12], sizeof(float));
-[e ( _memcpy (3 , , -> &U _gx_read `*v -> &U *U + &U _eepromReadBuffer * -> -> -> 12 `i `ui `ux -> -> # *U &U _eepromReadBuffer `ui `ux `*Cv -> # `f `ui ]
-"209
-[; ;main.c: 209:         memcpy(&gy_read, &eepromReadBuffer[16], sizeof(float));
-[e ( _memcpy (3 , , -> &U _gy_read `*v -> &U *U + &U _eepromReadBuffer * -> -> -> 16 `i `ui `ux -> -> # *U &U _eepromReadBuffer `ui `ux `*Cv -> # `f `ui ]
-"210
-[; ;main.c: 210:         memcpy(&gz_read, &eepromReadBuffer[20], sizeof(float));
-[e ( _memcpy (3 , , -> &U _gz_read `*v -> &U *U + &U _eepromReadBuffer * -> -> -> 20 `i `ui `ux -> -> # *U &U _eepromReadBuffer `ui `ux `*Cv -> # `f `ui ]
-"213
-[; ;main.c: 213:         sprintf(buffer, "%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\n", ax_read, ay_read, az_read, gx_read, gy_read, gz_read);
-[e ( _sprintf (1 , , , , , , (. , &U _buffer :s 3C -> _ax_read `d -> _ay_read `d -> _az_read `d -> _gx_read `d -> _gy_read `d -> _gz_read `d ]
-"214
-[; ;main.c: 214:         UART_SendString(buffer);
-[e ( _UART_SendString (1 -> &U _buffer `*Cuc ]
-"217
-[; ;main.c: 217:         readBlockEEPROM1 = (readBlockEEPROM1 + 12) % 32768;
-[e = _readBlockEEPROM1 -> % -> + -> _readBlockEEPROM1 `ui -> -> 12 `i `ui `l -> 32768 `l `us ]
-"218
-[; ;main.c: 218:         readBlockEEPROM2 = (readBlockEEPROM2 + 12) % 32768;
-[e = _readBlockEEPROM2 -> % -> + -> _readBlockEEPROM2 `ui -> -> 12 `i `ui `l -> 32768 `l `us ]
-"219
-[; ;main.c: 219:     }
-}
-[e ++ _i -> -> -> 1 `i `l `ul ]
-[e :U 2303 ]
-[e $ < _i _Ndat 2300  ]
-[e :U 2301 ]
-}
-"220
-[; ;main.c: 220: }
-[e :UE 2299 ]
-}
-"224
-[; ;main.c: 224: void Handle_LOG_READ() {
-[v _Handle_LOG_READ `(v ~T0 @X0 1 ef ]
-{
-[e :U _Handle_LOG_READ ]
-[f ]
-"225
-[; ;main.c: 225:     unsigned long startReadAddressEEPROM1 = (currentBlockEEPROM1 == 0 ? 32768 : currentBlockEEPROM1) - (Ndat * 12);
-[v _startReadAddressEEPROM1 `ul ~T0 @X0 1 a ]
-[e = _startReadAddressEEPROM1 - -> ? == -> _currentBlockEEPROM1 `ui -> -> 0 `i `ui : -> 32768 `l -> _currentBlockEEPROM1 `l `ul * _Ndat -> -> -> 12 `i `l `ul ]
-"226
-[; ;main.c: 226:     unsigned long startReadAddressEEPROM2 = (currentBlockEEPROM2 == 0 ? 32768 : currentBlockEEPROM2) - (Ndat * 12);
-[v _startReadAddressEEPROM2 `ul ~T0 @X0 1 a ]
-[e = _startReadAddressEEPROM2 - -> ? == -> _currentBlockEEPROM2 `ui -> -> 0 `i `ui : -> 32768 `l -> _currentBlockEEPROM2 `l `ul * _Ndat -> -> -> 12 `i `l `ul ]
-"227
-[; ;main.c: 227:     ReadAndSendEEPROMDataCSV(Ndat, (uint16_t)startReadAddressEEPROM1, (uint16_t)startReadAddressEEPROM2);
-[e ( _ReadAndSendEEPROMDataCSV (3 , , _Ndat -> _startReadAddressEEPROM1 `us -> _startReadAddressEEPROM2 `us ]
-"228
-[; ;main.c: 228:     UART_SendString("END\n");
-[e ( _UART_SendString (1 :s 4C ]
-"229
-[; ;main.c: 229: }
-[e :UE 2304 ]
-}
-"232
-[; ;main.c: 232: void custom_delay_ms(uint32_t milliseconds) {
-[v _custom_delay_ms `(v ~T0 @X0 1 ef1`ul ]
-{
-[e :U _custom_delay_ms ]
-[v _milliseconds `ul ~T0 @X0 1 r1 ]
-[f ]
-"233
-[; ;main.c: 233:     while(milliseconds--) {
-[e $U 2306  ]
-[e :U 2307 ]
-{
-"234
-[; ;main.c: 234:         _delay((unsigned long)((1)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"235
-[; ;main.c: 235:     }
-}
-[e :U 2306 ]
-"233
-[; ;main.c: 233:     while(milliseconds--) {
-[e $ != -- _milliseconds -> -> -> 1 `i `l `ul -> -> -> 0 `i `l `ul 2307  ]
-[e :U 2308 ]
-"236
-[; ;main.c: 236: }
-[e :UE 2305 ]
-}
-"239
-[; ;main.c: 239: void ReadAndSendEEPROMData(uint32_t Ndat, uint16_t startAddressEEPROM1, uint16_t startAddressEEPROM2) {
-[v _ReadAndSendEEPROMData `(v ~T0 @X0 1 ef3`ul`us`us ]
-{
-[e :U _ReadAndSendEEPROMData ]
-[v _Ndat `ul ~T0 @X0 1 r1 ]
-[v _startAddressEEPROM1 `us ~T0 @X0 1 r2 ]
-[v _startAddressEEPROM2 `us ~T0 @X0 1 r3 ]
-[f ]
-"241
-[; ;main.c: 241:     uint16_t readBlockEEPROM1 = startAddressEEPROM1;
-[v _readBlockEEPROM1 `us ~T0 @X0 1 a ]
-[e = _readBlockEEPROM1 _startAddressEEPROM1 ]
-"242
-[; ;main.c: 242:     uint16_t readBlockEEPROM2 = startAddressEEPROM2;
-[v _readBlockEEPROM2 `us ~T0 @X0 1 a ]
-[e = _readBlockEEPROM2 _startAddressEEPROM2 ]
-"243
-[; ;main.c: 243:     uint8_t eepromReadBuffer[24];
-[v _eepromReadBuffer `uc ~T0 @X0 -> 24 `i a ]
-"244
-[; ;main.c: 244:     float ax_read, ay_read, az_read, gx_read, gy_read, gz_read;
-[v _ax_read `f ~T0 @X0 1 a ]
-[v _ay_read `f ~T0 @X0 1 a ]
-[v _az_read `f ~T0 @X0 1 a ]
-[v _gx_read `f ~T0 @X0 1 a ]
-[v _gy_read `f ~T0 @X0 1 a ]
-[v _gz_read `f ~T0 @X0 1 a ]
-"245
-[; ;main.c: 245:     char buffer[200];
-[v _buffer `uc ~T0 @X0 -> 200 `i a ]
-"247
-[; ;main.c: 247:     for (uint32_t i = 0; i < Ndat; i++) {
-{
-[v _i `ul ~T0 @X0 1 a ]
-[e = _i -> -> -> 0 `i `l `ul ]
-[e $U 2313  ]
-[e :U 2310 ]
-{
-"249
-[; ;main.c: 249:         EEPROM_ReadBlock(0x50, readBlockEEPROM1, eepromReadBuffer, 12);
-[e ( _EEPROM_ReadBlock (4 , , , -> -> 80 `i `uc _readBlockEEPROM1 &U _eepromReadBuffer -> -> 12 `i `uc ]
-"250
-[; ;main.c: 250:         memcpy(&ax_read, &eepromReadBuffer[0], sizeof(float));
-[e ( _memcpy (3 , , -> &U _ax_read `*v -> &U *U + &U _eepromReadBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _eepromReadBuffer `ui `ux `*Cv -> # `f `ui ]
-"251
-[; ;main.c: 251:         memcpy(&ay_read, &eepromReadBuffer[4], sizeof(float));
-[e ( _memcpy (3 , , -> &U _ay_read `*v -> &U *U + &U _eepromReadBuffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _eepromReadBuffer `ui `ux `*Cv -> # `f `ui ]
-"252
-[; ;main.c: 252:         memcpy(&az_read, &eepromReadBuffer[8], sizeof(float));
-[e ( _memcpy (3 , , -> &U _az_read `*v -> &U *U + &U _eepromReadBuffer * -> -> -> 8 `i `ui `ux -> -> # *U &U _eepromReadBuffer `ui `ux `*Cv -> # `f `ui ]
-"255
-[; ;main.c: 255:         EEPROM_ReadBlock(0x51, readBlockEEPROM2, &eepromReadBuffer[12], 12);
-[e ( _EEPROM_ReadBlock (4 , , , -> -> 81 `i `uc _readBlockEEPROM2 &U *U + &U _eepromReadBuffer * -> -> -> 12 `i `ui `ux -> -> # *U &U _eepromReadBuffer `ui `ux -> -> 12 `i `uc ]
-"256
-[; ;main.c: 256:         memcpy(&gx_read, &eepromReadBuffer[12], sizeof(float));
-[e ( _memcpy (3 , , -> &U _gx_read `*v -> &U *U + &U _eepromReadBuffer * -> -> -> 12 `i `ui `ux -> -> # *U &U _eepromReadBuffer `ui `ux `*Cv -> # `f `ui ]
-"257
-[; ;main.c: 257:         memcpy(&gy_read, &eepromReadBuffer[16], sizeof(float));
-[e ( _memcpy (3 , , -> &U _gy_read `*v -> &U *U + &U _eepromReadBuffer * -> -> -> 16 `i `ui `ux -> -> # *U &U _eepromReadBuffer `ui `ux `*Cv -> # `f `ui ]
-"258
-[; ;main.c: 258:         memcpy(&gz_read, &eepromReadBuffer[20], sizeof(float));
-[e ( _memcpy (3 , , -> &U _gz_read `*v -> &U *U + &U _eepromReadBuffer * -> -> -> 20 `i `ui `ux -> -> # *U &U _eepromReadBuffer `ui `ux `*Cv -> # `f `ui ]
-"261
-[; ;main.c: 261:         sprintf(buffer, "EEPROM - AX: %.2f, AY: %.2f, AZ: %.2f, GX: %.2f, GY: %.2f, GZ: %.2f\n", ax_read, ay_read, az_read, gx_read, gy_read, gz_read);
-[e ( _sprintf (1 , , , , , , (. , &U _buffer :s 5C -> _ax_read `d -> _ay_read `d -> _az_read `d -> _gx_read `d -> _gy_read `d -> _gz_read `d ]
-"262
-[; ;main.c: 262:         UART_SendString(buffer);
-[e ( _UART_SendString (1 -> &U _buffer `*Cuc ]
-"265
-[; ;main.c: 265:         readBlockEEPROM1 = (readBlockEEPROM1 + 12) % 32768;
-[e = _readBlockEEPROM1 -> % -> + -> _readBlockEEPROM1 `ui -> -> 12 `i `ui `l -> 32768 `l `us ]
-"266
-[; ;main.c: 266:         readBlockEEPROM2 = (readBlockEEPROM2 + 12) % 32768;
-[e = _readBlockEEPROM2 -> % -> + -> _readBlockEEPROM2 `ui -> -> 12 `i `ui `l -> 32768 `l `us ]
-"267
-[; ;main.c: 267:     }
-}
-[e ++ _i -> -> -> 1 `i `l `ul ]
-[e :U 2313 ]
-[e $ < _i _Ndat 2310  ]
-[e :U 2311 ]
-}
-"268
-[; ;main.c: 268: }
-[e :UE 2309 ]
-}
-"272
-[; ;main.c: 272: void StoreCurrentAddressEEPROM() {
-[v _StoreCurrentAddressEEPROM `(v ~T0 @X0 1 ef ]
-{
-[e :U _StoreCurrentAddressEEPROM ]
-[f ]
-"273
-[; ;main.c: 273:     uint8_t addressBuffer[2];
-[v _addressBuffer `uc ~T0 @X0 -> 2 `i a ]
-"275
-[; ;main.c: 275:     addressBuffer[0] = (currentBlockEEPROM1 >> 8) & 0xFF;
-[e = *U + &U _addressBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _addressBuffer `ui `ux -> & >> -> _currentBlockEEPROM1 `ui -> 8 `i -> -> 255 `i `ui `uc ]
-"276
-[; ;main.c: 276:     addressBuffer[1] = currentBlockEEPROM1 & 0xFF;
-[e = *U + &U _addressBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _addressBuffer `ui `ux -> & -> _currentBlockEEPROM1 `ui -> -> 255 `i `ui `uc ]
-"277
-[; ;main.c: 277:     EEPROM_WriteBlock(0x50, 0x0000, addressBuffer, 2);
-[e ( _EEPROM_WriteBlock (4 , , , -> -> 80 `i `uc -> -> 0 `i `us &U _addressBuffer -> -> 2 `i `uc ]
-"278
-[; ;main.c: 278: }
-[e :UE 2314 ]
-}
-"282
-[; ;main.c: 282: void LoadCurrentAddressEEPROM() {
-[v _LoadCurrentAddressEEPROM `(v ~T0 @X0 1 ef ]
-{
-[e :U _LoadCurrentAddressEEPROM ]
-[f ]
-"283
-[; ;main.c: 283:     uint8_t addressBuffer[2];
-[v _addressBuffer `uc ~T0 @X0 -> 2 `i a ]
-"285
-[; ;main.c: 285:     EEPROM_ReadBlock(0x50, 0x0000, addressBuffer, 2);
-[e ( _EEPROM_ReadBlock (4 , , , -> -> 80 `i `uc -> -> 0 `i `us &U _addressBuffer -> -> 2 `i `uc ]
-"286
-[; ;main.c: 286:     currentBlockEEPROM1 = (addressBuffer[0] << 8) | addressBuffer[1];
-[e = _currentBlockEEPROM1 -> | << -> *U + &U _addressBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _addressBuffer `ui `ux `i -> 8 `i -> *U + &U _addressBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _addressBuffer `ui `ux `i `us ]
-"289
-[; ;main.c: 289:     currentBlockEEPROM2 = currentBlockEEPROM1;
-[e = _currentBlockEEPROM2 _currentBlockEEPROM1 ]
-"290
-[; ;main.c: 290: }
-[e :UE 2315 ]
-}
-"294
-[; ;main.c: 294: void StartLogging() {
-[v _StartLogging `(v ~T0 @X0 1 ef ]
-{
-[e :U _StartLogging ]
-[f ]
-"295
-[; ;main.c: 295:     uint32_t loggedDataCount = 0;
-[v _loggedDataCount `ul ~T0 @X0 1 a ]
-[e = _loggedDataCount -> -> -> 0 `i `l `ul ]
-"296
-[; ;main.c: 296:     char buffer[200];
-[v _buffer `uc ~T0 @X0 -> 200 `i a ]
-"297
-[; ;main.c: 297:     while (loggedDataCount < Ndat) {
-[e $U 2317  ]
-[e :U 2318 ]
-{
-"299
-[; ;main.c: 299:         MPU6050_ReadSensorData(&ax, &ay, &az, &gx, &gy, &gz);
-[e ( _MPU6050_ReadSensorData (4 , , , , , &U _ax &U _ay &U _az &U _gx &U _gy &U _gz ]
-"302
-[; ;main.c: 302:         memcpy(&eepromBuffer[0], &ax, sizeof(float));
-[e ( _memcpy (3 , , -> &U *U + &U _eepromBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _eepromBuffer `ui `ux `*v -> &U _ax `*Cv -> # `f `ui ]
-"303
-[; ;main.c: 303:         memcpy(&eepromBuffer[4], &ay, sizeof(float));
-[e ( _memcpy (3 , , -> &U *U + &U _eepromBuffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _eepromBuffer `ui `ux `*v -> &U _ay `*Cv -> # `f `ui ]
-"304
-[; ;main.c: 304:         memcpy(&eepromBuffer[8], &az, sizeof(float));
-[e ( _memcpy (3 , , -> &U *U + &U _eepromBuffer * -> -> -> 8 `i `ui `ux -> -> # *U &U _eepromBuffer `ui `ux `*v -> &U _az `*Cv -> # `f `ui ]
-"305
-[; ;main.c: 305:         memcpy(&eepromBuffer[12], &gx, sizeof(float));
-[e ( _memcpy (3 , , -> &U *U + &U _eepromBuffer * -> -> -> 12 `i `ui `ux -> -> # *U &U _eepromBuffer `ui `ux `*v -> &U _gx `*Cv -> # `f `ui ]
-"306
-[; ;main.c: 306:         memcpy(&eepromBuffer[16], &gy, sizeof(float));
-[e ( _memcpy (3 , , -> &U *U + &U _eepromBuffer * -> -> -> 16 `i `ui `ux -> -> # *U &U _eepromBuffer `ui `ux `*v -> &U _gy `*Cv -> # `f `ui ]
-"307
-[; ;main.c: 307:         memcpy(&eepromBuffer[20], &gz, sizeof(float));
-[e ( _memcpy (3 , , -> &U *U + &U _eepromBuffer * -> -> -> 20 `i `ui `ux -> -> # *U &U _eepromBuffer `ui `ux `*v -> &U _gz `*Cv -> # `f `ui ]
-"315
-[; ;main.c: 315:         EEPROM_WriteBlock(0x50, currentBlockEEPROM1, eepromBuffer, 12);
-[e ( _EEPROM_WriteBlock (4 , , , -> -> 80 `i `uc _currentBlockEEPROM1 &U _eepromBuffer -> -> 12 `i `uc ]
-"324
-[; ;main.c: 324:         EEPROM_WriteBlock(0x51, currentBlockEEPROM2, &eepromBuffer[12], 12);
-[e ( _EEPROM_WriteBlock (4 , , , -> -> 81 `i `uc _currentBlockEEPROM2 &U *U + &U _eepromBuffer * -> -> -> 12 `i `ui `ux -> -> # *U &U _eepromBuffer `ui `ux -> -> 12 `i `uc ]
-"327
-[; ;main.c: 327:         currentBlockEEPROM1 = (currentBlockEEPROM1 + 12) % 32768;
-[e = _currentBlockEEPROM1 -> % -> + -> _currentBlockEEPROM1 `ui -> -> 12 `i `ui `l -> 32768 `l `us ]
-"328
-[; ;main.c: 328:         currentBlockEEPROM2 = (currentBlockEEPROM2 + 12) % 32768;
-[e = _currentBlockEEPROM2 -> % -> + -> _currentBlockEEPROM2 `ui -> -> 12 `i `ui `l -> 32768 `l `us ]
-"330
-[; ;main.c: 330:         loggedDataCount++;
-[e ++ _loggedDataCount -> -> -> 1 `i `l `ul ]
-"331
-[; ;main.c: 331:         custom_delay_ms(Tm);
-[e ( _custom_delay_ms (1 _Tm ]
-"332
-[; ;main.c: 332:     }
-}
-[e :U 2317 ]
-"297
-[; ;main.c: 297:     while (loggedDataCount < Ndat) {
-[e $ < _loggedDataCount _Ndat 2318  ]
-[e :U 2319 ]
-"334
-[; ;main.c: 334:     if (loggedDataCount == Ndat) {
-[e $ ! == _loggedDataCount _Ndat 2320  ]
-{
-"335
-[; ;main.c: 335:     UART_SendString("------------LOG_OK-------------\n");
-[e ( _UART_SendString (1 :s 6C ]
-"337
-[; ;main.c: 337:     unsigned long startReadAddressEEPROM1 = (currentBlockEEPROM1 == 0 ? 32768 : currentBlockEEPROM1) - (Ndat * 12);
-[v _startReadAddressEEPROM1 `ul ~T0 @X0 1 a ]
-[e = _startReadAddressEEPROM1 - -> ? == -> _currentBlockEEPROM1 `ui -> -> 0 `i `ui : -> 32768 `l -> _currentBlockEEPROM1 `l `ul * _Ndat -> -> -> 12 `i `l `ul ]
-"338
-[; ;main.c: 338:     unsigned long startReadAddressEEPROM2 = (currentBlockEEPROM2 == 0 ? 32768 : currentBlockEEPROM2) - (Ndat * 12);
-[v _startReadAddressEEPROM2 `ul ~T0 @X0 1 a ]
-[e = _startReadAddressEEPROM2 - -> ? == -> _currentBlockEEPROM2 `ui -> -> 0 `i `ui : -> 32768 `l -> _currentBlockEEPROM2 `l `ul * _Ndat -> -> -> 12 `i `l `ul ]
-"363
-[; ;main.c: 363:     ReadAndSendEEPROMData(Ndat, (uint16_t)startReadAddressEEPROM1, (uint16_t)startReadAddressEEPROM2);
-[e ( _ReadAndSendEEPROMData (3 , , _Ndat -> _startReadAddressEEPROM1 `us -> _startReadAddressEEPROM2 `us ]
-"365
-[; ;main.c: 365:     StoreCurrentAddressEEPROM();
-[e ( _StoreCurrentAddressEEPROM ..  ]
-"367
-[; ;main.c: 367:     } else {
-}
-[e $U 2321  ]
-[e :U 2320 ]
-{
-"368
-[; ;main.c: 368:         UART_SendString("LOG_ERR\n");
-[e ( _UART_SendString (1 :s 7C ]
-"369
-[; ;main.c: 369:     }
-}
-[e :U 2321 ]
-"370
-[; ;main.c: 370:     logging = 0;
-[e = _logging -> -> 0 `i `a ]
-"371
-[; ;main.c: 371: }
-[e :UE 2316 ]
-}
-"374
-[; ;main.c: 374: _Bool ParseUserInput(const char* input, uint32_t* Tm, uint32_t* Ndat) {
-[v _ParseUserInput `(a ~T0 @X0 1 ef3`*Cuc`*ul`*ul ]
-{
-[e :U _ParseUserInput ]
-[v _input `*Cuc ~T0 @X0 1 r1 ]
-[v _Tm `*ul ~T0 @X0 1 r2 ]
-[v _Ndat `*ul ~T0 @X0 1 r3 ]
-[f ]
-"376
-[; ;main.c: 376:     if (sscanf(input, "LOG(%lu,%lu)\r\n", Tm, Ndat) == 2 || sscanf(input, "LOG(%lu,%lu)\n", Tm, Ndat) == 2) {
-[e $ ! || == ( _sscanf (1 , , (. , _input :s 8C _Tm _Ndat -> 2 `i == ( _sscanf (1 , , (. , _input :s 9C _Tm _Ndat -> 2 `i 2323  ]
-{
-"377
-[; ;main.c: 377:         return 1;
-[e ) -> -> 1 `i `a ]
-[e $UE 2322  ]
-"378
-[; ;main.c: 378:     }
-}
-[e :U 2323 ]
-"379
-[; ;main.c: 379:     return 0;
-[e ) -> -> 0 `i `a ]
-[e $UE 2322  ]
-"380
-[; ;main.c: 380: }
-[e :UE 2322 ]
-}
-[v $root$_main `(v ~T0 @X0 0 e ]
-"382
-[; ;main.c: 382: void main(void){
-[v _main `(v ~T0 @X0 1 ef ]
-{
-[e :U _main ]
-[f ]
-"383
-[; ;main.c: 383:     SYSTEM_Initialize();
-[e ( _SYSTEM_Initialize ..  ]
-"384
-[; ;main.c: 384:     MPU6050_Init();
-[e ( _MPU6050_Init ..  ]
-"386
-[; ;main.c: 386:     char buffer[200];
-[v _buffer `uc ~T0 @X0 -> 200 `i a ]
-"387
-[; ;main.c: 387:     float ax_read, ay_read, az_read, gx_read, gy_read, gz_read;
-[v _ax_read `f ~T0 @X0 1 a ]
-[v _ay_read `f ~T0 @X0 1 a ]
-[v _az_read `f ~T0 @X0 1 a ]
-[v _gx_read `f ~T0 @X0 1 a ]
-[v _gy_read `f ~T0 @X0 1 a ]
-[v _gz_read `f ~T0 @X0 1 a ]
-"389
-[; ;main.c: 389:     char userInput[20];
-[v _userInput `uc ~T0 @X0 -> 20 `i a ]
-"391
-[; ;main.c: 391:     LoadCurrentAddressEEPROM();
-[e ( _LoadCurrentAddressEEPROM ..  ]
-"394
-[; ;main.c: 394:     sprintf(buffer, "Ultima direccion registrada en EEPROM1: 0x%X\n", currentBlockEEPROM1);
-[e ( _sprintf (1 , (. , &U _buffer :s 10C -> _currentBlockEEPROM1 `ui ]
-"395
-[; ;main.c: 395:     UART_SendString(buffer);
-[e ( _UART_SendString (1 -> &U _buffer `*Cuc ]
-"398
-[; ;main.c: 398:     sprintf(buffer, "Ultima direccion registrada en EEPROM2: 0x%X\n", currentBlockEEPROM2);
-[e ( _sprintf (1 , (. , &U _buffer :s 11C -> _currentBlockEEPROM2 `ui ]
-"399
-[; ;main.c: 399:     UART_SendString(buffer);
-[e ( _UART_SendString (1 -> &U _buffer `*Cuc ]
-"402
-[; ;main.c: 402:     while(1){
-[e :U 2326 ]
-{
-"404
-[; ;main.c: 404:         UART_SendString("Ingrese comando (ejemplo: LOG(10,100), LOG_READ o LOG_STAT): ");
-[e ( _UART_SendString (1 :s 12C ]
-"406
-[; ;main.c: 406:         memset(userInput, 0, sizeof(userInput));
-[e ( _memset (3 , , -> &U _userInput `*v -> 0 `i -> # _userInput `ui ]
-"408
-[; ;main.c: 408:         UART_ReceiveString(userInput, sizeof(userInput));
-[e ( _UART_ReceiveString (2 , &U _userInput -> -> # _userInput `ui `uc ]
-"411
-[; ;main.c: 411:         UART_SendString("Recibido: ");
-[e ( _UART_SendString (1 :s 13C ]
-"412
-[; ;main.c: 412:         UART_SendString(userInput);
-[e ( _UART_SendString (1 -> &U _userInput `*Cuc ]
-"413
-[; ;main.c: 413:         UART_SendString("\n");
-[e ( _UART_SendString (1 :s 14C ]
-"415
-[; ;main.c: 415:         if (strncmp(userInput, "LOG_READ", 8) == 0) {
-[e $ ! == ( _strncmp (3 , , -> &U _userInput `*Cuc :s 15C -> -> 8 `i `ui -> 0 `i 2328  ]
-{
-"416
-[; ;main.c: 416:             unsigned long startReadAddressEEPROM1 = (currentBlockEEPROM1 == 0 ? 32768 : currentBlockEEPROM1) - (Ndat * 12);
-[v _startReadAddressEEPROM1 `ul ~T0 @X0 1 a ]
-[e = _startReadAddressEEPROM1 - -> ? == -> _currentBlockEEPROM1 `ui -> -> 0 `i `ui : -> 32768 `l -> _currentBlockEEPROM1 `l `ul * _Ndat -> -> -> 12 `i `l `ul ]
-"417
-[; ;main.c: 417:             unsigned long startReadAddressEEPROM2 = (currentBlockEEPROM2 == 0 ? 32768 : currentBlockEEPROM2) - (Ndat * 12);
-[v _startReadAddressEEPROM2 `ul ~T0 @X0 1 a ]
-[e = _startReadAddressEEPROM2 - -> ? == -> _currentBlockEEPROM2 `ui -> -> 0 `i `ui : -> 32768 `l -> _currentBlockEEPROM2 `l `ul * _Ndat -> -> -> 12 `i `l `ul ]
-"418
-[; ;main.c: 418:             ReadAndSendEEPROMDataCSV(Ndat, (uint16_t)startReadAddressEEPROM1, (uint16_t)startReadAddressEEPROM2);
-[e ( _ReadAndSendEEPROMDataCSV (3 , , _Ndat -> _startReadAddressEEPROM1 `us -> _startReadAddressEEPROM2 `us ]
-"419
-[; ;main.c: 419:         } else if (strncmp(userInput, "LOG_STAT", 8) == 0) {
-}
-[e $U 2329  ]
-[e :U 2328 ]
-[e $ ! == ( _strncmp (3 , , -> &U _userInput `*Cuc :s 16C -> -> 8 `i `ui -> 0 `i 2330  ]
-{
-"420
-[; ;main.c: 420:             sprintf(buffer, "Datos almacenados: %lu, Tasa de muestreo: %lu ms\n", Ndat, Tm);
-[e ( _sprintf (1 , , (. , &U _buffer :s 17C _Ndat _Tm ]
-"421
-[; ;main.c: 421:             UART_SendString(buffer);
-[e ( _UART_SendString (1 -> &U _buffer `*Cuc ]
-"422
-[; ;main.c: 422:         } else if (ParseUserInput(userInput, &Tm, &Ndat)) {
-}
-[e $U 2331  ]
-[e :U 2330 ]
-[e $ ! != -> ( _ParseUserInput (3 , , -> &U _userInput `*Cuc &U _Tm &U _Ndat `i -> 0 `i 2332  ]
-{
-"424
-[; ;main.c: 424:             StartLogging();
-[e ( _StartLogging ..  ]
-"425
-[; ;main.c: 425:         } else {
-}
-[e $U 2333  ]
-[e :U 2332 ]
-{
-"427
-[; ;main.c: 427:             UART_SendString("Entrada no valida. Intente de nuevo.\n");
-[e ( _UART_SendString (1 :s 18C ]
-"428
-[; ;main.c: 428:         }
-}
-[e :U 2333 ]
-[e :U 2331 ]
-[e :U 2329 ]
-"429
-[; ;main.c: 429:     }
-}
-[e :U 2325 ]
-[e $U 2326  ]
-[e :U 2327 ]
-"430
-[; ;main.c: 430: }
-[e :UE 2324 ]
-}
-[p f _sprintf 10560528 ]
-[p h _sscanf 8389648 ]
-[a 16C 76 79 71 95 83 84 65 84 0 ]
-[a 15C 76 79 71 95 82 69 65 68 0 ]
-[a 13C 82 101 99 105 98 105 100 111 58 32 0 ]
-[a 12C 73 110 103 114 101 115 101 32 99 111 109 97 110 100 111 32 40 101 106 101 109 112 108 111 58 32 76 79 71 40 49 48 44 49 48 48 41 44 32 76 79 71 95 82 69 65 68 32 111 32 76 79 71 95 83 84 65 84 41 58 32 0 ]
-[a 1C 68 97 116 111 115 32 97 108 109 97 99 101 110 97 100 111 115 58 32 37 108 117 44 32 84 97 115 97 32 100 101 32 109 117 101 115 116 114 101 111 58 32 37 108 117 32 109 115 10 0 ]
-[a 17C 68 97 116 111 115 32 97 108 109 97 99 101 110 97 100 111 115 58 32 37 108 117 44 32 84 97 115 97 32 100 101 32 109 117 101 115 116 114 101 111 58 32 37 108 117 32 109 115 10 0 ]
-[a 3C 37 46 50 102 44 37 46 50 102 44 37 46 50 102 44 37 46 50 102 44 37 46 50 102 44 37 46 50 102 10 0 ]
-[a 5C 69 69 80 82 79 77 32 45 32 65 88 58 32 37 46 50 102 44 32 65 89 58 32 37 46 50 102 44 32 65 90 58 32 37 46 50 102 44 32 71 88 58 32 37 46 50 102 44 32 71 89 58 32 37 46 50 102 44 32 71 90 58 32 37 46 50 102 10 0 ]
-[a 2C 65 88 44 65 89 44 65 90 44 71 88 44 71 89 44 71 90 10 0 ]
-[a 11C 85 108 116 105 109 97 32 100 105 114 101 99 99 105 111 110 32 114 101 103 105 115 116 114 97 100 97 32 101 110 32 69 69 80 82 79 77 50 58 32 48 120 37 88 10 0 ]
-[a 10C 85 108 116 105 109 97 32 100 105 114 101 99 99 105 111 110 32 114 101 103 105 115 116 114 97 100 97 32 101 110 32 69 69 80 82 79 77 49 58 32 48 120 37 88 10 0 ]
-[a 7C 76 79 71 95 69 82 82 10 0 ]
-[a 4C 69 78 68 10 0 ]
-[a 18C 69 110 116 114 97 100 97 32 110 111 32 118 97 108 105 100 97 46 32 73 110 116 101 110 116 101 32 100 101 32 110 117 101 118 111 46 10 0 ]
-[a 6C 45 45 45 45 45 45 45 45 45 45 45 45 76 79 71 95 79 75 45 45 45 45 45 45 45 45 45 45 45 45 45 10 0 ]
-[a 9C 76 79 71 40 37 108 117 44 37 108 117 41 10 0 ]
-[a 8C 76 79 71 40 37 108 117 44 37 108 117 41 13 10 0 ]
-[a 14C 10 0 ]

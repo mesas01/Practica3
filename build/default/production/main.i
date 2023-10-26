@@ -27917,6 +27917,58 @@ _Bool ParseUserInput(const char* input, uint32_t* Tm, uint32_t* Ndat) {
     return 0;
 }
 
+
+
+void StoreLastSettings() {
+    uint8_t buffer[8];
+
+    memcpy(&buffer[0], &Tm, sizeof(uint32_t));
+    memcpy(&buffer[4], &Ndat, sizeof(uint32_t));
+    EEPROM_WriteBlock(0x50, 0x0002, buffer, 8);
+}
+
+
+void LoadLastSettings() {
+    uint8_t buffer[8];
+
+    EEPROM_ReadBlock(0x50, 0x0002, buffer, 8);
+    memcpy(&Tm, &buffer[0], sizeof(uint32_t));
+    memcpy(&Ndat, &buffer[4], sizeof(uint32_t));
+}
+
+void ReadAllEEPROMDataCSV(uint32_t totalLogged, uint16_t startAddressEEPROM1, uint16_t startAddressEEPROM2) {
+
+    uint16_t readBlockEEPROM1 = 0x0000 + 2;
+    uint16_t readBlockEEPROM2 = 0x0000 + 2;
+    uint8_t eepromReadBuffer[24];
+    float ax_read, ay_read, az_read, gx_read, gy_read, gz_read;
+    char buffer[200];
+
+    for (uint32_t i = 0; i < totalLogged; i++) {
+
+        EEPROM_ReadBlock(0x50, readBlockEEPROM1, eepromReadBuffer, 12);
+        memcpy(&ax_read, &eepromReadBuffer[0], sizeof(float));
+        memcpy(&ay_read, &eepromReadBuffer[4], sizeof(float));
+        memcpy(&az_read, &eepromReadBuffer[8], sizeof(float));
+
+
+        EEPROM_ReadBlock(0x51, readBlockEEPROM2, &eepromReadBuffer[12], 12);
+        memcpy(&gx_read, &eepromReadBuffer[12], sizeof(float));
+        memcpy(&gy_read, &eepromReadBuffer[16], sizeof(float));
+        memcpy(&gz_read, &eepromReadBuffer[20], sizeof(float));
+
+
+        sprintf(buffer, "%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\n", ax_read, ay_read, az_read, gx_read, gy_read, gz_read);
+        UART_SendString(buffer);
+
+
+        readBlockEEPROM1 = (readBlockEEPROM1 + 12) % 32768;
+        readBlockEEPROM2 = (readBlockEEPROM2 + 12) % 32768;
+    }
+}
+
+
+
 void main(void){
     SYSTEM_Initialize();
     MPU6050_Init();
@@ -27927,6 +27979,8 @@ void main(void){
     char userInput[20];
 
     LoadCurrentAddressEEPROM();
+    LoadLastSettings();
+
 
 
     sprintf(buffer, "Ultima direccion registrada en EEPROM1: 0x%X\n", currentBlockEEPROM1);
@@ -27937,9 +27991,10 @@ void main(void){
     UART_SendString(buffer);
 
 
-    while(1){
+     while(1){
 
         UART_SendString("Ingrese comando (ejemplo: LOG(10,100), LOG_READ o LOG_STAT): ");
+
 
         memset(userInput, 0, sizeof(userInput));
 
@@ -27949,6 +28004,11 @@ void main(void){
         UART_SendString("Recibido: ");
         UART_SendString(userInput);
         UART_SendString("\n");
+
+         if (strncmp(userInput, "LOG_ALL", 7) == 0) {
+            unsigned long totalLoggedData = (currentBlockEEPROM1 - (0x0000 + 2)) / 12;
+            ReadAllEEPROMDataCSV(totalLoggedData, (uint16_t)0x0000 + 2, (uint16_t)0x0000 + 2);
+        }
 
         if (strncmp(userInput, "LOG_READ", 8) == 0) {
             unsigned long startReadAddressEEPROM1 = (currentBlockEEPROM1 == 0 ? 32768 : currentBlockEEPROM1) - (Ndat * 12);
@@ -27960,6 +28020,7 @@ void main(void){
         } else if (ParseUserInput(userInput, &Tm, &Ndat)) {
 
             StartLogging();
+            StoreLastSettings();
         } else {
 
             UART_SendString("Entrada no valida. Intente de nuevo.\n");

@@ -62,6 +62,8 @@
 #define EEPROM_SIZE 32768
 #define TOTAL_BLOCKS (EEPROM_SIZE / BLOCK_SIZE)
 
+// Definición para la dirección de inicio
+#define START_ADDRESS 0x0000
 
 // Variables globales para rastrear bloques actuales
 uint16_t currentBlockEEPROM1 = 0x0000;
@@ -174,6 +176,58 @@ char UART_ReceiveString(char* receivedString, uint8_t maxLength){
     return index;  // Retorna la longitud de la cadena
 }
 
+
+// Función para manejar el comando LOG_STAT
+void Handle_LOG_STAT() {
+    char buffer[200];
+    sprintf(buffer, "Datos almacenados: %lu, Tasa de muestreo: %lu ms\n", Ndat, Tm);
+    UART_SendString(buffer);
+}
+
+
+// Leer datos grabados en EEPROM y enviarlos por UART en formato CSV
+void ReadAndSendEEPROMDataCSV(uint32_t Ndat, uint16_t startAddressEEPROM1, uint16_t startAddressEEPROM2) {
+    uint16_t readBlockEEPROM1 = startAddressEEPROM1;
+    uint16_t readBlockEEPROM2 = startAddressEEPROM2;
+    uint8_t eepromReadBuffer[BLOCK_SIZE];
+    float ax_read, ay_read, az_read, gx_read, gy_read, gz_read;  // Variables para almacenar datos leídos de la EEPROM
+    char buffer[200];
+
+    // Envía el encabezado del CSV
+    UART_SendString("AX,AY,AZ,GX,GY,GZ\n");
+
+    for (uint32_t i = 0; i < Ndat; i++) {
+        // Leer y convertir los datos del acelerómetro de la EEPROM1
+        EEPROM_ReadBlock(EEPROM1_ADDRESS, readBlockEEPROM1, eepromReadBuffer, 12);
+        memcpy(&ax_read, &eepromReadBuffer[0], sizeof(float));
+        memcpy(&ay_read, &eepromReadBuffer[4], sizeof(float));
+        memcpy(&az_read, &eepromReadBuffer[8], sizeof(float));
+
+        // Leer y convertir los datos del giroscopio de la EEPROM2
+        EEPROM_ReadBlock(EEPROM2_ADDRESS, readBlockEEPROM2, &eepromReadBuffer[12], 12);
+        memcpy(&gx_read, &eepromReadBuffer[12], sizeof(float));
+        memcpy(&gy_read, &eepromReadBuffer[16], sizeof(float));
+        memcpy(&gz_read, &eepromReadBuffer[20], sizeof(float));
+
+        // Formatear los datos leídos de la EEPROM en formato CSV y enviarlos por UART
+        sprintf(buffer, "%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\n", ax_read, ay_read, az_read, gx_read, gy_read, gz_read);
+        UART_SendString(buffer);
+
+        // Incrementa los índices de los bloques para la siguiente iteración
+        readBlockEEPROM1 = (readBlockEEPROM1 + 12) % EEPROM_SIZE;
+        readBlockEEPROM2 = (readBlockEEPROM2 + 12) % EEPROM_SIZE;
+    }
+}
+
+
+// Función para manejar el comando LOG_READ
+void Handle_LOG_READ() {
+    unsigned long startReadAddressEEPROM1 = (currentBlockEEPROM1 == 0 ? EEPROM_SIZE : currentBlockEEPROM1) - (Ndat * 12);
+    unsigned long startReadAddressEEPROM2 = (currentBlockEEPROM2 == 0 ? EEPROM_SIZE : currentBlockEEPROM2) - (Ndat * 12);
+    ReadAndSendEEPROMDataCSV(Ndat, (uint16_t)startReadAddressEEPROM1, (uint16_t)startReadAddressEEPROM2);
+    UART_SendString("END\n"); // Fin de trama para chequeo de error
+}
+
 // Función de retardo personalizada
 void custom_delay_ms(uint32_t milliseconds) {
     while(milliseconds--) {
@@ -213,6 +267,29 @@ void ReadAndSendEEPROMData(uint32_t Ndat, uint16_t startAddressEEPROM1, uint16_t
     }
 }
 
+
+// Función para almacenar la dirección actual en la EEPROM
+void StoreCurrentAddressEEPROM() {
+    uint8_t addressBuffer[2];
+    
+    addressBuffer[0] = (currentBlockEEPROM1 >> 8) & 0xFF;
+    addressBuffer[1] = currentBlockEEPROM1 & 0xFF;
+    EEPROM_WriteBlock(EEPROM1_ADDRESS, START_ADDRESS, addressBuffer, 2);
+}
+
+
+// Función para leer la dirección almacenada en la EEPROM
+void LoadCurrentAddressEEPROM() {
+    uint8_t addressBuffer[2];
+    
+    EEPROM_ReadBlock(EEPROM1_ADDRESS, START_ADDRESS, addressBuffer, 2);
+    currentBlockEEPROM1 = (addressBuffer[0] << 8) | addressBuffer[1];
+    
+    // Dado que la dirección de inicio es la misma para ambas EEPROMs, asignamos la misma dirección a EEPROM2.
+    currentBlockEEPROM2 = currentBlockEEPROM1;
+}
+
+
 // Iniciar proceso de grabación de datos del sensor en EEPROM
 void StartLogging() {
     uint32_t loggedDataCount = 0;
@@ -229,20 +306,20 @@ void StartLogging() {
         memcpy(&eepromBuffer[16], &gy, sizeof(float));
         memcpy(&eepromBuffer[20], &gz, sizeof(float));
         
-        /*UART_SendString("Escribiendo en EEPROM1 en direccion: ");
+        /*UART_SendString("Escribiendo en EEPROM1 en direccion: ");//
         sprintf(buffer, "0x%X", currentBlockEEPROM1);
         UART_SendString(buffer);
-        UART_SendString("\n");*/
+        UART_SendString("\n");//*/
 
         // Escribir los datos del acelerómetro (ax, ay, az) en la EEPROM1
         EEPROM_WriteBlock(EEPROM1_ADDRESS, currentBlockEEPROM1, eepromBuffer, 12);
         
         
         // Antes de escribir en la EEPROM2
-        /*UART_SendString("Escribiendo en EEPROM2 en direccion: ");
+        /*UART_SendString("Escribiendo en EEPROM2 en direccion: ");//
         sprintf(buffer, "0x%X", currentBlockEEPROM2);
         UART_SendString(buffer);
-        UART_SendString("\n");*/
+        UART_SendString("\n");//*/
         // Escribir los datos del giroscopio (gx, gy, gz) en la EEPROM2
         EEPROM_WriteBlock(EEPROM2_ADDRESS, currentBlockEEPROM2, &eepromBuffer[12], 12);
 
@@ -255,12 +332,12 @@ void StartLogging() {
     }
 
     if (loggedDataCount == Ndat) {
-    UART_SendString("°°°°°°°°°°°°LOG_OK°°°°°°°°°°°°\n");
+    UART_SendString("------------LOG_OK-------------\n");
     
     unsigned long startReadAddressEEPROM1 = (currentBlockEEPROM1 == 0 ? EEPROM_SIZE : currentBlockEEPROM1) - (Ndat * 12);
     unsigned long startReadAddressEEPROM2 = (currentBlockEEPROM2 == 0 ? EEPROM_SIZE : currentBlockEEPROM2) - (Ndat * 12);
 
-    /*for (uint32_t i = 0; i < Ndat; i++) {
+    /*for (uint32_t i = 0; i < Ndat; i++) {//
         // Mostrar la dirección de lectura actual de la EEPROM1
         UART_SendString("Leyendo de EEPROM1 desde direccion: ");
         sprintf(buffer, "0x%X", startReadAddressEEPROM1);
@@ -281,10 +358,12 @@ void StartLogging() {
     }
     // Recuperar las direcciones de inicio originales
     startReadAddressEEPROM1 = (currentBlockEEPROM1 == 0 ? EEPROM_SIZE : currentBlockEEPROM1) - (Ndat * 12);
-    startReadAddressEEPROM2 = (currentBlockEEPROM2 == 0 ? EEPROM_SIZE : currentBlockEEPROM2) - (Ndat * 12);*/
+    startReadAddressEEPROM2 = (currentBlockEEPROM2 == 0 ? EEPROM_SIZE : currentBlockEEPROM2) - (Ndat * 12);//*/
     
     ReadAndSendEEPROMData(Ndat, (uint16_t)startReadAddressEEPROM1, (uint16_t)startReadAddressEEPROM2);  // Leer y enviar datos de las EEPROMs
-    
+    // Guarda la dirección actual después de completar el registro
+    StoreCurrentAddressEEPROM();
+        
     } else {
         UART_SendString("LOG_ERR\n");
     }
@@ -301,6 +380,57 @@ bool ParseUserInput(const char* input, uint32_t* Tm, uint32_t* Ndat) {
 }
 
 
+// Función para almacenar la última tasa de muestreo y el número de datos
+void StoreLastSettings() {
+    uint8_t buffer[8];
+    
+    memcpy(&buffer[0], &Tm, sizeof(uint32_t));
+    memcpy(&buffer[4], &Ndat, sizeof(uint32_t));
+    EEPROM_WriteBlock(EEPROM1_ADDRESS, 0x0002, buffer, 8);
+}
+
+// Función para cargar la última tasa de muestreo y el número de datos
+void LoadLastSettings() {
+    uint8_t buffer[8];
+    
+    EEPROM_ReadBlock(EEPROM1_ADDRESS, 0x0002, buffer, 8);
+    memcpy(&Tm, &buffer[0], sizeof(uint32_t));
+    memcpy(&Ndat, &buffer[4], sizeof(uint32_t));
+}
+
+void ReadAllEEPROMDataCSV(uint32_t totalLogged, uint16_t startAddressEEPROM1, uint16_t startAddressEEPROM2) {
+    
+    uint16_t readBlockEEPROM1 = START_ADDRESS + 2;  // +2 para saltar la dirección de inicio almacenada
+    uint16_t readBlockEEPROM2 = START_ADDRESS + 2;  // +2 para saltar la dirección de inicio almacenada
+    uint8_t eepromReadBuffer[BLOCK_SIZE];
+    float ax_read, ay_read, az_read, gx_read, gy_read, gz_read;  // Variables para almacenar datos leídos de la EEPROM
+    char buffer[200];
+
+    for (uint32_t i = 0; i < totalLogged; i++) {
+        // Leer y convertir los datos del acelerómetro de la EEPROM1
+        EEPROM_ReadBlock(EEPROM1_ADDRESS, readBlockEEPROM1, eepromReadBuffer, 12);
+        memcpy(&ax_read, &eepromReadBuffer[0], sizeof(float));
+        memcpy(&ay_read, &eepromReadBuffer[4], sizeof(float));
+        memcpy(&az_read, &eepromReadBuffer[8], sizeof(float));
+
+        // Leer y convertir los datos del giroscopio de la EEPROM2
+        EEPROM_ReadBlock(EEPROM2_ADDRESS, readBlockEEPROM2, &eepromReadBuffer[12], 12);
+        memcpy(&gx_read, &eepromReadBuffer[12], sizeof(float));
+        memcpy(&gy_read, &eepromReadBuffer[16], sizeof(float));
+        memcpy(&gz_read, &eepromReadBuffer[20], sizeof(float));
+
+        // Mostrar los datos leídos de la EEPROM en UART en formato CSV
+        sprintf(buffer, "%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\n", ax_read, ay_read, az_read, gx_read, gy_read, gz_read);
+        UART_SendString(buffer);
+
+        // Incrementa los índices de los bloques para la siguiente iteración
+        readBlockEEPROM1 = (readBlockEEPROM1 + 12) % EEPROM_SIZE;
+        readBlockEEPROM2 = (readBlockEEPROM2 + 12) % EEPROM_SIZE;
+    }
+}
+
+
+
 void main(void){
     SYSTEM_Initialize();
     MPU6050_Init();
@@ -309,6 +439,76 @@ void main(void){
     float ax_read, ay_read, az_read, gx_read, gy_read, gz_read;  // Variables para almacenar datos leídos de la EEPROM
     
     char userInput[20];  // Buffer para almacenar la entrada del usuario
+    // Cargar las direcciones actuales desde las EEPROMs al iniciar
+    LoadCurrentAddressEEPROM();
+    LoadLastSettings();
+
+    
+    // Imprimir la última dirección registrada en la EEPROM1
+    sprintf(buffer, "Ultima direccion registrada en EEPROM1: 0x%X\n", currentBlockEEPROM1);
+    UART_SendString(buffer);
+    
+    // Imprimir la última dirección registrada en la EEPROM2
+    sprintf(buffer, "Ultima direccion registrada en EEPROM2: 0x%X\n", currentBlockEEPROM2);
+    UART_SendString(buffer);
+
+    // Bucle principal
+     while(1){
+        // Esperamos la entrada del usuario para el comando LOG
+        UART_SendString("Ingrese comando (ejemplo: LOG(10,100), LOG_READ o LOG_STAT): ");
+        
+        // Limpiar el buffer userInput antes de recibir una nueva entrada
+        memset(userInput, 0, sizeof(userInput));
+        
+        UART_ReceiveString(userInput, sizeof(userInput));
+        
+        // Impresión de depuración para mostrar lo que se recibe en userInput
+        UART_SendString("Recibido: ");
+        UART_SendString(userInput);
+        UART_SendString("\n");
+        
+         if (strncmp(userInput, "LOG_ALL", 7) == 0) {
+            unsigned long totalLoggedData = (currentBlockEEPROM1 - (START_ADDRESS + 2)) / 12;  // +2 para saltar la dirección de inicio almacenada
+            ReadAllEEPROMDataCSV(totalLoggedData, (uint16_t)START_ADDRESS + 2, (uint16_t)START_ADDRESS + 2);  // +2 para saltar la dirección de inicio almacenada
+        }
+
+        if (strncmp(userInput, "LOG_READ", 8) == 0) {
+            unsigned long startReadAddressEEPROM1 = (currentBlockEEPROM1 == 0 ? EEPROM_SIZE : currentBlockEEPROM1) - (Ndat * 12);
+            unsigned long startReadAddressEEPROM2 = (currentBlockEEPROM2 == 0 ? EEPROM_SIZE : currentBlockEEPROM2) - (Ndat * 12);
+            ReadAndSendEEPROMDataCSV(Ndat, (uint16_t)startReadAddressEEPROM1, (uint16_t)startReadAddressEEPROM2);
+        } else if (strncmp(userInput, "LOG_STAT", 8) == 0) {
+            sprintf(buffer, "Datos almacenados: %lu, Tasa de muestreo: %lu ms\n", Ndat, Tm);
+            UART_SendString(buffer);
+        } else if (ParseUserInput(userInput, &Tm, &Ndat)) {
+            // Si se analizó correctamente, inicia el registro
+            StartLogging();
+            StoreLastSettings();  // Guarda la tasa de muestreo y el número de datos en la EEPROM
+        } else {
+            // En caso contrario, envía un mensaje de error
+            UART_SendString("Entrada no valida. Intente de nuevo.\n");
+        }
+    }
+}
+
+
+/*void main(void){
+    SYSTEM_Initialize();
+    MPU6050_Init();
+    
+    char buffer[200];
+    float ax_read, ay_read, az_read, gx_read, gy_read, gz_read;  // Variables para almacenar datos leídos de la EEPROM
+    
+    char userInput[20];  // Buffer para almacenar la entrada del usuario
+    // Cargar las direcciones actuales desde las EEPROMs al iniciar
+    LoadCurrentAddressEEPROM();
+    
+    // Imprimir la última dirección registrada en la EEPROM1
+    /*sprintf(buffer, "Ultima direccion registrada en EEPROM1: 0x%X\n", currentBlockEEPROM1);
+    UART_SendString(buffer);
+    
+    // Imprimir la última dirección registrada en la EEPROM2
+    sprintf(buffer, "Ultima direccion registrada en EEPROM2: 0x%X\n", currentBlockEEPROM2);
+    UART_SendString(buffer);//
 
     // Bucle principal
     while(1){
@@ -331,13 +531,8 @@ void main(void){
             // En caso contrario, envía un mensaje de error
             UART_SendString("Entrada no valida. Intente de nuevo.\n");
         }
-
-        // Si no se está registrando, simplemente leemos el MPU y mostramos los datos
-//        if (!logging) {
-//            MPU6050_ReadSensorData(&ax, &ay, &az, &gx, &gy, &gz);
-//        }
     }
-}
+}*/
 
 /*void I2C_Scanner(void) {
     UART_SendString("Scanning I2C bus...\n");

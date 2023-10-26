@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/debug\Practica3.X.debug.hex">
+  <executable name="dist/default/production\Practica3.X.production.hex">
     <memory name="program">
       <units>bytes</units>
       <length>65536</length>
-      <used>23284</used>
-      <free>42252</free>
+      <used>24186</used>
+      <free>41350</free>
     </memory>
     <memory name="data">
       <units>bytes</units>
       <length>4096</length>
-      <used>936</used>
-      <free>3160</free>
+      <used>940</used>
+      <free>3156</free>
     </memory>
   </executable>
 </project>

@@ -3085,150 +3085,304 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 380: }
 [e :UE 2322 ]
 }
-[v $root$_main `(v ~T0 @X0 0 e ]
-"382
-[; ;main.c: 382: void main(void){
-[v _main `(v ~T0 @X0 1 ef ]
-{
-[e :U _main ]
-[f ]
-"383
-[; ;main.c: 383:     SYSTEM_Initialize();
-[e ( _SYSTEM_Initialize ..  ]
 "384
-[; ;main.c: 384:     MPU6050_Init();
-[e ( _MPU6050_Init ..  ]
-"386
-[; ;main.c: 386:     char buffer[200];
-[v _buffer `uc ~T0 @X0 -> 200 `i a ]
+[; ;main.c: 384: void StoreLastSettings() {
+[v _StoreLastSettings `(v ~T0 @X0 1 ef ]
+{
+[e :U _StoreLastSettings ]
+[f ]
+"385
+[; ;main.c: 385:     uint8_t buffer[8];
+[v _buffer `uc ~T0 @X0 -> 8 `i a ]
 "387
-[; ;main.c: 387:     float ax_read, ay_read, az_read, gx_read, gy_read, gz_read;
+[; ;main.c: 387:     memcpy(&buffer[0], &Tm, sizeof(uint32_t));
+[e ( _memcpy (3 , , -> &U *U + &U _buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _buffer `ui `ux `*v -> &U _Tm `*Cv -> # `ul `ui ]
+"388
+[; ;main.c: 388:     memcpy(&buffer[4], &Ndat, sizeof(uint32_t));
+[e ( _memcpy (3 , , -> &U *U + &U _buffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _buffer `ui `ux `*v -> &U _Ndat `*Cv -> # `ul `ui ]
+"389
+[; ;main.c: 389:     EEPROM_WriteBlock(0x50, 0x0002, buffer, 8);
+[e ( _EEPROM_WriteBlock (4 , , , -> -> 80 `i `uc -> -> 2 `i `us &U _buffer -> -> 8 `i `uc ]
+"390
+[; ;main.c: 390: }
+[e :UE 2324 ]
+}
+"393
+[; ;main.c: 393: void LoadLastSettings() {
+[v _LoadLastSettings `(v ~T0 @X0 1 ef ]
+{
+[e :U _LoadLastSettings ]
+[f ]
+"394
+[; ;main.c: 394:     uint8_t buffer[8];
+[v _buffer `uc ~T0 @X0 -> 8 `i a ]
+"396
+[; ;main.c: 396:     EEPROM_ReadBlock(0x50, 0x0002, buffer, 8);
+[e ( _EEPROM_ReadBlock (4 , , , -> -> 80 `i `uc -> -> 2 `i `us &U _buffer -> -> 8 `i `uc ]
+"397
+[; ;main.c: 397:     memcpy(&Tm, &buffer[0], sizeof(uint32_t));
+[e ( _memcpy (3 , , -> &U _Tm `*v -> &U *U + &U _buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _buffer `ui `ux `*Cv -> # `ul `ui ]
+"398
+[; ;main.c: 398:     memcpy(&Ndat, &buffer[4], sizeof(uint32_t));
+[e ( _memcpy (3 , , -> &U _Ndat `*v -> &U *U + &U _buffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _buffer `ui `ux `*Cv -> # `ul `ui ]
+"399
+[; ;main.c: 399: }
+[e :UE 2325 ]
+}
+"401
+[; ;main.c: 401: void ReadAllEEPROMDataCSV(uint32_t totalLogged, uint16_t startAddressEEPROM1, uint16_t startAddressEEPROM2) {
+[v _ReadAllEEPROMDataCSV `(v ~T0 @X0 1 ef3`ul`us`us ]
+{
+[e :U _ReadAllEEPROMDataCSV ]
+[v _totalLogged `ul ~T0 @X0 1 r1 ]
+[v _startAddressEEPROM1 `us ~T0 @X0 1 r2 ]
+[v _startAddressEEPROM2 `us ~T0 @X0 1 r3 ]
+[f ]
+"403
+[; ;main.c: 403:     uint16_t readBlockEEPROM1 = 0x0000 + 2;
+[v _readBlockEEPROM1 `us ~T0 @X0 1 a ]
+[e = _readBlockEEPROM1 -> + -> 0 `i -> 2 `i `us ]
+"404
+[; ;main.c: 404:     uint16_t readBlockEEPROM2 = 0x0000 + 2;
+[v _readBlockEEPROM2 `us ~T0 @X0 1 a ]
+[e = _readBlockEEPROM2 -> + -> 0 `i -> 2 `i `us ]
+"405
+[; ;main.c: 405:     uint8_t eepromReadBuffer[24];
+[v _eepromReadBuffer `uc ~T0 @X0 -> 24 `i a ]
+"406
+[; ;main.c: 406:     float ax_read, ay_read, az_read, gx_read, gy_read, gz_read;
 [v _ax_read `f ~T0 @X0 1 a ]
 [v _ay_read `f ~T0 @X0 1 a ]
 [v _az_read `f ~T0 @X0 1 a ]
 [v _gx_read `f ~T0 @X0 1 a ]
 [v _gy_read `f ~T0 @X0 1 a ]
 [v _gz_read `f ~T0 @X0 1 a ]
-"389
-[; ;main.c: 389:     char userInput[20];
-[v _userInput `uc ~T0 @X0 -> 20 `i a ]
-"391
-[; ;main.c: 391:     LoadCurrentAddressEEPROM();
-[e ( _LoadCurrentAddressEEPROM ..  ]
-"394
-[; ;main.c: 394:     sprintf(buffer, "Ultima direccion registrada en EEPROM1: 0x%X\n", currentBlockEEPROM1);
-[e ( _sprintf (1 , (. , &U _buffer :s 10C -> _currentBlockEEPROM1 `ui ]
-"395
-[; ;main.c: 395:     UART_SendString(buffer);
-[e ( _UART_SendString (1 -> &U _buffer `*Cuc ]
-"398
-[; ;main.c: 398:     sprintf(buffer, "Ultima direccion registrada en EEPROM2: 0x%X\n", currentBlockEEPROM2);
-[e ( _sprintf (1 , (. , &U _buffer :s 11C -> _currentBlockEEPROM2 `ui ]
-"399
-[; ;main.c: 399:     UART_SendString(buffer);
-[e ( _UART_SendString (1 -> &U _buffer `*Cuc ]
-"402
-[; ;main.c: 402:     while(1){
-[e :U 2326 ]
+"407
+[; ;main.c: 407:     char buffer[200];
+[v _buffer `uc ~T0 @X0 -> 200 `i a ]
+"409
+[; ;main.c: 409:     for (uint32_t i = 0; i < totalLogged; i++) {
 {
-"404
-[; ;main.c: 404:         UART_SendString("Ingrese comando (ejemplo: LOG(10,100), LOG_READ o LOG_STAT): ");
-[e ( _UART_SendString (1 :s 12C ]
-"406
-[; ;main.c: 406:         memset(userInput, 0, sizeof(userInput));
-[e ( _memset (3 , , -> &U _userInput `*v -> 0 `i -> # _userInput `ui ]
-"408
-[; ;main.c: 408:         UART_ReceiveString(userInput, sizeof(userInput));
-[e ( _UART_ReceiveString (2 , &U _userInput -> -> # _userInput `ui `uc ]
+[v _i `ul ~T0 @X0 1 a ]
+[e = _i -> -> -> 0 `i `l `ul ]
+[e $U 2330  ]
+[e :U 2327 ]
+{
 "411
-[; ;main.c: 411:         UART_SendString("Recibido: ");
-[e ( _UART_SendString (1 :s 13C ]
+[; ;main.c: 411:         EEPROM_ReadBlock(0x50, readBlockEEPROM1, eepromReadBuffer, 12);
+[e ( _EEPROM_ReadBlock (4 , , , -> -> 80 `i `uc _readBlockEEPROM1 &U _eepromReadBuffer -> -> 12 `i `uc ]
 "412
-[; ;main.c: 412:         UART_SendString(userInput);
-[e ( _UART_SendString (1 -> &U _userInput `*Cuc ]
+[; ;main.c: 412:         memcpy(&ax_read, &eepromReadBuffer[0], sizeof(float));
+[e ( _memcpy (3 , , -> &U _ax_read `*v -> &U *U + &U _eepromReadBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _eepromReadBuffer `ui `ux `*Cv -> # `f `ui ]
 "413
-[; ;main.c: 413:         UART_SendString("\n");
-[e ( _UART_SendString (1 :s 14C ]
-"415
-[; ;main.c: 415:         if (strncmp(userInput, "LOG_READ", 8) == 0) {
-[e $ ! == ( _strncmp (3 , , -> &U _userInput `*Cuc :s 15C -> -> 8 `i `ui -> 0 `i 2328  ]
-{
-"416
-[; ;main.c: 416:             unsigned long startReadAddressEEPROM1 = (currentBlockEEPROM1 == 0 ? 32768 : currentBlockEEPROM1) - (Ndat * 12);
-[v _startReadAddressEEPROM1 `ul ~T0 @X0 1 a ]
-[e = _startReadAddressEEPROM1 - -> ? == -> _currentBlockEEPROM1 `ui -> -> 0 `i `ui : -> 32768 `l -> _currentBlockEEPROM1 `l `ul * _Ndat -> -> -> 12 `i `l `ul ]
+[; ;main.c: 413:         memcpy(&ay_read, &eepromReadBuffer[4], sizeof(float));
+[e ( _memcpy (3 , , -> &U _ay_read `*v -> &U *U + &U _eepromReadBuffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _eepromReadBuffer `ui `ux `*Cv -> # `f `ui ]
+"414
+[; ;main.c: 414:         memcpy(&az_read, &eepromReadBuffer[8], sizeof(float));
+[e ( _memcpy (3 , , -> &U _az_read `*v -> &U *U + &U _eepromReadBuffer * -> -> -> 8 `i `ui `ux -> -> # *U &U _eepromReadBuffer `ui `ux `*Cv -> # `f `ui ]
 "417
-[; ;main.c: 417:             unsigned long startReadAddressEEPROM2 = (currentBlockEEPROM2 == 0 ? 32768 : currentBlockEEPROM2) - (Ndat * 12);
-[v _startReadAddressEEPROM2 `ul ~T0 @X0 1 a ]
-[e = _startReadAddressEEPROM2 - -> ? == -> _currentBlockEEPROM2 `ui -> -> 0 `i `ui : -> 32768 `l -> _currentBlockEEPROM2 `l `ul * _Ndat -> -> -> 12 `i `l `ul ]
+[; ;main.c: 417:         EEPROM_ReadBlock(0x51, readBlockEEPROM2, &eepromReadBuffer[12], 12);
+[e ( _EEPROM_ReadBlock (4 , , , -> -> 81 `i `uc _readBlockEEPROM2 &U *U + &U _eepromReadBuffer * -> -> -> 12 `i `ui `ux -> -> # *U &U _eepromReadBuffer `ui `ux -> -> 12 `i `uc ]
 "418
-[; ;main.c: 418:             ReadAndSendEEPROMDataCSV(Ndat, (uint16_t)startReadAddressEEPROM1, (uint16_t)startReadAddressEEPROM2);
-[e ( _ReadAndSendEEPROMDataCSV (3 , , _Ndat -> _startReadAddressEEPROM1 `us -> _startReadAddressEEPROM2 `us ]
+[; ;main.c: 418:         memcpy(&gx_read, &eepromReadBuffer[12], sizeof(float));
+[e ( _memcpy (3 , , -> &U _gx_read `*v -> &U *U + &U _eepromReadBuffer * -> -> -> 12 `i `ui `ux -> -> # *U &U _eepromReadBuffer `ui `ux `*Cv -> # `f `ui ]
 "419
-[; ;main.c: 419:         } else if (strncmp(userInput, "LOG_STAT", 8) == 0) {
-}
-[e $U 2329  ]
-[e :U 2328 ]
-[e $ ! == ( _strncmp (3 , , -> &U _userInput `*Cuc :s 16C -> -> 8 `i `ui -> 0 `i 2330  ]
-{
+[; ;main.c: 419:         memcpy(&gy_read, &eepromReadBuffer[16], sizeof(float));
+[e ( _memcpy (3 , , -> &U _gy_read `*v -> &U *U + &U _eepromReadBuffer * -> -> -> 16 `i `ui `ux -> -> # *U &U _eepromReadBuffer `ui `ux `*Cv -> # `f `ui ]
 "420
-[; ;main.c: 420:             sprintf(buffer, "Datos almacenados: %lu, Tasa de muestreo: %lu ms\n", Ndat, Tm);
-[e ( _sprintf (1 , , (. , &U _buffer :s 17C _Ndat _Tm ]
-"421
-[; ;main.c: 421:             UART_SendString(buffer);
-[e ( _UART_SendString (1 -> &U _buffer `*Cuc ]
-"422
-[; ;main.c: 422:         } else if (ParseUserInput(userInput, &Tm, &Ndat)) {
-}
-[e $U 2331  ]
-[e :U 2330 ]
-[e $ ! != -> ( _ParseUserInput (3 , , -> &U _userInput `*Cuc &U _Tm &U _Ndat `i -> 0 `i 2332  ]
-{
+[; ;main.c: 420:         memcpy(&gz_read, &eepromReadBuffer[20], sizeof(float));
+[e ( _memcpy (3 , , -> &U _gz_read `*v -> &U *U + &U _eepromReadBuffer * -> -> -> 20 `i `ui `ux -> -> # *U &U _eepromReadBuffer `ui `ux `*Cv -> # `f `ui ]
+"423
+[; ;main.c: 423:         sprintf(buffer, "%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\n", ax_read, ay_read, az_read, gx_read, gy_read, gz_read);
+[e ( _sprintf (1 , , , , , , (. , &U _buffer :s 10C -> _ax_read `d -> _ay_read `d -> _az_read `d -> _gx_read `d -> _gy_read `d -> _gz_read `d ]
 "424
-[; ;main.c: 424:             StartLogging();
-[e ( _StartLogging ..  ]
-"425
-[; ;main.c: 425:         } else {
-}
-[e $U 2333  ]
-[e :U 2332 ]
-{
+[; ;main.c: 424:         UART_SendString(buffer);
+[e ( _UART_SendString (1 -> &U _buffer `*Cuc ]
 "427
-[; ;main.c: 427:             UART_SendString("Entrada no valida. Intente de nuevo.\n");
-[e ( _UART_SendString (1 :s 18C ]
+[; ;main.c: 427:         readBlockEEPROM1 = (readBlockEEPROM1 + 12) % 32768;
+[e = _readBlockEEPROM1 -> % -> + -> _readBlockEEPROM1 `ui -> -> 12 `i `ui `l -> 32768 `l `us ]
 "428
-[; ;main.c: 428:         }
-}
-[e :U 2333 ]
-[e :U 2331 ]
-[e :U 2329 ]
+[; ;main.c: 428:         readBlockEEPROM2 = (readBlockEEPROM2 + 12) % 32768;
+[e = _readBlockEEPROM2 -> % -> + -> _readBlockEEPROM2 `ui -> -> 12 `i `ui `l -> 32768 `l `us ]
 "429
 [; ;main.c: 429:     }
 }
-[e :U 2325 ]
-[e $U 2326  ]
-[e :U 2327 ]
+[e ++ _i -> -> -> 1 `i `l `ul ]
+[e :U 2330 ]
+[e $ < _i _totalLogged 2327  ]
+[e :U 2328 ]
+}
 "430
 [; ;main.c: 430: }
-[e :UE 2324 ]
+[e :UE 2326 ]
+}
+[v $root$_main `(v ~T0 @X0 0 e ]
+"434
+[; ;main.c: 434: void main(void){
+[v _main `(v ~T0 @X0 1 ef ]
+{
+[e :U _main ]
+[f ]
+"435
+[; ;main.c: 435:     SYSTEM_Initialize();
+[e ( _SYSTEM_Initialize ..  ]
+"436
+[; ;main.c: 436:     MPU6050_Init();
+[e ( _MPU6050_Init ..  ]
+"438
+[; ;main.c: 438:     char buffer[200];
+[v _buffer `uc ~T0 @X0 -> 200 `i a ]
+"439
+[; ;main.c: 439:     float ax_read, ay_read, az_read, gx_read, gy_read, gz_read;
+[v _ax_read `f ~T0 @X0 1 a ]
+[v _ay_read `f ~T0 @X0 1 a ]
+[v _az_read `f ~T0 @X0 1 a ]
+[v _gx_read `f ~T0 @X0 1 a ]
+[v _gy_read `f ~T0 @X0 1 a ]
+[v _gz_read `f ~T0 @X0 1 a ]
+"441
+[; ;main.c: 441:     char userInput[20];
+[v _userInput `uc ~T0 @X0 -> 20 `i a ]
+"443
+[; ;main.c: 443:     LoadCurrentAddressEEPROM();
+[e ( _LoadCurrentAddressEEPROM ..  ]
+"444
+[; ;main.c: 444:     LoadLastSettings();
+[e ( _LoadLastSettings ..  ]
+"448
+[; ;main.c: 448:     sprintf(buffer, "Ultima direccion registrada en EEPROM1: 0x%X\n", currentBlockEEPROM1);
+[e ( _sprintf (1 , (. , &U _buffer :s 11C -> _currentBlockEEPROM1 `ui ]
+"449
+[; ;main.c: 449:     UART_SendString(buffer);
+[e ( _UART_SendString (1 -> &U _buffer `*Cuc ]
+"452
+[; ;main.c: 452:     sprintf(buffer, "Ultima direccion registrada en EEPROM2: 0x%X\n", currentBlockEEPROM2);
+[e ( _sprintf (1 , (. , &U _buffer :s 12C -> _currentBlockEEPROM2 `ui ]
+"453
+[; ;main.c: 453:     UART_SendString(buffer);
+[e ( _UART_SendString (1 -> &U _buffer `*Cuc ]
+"456
+[; ;main.c: 456:      while(1){
+[e :U 2333 ]
+{
+"458
+[; ;main.c: 458:         UART_SendString("Ingrese comando (ejemplo: LOG(10,100), LOG_READ o LOG_STAT): ");
+[e ( _UART_SendString (1 :s 13C ]
+"461
+[; ;main.c: 461:         memset(userInput, 0, sizeof(userInput));
+[e ( _memset (3 , , -> &U _userInput `*v -> 0 `i -> # _userInput `ui ]
+"463
+[; ;main.c: 463:         UART_ReceiveString(userInput, sizeof(userInput));
+[e ( _UART_ReceiveString (2 , &U _userInput -> -> # _userInput `ui `uc ]
+"466
+[; ;main.c: 466:         UART_SendString("Recibido: ");
+[e ( _UART_SendString (1 :s 14C ]
+"467
+[; ;main.c: 467:         UART_SendString(userInput);
+[e ( _UART_SendString (1 -> &U _userInput `*Cuc ]
+"468
+[; ;main.c: 468:         UART_SendString("\n");
+[e ( _UART_SendString (1 :s 15C ]
+"470
+[; ;main.c: 470:          if (strncmp(userInput, "LOG_ALL", 7) == 0) {
+[e $ ! == ( _strncmp (3 , , -> &U _userInput `*Cuc :s 16C -> -> 7 `i `ui -> 0 `i 2335  ]
+{
+"471
+[; ;main.c: 471:             unsigned long totalLoggedData = (currentBlockEEPROM1 - (0x0000 + 2)) / 12;
+[v _totalLoggedData `ul ~T0 @X0 1 a ]
+[e = _totalLoggedData -> / - -> _currentBlockEEPROM1 `ui -> + -> 0 `i -> 2 `i `ui -> -> 12 `i `ui `ul ]
+"472
+[; ;main.c: 472:             ReadAllEEPROMDataCSV(totalLoggedData, (uint16_t)0x0000 + 2, (uint16_t)0x0000 + 2);
+[e ( _ReadAllEEPROMDataCSV (3 , , _totalLoggedData -> + -> -> -> 0 `i `us `ui -> -> 2 `i `ui `us -> + -> -> -> 0 `i `us `ui -> -> 2 `i `ui `us ]
+"473
+[; ;main.c: 473:         }
+}
+[e :U 2335 ]
+"475
+[; ;main.c: 475:         if (strncmp(userInput, "LOG_READ", 8) == 0) {
+[e $ ! == ( _strncmp (3 , , -> &U _userInput `*Cuc :s 17C -> -> 8 `i `ui -> 0 `i 2336  ]
+{
+"476
+[; ;main.c: 476:             unsigned long startReadAddressEEPROM1 = (currentBlockEEPROM1 == 0 ? 32768 : currentBlockEEPROM1) - (Ndat * 12);
+[v _startReadAddressEEPROM1 `ul ~T0 @X0 1 a ]
+[e = _startReadAddressEEPROM1 - -> ? == -> _currentBlockEEPROM1 `ui -> -> 0 `i `ui : -> 32768 `l -> _currentBlockEEPROM1 `l `ul * _Ndat -> -> -> 12 `i `l `ul ]
+"477
+[; ;main.c: 477:             unsigned long startReadAddressEEPROM2 = (currentBlockEEPROM2 == 0 ? 32768 : currentBlockEEPROM2) - (Ndat * 12);
+[v _startReadAddressEEPROM2 `ul ~T0 @X0 1 a ]
+[e = _startReadAddressEEPROM2 - -> ? == -> _currentBlockEEPROM2 `ui -> -> 0 `i `ui : -> 32768 `l -> _currentBlockEEPROM2 `l `ul * _Ndat -> -> -> 12 `i `l `ul ]
+"478
+[; ;main.c: 478:             ReadAndSendEEPROMDataCSV(Ndat, (uint16_t)startReadAddressEEPROM1, (uint16_t)startReadAddressEEPROM2);
+[e ( _ReadAndSendEEPROMDataCSV (3 , , _Ndat -> _startReadAddressEEPROM1 `us -> _startReadAddressEEPROM2 `us ]
+"479
+[; ;main.c: 479:         } else if (strncmp(userInput, "LOG_STAT", 8) == 0) {
+}
+[e $U 2337  ]
+[e :U 2336 ]
+[e $ ! == ( _strncmp (3 , , -> &U _userInput `*Cuc :s 18C -> -> 8 `i `ui -> 0 `i 2338  ]
+{
+"480
+[; ;main.c: 480:             sprintf(buffer, "Datos almacenados: %lu, Tasa de muestreo: %lu ms\n", Ndat, Tm);
+[e ( _sprintf (1 , , (. , &U _buffer :s 19C _Ndat _Tm ]
+"481
+[; ;main.c: 481:             UART_SendString(buffer);
+[e ( _UART_SendString (1 -> &U _buffer `*Cuc ]
+"482
+[; ;main.c: 482:         } else if (ParseUserInput(userInput, &Tm, &Ndat)) {
+}
+[e $U 2339  ]
+[e :U 2338 ]
+[e $ ! != -> ( _ParseUserInput (3 , , -> &U _userInput `*Cuc &U _Tm &U _Ndat `i -> 0 `i 2340  ]
+{
+"484
+[; ;main.c: 484:             StartLogging();
+[e ( _StartLogging ..  ]
+"485
+[; ;main.c: 485:             StoreLastSettings();
+[e ( _StoreLastSettings ..  ]
+"486
+[; ;main.c: 486:         } else {
+}
+[e $U 2341  ]
+[e :U 2340 ]
+{
+"488
+[; ;main.c: 488:             UART_SendString("Entrada no valida. Intente de nuevo.\n");
+[e ( _UART_SendString (1 :s 20C ]
+"489
+[; ;main.c: 489:         }
+}
+[e :U 2341 ]
+[e :U 2339 ]
+[e :U 2337 ]
+"490
+[; ;main.c: 490:     }
+}
+[e :U 2332 ]
+[e $U 2333  ]
+[e :U 2334 ]
+"491
+[; ;main.c: 491: }
+[e :UE 2331 ]
 }
 [p f _sprintf 10560528 ]
 [p h _sscanf 8389648 ]
-[a 16C 76 79 71 95 83 84 65 84 0 ]
-[a 15C 76 79 71 95 82 69 65 68 0 ]
-[a 13C 82 101 99 105 98 105 100 111 58 32 0 ]
-[a 12C 73 110 103 114 101 115 101 32 99 111 109 97 110 100 111 32 40 101 106 101 109 112 108 111 58 32 76 79 71 40 49 48 44 49 48 48 41 44 32 76 79 71 95 82 69 65 68 32 111 32 76 79 71 95 83 84 65 84 41 58 32 0 ]
+[a 18C 76 79 71 95 83 84 65 84 0 ]
+[a 16C 76 79 71 95 65 76 76 0 ]
+[a 17C 76 79 71 95 82 69 65 68 0 ]
+[a 14C 82 101 99 105 98 105 100 111 58 32 0 ]
+[a 13C 73 110 103 114 101 115 101 32 99 111 109 97 110 100 111 32 40 101 106 101 109 112 108 111 58 32 76 79 71 40 49 48 44 49 48 48 41 44 32 76 79 71 95 82 69 65 68 32 111 32 76 79 71 95 83 84 65 84 41 58 32 0 ]
 [a 1C 68 97 116 111 115 32 97 108 109 97 99 101 110 97 100 111 115 58 32 37 108 117 44 32 84 97 115 97 32 100 101 32 109 117 101 115 116 114 101 111 58 32 37 108 117 32 109 115 10 0 ]
-[a 17C 68 97 116 111 115 32 97 108 109 97 99 101 110 97 100 111 115 58 32 37 108 117 44 32 84 97 115 97 32 100 101 32 109 117 101 115 116 114 101 111 58 32 37 108 117 32 109 115 10 0 ]
+[a 19C 68 97 116 111 115 32 97 108 109 97 99 101 110 97 100 111 115 58 32 37 108 117 44 32 84 97 115 97 32 100 101 32 109 117 101 115 116 114 101 111 58 32 37 108 117 32 109 115 10 0 ]
 [a 3C 37 46 50 102 44 37 46 50 102 44 37 46 50 102 44 37 46 50 102 44 37 46 50 102 44 37 46 50 102 10 0 ]
+[a 10C 37 46 50 102 44 37 46 50 102 44 37 46 50 102 44 37 46 50 102 44 37 46 50 102 44 37 46 50 102 10 0 ]
 [a 5C 69 69 80 82 79 77 32 45 32 65 88 58 32 37 46 50 102 44 32 65 89 58 32 37 46 50 102 44 32 65 90 58 32 37 46 50 102 44 32 71 88 58 32 37 46 50 102 44 32 71 89 58 32 37 46 50 102 44 32 71 90 58 32 37 46 50 102 10 0 ]
 [a 2C 65 88 44 65 89 44 65 90 44 71 88 44 71 89 44 71 90 10 0 ]
-[a 11C 85 108 116 105 109 97 32 100 105 114 101 99 99 105 111 110 32 114 101 103 105 115 116 114 97 100 97 32 101 110 32 69 69 80 82 79 77 50 58 32 48 120 37 88 10 0 ]
-[a 10C 85 108 116 105 109 97 32 100 105 114 101 99 99 105 111 110 32 114 101 103 105 115 116 114 97 100 97 32 101 110 32 69 69 80 82 79 77 49 58 32 48 120 37 88 10 0 ]
+[a 12C 85 108 116 105 109 97 32 100 105 114 101 99 99 105 111 110 32 114 101 103 105 115 116 114 97 100 97 32 101 110 32 69 69 80 82 79 77 50 58 32 48 120 37 88 10 0 ]
+[a 11C 85 108 116 105 109 97 32 100 105 114 101 99 99 105 111 110 32 114 101 103 105 115 116 114 97 100 97 32 101 110 32 69 69 80 82 79 77 49 58 32 48 120 37 88 10 0 ]
 [a 7C 76 79 71 95 69 82 82 10 0 ]
 [a 4C 69 78 68 10 0 ]
-[a 18C 69 110 116 114 97 100 97 32 110 111 32 118 97 108 105 100 97 46 32 73 110 116 101 110 116 101 32 100 101 32 110 117 101 118 111 46 10 0 ]
+[a 20C 69 110 116 114 97 100 97 32 110 111 32 118 97 108 105 100 97 46 32 73 110 116 101 110 116 101 32 100 101 32 110 117 101 118 111 46 10 0 ]
 [a 6C 45 45 45 45 45 45 45 45 45 45 45 45 76 79 71 95 79 75 45 45 45 45 45 45 45 45 45 45 45 45 45 10 0 ]
 [a 9C 76 79 71 40 37 108 117 44 37 108 117 41 10 0 ]
 [a 8C 76 79 71 40 37 108 117 44 37 108 117 41 13 10 0 ]
-[a 14C 10 0 ]
+[a 15C 10 0 ]

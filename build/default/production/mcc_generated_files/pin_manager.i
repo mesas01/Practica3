@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "mcc_generated_files/pin_manager.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,10 +6,10 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-# 45 "main.c"
-# 1 "./mcc_generated_files/mcc.h" 1
-# 49 "./mcc_generated_files/mcc.h"
+# 1 "mcc_generated_files/pin_manager.c" 2
+# 49 "mcc_generated_files/pin_manager.c"
+# 1 "mcc_generated_files/pin_manager.h" 1
+# 54 "mcc_generated_files/pin_manager.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -27278,691 +27278,101 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 2 3
-# 49 "./mcc_generated_files/mcc.h" 2
-
-# 1 "./mcc_generated_files/device_config.h" 1
-# 50 "./mcc_generated_files/mcc.h" 2
-
-# 1 "./mcc_generated_files/pin_manager.h" 1
-# 166 "./mcc_generated_files/pin_manager.h"
+# 54 "mcc_generated_files/pin_manager.h" 2
+# 166 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 178 "./mcc_generated_files/pin_manager.h"
+# 178 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
-# 51 "./mcc_generated_files/mcc.h" 2
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdbool.h" 1 3
-# 53 "./mcc_generated_files/mcc.h" 2
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\conio.h" 1 3
+# 49 "mcc_generated_files/pin_manager.c" 2
 
 
 
 
 
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdio.h" 1 3
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdio.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 12 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef void * va_list[1];
-
-
-
-
-typedef void * __isoc_va_list[1];
-# 143 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef __int24 ssize_t;
-# 255 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long long off_t;
-# 409 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef struct _IO_FILE FILE;
-# 25 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdio.h" 2 3
-# 52 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdio.h" 3
-typedef union _G_fpos64_t {
- char __opaque[16];
- double __align;
-} fpos_t;
-
-extern FILE *const stdin;
-extern FILE *const stdout;
-extern FILE *const stderr;
-
-
-
-
-
-FILE *fopen(const char *restrict, const char *restrict);
-FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
-int fclose(FILE *);
-
-int remove(const char *);
-int rename(const char *, const char *);
-
-int feof(FILE *);
-int ferror(FILE *);
-int fflush(FILE *);
-void clearerr(FILE *);
-
-int fseek(FILE *, long, int);
-long ftell(FILE *);
-void rewind(FILE *);
-
-int fgetpos(FILE *restrict, fpos_t *restrict);
-int fsetpos(FILE *, const fpos_t *);
-
-size_t fread(void *restrict, size_t, size_t, FILE *restrict);
-size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
-
-int fgetc(FILE *);
-int getc(FILE *);
-int getchar(void);
-
-
-
-
-
-int ungetc(int, FILE *);
-int getch(void);
-
-int fputc(int, FILE *);
-int putc(int, FILE *);
-int putchar(int);
-
-
-
-
-
-void putch(char);
-
-char *fgets(char *restrict, int, FILE *restrict);
-
-char *gets(char *);
-
-
-int fputs(const char *restrict, FILE *restrict);
-int puts(const char *);
-
-__attribute__((__format__(__printf__, 1, 2)))
-int printf(const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int fprintf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int sprintf(char *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 3, 4)))
-int snprintf(char *restrict, size_t, const char *restrict, ...);
-
-__attribute__((__format__(__printf__, 1, 0)))
-int vprintf(const char *restrict, __isoc_va_list);
-int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 2, 0)))
-int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 3, 0)))
-int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
-
-__attribute__((__format__(__scanf__, 1, 2)))
-int scanf(const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int fscanf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int sscanf(const char *restrict, const char *restrict, ...);
-
-__attribute__((__format__(__scanf__, 1, 0)))
-int vscanf(const char *restrict, __isoc_va_list);
-int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__scanf__, 2, 0)))
-int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
-
-void perror(const char *);
-
-int setvbuf(FILE *restrict, char *restrict, int, size_t);
-void setbuf(FILE *restrict, char *restrict);
-
-char *tmpnam(char *);
-FILE *tmpfile(void);
-
-
-
-
-FILE *fmemopen(void *restrict, size_t, const char *restrict);
-FILE *open_memstream(char **, size_t *);
-FILE *fdopen(int, const char *);
-FILE *popen(const char *, const char *);
-int pclose(FILE *);
-int fileno(FILE *);
-int fseeko(FILE *, off_t, int);
-off_t ftello(FILE *);
-int dprintf(int, const char *restrict, ...);
-int vdprintf(int, const char *restrict, __isoc_va_list);
-void flockfile(FILE *);
-int ftrylockfile(FILE *);
-void funlockfile(FILE *);
-int getc_unlocked(FILE *);
-int getchar_unlocked(void);
-int putc_unlocked(int, FILE *);
-int putchar_unlocked(int);
-ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
-ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
-int renameat(int, const char *, int, const char *);
-char *ctermid(char *);
-
-
-
-
-
-
-
-char *tempnam(const char *, const char *);
-# 8 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\conio.h" 2 3
-# 54 "./mcc_generated_files/mcc.h" 2
-
-# 1 "./mcc_generated_files/i2c1_master.h" 1
-# 58 "./mcc_generated_files/i2c1_master.h"
-typedef enum {
-    I2C1_NOERR,
-    I2C1_BUSY,
-    I2C1_FAIL
-
-
-} i2c1_error_t;
-
-typedef enum
+void PIN_MANAGER_Initialize(void)
 {
-    I2C1_STOP=1,
-    I2C1_RESTART_READ,
-    I2C1_RESTART_WRITE,
-    I2C1_CONTINUE,
-    I2C1_RESET_LINK
-} i2c1_operations_t;
-
-typedef uint8_t i2c1_address_t;
-typedef i2c1_operations_t (*i2c1_callback_t)(void *funPtr);
 
 
-i2c1_operations_t I2C1_CallbackReturnStop(void *funPtr);
-i2c1_operations_t I2C1_CallbackReturnReset(void *funPtr);
-i2c1_operations_t I2C1_CallbackRestartWrite(void *funPtr);
-i2c1_operations_t I2C1_CallbackRestartRead(void *funPtr);
+
+    LATE = 0x00;
+    LATD = 0x00;
+    LATA = 0x00;
+    LATB = 0x00;
+    LATC = 0x00;
 
 
 
 
-
-
-void I2C1_Initialize(void);
-# 101 "./mcc_generated_files/i2c1_master.h"
-i2c1_error_t I2C1_Open(i2c1_address_t address);
-# 111 "./mcc_generated_files/i2c1_master.h"
-i2c1_error_t I2C1_Close(void);
-# 123 "./mcc_generated_files/i2c1_master.h"
-i2c1_error_t I2C1_MasterOperation(_Bool read);
+    TRISE = 0x07;
+    TRISA = 0xFF;
+    TRISB = 0xF9;
+    TRISC = 0xBF;
+    TRISD = 0xFC;
 
 
 
 
-i2c1_error_t I2C1_MasterWrite(void);
+    ANSELD = 0xFF;
+    ANSELC = 0x7F;
+    ANSELB = 0xF9;
+    ANSELE = 0x07;
+    ANSELA = 0xFF;
 
 
 
 
-i2c1_error_t I2C1_MasterRead(void);
-# 142 "./mcc_generated_files/i2c1_master.h"
-void I2C1_SetTimeout(uint8_t timeOut);
-# 152 "./mcc_generated_files/i2c1_master.h"
-void I2C1_SetBuffer(void *buffer, size_t bufferSize);
-# 164 "./mcc_generated_files/i2c1_master.h"
-void I2C1_SetDataCompleteCallback(i2c1_callback_t cb, void *ptr);
-# 174 "./mcc_generated_files/i2c1_master.h"
-void I2C1_SetWriteCollisionCallback(i2c1_callback_t cb, void *ptr);
-# 184 "./mcc_generated_files/i2c1_master.h"
-void I2C1_SetAddressNackCallback(i2c1_callback_t cb, void *ptr);
-# 194 "./mcc_generated_files/i2c1_master.h"
-void I2C1_SetDataNackCallback(i2c1_callback_t cb, void *ptr);
-# 204 "./mcc_generated_files/i2c1_master.h"
-void I2C1_SetTimeoutCallback(i2c1_callback_t cb, void *ptr);
-# 55 "./mcc_generated_files/mcc.h" 2
-
-# 1 "./mcc_generated_files/uart1.h" 1
-# 75 "./mcc_generated_files/uart1.h"
-typedef union {
-    struct {
-        unsigned perr : 1;
-        unsigned ferr : 1;
-        unsigned oerr : 1;
-        unsigned reserved : 5;
-    };
-    uint8_t status;
-}uart1_status_t;
-# 111 "./mcc_generated_files/uart1.h"
-void UART1_Initialize(void);
-# 159 "./mcc_generated_files/uart1.h"
-_Bool UART1_is_rx_ready(void);
-# 207 "./mcc_generated_files/uart1.h"
-_Bool UART1_is_tx_ready(void);
-# 254 "./mcc_generated_files/uart1.h"
-_Bool UART1_is_tx_done(void);
-# 302 "./mcc_generated_files/uart1.h"
-uart1_status_t UART1_get_last_status(void);
-# 351 "./mcc_generated_files/uart1.h"
-uint8_t UART1_Read(void);
-# 376 "./mcc_generated_files/uart1.h"
-void UART1_Write(uint8_t txData);
-# 396 "./mcc_generated_files/uart1.h"
-void UART1_SetFramingErrorHandler(void (* interruptHandler)(void));
-# 414 "./mcc_generated_files/uart1.h"
-void UART1_SetOverrunErrorHandler(void (* interruptHandler)(void));
-# 432 "./mcc_generated_files/uart1.h"
-void UART1_SetErrorHandler(void (* interruptHandler)(void));
-# 56 "./mcc_generated_files/mcc.h" 2
-# 71 "./mcc_generated_files/mcc.h"
-void SYSTEM_Initialize(void);
-# 84 "./mcc_generated_files/mcc.h"
-void OSCILLATOR_Initialize(void);
-# 97 "./mcc_generated_files/mcc.h"
-void PMD_Initialize(void);
-# 45 "main.c" 2
-
-# 1 "./mcc_generated_files/examples/i2c1_master_example.h" 1
-# 54 "./mcc_generated_files/examples/i2c1_master_example.h"
-uint8_t I2C1_Read1ByteRegister(i2c1_address_t address, uint8_t reg);
-uint16_t I2C1_Read2ByteRegister(i2c1_address_t address, uint8_t reg);
-void I2C1_Write1ByteRegister(i2c1_address_t address, uint8_t reg, uint8_t data);
-void I2C1_Write2ByteRegister(i2c1_address_t address, uint8_t reg, uint16_t data);
-void I2C1_WriteNBytes(i2c1_address_t address, uint8_t *data, size_t len);
-void I2C1_ReadNBytes(i2c1_address_t address, uint8_t *data, size_t len);
-void I2C1_ReadDataBlock(i2c1_address_t address, uint8_t reg, uint8_t *data, size_t len);
-# 46 "main.c" 2
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\string.h" 1 3
-# 25 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\string.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 421 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef struct __locale_struct * locale_t;
-# 26 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\string.h" 2 3
-
-void *memcpy (void *restrict, const void *restrict, size_t);
-void *memmove (void *, const void *, size_t);
-void *memset (void *, int, size_t);
-int memcmp (const void *, const void *, size_t);
-void *memchr (const void *, int, size_t);
-
-char *strcpy (char *restrict, const char *restrict);
-char *strncpy (char *restrict, const char *restrict, size_t);
-
-char *strcat (char *restrict, const char *restrict);
-char *strncat (char *restrict, const char *restrict, size_t);
-
-int strcmp (const char *, const char *);
-int strncmp (const char *, const char *, size_t);
-
-int strcoll (const char *, const char *);
-size_t strxfrm (char *restrict, const char *restrict, size_t);
-
-char *strchr (const char *, int);
-char *strrchr (const char *, int);
-
-size_t strcspn (const char *, const char *);
-size_t strspn (const char *, const char *);
-char *strpbrk (const char *, const char *);
-char *strstr (const char *, const char *);
-char *strtok (char *restrict, const char *restrict);
-
-size_t strlen (const char *);
-
-char *strerror (int);
+    WPUD = 0x00;
+    WPUE = 0x00;
+    WPUB = 0x00;
+    WPUA = 0x00;
+    WPUC = 0x00;
 
 
 
 
-char *strtok_r (char *restrict, const char *restrict, char **restrict);
-int strerror_r (int, char *, size_t);
-char *stpcpy(char *restrict, const char *restrict);
-char *stpncpy(char *restrict, const char *restrict, size_t);
-size_t strnlen (const char *, size_t);
-char *strdup (const char *);
-char *strndup (const char *, size_t);
-char *strsignal(int);
-char *strerror_l (int, locale_t);
-int strcoll_l (const char *, const char *, locale_t);
-size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
+    RB1I2C = 0x00;
+    RB2I2C = 0x00;
+    RC3I2C = 0x00;
+    RC4I2C = 0x00;
+    RD0I2C = 0x00;
+    RD1I2C = 0x00;
 
 
 
 
-void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 49 "main.c" 2
-# 69 "main.c"
-uint16_t currentBlockEEPROM1 = 0x0000;
-uint16_t currentBlockEEPROM2 = 0x0000;
-
-uint32_t Ndat = 0;
-uint32_t Tm = 0;
-_Bool logging = 0;
-
-float ax, ay, az, gx, gy, gz;
-uint8_t eepromBuffer[24];
+    ODCONE = 0x00;
+    ODCONA = 0x00;
+    ODCONB = 0x26;
+    ODCONC = 0x18;
+    ODCOND = 0x00;
 
 
-void UART_SendString(const char* str){
-    while (*str){
-        UART1_Write(*str);
-        str++;
-    }
+
+
+    SLRCONA = 0xFF;
+    SLRCONB = 0xFF;
+    SLRCONC = 0xFF;
+    SLRCOND = 0xFF;
+    SLRCONE = 0x07;
+
+
+
+
+    INLVLA = 0xFF;
+    INLVLB = 0xFF;
+    INLVLC = 0xFF;
+    INLVLD = 0xFF;
+    INLVLE = 0x0F;
+# 137 "mcc_generated_files/pin_manager.c"
+    I2C1SDAPPS = 0x0A;
+    RB1PPS = 0x21;
+    RB2PPS = 0x22;
+    RC6PPS = 0x13;
+    U1RXPPS = 0x17;
+    I2C1SCLPPS = 0x09;
 }
 
-
-void MPU6050_Init(){
-    uint8_t data = 0x00;
-    I2C1_Write1ByteRegister(0x68, 0x6B, data);
-}
-
-
-void MPU6050_ReadSensorData(float* ax, float* ay, float* az, float* gx, float* gy, float* gz){
-    uint8_t buffer[12];
-    I2C1_ReadDataBlock(0x68, 0x3B, buffer, 12);
-
-    int16_t ax_raw = (buffer[0] << 8) | buffer[1];
-    int16_t ay_raw = (buffer[2] << 8) | buffer[3];
-    int16_t az_raw = (buffer[4] << 8) | buffer[5];
-    int16_t gx_raw = (buffer[6] << 8) | buffer[7];
-    int16_t gy_raw = (buffer[8] << 8) | buffer[9];
-    int16_t gz_raw = (buffer[10] << 8) | buffer[11];
-
-    *ax = ax_raw / 16384.0f;
-    *ay = ay_raw / 16384.0f;
-    *az = az_raw / 16384.0f;
-    *gx = gx_raw / 131.0f;
-    *gy = gy_raw / 131.0f;
-    *gz = gz_raw / 131.0f;
-}
-
-
-void EEPROM_WriteByte(uint8_t deviceAddress, uint16_t memoryAddress, uint8_t data){
-    uint8_t buffer[3];
-    buffer[0] = (memoryAddress >> 8) & 0xFF;
-    buffer[1] = memoryAddress & 0xFF;
-    buffer[2] = data;
-
-    I2C1_WriteNBytes(deviceAddress, buffer, 3);
-
-    _delay((unsigned long)((5)*(8000000/4000.0)));
-}
-
-
-uint8_t EEPROM_ReadByte(uint8_t deviceAddress, uint16_t memoryAddress){
-    uint8_t addressBuffer[2];
-    addressBuffer[0] = (memoryAddress >> 8) & 0xFF;
-    addressBuffer[1] = memoryAddress & 0xFF;
-
-    I2C1_WriteNBytes(deviceAddress, addressBuffer, 2);
-
-    uint8_t data = 0;
-    I2C1_ReadNBytes(deviceAddress, &data, 1);
-
-    return data;
-}
-
-
-
-void EEPROM_WriteBlock(uint8_t deviceAddress, uint16_t memoryAddress, uint8_t* data, uint8_t size){
-    for (uint8_t i = 0; i < size; i++){
-        EEPROM_WriteByte(deviceAddress, memoryAddress + i, data[i]);
-    }
-}
-
-
-void EEPROM_ReadBlock(uint8_t deviceAddress, uint16_t memoryAddress, uint8_t* data, uint8_t size){
-    for (uint8_t i = 0; i < size; i++) {
-        data[i] = EEPROM_ReadByte(deviceAddress, memoryAddress + i);
-    }
-}
-
-
-char UART_ReceiveString(char* receivedString, uint8_t maxLength){
-    char data;
-    uint8_t index = 0;
-
-    while (index < maxLength - 1){
-        data = UART1_Read();
-
-
-        if (index == 0 && (data == '\r' || data == '\n')) {
-            continue;
-        }
-
-        if (data == '\r') {
-            break;
-        } else {
-            receivedString[index] = data;
-            index++;
-        }
-    }
-
-    receivedString[index] = '\0';
-    return index;
-}
-
-
-
-void Handle_LOG_STAT() {
-    char buffer[200];
-    sprintf(buffer, "Datos almacenados: %lu, Tasa de muestreo: %lu ms\n", Ndat, Tm);
-    UART_SendString(buffer);
-}
-
-
-
-void ReadAndSendEEPROMDataCSV(uint32_t Ndat, uint16_t startAddressEEPROM1, uint16_t startAddressEEPROM2) {
-    uint16_t readBlockEEPROM1 = startAddressEEPROM1;
-    uint16_t readBlockEEPROM2 = startAddressEEPROM2;
-    uint8_t eepromReadBuffer[24];
-    float ax_read, ay_read, az_read, gx_read, gy_read, gz_read;
-    char buffer[200];
-
-
-    UART_SendString("AX,AY,AZ,GX,GY,GZ\n");
-
-    for (uint32_t i = 0; i < Ndat; i++) {
-
-        EEPROM_ReadBlock(0x50, readBlockEEPROM1, eepromReadBuffer, 12);
-        memcpy(&ax_read, &eepromReadBuffer[0], sizeof(float));
-        memcpy(&ay_read, &eepromReadBuffer[4], sizeof(float));
-        memcpy(&az_read, &eepromReadBuffer[8], sizeof(float));
-
-
-        EEPROM_ReadBlock(0x51, readBlockEEPROM2, &eepromReadBuffer[12], 12);
-        memcpy(&gx_read, &eepromReadBuffer[12], sizeof(float));
-        memcpy(&gy_read, &eepromReadBuffer[16], sizeof(float));
-        memcpy(&gz_read, &eepromReadBuffer[20], sizeof(float));
-
-
-        sprintf(buffer, "%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\n", ax_read, ay_read, az_read, gx_read, gy_read, gz_read);
-        UART_SendString(buffer);
-
-
-        readBlockEEPROM1 = (readBlockEEPROM1 + 12) % 32768;
-        readBlockEEPROM2 = (readBlockEEPROM2 + 12) % 32768;
-    }
-}
-
-
-
-void Handle_LOG_READ() {
-    unsigned long startReadAddressEEPROM1 = (currentBlockEEPROM1 == 0 ? 32768 : currentBlockEEPROM1) - (Ndat * 12);
-    unsigned long startReadAddressEEPROM2 = (currentBlockEEPROM2 == 0 ? 32768 : currentBlockEEPROM2) - (Ndat * 12);
-    ReadAndSendEEPROMDataCSV(Ndat, (uint16_t)startReadAddressEEPROM1, (uint16_t)startReadAddressEEPROM2);
-    UART_SendString("END\n");
-}
-
-
-void custom_delay_ms(uint32_t milliseconds) {
-    while(milliseconds--) {
-        _delay((unsigned long)((1)*(8000000/4000.0)));
-    }
-}
-
-
-void ReadAndSendEEPROMData(uint32_t Ndat, uint16_t startAddressEEPROM1, uint16_t startAddressEEPROM2) {
-
-    uint16_t readBlockEEPROM1 = startAddressEEPROM1;
-    uint16_t readBlockEEPROM2 = startAddressEEPROM2;
-    uint8_t eepromReadBuffer[24];
-    float ax_read, ay_read, az_read, gx_read, gy_read, gz_read;
-    char buffer[200];
-
-    for (uint32_t i = 0; i < Ndat; i++) {
-
-        EEPROM_ReadBlock(0x50, readBlockEEPROM1, eepromReadBuffer, 12);
-        memcpy(&ax_read, &eepromReadBuffer[0], sizeof(float));
-        memcpy(&ay_read, &eepromReadBuffer[4], sizeof(float));
-        memcpy(&az_read, &eepromReadBuffer[8], sizeof(float));
-
-
-        EEPROM_ReadBlock(0x51, readBlockEEPROM2, &eepromReadBuffer[12], 12);
-        memcpy(&gx_read, &eepromReadBuffer[12], sizeof(float));
-        memcpy(&gy_read, &eepromReadBuffer[16], sizeof(float));
-        memcpy(&gz_read, &eepromReadBuffer[20], sizeof(float));
-
-
-        sprintf(buffer, "EEPROM - AX: %.2f, AY: %.2f, AZ: %.2f, GX: %.2f, GY: %.2f, GZ: %.2f\n", ax_read, ay_read, az_read, gx_read, gy_read, gz_read);
-        UART_SendString(buffer);
-
-
-        readBlockEEPROM1 = (readBlockEEPROM1 + 12) % 32768;
-        readBlockEEPROM2 = (readBlockEEPROM2 + 12) % 32768;
-    }
-}
-
-
-
-void StoreCurrentAddressEEPROM() {
-    uint8_t addressBuffer[2];
-
-    addressBuffer[0] = (currentBlockEEPROM1 >> 8) & 0xFF;
-    addressBuffer[1] = currentBlockEEPROM1 & 0xFF;
-    EEPROM_WriteBlock(0x50, 0x0000, addressBuffer, 2);
-}
-
-
-
-void LoadCurrentAddressEEPROM() {
-    uint8_t addressBuffer[2];
-
-    EEPROM_ReadBlock(0x50, 0x0000, addressBuffer, 2);
-    currentBlockEEPROM1 = (addressBuffer[0] << 8) | addressBuffer[1];
-
-
-    currentBlockEEPROM2 = currentBlockEEPROM1;
-}
-
-
-
-void StartLogging() {
-    uint32_t loggedDataCount = 0;
-    char buffer[200];
-    while (loggedDataCount < Ndat) {
-
-        MPU6050_ReadSensorData(&ax, &ay, &az, &gx, &gy, &gz);
-
-
-        memcpy(&eepromBuffer[0], &ax, sizeof(float));
-        memcpy(&eepromBuffer[4], &ay, sizeof(float));
-        memcpy(&eepromBuffer[8], &az, sizeof(float));
-        memcpy(&eepromBuffer[12], &gx, sizeof(float));
-        memcpy(&eepromBuffer[16], &gy, sizeof(float));
-        memcpy(&eepromBuffer[20], &gz, sizeof(float));
-
-
-
-
-
-
-
-        EEPROM_WriteBlock(0x50, currentBlockEEPROM1, eepromBuffer, 12);
-# 324 "main.c"
-        EEPROM_WriteBlock(0x51, currentBlockEEPROM2, &eepromBuffer[12], 12);
-
-
-        currentBlockEEPROM1 = (currentBlockEEPROM1 + 12) % 32768;
-        currentBlockEEPROM2 = (currentBlockEEPROM2 + 12) % 32768;
-
-        loggedDataCount++;
-        custom_delay_ms(Tm);
-    }
-
-    if (loggedDataCount == Ndat) {
-    UART_SendString("------------LOG_OK-------------\n");
-
-    unsigned long startReadAddressEEPROM1 = (currentBlockEEPROM1 == 0 ? 32768 : currentBlockEEPROM1) - (Ndat * 12);
-    unsigned long startReadAddressEEPROM2 = (currentBlockEEPROM2 == 0 ? 32768 : currentBlockEEPROM2) - (Ndat * 12);
-# 363 "main.c"
-    ReadAndSendEEPROMData(Ndat, (uint16_t)startReadAddressEEPROM1, (uint16_t)startReadAddressEEPROM2);
-
-    StoreCurrentAddressEEPROM();
-
-    } else {
-        UART_SendString("LOG_ERR\n");
-    }
-    logging = 0;
-}
-
-
-_Bool ParseUserInput(const char* input, uint32_t* Tm, uint32_t* Ndat) {
-
-    if (sscanf(input, "LOG(%lu,%lu)\r\n", Tm, Ndat) == 2 || sscanf(input, "LOG(%lu,%lu)\n", Tm, Ndat) == 2) {
-        return 1;
-    }
-    return 0;
-}
-
-void main(void){
-    SYSTEM_Initialize();
-    MPU6050_Init();
-
-    char buffer[200];
-    float ax_read, ay_read, az_read, gx_read, gy_read, gz_read;
-
-    char userInput[20];
-
-    LoadCurrentAddressEEPROM();
-
-
-    sprintf(buffer, "Ultima direccion registrada en EEPROM1: 0x%X\n", currentBlockEEPROM1);
-    UART_SendString(buffer);
-
-
-    sprintf(buffer, "Ultima direccion registrada en EEPROM2: 0x%X\n", currentBlockEEPROM2);
-    UART_SendString(buffer);
-
-
-    while(1){
-
-        UART_SendString("Ingrese comando (ejemplo: LOG(10,100), LOG_READ o LOG_STAT): ");
-
-        memset(userInput, 0, sizeof(userInput));
-
-        UART_ReceiveString(userInput, sizeof(userInput));
-
-
-        UART_SendString("Recibido: ");
-        UART_SendString(userInput);
-        UART_SendString("\n");
-
-        if (strncmp(userInput, "LOG_READ", 8) == 0) {
-            unsigned long startReadAddressEEPROM1 = (currentBlockEEPROM1 == 0 ? 32768 : currentBlockEEPROM1) - (Ndat * 12);
-            unsigned long startReadAddressEEPROM2 = (currentBlockEEPROM2 == 0 ? 32768 : currentBlockEEPROM2) - (Ndat * 12);
-            ReadAndSendEEPROMDataCSV(Ndat, (uint16_t)startReadAddressEEPROM1, (uint16_t)startReadAddressEEPROM2);
-        } else if (strncmp(userInput, "LOG_STAT", 8) == 0) {
-            sprintf(buffer, "Datos almacenados: %lu, Tasa de muestreo: %lu ms\n", Ndat, Tm);
-            UART_SendString(buffer);
-        } else if (ParseUserInput(userInput, &Tm, &Ndat)) {
-
-            StartLogging();
-        } else {
-
-            UART_SendString("Entrada no valida. Intente de nuevo.\n");
-        }
-    }
+void PIN_MANAGER_IOC(void)
+{
 }
